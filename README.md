@@ -1,3 +1,6 @@
+# !!! Warning !!!
+This is a very early release! You are using it on your own risk!
+
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
 
