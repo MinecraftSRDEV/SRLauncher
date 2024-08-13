@@ -1,0 +1,36 @@
+void setButtons()
+{
+    launch_last_instance_button.create(465, 710, 350, 80, font, "Play");
+    last_played_bg.create(0, 700, 1280, 100, true);
+
+    categories_bg.create(0, 0, 1280, 40, true);
+    MainCategory_button.create(0, 0, 320, 35, font, "Main");
+    InstancesCategory_button.create(320, 0, 320, 35, font, "Instances");
+    SettingsCategory_button.create(640, 0, 320, 35, font, "Settings");
+    SavesToolCategory_button.create(960, 0, 320, 35, font, "Data tool");
+
+    settings_bg.create(0, 40, 1280, 800, true);
+
+    Subcat_settings_main_button.create(0, 45, 120, 40, font, "main");
+    Subcat_settings_progile_button.create(0, 85, 120, 40, font, "profile");
+
+    SlimeRancher_steam_path_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam path");
+    SlimeRancher_instances_path_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Insrances location");
+    SaveConfig_button.create(1000, 750, 120, 40, font, "Save config");
+
+    SteamProfile_name_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam profile name");
+    SteamProfile_password_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Steam profile password");
+    save_profile_button.create(1000, 750, 120, 40, font, "Save profile");
+    // login_manualy_checkbox.create(30, 30, 130, 275, "Login top SteamCMD manualy", 26, font, false);
+
+    instances_bg.create(0, 40, 1280, 800, true);
+
+    new_instance_button.create(365, 45, 550, 35, font, "New instance");
+
+    new_instance_name_textbox.create(465, 150, 350, 30, false, false, font, 26, "", false, "Instance name");
+    versions_list.create(350, 40, 465, 300, {{"select version","none"}}, "select version", font);
+    create_button.create(465, 220, 350, 35, font, "Create");
+    instance_creation_cancel.create(465, 260, 350, 35, font, "Cancel");
+
+    datatools_bg.create(0, 40, 1280, 800, true);
+}

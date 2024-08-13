@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compile-resources",
+      "type": "shell",
+      "command": "windres",
+      "args": [
+        "${fileDirname}/resources/resources.rc",
+        "-o",
+        "${fileDirname}/resources/resources.o"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-I",
+        "C:/SFML-2.6.1/include",
+        "-I",
+        "C:/C++Libs/SFML-GUI/include",
+        "-I",
+        "C:/C++Libs/curl-8.9.0/include",
+        "-L",
+        "C:/SFML-2.6.1/lib",
+        "-L",
+        "C:/C++Libs/curl-8.9.0/lib",
+        "-g",
+        "${file}",
+        "${fileDirname}/resources/resources.o",
+        "-o",
+        "${workspaceFolder}/SRLauncher.exe",
+        "-lsfml-graphics",
+        "-lsfml-system",
+        "-lsfml-window",
+        "-lcurl"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "dependsOn": "compile-resources",
+      "detail": "Generated task by Debugger."
+    }
+  ]
+}
