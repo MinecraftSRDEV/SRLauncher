@@ -23,238 +23,38 @@ namespace fs = std::filesystem;
 
 #include "includes.hpp"
 
-void move_directory(fs::path source, fs::path destination) {
-    try {
-        // Sprawdź, czy folder źródłowy istnieje
-        if (!fs::exists(source) || !fs::is_directory(source)) {
-            throw std::runtime_error("Source directory does not exist or is not a directory.");
-        }
-
-        // Sprawdź, czy folder docelowy istnieje, jeśli nie, to go utwórz
-        if (!fs::exists(destination)) {
-            fs::create_directories(destination);
-        }
-
-        // Iteruj przez wszystkie elementy w folderze źródłowym
-        for (const auto& entry : fs::directory_iterator(source)) {
-            // Ścieżka do pliku lub folderu źródłowego
-            auto source_path = entry.path();
-            // Ścieżka docelowa
-            auto destination_path = destination / source_path.filename();
-
-            // Jeśli element jest folderem, wywołaj funkcję rekurencyjnie
-            if (fs::is_directory(source_path)) {
-                move_directory(source_path, destination_path);
-            } else {
-                // Jeśli element jest plikiem, przenieś go
-                fs::rename(source_path, destination_path);
-            }
-        }
-
-        // Po przeniesieniu wszystkich plików i folderów usuń folder źródłowy
-        fs::remove(source);
-
-    } catch (const fs::filesystem_error& e) {
-        std::cerr << "Filesystem error: " << e.what() << '\n';
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << '\n';
-    }
-}
-
 void save_profiles()
 {
-    std::cout << "output Name: " << encryptor(SteamProfile_name_textbox.getText()) << std::endl;
-    std::cout << "output Pass: " << encryptor(SteamProfile_password_textbox.getText()) << std::endl;
-}
-
-void rename_orginal_dir()
-{
-    steam_game_dir = SlimeRancher_steam_path_textbox.getText();
-    fs::path steam_dir = steam_game_dir;
-    fs::path orginal_game_dir = steam_dir / "Slime Rancher";
-    fs::path renamed_game_dir = steam_dir / "Slime Rancher_orginal";
-
-    std::cout << orginal_game_dir.string() << std::endl;
-    std::cout << renamed_game_dir.string() << std::endl;
-
-    if (fs::exists(orginal_game_dir) && fs::is_directory(orginal_game_dir))
-    {
-        // fs::rename(orginal_game_dir, renamed_game_dir);
-    }
-    else
-    {
-        std::cout << "no slime rancher instalation detected!" << std::endl;
-    }
-}
-
-std::string formatPathForSystem(std::string path) {
-    // Sprawdź, czy w ścieżce są spacje
-    if (path.find(' ') != std::string::npos) {
-        // Jeśli są spacje, dodaj cudzysłowy
-        return "\"" + path + "\"";
-    }
-    // Jeśli nie ma spacji, zwróć ścieżkę bez zmian
-    return path;
-}
-
-void run_game(std::string path)
-{
-    system(formatPathForSystem(path).c_str());
-}
-
-void downloading_animation()
-{
-    progress_moveing.setPosition(-70, progress_moveing.getPosition().y);
-
-    sf::Clock cooldown;
-    cooldown.restart();
-
-    while (true)
-    {
-        if (game_downloading == false)
-        {
-            break;
-        }
-
-        if (cooldown.getElapsedTime() > sf::milliseconds(100))
-        {
-            cooldown.restart();
-
-            if (progress_moveing.getPosition().x > 1280)
-            {
-                progress_moveing.setPosition(-70, progress_moveing.getPosition().y);
-            }
-            else
-            {
-                progress_moveing.setPosition(progress_moveing.getPosition().x + 20, progress_moveing.getPosition().y);
-            }
-        }
-    }
-}
-
-void prelaunch_tasks(std::string game_runpath)
-{
-    if (versions_map[instances_list[mounted_instance].getVer()].version_type == "pre-release")
-    {
-        // configuration warning
-    }
-    if (mounted_instance != "1.4.4")
-    {
-        // achivments warning
-    }
-    std::thread gameThread(run_game, game_runpath);
-    gameThread.detach();
-}
-
-void download_game(std::string gamerun_path)
-{
-    steam_game_dir = SlimeRancher_steam_path_textbox.getText();
-    fs::path steam_dir = steam_game_dir;
-    fs::path game_dir = steam_dir / "Slime Rancher";
-
-    game_downloading = true;
-    std::thread animThread(downloading_animation);
-    animThread.detach();
-    fs::path cmdpath = defaultDir / "SteamCMD" / "steamcmd.exe";
-    std::string steamcmdPath = cmdpath.string();
-
-    // Polecenie, które chcemy wykonać w SteamCMD
-    // std::string command = "+login anonymous +force_install_dir ./csgo_ds +app_update 740 validate +quit";
-    std::string command = "+login " + steam_profile_name + " +password " + steam_profile_passwd + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
-    std::cout << "command: " << command << std::endl;
-
-    // Składamy pełne polecenie
-    std::string fullCommand = steamcmdPath + " " + command;
-
-    // Wykonujemy polecenie
-    int result = system(fullCommand.c_str());
-    // int result = 0;
-
-    // Sprawdzamy wynik
-    if (result == 0) {
-        std::cout << "Polecenie wykonane pomyślnie." << std::endl;
-        fs::path outputDir = defaultDir / "SteamCMD" / "steamapps" / "content" / "app_433340" / "depot_433342"; 
-        if (fs::exists(outputDir) && fs::is_directory(outputDir))
-        {
-            move_directory(outputDir, steam_dir / "Slime Rancher");
-            std::cout << "download success" << std::endl;
-            game_downloading = false;
-            prelaunch_tasks(gamerun_path);
-        }
-        else
-        {
-            std::cout << "download fail" << std::endl;
-            game_downloading = false;
-        }
-    } else {
-        std::cout << "Wystąpił błąd podczas wykonywania polecenia." << std::endl;
-        game_downloading = false;
-    }
-}
-
-void launch_game(std::string instance_id)
-{
-    if (game_downloading == false)
-    {
-        // fs::path game_dir = defaultDir / "instances" / instance_id;
-        steam_game_dir = SlimeRancher_steam_path_textbox.getText();
-        fs::path steam_dir = steam_game_dir;
-        fs::path game_dir = steam_dir / "Slime Rancher";
-
-        std::ifstream executableCheck;
-        std::string gamepath = game_dir.string();
-        std::string gamerun_path = gamepath + "/SlimeRancher.exe";
-        std::cout << "running game: " << gamerun_path << std::endl;
-        executableCheck.open(gamerun_path.c_str());
-        if (executableCheck)
-        {
-            prelaunch_tasks(gamerun_path);
-        }
-        else
-        {
-            std::thread downloadThread(download_game, gamerun_path);
-            downloadThread.detach();
-        }
-        executableCheck.close();    
-    }
-    else
-    {
-        std::cout << "Game is now downloading" << std::endl;
-    }
-}
-
-void hanglefunction()
-{
-    std::cout << "Mounted instance: " << mounted_instance << std::endl;
-    if (mounted_instance.empty())
-    {
-        std::cout << "no slime rancher instance mounted" << std::endl;
-    }
-    else if (mounted_instance == "Unmounted")
-    {
-        std::cout << "no slime rancher instance mounted" << std::endl;
-    }
-    else
-    {
-        launch_game(mounted_instance);
-    }
-}
-
-void get_textbox_settings_values_and_save()
-{
-    steam_game_dir = SlimeRancher_steam_path_textbox.getText();
-    instances_dir = SlimeRancher_instances_path_textbox.getText();
-
-    steam_profile_name = SteamProfile_name_textbox.getText();
-    steam_profile_passwd = SteamProfile_password_textbox.getText();
-    update_config_file();
+    log_message("output Name: " + encryptor(SteamProfile_name_textbox.getText()), LOG_TYPES::LOG_INFO);
+    log_message("output Pass: " + encryptor(SteamProfile_password_textbox.getText()), LOG_TYPES::LOG_INFO);
 }
 
 int main()
 {
+    std::time_t t = std::time(0);
+	std::tm* now = std::localtime(&t);
+
+    run_YEAR = (now->tm_year + 1900);
+    run_MONTH = (now->tm_mon + 1);
+    run_DAY = now->tm_mday;
+    run_H = now->tm_hour;
+    run_M = now->tm_min;
+    run_S = now->tm_sec;
+
     create_window(1280, 800);
 
     loadElements();
+
+    Mounted_instance_info_text.setFont(font);
+    Mounted_instance_info_text.setCharacterSize(36);
+    Mounted_instance_info_text.setFillColor(sf::Color::Black);
+    Mounted_instance_info_text.setPosition(10, 725);
+
+    Launcher_version_text.setFont(font);
+    Launcher_version_text.setCharacterSize(36);
+    Launcher_version_text.setFillColor(sf::Color::Black);
+    Launcher_version_text.setString(launcher_version);
+    Launcher_version_text.setPosition((window.getSize().x - 10) - Launcher_version_text.getLocalBounds().width, 725);
 
     progress_bg.setSize(sf::Vector2f(1280, 20));
     progress_bg.setPosition(sf::Vector2f(0, 780));
@@ -285,12 +85,20 @@ int main()
     configuration_path = defaultDir / "config";
     temp_path = defaultDir / "temp";
     cmd_path = defaultDir / "SteamCMD";
+    logs_path = defaultDir / "logs";
 
-    if (fs::exists(defaultDir) && fs::is_directory(defaultDir))
+    if (check_directory_exists(defaultDir) == true)
     {
+        directory_auto(instances_path);
+        directory_auto(backups_path);
+        directory_auto(configuration_path);
+        directory_auto(temp_path);
+        directory_auto(cmd_path);
+        directory_auto(logs_path);
+
         load_config_file(configuration_path.string() + "/config.json");
-        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
-        SlimeRancher_instances_path_textbox.setText(instances_dir);
+        SlimeRancher_steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
+        SlimeRancher_instances_path_textbox.setText(reduceBackslashes(instances_dir));
 
         SteamProfile_name_textbox.setText(steam_profile_name);
         SteamProfile_password_textbox.setText(steam_profile_passwd);
@@ -299,20 +107,41 @@ int main()
         if (mounted_instance.empty())
         {
             rename_orginal_dir();
+            log_message("No instance mounted", LOG_TYPES::LOG_INFO);
             mounted_instance = "Unmounted";
+            Mounted_instance_info_text.setString("No instance mounted");
+        }
+        else
+        {
+            if (mounted_instance == "Unmounted")
+            {
+                Mounted_instance_info_text.setString("No instance mounted");
+            }
+            else
+            {
+                Mounted_instance_info_text.setString(mounted_instance);
+            }
+            log_message("Mounted instance: " + mounted_instance, LOG_TYPES::LOG_INFO);
         }
 
         refresh_instances_list();
+
+        if (!fs::exists(cmd_path.string() + "\\steamcmd.exe"))
+        {
+            log_message("SteamCMD is not installed", LOG_TYPES::LOG_WARN);
+        }
     }
     else
     {
-        fs::create_directory(defaultDir);
-
-        fs::create_directory(instances_path);
-        fs::create_directory(backups_path);
-        fs::create_directory(configuration_path);
-        fs::create_directory(temp_path);
-        fs::create_directory(cmd_path);
+        if (create_dir(defaultDir) == true)
+        {
+            log_message("Launcher directory created in: " + defaultDir.string(), LOG_TYPES::LOG_INFO);
+        }
+        else
+        {
+            log_message("Cannot create launcher directory", LOG_TYPES::LOG_ERROR);
+            close_launcher();
+        }
 
         steam_game_dir = get_steam_default_path();
         instances_dir = instances_path.string();
@@ -339,6 +168,8 @@ int main()
 
             window_draw();
             display_window();
-        }    
+        }
+
+        close_launcher();
     }
 }

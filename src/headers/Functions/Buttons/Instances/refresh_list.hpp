@@ -34,6 +34,10 @@ void refresh_instances_list()
         instances_list[name].create(10, last_entry_y, 1260, 80, name, version, font);
         last_entry_y += 85;
     }
+    else
+    {
+        //popup warning here
+    }
     getdata.close();
 
     for (const auto& entry : fs::directory_iterator(instances_path))

@@ -26,7 +26,9 @@ void create(int x, int y, int size_x, int size_y, std::string name, std::string 
 
     Play_button.create(0,0, 60, 30, font, "Mount");
     Edit_button.create(0,0, 60, 30, font, "Edit");
-    Remove_button.create(0,0, 60, 30, font, "Remove");
+    Menage_button.create(0,0, 60, 30, font, "Menage");
+    OpenFolder_button.create(0,0, 90, 30, font, "Open folder");
+    Remove_button.create(0,0, 70, 30, font, "Remove");
 
     reposition();
 }
@@ -41,6 +43,8 @@ void render(sf::RenderWindow& window)
 
         Play_button.render(window);
         Edit_button.render(window);
+        Menage_button.render(window);
+        OpenFolder_button.render(window);
         Remove_button.render(window);
     }
 }
@@ -49,6 +53,8 @@ void update(sf::Vector2f mouse)
 {
     Play_button.update(mouse);
     Edit_button.update(mouse);
+    Menage_button.update(mouse);
+    OpenFolder_button.update(mouse);
     Remove_button.update(mouse);
 }
 
@@ -109,6 +115,26 @@ sf::FloatRect getMountButtonHitbox()
     return Play_button.hitbox();
 }
 
+sf::FloatRect getEditButtonHitbox()
+{
+    return Edit_button.hitbox();
+}
+
+sf::FloatRect getMenageButtonHitbox()
+{
+    return Menage_button.hitbox();
+}
+
+sf::FloatRect getOpenFolderButtonHitbox()
+{
+    return OpenFolder_button.hitbox();
+}
+
+sf::FloatRect getRemoveButtonHitbox()
+{
+    return Remove_button.hitbox();
+}
+
 std::string name_string;
 
 private:
@@ -118,9 +144,11 @@ void reposition()
     instance_name_text.setPosition(backgorund.getPosition().x + 5, backgorund.getPosition().y + 5);
     version_text.setPosition(backgorund.getPosition().x + 5, backgorund.getPosition().y + 35);
 
-    Play_button.changePosition(backgorund.getPosition().x + 1000, backgorund.getPosition().y + 25);
-    Edit_button.changePosition(backgorund.getPosition().x + 1080, backgorund.getPosition().y + 25);
-    Remove_button.changePosition(backgorund.getPosition().x + 1180, backgorund.getPosition().y + 25);
+    Play_button.changePosition(backgorund.getPosition().x + 820, backgorund.getPosition().y + 25);
+    Edit_button.changePosition((Play_button.getPosition().x + Play_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
+    Menage_button.changePosition((Edit_button.getPosition().x + Edit_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
+    OpenFolder_button.changePosition((Menage_button.getPosition().x + Menage_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
+    Remove_button.changePosition((OpenFolder_button.getPosition().x + OpenFolder_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
 }
 
 std::string version_string;
@@ -132,5 +160,7 @@ sf::Text version_text;
 
 Button Play_button;
 Button Edit_button;
+Button Menage_button;
+Button OpenFolder_button;
 Button Remove_button;
 };

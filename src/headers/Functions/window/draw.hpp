@@ -23,6 +23,9 @@ void window_draw()
             window.draw(progress_bg);
             window.draw(progress_moveing);
         }
+
+        window.draw(Mounted_instance_info_text);
+        window.draw(Launcher_version_text);
     }
 
     if (UI_current == UI_PAGES::InstancesMenu)

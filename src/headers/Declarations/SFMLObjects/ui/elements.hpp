@@ -1,4 +1,5 @@
 Button new_instance_button;
+DropDownList versions_list;
 
 Textbox new_instance_name_textbox;
 Button create_button;
@@ -30,6 +31,9 @@ Textbox SteamProfile_password_textbox;
 Button save_profile_button;
 Checkbox login_manualy_checkbox;
 sf::Text Profile_warning_text;
+
+sf::Text Mounted_instance_info_text;
+sf::Text Launcher_version_text;
 
 TransparrentBackground instances_bg;
 

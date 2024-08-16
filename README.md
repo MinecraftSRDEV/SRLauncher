@@ -1,5 +1,5 @@
-# !!! Warning !!!
-This is a very early release! You are using it on your own risk!
+# :warning: Warning :warning:
+This is a very early release! You are using on your own risk!
 
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
@@ -16,7 +16,7 @@ THE PROGRAM DOES NOT SUPPORT OTHER PLATFORMS SUCH AS:
 - GOG
 - Microsoft Store
 
-# How It Works
+# :question: How It Works :question:
 
 The program uses an instance mounting system to bypass the restriction of running the game only from the main Steam installation folder. Created instances are stored by default in "Roaming/SRLauncher/instances".
 
@@ -39,5 +39,8 @@ Notes:
 - When launching an older version of the game, settings and achievements saved in the game may be lost, so it is recommended to make a backup.
 - The launcher currently supports only x64 game builds.
 
+# :hammer::wrench: Work In Progress...
+
+At the moment, many of the launcher's features are still in development. Some are only mentioned or have the components responsible for them in place but are not yet functional. I work on the launcher in my free time and try to add new features whenever possible; however, many of them require a lot of work. If you decide to use the program at this stage, you are essentially a tester and need to be aware that you are using it at your own risk, as the mounting features are very delicate and could potentially damage game files or save data.
 <hr>
 ©MinecraftSRDEV

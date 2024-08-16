@@ -6,7 +6,7 @@ void events_loop()
         {
             case sf::Event::Closed:
             {
-                window.close();
+                close_launcher();
                 break;
             }
 

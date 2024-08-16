@@ -1,6 +1,6 @@
 void setButtons()
 {
-    launch_last_instance_button.create(465, 710, 350, 80, font, "Play");
+    launch_last_instance_button.create(465, 710, 350, 80, font, "Launch mounted instance");
     last_played_bg.create(0, 700, 1280, 100, true);
 
     categories_bg.create(0, 0, 1280, 40, true);
@@ -14,8 +14,8 @@ void setButtons()
     Subcat_settings_main_button.create(0, 45, 120, 40, font, "main");
     Subcat_settings_progile_button.create(0, 85, 120, 40, font, "profile");
 
-    SlimeRancher_steam_path_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam path");
-    SlimeRancher_instances_path_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Insrances location");
+    SlimeRancher_steam_path_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam games directory path");
+    SlimeRancher_instances_path_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Insrances location path");
     SaveConfig_button.create(1000, 750, 120, 40, font, "Save config");
 
     SteamProfile_name_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam profile name");
