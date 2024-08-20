@@ -31,10 +31,12 @@ void move_directory(fs::path source, fs::path destination)
     }
     catch (const fs::filesystem_error& e)
     {
-        std::cerr << "Filesystem error: " << e.what() << '\n';
+        std::string errormsg = e.what();
+        log_message("Filesystem error: " + errormsg, LOG_TYPES::LOG_ERROR);
     }
     catch (const std::exception& e)
     {
-        std::cerr << "Error: " << e.what() << '\n';
+        std::string errormsg = e.what();
+        log_message(errormsg, LOG_TYPES::LOG_ERROR);
     }
 }

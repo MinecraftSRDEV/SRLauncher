@@ -8,6 +8,7 @@
 
 #include "headers/Functions/Logs/log_message.hpp"
 
+#include "headers/Classes/popup_message_window.hpp"
 #include "headers/Classes/instance_list.hpp"
 
 #include "headers/Declarations/SFMLObjects/objects.hpp"
@@ -31,6 +32,9 @@
 #include "headers/ResourceLoad/loadElements.hpp"
 #include "headers/ResourceLoad/loadJsons.hpp"
 
+#include "headers/Functions/crypt/decryptor.hpp"
+#include "headers/Functions/crypt/encryptor.hpp"
+
 #include "headers/Functions/Config/update_file.hpp"
 #include "headers/Functions/Userdata/textbox_data.hpp"
 
@@ -39,8 +43,6 @@
 
 #include "headers/Functions/Userdata/get_userdata_path.hpp"
 #include "headers/Functions/Userdata/get_steam_default_path.hpp"
-
-#include "headers/Functions/crypt/encryptor.hpp"
 
 #include "headers/Functions/Buttons/Settings/subcats.hpp"
 
@@ -52,6 +54,12 @@
 #include "headers/Functions/Buttons/Instances/downloadCMD.hpp"
 
 #include "headers/Events/loop.hpp"
+
+#include "headers/Functions/Buttons/Instances/unmount.hpp"
+#include "headers/Functions/Buttons/Instances/mount.hpp"
+#include "headers/Functions/Buttons/Instances/edit.hpp"
+#include "headers/Functions/Buttons/Instances/open_folder.hpp"
+#include "headers/Functions/Buttons/Instances/remove.hpp"
 
 #include "headers/Functions/mouse/left.hpp"
 

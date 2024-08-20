@@ -3,8 +3,6 @@ bool window_actived = true;
 int UI_current = 0;
 int options_ui = 0;
 
-fs::path defaultDir;
-
 std::string steam_game_dir;
 std::string mounted_instance;
 std::string instances_dir;
@@ -17,15 +15,27 @@ bool is_mouse_pressed = false;
 bool is_mouse_rels = false;
 
 bool game_downloading = false;
+bool game_running = false;
 
-std::string launcher_version = "inDev 0.2";
+std::string launcher_version = "inDev 0.3";
 
-fs::path instances_path = defaultDir / "instances";
-fs::path backups_path = defaultDir / "backups";
-fs::path configuration_path = defaultDir / "config";
-fs::path temp_path = defaultDir / "temp";
-fs::path cmd_path = defaultDir / "SteamCMD";
-fs::path logs_path = defaultDir / "logs";
+/// Launcher Paths ////
+
+fs::path defaultDir;
+
+fs::path instances_path;
+fs::path backups_path;
+fs::path configuration_path;
+fs::path temp_path;
+fs::path cmd_path;
+fs::path logs_path;
+
+///////////////////////
+
+fs::path autobackup_path;
+
+fs::path local_save_path;
+fs::path prf_file_path;
 
 std::map <int, std::string> logs;
 

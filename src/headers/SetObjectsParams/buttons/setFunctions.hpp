@@ -21,5 +21,5 @@ void setFunctions()
 
     SaveConfig_button.setFunction(get_textbox_settings_values_and_save);
 
-    save_profile_button.setFunction(save_profiles);
+    save_profile_button.setFunction(get_profile_textboxes_values_and_save);
 }

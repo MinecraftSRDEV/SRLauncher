@@ -1,6 +1,11 @@
 # :warning: Warning :warning:
 This is a very early release! You are using on your own risk!
 
+# Requirements
+[Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+[SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
+Steam account with purchased Slime Rancher
+
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
 
@@ -26,7 +31,6 @@ When a user selects an instance from the list, its folder is swapped with the on
 
 Unmounting an instance restores the instance folder to its original location. If the instance does not contain the downloaded game, a script will run to download it using SteamCMD.
 
-**To Function Properly, YOU MUST INSTALL [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) TO DOWNLOAD THE GAME.**
 You will need to log in to your Steam account with the game.
 
 It is recommended to enter your login credentials in the profile settings. However, if you are concerned about your login details, you can enter them later directly in SteamCMD.

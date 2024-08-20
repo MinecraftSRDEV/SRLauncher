@@ -1,4 +1,5 @@
 void refresh_instances_list();
+void display_version_log();
 
 void changeCategory_main()
 {
@@ -19,4 +20,5 @@ void changeCategory_settings()
 void changeCategory_datatools()
 {
     UI_current = UI_PAGES::DataToolsMenu;
+    // display_version_log();
 }

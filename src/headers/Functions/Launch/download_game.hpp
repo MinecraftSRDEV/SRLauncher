@@ -1,4 +1,5 @@
 void prelaunch_tasks(std::string game_runpath);
+void reset_play_button_text();
 
 void download_game(std::string gamerun_path)
 {
@@ -7,6 +8,7 @@ void download_game(std::string gamerun_path)
     fs::path game_dir = steam_dir / "Slime Rancher";
 
     game_downloading = true;
+    launch_last_instance_button.setText("Downloading");
     std::thread animThread(downloading_animation);
     animThread.detach();
     fs::path cmdpath = defaultDir / "SteamCMD" / "steamcmd.exe";
@@ -14,7 +16,7 @@ void download_game(std::string gamerun_path)
 
     // Polecenie, które chcemy wykonać w SteamCMD
     // std::string command = "+login anonymous +force_install_dir ./csgo_ds +app_update 740 validate +quit";
-    std::string command = "+login " + steam_profile_name + " +password " + steam_profile_passwd + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
+    std::string command = "+login " + decryptor(steam_profile_name) + " +password " + decryptor(steam_profile_passwd) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
     log_message("Running steamCMD command: " + command, LOG_TYPES::LOG_INFO);
 
     // Składamy pełne polecenie
@@ -44,4 +46,5 @@ void download_game(std::string gamerun_path)
         log_message("Command cannot be executed", LOG_TYPES::LOG_ERROR);
         game_downloading = false;
     }
+    reset_play_button_text();
 }

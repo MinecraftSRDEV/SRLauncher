@@ -1,86 +1,72 @@
-// Funkcja pomocnicza do generowania losowego klucza
-std::vector<int> generateRandomKey(int size) {
-    std::vector<int> key(size);
-    for (int i = 0; i < size; ++i) {
-        key[i] = i;
-    }
-    std::random_shuffle(key.begin(), key.end());
-    return key;
-}
-
-// Funkcja szyfrująca tekst
-std::string encryptText(std::string text, std::vector<int>& key) {
-    // Zamiana znaków na wartości ASCII
-    std::string asciiText;
-    for (char c : text) {
-        asciiText += std::to_string(static_cast<int>(c)) + " ";
-    }
-
-    // Usunięcie ostatniej spacji
-    if (!asciiText.empty()) {
-        asciiText.pop_back();
-    }
-
-    // Generowanie losowego klucza
-    key = generateRandomKey(asciiText.size());
-
-    // Tworzenie zaszyfrowanego tekstu
-    std::string encryptedText(asciiText.size(), ' ');
-    for (size_t i = 0; i < asciiText.size(); ++i) {
-        encryptedText[key[i]] = asciiText[i];
-    }
-
-    return encryptedText;
-}
-
-std::string decryptText(std::string encryptedText, const std::vector<int>& key) {
-    // Tworzenie odszyfrowanego tekstu
-    std::string asciiText(encryptedText.size(), ' ');
-    for (size_t i = 0; i < encryptedText.size(); ++i) {
-        asciiText[key[i]] = encryptedText[i];
-    }
-
-    // Zamiana wartości ASCII na znaki
-    std::string text;
-    std::string asciiValue;
-    for (char c : asciiText) {
-        if (c == ' ') {
-            if (!asciiValue.empty()) {
-                text += static_cast<char>(std::stoi(asciiValue));
-                asciiValue.clear();
-            }
-        } else {
-            asciiValue += c;
-        }
-    }
-    if (!asciiValue.empty()) {
-        text += static_cast<char>(std::stoi(asciiValue));
-    }
-
-    return text;
-}
-
-// Funkcja wyświetlająca klucz
-std::string getKey(std::vector<int> key) {
-    // std::cout << "Klucz do odszyfrowania: ";
-    std::string keyoutput;
-    keyoutput.erase();
-    for (int i : key) {
-        // std::cout << i << " ";
-        keyoutput += std::to_string(i);
-    }
-    // std::cout << std::endl;
-    return keyoutput;
-}
-
-std::string encryptor(std::string textinput)
+std::string encryptor(std::string encrypt_input)
 {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    std::vector<int> key;
+	char raw_anal;
+	int conv_raw;
+	std::stringstream ss;
+	int length_passw;
+	std::string length_passw_str;
+	std::string encrypted_password;
+	
+	int point_in_str = 0;
 
-    std::string output = encryptText(textinput, key);
-    output += "|" + getKey(key);
+    encrypted_password.erase();
 
-    // std::cout << "output: " << output << std::endl;
-    return output;
+	length_passw = encrypt_input.length();
+
+	try
+	{		
+		while (length_passw > 0)
+		{
+			length_passw--;
+			raw_anal = encrypt_input[point_in_str];
+			point_in_str++;
+			conv_raw = raw_anal;
+			
+			std::string cal_length;
+			
+			ss.clear();
+			ss << conv_raw;
+			ss >> cal_length;
+			
+			int length = cal_length.length();
+			std::string length_str;
+			std::string conv_raw_str;
+			
+			conv_raw_str.erase();
+			
+			ss.clear();
+			ss << conv_raw;
+			ss >> conv_raw_str;
+			
+			ss.clear();
+			ss << length;
+			ss >> length_str;
+			
+			encrypted_password = encrypted_password + length_str;
+			encrypted_password = encrypted_password + conv_raw_str;
+		}
+		
+		length_passw = encrypt_input.length();
+		
+		length_passw_str.erase();
+		ss.clear();
+		ss << length_passw;
+		ss >> length_passw_str;
+		
+		encrypted_password = encrypted_password + "x";
+		encrypted_password = encrypted_password + length_passw_str;
+
+		if (encrypted_password.empty())
+		{
+			log_message("Cannot encrypt: " + encrypt_input, LOG_TYPES::LOG_ERROR);
+		}
+		
+		return encrypted_password;	
+	}
+	catch (std::out_of_range e)
+	{
+		std::string errmsg = e.what();
+		log_message("encryptor error: " + errmsg, LOG_TYPES::LOG_ERROR);
+	}
+	return "";
 }

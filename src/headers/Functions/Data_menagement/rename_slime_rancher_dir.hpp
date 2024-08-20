@@ -1,3 +1,20 @@
+void backup_orginal_game(fs::path gamedir)
+{
+    try
+    {
+        log_message("Creating autobackup of: \"" + gamedir.string() + "Slime Rancher\"", LOG_TYPES::LOG_INFO);
+        fs::copy(gamedir, autobackup_path / "Slime Rancher");
+        log_message("Creating autobackup of: \"" + local_save_path.string() + "Slime Rancher\"", LOG_TYPES::LOG_INFO);
+        fs::copy(local_save_path, autobackup_path / "savedata");    
+    }
+    catch (fs::filesystem_error e)
+    {
+        std::string errormsg = e.what();
+        log_message("Backup error: " + errormsg, LOG_TYPES::LOG_ERROR);
+    }
+    
+}
+
 void rename_orginal_dir()
 {
     steam_game_dir = SlimeRancher_steam_path_textbox.getText();
@@ -5,11 +22,10 @@ void rename_orginal_dir()
     fs::path orginal_game_dir = steam_dir / "Slime Rancher";
     fs::path renamed_game_dir = steam_dir / "Slime Rancher_orginal";
 
-    log_message("Renamed orginal game dir from: \"" + orginal_game_dir.string() + "\" to: \"" + renamed_game_dir.string() + "\"", LOG_TYPES::LOG_INFO);
-
     if (fs::exists(orginal_game_dir) && fs::is_directory(orginal_game_dir))
     {
         // fs::rename(orginal_game_dir, renamed_game_dir);
+        backup_orginal_game(orginal_game_dir);
     }
     else
     {
