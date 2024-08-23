@@ -41,7 +41,7 @@ void add_instance(fs::path path)
                 }
                 else if (versions_map[version].version_type == "stable-release")
                 {
-                    if (fs::exists(path_str + "/SlimeRancher_Data/Managed/0Harmony.dll"))
+                    if (fs::exists(path_str + "/SlimeRancher_Data/Managed/UnityCoreMod.dll"))
                     {
                         modsAttribs.SatysModLoader_installed = true;
                     }

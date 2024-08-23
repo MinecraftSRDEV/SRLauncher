@@ -17,7 +17,7 @@ bool is_mouse_rels = false;
 bool game_downloading = false;
 bool game_running = false;
 
-std::string launcher_version = "inDev 0.3";
+std::string launcher_version = "inDev 0.4";
 
 /// Launcher Paths ////
 

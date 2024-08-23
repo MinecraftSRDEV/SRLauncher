@@ -46,6 +46,8 @@
 
 #include "headers/Functions/Buttons/Settings/subcats.hpp"
 
+#include "headers/Functions/Data_menagement/SteamCMDCheck.hpp"
+
 #include "headers/Functions/Buttons/Launcher_pages/categories.hpp"
 #include "headers/Functions/Buttons/Instances/new_instance.hpp"
 #include "headers/Functions/Buttons/Instances/refresh_list.hpp"

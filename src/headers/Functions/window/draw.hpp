@@ -61,7 +61,10 @@ void window_draw()
         {
             SlimeRancher_steam_path_textbox.render(window);
             SlimeRancher_instances_path_textbox.render(window);
+            SlimeRancher_steam_path_getfolder_button.render(window);
+            SlimeRancher_instances_path_getfolder_button.render(window);
 
+            RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
         }
         if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)

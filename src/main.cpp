@@ -14,6 +14,7 @@
 #include <filesystem>
 #include <cstdlib>
 #include <windows.h>
+#include <shlobj.h>
 
 #include <curl/curl.h>
 
@@ -22,6 +23,79 @@ namespace fs = std::filesystem;
 #include <SFMLGUI/Gui.hpp>
 
 #include "includes.hpp"
+
+std::string BrowseFolder()
+{
+    char szFolderPath[MAX_PATH] = { 0 };
+    
+    BROWSEINFOA bi = { 0 };
+    bi.ulFlags = BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE;
+
+    LPITEMIDLIST pidl = SHBrowseForFolderA(&bi);
+
+    if (pidl != NULL)
+    {
+        if (SHGetPathFromIDListA(pidl, szFolderPath))
+        {
+            CoTaskMemFree(pidl);
+            return std::string(szFolderPath);
+        }
+        CoTaskMemFree(pidl);
+    }
+
+    return std::string();
+}
+
+void setDefault_paths()
+{
+    steam_game_dir = get_steam_default_path();
+    instances_dir = instances_path.string();
+
+    SlimeRancher_steam_path_textbox.setText(steam_game_dir);
+    SlimeRancher_instances_path_textbox.setText(instances_dir);
+}
+
+void setSettingsDefault()
+{
+    int result = MessageBoxA(NULL, "Are you sure you want to restore default settings?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+    switch (result)
+    {
+        case IDYES:
+        {
+            setDefault_paths();
+            break;
+        }
+        case IDNO:
+        {
+            break;
+        }
+    }
+}
+
+void getfolder_steamdir()
+{
+    std::string input_path = BrowseFolder();
+    if (!input_path.empty())
+    {
+        steam_game_dir = input_path;
+        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
+    }
+}
+
+void getfolder_instnacesdir()
+{
+    std::string input_path = BrowseFolder();
+    if (!input_path.empty())
+    {
+        instances_dir = input_path;
+        SlimeRancher_instances_path_textbox.setText(instances_dir);    
+    }
+}
+
+void getfolder_instancesdir()
+{
+
+}
 
 void rundate_get()
 {
@@ -155,7 +229,7 @@ void runtime_check()
 
             refresh_instances_list();
 
-            if (!fs::exists(cmd_path.string() + "\\steamcmd.exe"))
+            if (SteamCMDCheck() == true)
             {
                 log_message("SteamCMD is not installed", LOG_TYPES::LOG_WARN);
             }
@@ -173,16 +247,12 @@ void runtime_check()
                 close_launcher();
             }
 
-            steam_game_dir = get_steam_default_path();
-            instances_dir = instances_path.string();
+            setDefault_paths();
             mounted_instance = "";
 
             steam_profile_name = "";
             steam_profile_passwd = "";
             update_config_file();
-
-            SlimeRancher_steam_path_textbox.setText(steam_game_dir);
-            SlimeRancher_instances_path_textbox.setText(instances_dir);
 
             SteamProfile_name_textbox.setText(steam_profile_name);
             SteamProfile_password_textbox.setText(steam_profile_passwd);

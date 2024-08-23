@@ -2,9 +2,14 @@
 This is a very early release! You are using on your own risk!
 
 # Requirements
-[Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
-[SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
-Steam account with purchased Slime Rancher
+- [Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
+- Steam account with purchased Slime Rancher
+
+# Requirements to compile the code
+- [SFML 2.6.1](https://www.sfml-dev.org/download/sfml/2.6.1)
+- [MinGW 13.1.0](https://www.mingw-w64.org/downloads)
+- SFML-GUI Lib (Not yet available)
 
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.

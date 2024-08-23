@@ -12,6 +12,45 @@ void executeSubcategories(sf::Vector2f mouse)
     Subcat_settings_progile_button.update(mouse);
 }
 
+void instance_manage(std::string instance_id)
+{
+    if (mounted_instance == instances_list[instance_id].getID())
+    {
+        MessageBoxA(NULL, "Unmount this instance first!", "Error", MB_ICONERROR | MB_OK);
+    }
+    else
+    {
+        fs::path instance_directory = instances_dir / fs::path("Slime Rancher_" + instances_list[instance_id].getID());
+
+        InstanceModAttributes attribs = instances_list[instance_id].getModAttributes();
+
+        fs::path instance_mods_directory;
+
+        if (versions_map[instances_list[instance_id].getVer()].mod_support == true)
+        {
+            if (versions_map[instances_list[instance_id].getVer()].version_type == "pre-release")
+            {
+                instance_mods_directory = instance_directory / "mods";
+
+                try
+                {
+                    for (const auto& entry : fs::directory_iterator(instance_mods_directory))
+                    {
+                        if (entry.is_regular_file() and entry.path().filename().extension() == ".dll")
+                        {
+                            log_message(entry.path().filename().string(), LOG_TYPES::LOG_INFO);    
+                        }
+                    }    
+                }
+                catch (fs::filesystem_error e)
+                {
+
+                }
+            }    
+        }
+    }
+}
+
 void mouse_left()
 {
     sf::Vector2f mouse = window.mapPixelToCoords(sf::Mouse::getPosition(window));
@@ -72,7 +111,7 @@ void mouse_left()
                     if (is_mouse_pressed == false)
                     {
                         is_mouse_pressed = true;
-                        MessageBoxA(NULL, "Function not implemented yet", "Info", MB_ICONINFORMATION | MB_OK);
+                        instance_manage(pair.first);
                     }
                 }
                 else
@@ -140,7 +179,10 @@ void mouse_left()
         {
             SlimeRancher_steam_path_textbox.update();
             SlimeRancher_instances_path_textbox.update();
+            SlimeRancher_steam_path_getfolder_button.update(mouse);
+            SlimeRancher_instances_path_getfolder_button.update(mouse);
 
+            RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
         }
         if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)

@@ -19,15 +19,21 @@ TransparrentBackground settings_bg;
 Button Subcat_settings_main_button;
 
 Textbox SlimeRancher_steam_path_textbox;
+Button SlimeRancher_steam_path_getfolder_button;
 Textbox SlimeRancher_instances_path_textbox;
-Button SaveConfig_button;
+Button SlimeRancher_instances_path_getfolder_button;
+
 Checkbox Show_older_instances_checkbox;
 Checkbox Show_moded_instances_checkbox;
+
+Button RestoreSettings_button;
+Button SaveConfig_button;
+
 
 Button Subcat_settings_progile_button;
 
 Textbox SteamProfile_name_textbox;
-Textbox SteamProfile_password_textbox;
+Passwordbox SteamProfile_password_textbox;
 Button save_profile_button;
 Checkbox login_manualy_checkbox;
 sf::Text Profile_warning_text;

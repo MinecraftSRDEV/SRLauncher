@@ -15,13 +15,16 @@ void setButtons()
     Subcat_settings_progile_button.create(0, 85, 120, 40, font, "profile");
 
     SlimeRancher_steam_path_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam games directory path");
+    SlimeRancher_steam_path_getfolder_button.create(1130, 131, 60, 40, font, "Browse");
     SlimeRancher_instances_path_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Insrances location path");
-    SaveConfig_button.create(1000, 750, 120, 40, font, "Save config");
+    SlimeRancher_instances_path_getfolder_button.create(1130, 206, 60, 40, font, "Browse");
+    RestoreSettings_button.create(1000, 750, 120, 40, font, "Restore defaults");
+    SaveConfig_button.create(1120, 750, 120, 40, font, "Save config");
 
     SteamProfile_name_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam profile name");
     SteamProfile_password_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Steam profile password");
     save_profile_button.create(1000, 750, 120, 40, font, "Save profile");
-    // login_manualy_checkbox.create(30, 30, 130, 275, "Login top SteamCMD manualy", 26, font, false);
+    // login_manualy_checkbox.create(30, 30, 130, 275, "Login to SteamCMD manualy", 26, font, false);
 
     instances_bg.create(0, 40, 1280, 800, true);
 

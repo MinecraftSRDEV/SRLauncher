@@ -152,6 +152,11 @@ sf::FloatRect getRemoveButtonHitbox()
     return Remove_button.hitbox();
 }
 
+InstanceModAttributes getModAttributes()
+{
+    return mods_attributes;
+}
+
 std::string name_string;
 
 private:
