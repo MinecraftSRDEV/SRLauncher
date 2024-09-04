@@ -55,6 +55,31 @@ void setDefault_paths()
     SlimeRancher_instances_path_textbox.setText(instances_dir);
 }
 
+void lock_profile_textboxes()
+{
+    SteamProfile_name_textbox.setReadOnlyMode(true);
+    SteamProfile_password_textbox.setReadOnlyMode(true);
+}
+
+void unlock_profile_textboxes()
+{
+    SteamProfile_name_textbox.setReadOnlyMode(false);
+    SteamProfile_password_textbox.setReadOnlyMode(false);
+}
+
+void setDefault_checkboxes()
+{
+    show_prerelease_version = true;
+    Show_older_instances_checkbox.setState(show_prerelease_version);
+
+    save_log_files = true;
+    Save_logs_files_checkbox.setState(save_log_files);
+
+    loging_manualy = false;
+    login_manualy_checkbox.setState(loging_manualy);
+    unlock_profile_textboxes();
+}
+
 void setSettingsDefault()
 {
     int result = MessageBoxA(NULL, "Are you sure you want to restore default settings?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
@@ -63,6 +88,7 @@ void setSettingsDefault()
         case IDYES:
         {
             setDefault_paths();
+            setDefault_checkboxes();
             break;
         }
         case IDNO:
@@ -82,7 +108,7 @@ void getfolder_steamdir()
     }
 }
 
-void getfolder_instnacesdir()
+void getfolder_instancesdir()
 {
     std::string input_path = BrowseFolder();
     if (!input_path.empty())
@@ -90,11 +116,6 @@ void getfolder_instnacesdir()
         instances_dir = input_path;
         SlimeRancher_instances_path_textbox.setText(instances_dir);    
     }
-}
-
-void getfolder_instancesdir()
-{
-
 }
 
 void rundate_get()
@@ -199,13 +220,34 @@ void runtime_check()
             directory_auto(cmd_path);
             directory_auto(logs_path);
 
-            load_config_file(configuration_path.string() + "/config.json");
+            log_message("Loading config", LOG_TYPES::LOG_INFO);
+            if (load_config_file(configuration_path.string() + "/config.json") == true)
+            {
+                log_message("Launcher config load OK", LOG_TYPES::LOG_INFO);
+            }
+            else
+            {
+                log_message("Launcher config load FAIL", LOG_TYPES::LOG_ERROR);
+            }
+
             SlimeRancher_steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
             SlimeRancher_instances_path_textbox.setText(reduceBackslashes(instances_dir));
 
             SteamProfile_name_textbox.setText(decryptor(steam_profile_name));
             SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
-            load_versions_list();
+
+            Save_logs_files_checkbox.setState(save_log_files);
+            login_manualy_checkbox.setState(loging_manualy);
+            Show_older_instances_checkbox.setState(show_prerelease_version);
+            log_message("Loading versions list", LOG_TYPES::LOG_INFO);
+            if (load_versions_list() == true)
+            {
+                log_message("Versions list load OK", LOG_TYPES::LOG_INFO);
+            }
+            else
+            {
+                log_message("Versions list load FAIL", LOG_TYPES::LOG_ERROR);
+            }
 
             if (mounted_instance.empty())
             {
@@ -248,10 +290,12 @@ void runtime_check()
             }
 
             setDefault_paths();
+            setDefault_checkboxes();
             mounted_instance = "";
 
             steam_profile_name = "";
             steam_profile_passwd = "";
+            saved_version = launcher_version;
             update_config_file();
 
             SteamProfile_name_textbox.setText(steam_profile_name);

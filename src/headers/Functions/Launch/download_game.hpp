@@ -16,8 +16,6 @@ void download_game(std::string gamerun_path)
         fs::path cmdpath = defaultDir / "SteamCMD" / "steamcmd.exe";
         std::string steamcmdPath = cmdpath.string();
 
-        // Polecenie, które chcemy wykonać w SteamCMD
-        // std::string command = "+login anonymous +force_install_dir ./csgo_ds +app_update 740 validate +quit";
         std::string command = "+login " + decryptor(steam_profile_name) + " +password " + decryptor(steam_profile_passwd) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
         log_message("Running steamCMD command: " + command, LOG_TYPES::LOG_INFO);
 

@@ -67,6 +67,7 @@ void mouse_left()
         executeCategories(mouse);
 
         new_instance_button.update(mouse);
+        import_instnace_button.update(mouse);
 
         for (const auto& pair : instances_list)
         {
@@ -182,6 +183,9 @@ void mouse_left()
             SlimeRancher_steam_path_getfolder_button.update(mouse);
             SlimeRancher_instances_path_getfolder_button.update(mouse);
 
+            Show_older_instances_checkbox.update(mouse);
+            Save_logs_files_checkbox.update(mouse);
+
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
         }
@@ -190,7 +194,7 @@ void mouse_left()
             SteamProfile_name_textbox.update();
             SteamProfile_password_textbox.update();
             save_profile_button.update(mouse);
-            // login_manualy_checkbox.update(mouse);
+            login_manualy_checkbox.update(mouse);
         }
     }
 

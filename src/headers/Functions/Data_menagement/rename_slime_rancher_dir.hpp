@@ -2,9 +2,11 @@ void backup_orginal_game(fs::path gamedir)
 {
     try
     {
-        log_message("Creating autobackup of: \"" + gamedir.string() + "Slime Rancher\"", LOG_TYPES::LOG_INFO);
+        log_message("Creating autobackup of: \"" + gamedir.string(), LOG_TYPES::LOG_INFO);
+        directory_auto(autobackup_path / "Slime Rancher");
         fs::copy(gamedir, autobackup_path / "Slime Rancher");
-        log_message("Creating autobackup of: \"" + local_save_path.string() + "Slime Rancher\"", LOG_TYPES::LOG_INFO);
+        log_message("Creating autobackup of: \"" + local_save_path.string(), LOG_TYPES::LOG_INFO);
+        directory_auto(autobackup_path / "savedata");
         fs::copy(local_save_path, autobackup_path / "savedata");    
     }
     catch (fs::filesystem_error e)

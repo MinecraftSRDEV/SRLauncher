@@ -59,7 +59,7 @@ void add_instance(fs::path path)
         }
         else
         {
-            log_message("Cannot find \"info.json\" file in game directory!", LOG_TYPES::LOG_WARN);
+            log_message("Cannot find \"info.json\" file in: " + path.string() + "!", LOG_TYPES::LOG_WARN);
             // MessageBoxA(NULL, "Cannot find \"info.json\" file in game directory!", "Warning", MB_ICONEXCLAMATION);
         }
     }

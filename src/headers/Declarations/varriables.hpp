@@ -10,6 +10,11 @@ std::string instances_dir;
 std::string steam_profile_name;
 std::string steam_profile_passwd;
 
+bool save_log_files = true;
+bool loging_manualy = false;
+
+bool show_prerelease_version = true;
+
 std::string temp_mount;
 bool is_mouse_pressed = false;
 bool is_mouse_rels = false;
@@ -17,7 +22,8 @@ bool is_mouse_rels = false;
 bool game_downloading = false;
 bool game_running = false;
 
-std::string launcher_version = "inDev 0.4";
+std::string launcher_version = "inDev 0.5";
+std::string saved_version;
 
 /// Launcher Paths ////
 
@@ -38,6 +44,7 @@ fs::path local_save_path;
 fs::path prf_file_path;
 
 std::map <int, std::string> logs;
+std::vector <fs::path> external_instances;
 
 int run_YEAR;
 int run_MONTH;

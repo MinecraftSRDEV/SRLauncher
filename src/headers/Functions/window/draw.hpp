@@ -34,6 +34,7 @@ void window_draw()
 
         instances_bg.render(window);
         new_instance_button.render(window);
+        import_instnace_button.render(window);
 
         for (const auto& pair : instances_list)
         {
@@ -63,6 +64,9 @@ void window_draw()
             SlimeRancher_instances_path_textbox.render(window);
             SlimeRancher_steam_path_getfolder_button.render(window);
             SlimeRancher_instances_path_getfolder_button.render(window);
+
+            Show_older_instances_checkbox.render(window);
+            Save_logs_files_checkbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);

@@ -18,17 +18,21 @@ void setButtons()
     SlimeRancher_steam_path_getfolder_button.create(1130, 131, 60, 40, font, "Browse");
     SlimeRancher_instances_path_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Insrances location path");
     SlimeRancher_instances_path_getfolder_button.create(1130, 206, 60, 40, font, "Browse");
+    Show_older_instances_checkbox.create(30, 30, 130, 266, "Show pre-release game versions", 26, font, true);
+    Save_logs_files_checkbox.create(30, 30, 130, 300, "Autosave log files", 26, font, true);
+
     RestoreSettings_button.create(1000, 750, 120, 40, font, "Restore defaults");
     SaveConfig_button.create(1120, 750, 120, 40, font, "Save config");
 
-    SteamProfile_name_textbox.create(130, 100, 1000, 40, false, false, font, 26, "", false, "Steam profile name");
-    SteamProfile_password_textbox.create(130, 175, 1000, 40, false, false, font, 26, "", false, "Steam profile password");
+    SteamProfile_name_textbox.create(130, 100, 1130, 40, false, false, font, 26, "", false, "Steam profile name");
+    SteamProfile_password_textbox.create(130, 175, 1130, 40, false, false, font, 26, "", false, "Steam profile password");
     save_profile_button.create(1000, 750, 120, 40, font, "Save profile");
-    // login_manualy_checkbox.create(30, 30, 130, 275, "Login to SteamCMD manualy", 26, font, false);
+    login_manualy_checkbox.create(30, 30, 130, 275, "Login to SteamCMD manualy", 26, font, false);
 
     instances_bg.create(0, 40, 1280, 800, true);
 
-    new_instance_button.create(365, 45, 550, 35, font, "New instance");
+    new_instance_button.create(90, 45, 550, 35, font, "New instance");
+    import_instnace_button.create(641, 45, 550, 35, font, "Import instance");
 
     new_instance_name_textbox.create(465, 150, 350, 30, false, false, font, 26, "", false, "Instance name");
     versions_list.create(350, 40, 465, 300, {{"select version","none"}}, "select version", font);

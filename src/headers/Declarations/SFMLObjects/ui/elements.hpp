@@ -1,9 +1,14 @@
 Button new_instance_button;
+Button import_instnace_button;
 DropDownList versions_list;
 
 Textbox new_instance_name_textbox;
 Button create_button;
 Button instance_creation_cancel;
+Checkbox separate_data_checkbox;
+
+Checkbox move_imported_instance_files_checkbox;
+Textbox import_instance_path_textbox;
 
 TransparrentBackground last_played_bg;
 Button launch_last_instance_button;
@@ -29,6 +34,7 @@ Checkbox Show_moded_instances_checkbox;
 Button RestoreSettings_button;
 Button SaveConfig_button;
 
+Checkbox Save_logs_files_checkbox;
 
 Button Subcat_settings_progile_button;
 
