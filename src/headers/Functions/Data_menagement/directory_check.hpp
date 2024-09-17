@@ -1,3 +1,13 @@
+bool check_file_exists(fs::path path)
+{
+    if (fs::exists(path))
+    {
+        return true;
+    }
+    log_message("File: \"" + path.string() + "\" Not exists", LOG_TYPES::LOG_WARN);
+    return false;
+}
+
 bool check_directory_exists(fs::path path)
 {
     if (fs::exists(path) && fs::is_directory(path))

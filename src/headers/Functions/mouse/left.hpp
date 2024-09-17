@@ -10,45 +10,8 @@ void executeSubcategories(sf::Vector2f mouse)
 {
     Subcat_settings_main_button.update(mouse);
     Subcat_settings_progile_button.update(mouse);
-}
-
-void instance_manage(std::string instance_id)
-{
-    if (mounted_instance == instances_list[instance_id].getID())
-    {
-        MessageBoxA(NULL, "Unmount this instance first!", "Error", MB_ICONERROR | MB_OK);
-    }
-    else
-    {
-        fs::path instance_directory = instances_dir / fs::path("Slime Rancher_" + instances_list[instance_id].getID());
-
-        InstanceModAttributes attribs = instances_list[instance_id].getModAttributes();
-
-        fs::path instance_mods_directory;
-
-        if (versions_map[instances_list[instance_id].getVer()].mod_support == true)
-        {
-            if (versions_map[instances_list[instance_id].getVer()].version_type == "pre-release")
-            {
-                instance_mods_directory = instance_directory / "mods";
-
-                try
-                {
-                    for (const auto& entry : fs::directory_iterator(instance_mods_directory))
-                    {
-                        if (entry.is_regular_file() and entry.path().filename().extension() == ".dll")
-                        {
-                            log_message(entry.path().filename().string(), LOG_TYPES::LOG_INFO);    
-                        }
-                    }    
-                }
-                catch (fs::filesystem_error e)
-                {
-
-                }
-            }    
-        }
-    }
+    Subcat_settings_versions_button.update(mouse);
+    Subcat_settings_credits_button.update(mouse);
 }
 
 void mouse_left()
@@ -182,9 +145,15 @@ void mouse_left()
             SlimeRancher_instances_path_textbox.update();
             SlimeRancher_steam_path_getfolder_button.update(mouse);
             SlimeRancher_instances_path_getfolder_button.update(mouse);
+            steamcmd_path_textbox.update();
+            steamcmd_path_getfolder_button.update(mouse);
 
             Show_older_instances_checkbox.update(mouse);
             Save_logs_files_checkbox.update(mouse);
+            Colored_logs_checkbox.update(mouse);
+
+            automatically_run_downloaded_instances_checkbox.update(mouse);
+            do_not_show_warnings_checkbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
@@ -192,7 +161,7 @@ void mouse_left()
         if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)
         {
             SteamProfile_name_textbox.update();
-            SteamProfile_password_textbox.update();
+            // SteamProfile_password_textbox.update();
             save_profile_button.update(mouse);
             login_manualy_checkbox.update(mouse);
         }
@@ -206,8 +175,25 @@ void mouse_left()
     if (UI_current == UI_PAGES::NewInstanceMenu)
     {
         versions_list.update(mouse);
-        new_instance_name_textbox.update();
-        create_button.update(mouse);
-        instance_creation_cancel.update(mouse);
+
+        if (versions_list.getState() == false)
+        {
+            new_instance_name_textbox.update();
+            create_button.update(mouse);
+            instance_creation_cancel.update(mouse);    
+        }   
+    }
+
+    if (UI_current == UI_PAGES::ImportInstanceMenu)
+    {
+        if (versions_list.getState() == false)
+        {
+            import_instance_name_textbox.update();
+            import_instance_path_textbox.update();
+            import_instance_path_browse_button.update(mouse);
+            import_instance_confirm_button.update(mouse);
+            import_instance_cancel_button.update(mouse);
+        }
+        versions_list.update(mouse);
     }
 }

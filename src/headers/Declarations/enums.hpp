@@ -3,7 +3,8 @@ enum UI_PAGES {
     InstancesMenu,
     NewInstanceMenu,
     SettingsMenu,
-    DataToolsMenu
+    DataToolsMenu,
+    ImportInstanceMenu
 };
 
 enum SETTIGNS_CATEGORIES {

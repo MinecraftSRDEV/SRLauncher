@@ -50,8 +50,11 @@ bool load_config_file(std::string path_to_config)
         instances_dir = reduceBackslashes(json.getObject().at("instances_dir").getString());
         log_message("Instances dir: " + instances_dir, LOG_TYPES::LOG_INFO);
 
+        steamcmd_dir = reduceBackslashes(json.getObject().at("steamcmd_dir").getString());
+        log_message("SteamCMD dir: " + steamcmd_dir, LOG_TYPES::LOG_INFO);
+
         steam_profile_name = json.getObject().at("spn").getString();
-        steam_profile_passwd = json.getObject().at("spp").getString();
+        // steam_profile_passwd = json.getObject().at("spp").getString();
 
         saved_version = json.getObject().at("saved_version").getString();
         log_message("Saved version: " + saved_version, LOG_TYPES::LOG_INFO);
@@ -59,11 +62,20 @@ bool load_config_file(std::string path_to_config)
         save_log_files = json.getObject().at("save_logs").getBool();
         log_message("Log file autosave: " + std::to_string(save_log_files), LOG_TYPES::LOG_INFO);
 
+        display_log_colors = json.getObject().at("colored_logs").getBool();
+        log_message("Colored logs: " + std::to_string(display_log_colors), LOG_TYPES::LOG_INFO);
+
         show_prerelease_version = json.getObject().at("show_prereleases").getBool();
         log_message("Show pre-release game versions: " + std::to_string(show_prerelease_version), LOG_TYPES::LOG_INFO);
 
         loging_manualy = json.getObject().at("login_manually").getBool();
         log_message("Login manually: " + std::to_string(loging_manualy), LOG_TYPES::LOG_INFO);
+
+        autolaunch_instances = json.getObject().at("auto_launch").getBool();
+        log_message("autolaunch instances: " + std::to_string(autolaunch_instances), LOG_TYPES::LOG_INFO);
+
+        show_warnings = json.getObject().at("show_warnings").getBool();
+        log_message("show_warnings: " + std::to_string(show_warnings), LOG_TYPES::LOG_INFO);
     }
     catch (std::runtime_error re)
     {

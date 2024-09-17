@@ -7,8 +7,13 @@ Button create_button;
 Button instance_creation_cancel;
 Checkbox separate_data_checkbox;
 
-Checkbox move_imported_instance_files_checkbox;
+Textbox import_instance_name_textbox;
 Textbox import_instance_path_textbox;
+Button import_instance_path_browse_button;
+Button import_instance_confirm_button;
+Button import_instance_cancel_button;
+
+Checkbox move_imported_instance_files_checkbox;
 
 TransparrentBackground last_played_bg;
 Button launch_last_instance_button;
@@ -27,6 +32,8 @@ Textbox SlimeRancher_steam_path_textbox;
 Button SlimeRancher_steam_path_getfolder_button;
 Textbox SlimeRancher_instances_path_textbox;
 Button SlimeRancher_instances_path_getfolder_button;
+Textbox steamcmd_path_textbox;
+Button steamcmd_path_getfolder_button;
 
 Checkbox Show_older_instances_checkbox;
 Checkbox Show_moded_instances_checkbox;
@@ -35,6 +42,10 @@ Button RestoreSettings_button;
 Button SaveConfig_button;
 
 Checkbox Save_logs_files_checkbox;
+Checkbox Colored_logs_checkbox;
+
+Checkbox automatically_run_downloaded_instances_checkbox;
+Checkbox do_not_show_warnings_checkbox;
 
 Button Subcat_settings_progile_button;
 
@@ -46,6 +57,10 @@ sf::Text Profile_warning_text;
 
 sf::Text Mounted_instance_info_text;
 sf::Text Launcher_version_text;
+
+Button Subcat_settings_versions_button;
+
+Button Subcat_settings_credits_button;
 
 TransparrentBackground instances_bg;
 

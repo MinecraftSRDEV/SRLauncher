@@ -117,6 +117,62 @@ public:
     }
 };
 
+std::string formatJson(const std::string& json) {
+    std::string formattedJson;
+    int indentLevel = 0;
+    bool inQuotes = false;
+
+    for (size_t i = 0; i < json.size(); ++i) {
+        char currentChar = json[i];
+
+        // Sprawdzamy, czy znajdujemy się wewnątrz cudzysłowu
+        if (currentChar == '"') {
+            formattedJson += currentChar;
+            // Jeżeli przed cudzysłowem nie było backslashu, zmieniamy stan inQuotes
+            if (i == 0 || json[i - 1] != '\\') {
+                inQuotes = !inQuotes;
+            }
+        } else if (!inQuotes) {
+            switch (currentChar) {
+                case '{':
+                case '[':
+                    formattedJson += currentChar;
+                    formattedJson += '\n';
+                    ++indentLevel;
+                    formattedJson += std::string(indentLevel * 4, ' '); // Dodajemy wcięcie
+                    break;
+                case '}':
+                case ']':
+                    formattedJson += '\n';
+                    --indentLevel;
+                    formattedJson += std::string(indentLevel * 4, ' '); // Dodajemy wcięcie
+                    formattedJson += currentChar;
+                    break;
+                case ',':
+                    formattedJson += currentChar;
+                    formattedJson += '\n';
+                    formattedJson += std::string(indentLevel * 4, ' '); // Dodajemy wcięcie
+                    break;
+                case ':':
+                    formattedJson += currentChar;
+                    formattedJson += ' ';
+                    break;
+                default:
+                    // Pomijamy białe znaki na zewnątrz cudzysłowów
+                    if (!isspace(currentChar)) {
+                        formattedJson += currentChar;
+                    }
+                    break;
+            }
+        } else {
+            // Jeżeli jesteśmy wewnątrz cudzysłowu, dodajemy znak bez zmian
+            formattedJson += currentChar;
+        }
+    }
+
+    return formattedJson;
+}
+
 } // namespace JSONEncoder
 
 #endif // JSON_ENCODER_H

@@ -2,7 +2,7 @@ bool SteamCMDCheck()
 {
     try
     {
-        if (fs::exists(cmd_path.string() + "\\steamcmd.exe"))
+        if (fs::exists(steamcmd_dir + "\\steamcmd.exe"))
         {
             return true;
         }    

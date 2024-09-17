@@ -36,6 +36,8 @@ void create(int x, int y, int size_x, int size_y, std::string name, std::string 
     OpenSavesFolder_button.create(0,0, 100, 30, font, "Open saves folder");
     Remove_button.create(0,0, 70, 30, font, "Remove");
 
+    selected_checkbox.create(40, 40, 0, 0, "Selected", 26, font, false);
+
     mods_attributes = modsAtrb;
 
     scan_mod_loaders();
@@ -51,23 +53,52 @@ void render(sf::RenderWindow& window)
         window.draw(version_text);
         window.draw(modLoaders_text);
 
-        Play_button.render(window);
-        Edit_button.render(window);
-        Menage_button.render(window);
-        OpenGameFolder_button.render(window);
-        OpenSavesFolder_button.render(window);
-        Remove_button.render(window);
+        if (show_selection == false)
+        {
+            Play_button.render(window);
+            Edit_button.render(window);
+            Menage_button.render(window);
+            OpenGameFolder_button.render(window);
+            OpenSavesFolder_button.render(window);
+            Remove_button.render(window);    
+        }
+        else
+        {
+            selected_checkbox.render(window);
+        }
     }
 }
 
 void update(sf::Vector2f mouse)
 {
-    Play_button.update(mouse);
-    Edit_button.update(mouse);
-    Menage_button.update(mouse);
-    OpenGameFolder_button.update(mouse);
-    OpenSavesFolder_button.update(mouse);
-    Remove_button.update(mouse);
+    if (show_selection == false)
+    {
+        Play_button.update(mouse);
+        Edit_button.update(mouse);
+        Menage_button.update(mouse);
+        OpenGameFolder_button.update(mouse);
+        OpenSavesFolder_button.update(mouse);
+        Remove_button.update(mouse);    
+    }
+    else
+    {
+        selected_checkbox.update(mouse);
+    }
+}
+
+void setInstalledStatus(bool status)
+{
+    installed = status;
+
+    if (installed == false)
+    {
+        modLoaders_text.setString("Game isn't installed");
+    }
+}
+
+bool getInstalledStatus()
+{
+    return installed;
 }
 
 void event(sf::Event& event)
@@ -152,9 +183,19 @@ sf::FloatRect getRemoveButtonHitbox()
     return Remove_button.hitbox();
 }
 
+sf::FloatRect getSelectionCheckboxHitbox()
+{
+    return selected_checkbox.hitbox();
+}
+
 InstanceModAttributes getModAttributes()
 {
     return mods_attributes;
+}
+
+void setShowSelectionState(bool state)
+{
+    show_selection = state;
 }
 
 std::string name_string;
@@ -216,10 +257,16 @@ void reposition()
     OpenGameFolder_button.changePosition((Menage_button.getPosition().x + Menage_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
     OpenSavesFolder_button.changePosition((OpenGameFolder_button.getPosition().x + OpenGameFolder_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
     Remove_button.changePosition((OpenSavesFolder_button.getPosition().x + OpenSavesFolder_button.hitbox().width) + 20, backgorund.getPosition().y + 25);
+
+    selected_checkbox.changePosition(backgorund.getGlobalBounds().width - 90, backgorund.getPosition().y + 20);
 }
 
 std::string version_string;
 int size_y_global;
+
+bool installed;
+bool selected;
+bool show_selection = false;
 
 sf::RectangleShape backgorund;
 sf::Text instance_name_text;
@@ -235,4 +282,5 @@ Button Menage_button;
 Button OpenGameFolder_button;
 Button OpenSavesFolder_button;
 Button Remove_button;
+Checkbox selected_checkbox;
 };

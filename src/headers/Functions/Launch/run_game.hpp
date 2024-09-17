@@ -85,56 +85,60 @@ void prelaunch_tasks(std::string game_runpath)
 {
     bool launch_game = true;
     launch_last_instance_button.setText("Launching game");
-    if (versions_map[instances_list[mounted_instance].getVer()].version_type == "pre-release")
+    if (show_warnings == true)
     {
-        // configuration warning
-        int result = MessageBoxA(NULL, "Launching pre-release version you can loose saved settings and achivements! Backup this data now?", "Warning", MB_ICONEXCLAMATION | MB_YESNOCANCEL);
-        switch (result)
+        if (versions_map[instances_list[mounted_instance].getVer()].version_type == "pre-release")
         {
-            case IDYES:
+            // configuration warning
+            int result = MessageBoxA(NULL, "Launching pre-release version you can loose saved settings and achivements! Backup this data now?", "Warning", MB_ICONEXCLAMATION | MB_YESNOCANCEL);
+            switch (result)
             {
-                launch_game = backup_yes();
-                break;
-            }
-            case IDNO:
-            {
-                launch_game = true;
-                break;
-            }
-            case IDCANCEL:
-            {
-                launch_game = false;
-                break;
+                case IDYES:
+                {
+                    launch_game = backup_yes();
+                    break;
+                }
+                case IDNO:
+                {
+                    launch_game = true;
+                    break;
+                }
+                case IDCANCEL:
+                {
+                    launch_game = false;
+                    break;
+                }
             }
         }
-    }
-    else if (versions_map[instances_list[mounted_instance].getVer()].version_name != "1.4.4")
-    {
-        // achivments warning
-        int result = MessageBoxA(NULL, "Launching older version you can loose saved achivements data! Backup this now?", "Warning", MB_ICONEXCLAMATION | MB_YESNOCANCEL);
-        switch (result)
+        else if (versions_map[instances_list[mounted_instance].getVer()].version_name != "1.4.4")
         {
-            case IDYES:
+            // achivments warning
+            int result = MessageBoxA(NULL, "Launching older version you can loose saved achivements data! Backup this now?", "Warning", MB_ICONEXCLAMATION | MB_YESNOCANCEL);
+            switch (result)
             {
-                launch_game = backup_yes();
-                break;
-            }
-            case IDNO:
-            {
-                launch_game = true;
-                break;
-            }
-            case IDCANCEL:
-            {
-                launch_game = false;
-                break;
+                case IDYES:
+                {
+                    launch_game = backup_yes();
+                    break;
+                }
+                case IDNO:
+                {
+                    launch_game = true;
+                    break;
+                }
+                case IDCANCEL:
+                {
+                    launch_game = false;
+                    break;
+                }
             }
         }
+        else
+        {
+            launch_game == true;
+        }    
     }
-    else
-    {
-        launch_game == true;
-    }
+    
 
     if (launch_game == true)
     {

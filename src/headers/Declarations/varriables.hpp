@@ -6,14 +6,18 @@ int options_ui = 0;
 std::string steam_game_dir;
 std::string mounted_instance;
 std::string instances_dir;
+std::string steamcmd_dir;
 
 std::string steam_profile_name;
 std::string steam_profile_passwd;
 
 bool save_log_files = true;
+bool display_log_colors = true;
 bool loging_manualy = false;
 
 bool show_prerelease_version = true;
+bool autolaunch_instances = true;
+bool show_warnings = true;
 
 std::string temp_mount;
 bool is_mouse_pressed = false;
@@ -22,7 +26,7 @@ bool is_mouse_rels = false;
 bool game_downloading = false;
 bool game_running = false;
 
-std::string launcher_version = "inDev 0.5";
+std::string launcher_version = "inDev 0.6";
 std::string saved_version;
 
 /// Launcher Paths ////

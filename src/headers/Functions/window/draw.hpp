@@ -45,9 +45,29 @@ void window_draw()
     if (UI_current == UI_PAGES::NewInstanceMenu)
     {
         new_instance_name_textbox.render(window);
+
+        if (versions_list.getState() == false)
+        {
+            create_button.render(window); 
+            instance_creation_cancel.render(window);    
+        }
+
         versions_list.render(window); 
-        create_button.render(window); 
-        instance_creation_cancel.render(window); 
+    }
+
+    if (UI_current == UI_PAGES::ImportInstanceMenu)
+    {
+        import_instance_name_textbox.render(window);
+
+        if (versions_list.getState() == false)
+        {
+            import_instance_path_textbox.render(window);
+            import_instance_path_browse_button.render(window);
+            import_instance_confirm_button.render(window);
+            import_instance_cancel_button.render(window);    
+        }        
+
+        versions_list.render(window);
     }
 
     if (UI_current == UI_PAGES::SettingsMenu)
@@ -57,6 +77,8 @@ void window_draw()
         settings_bg.render(window);
         Subcat_settings_main_button.render(window);
         Subcat_settings_progile_button.render(window);
+        Subcat_settings_versions_button.render(window);
+        Subcat_settings_credits_button.render(window);
 
         if (options_ui == SETTIGNS_CATEGORIES::MAIN_PAGE)
         {
@@ -64,9 +86,15 @@ void window_draw()
             SlimeRancher_instances_path_textbox.render(window);
             SlimeRancher_steam_path_getfolder_button.render(window);
             SlimeRancher_instances_path_getfolder_button.render(window);
+            steamcmd_path_textbox.render(window);
+            steamcmd_path_getfolder_button.render(window);
 
             Show_older_instances_checkbox.render(window);
             Save_logs_files_checkbox.render(window);
+            Colored_logs_checkbox.render(window);
+
+            automatically_run_downloaded_instances_checkbox.render(window);
+            do_not_show_warnings_checkbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
@@ -74,7 +102,7 @@ void window_draw()
         if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)
         {
             SteamProfile_name_textbox.render(window);
-            SteamProfile_password_textbox.render(window);
+            // SteamProfile_password_textbox.render(window);
             save_profile_button.render(window);
             login_manualy_checkbox.render(window);
         }

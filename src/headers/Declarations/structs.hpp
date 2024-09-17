@@ -1,3 +1,10 @@
+struct SRVersionChangelog {
+    std::string deskription;
+    std::string changes;
+    std::string fixes;
+    std::string image_link;
+};
+
 struct SRVersion {
     std::string version_name;
     bool mod_support;

@@ -1,5 +1,5 @@
 # :warning: Warning :warning:
-This is a very early release! You are using on your own risk!
+Early release! You are using on your own risk!
 
 # Requirements
 - [Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
@@ -9,7 +9,7 @@ This is a very early release! You are using on your own risk!
 # Requirements to compile the code
 - [SFML 2.6.1](https://www.sfml-dev.org/download/sfml/2.6.1)
 - [MinGW 13.1.0](https://www.mingw-w64.org/downloads)
-- SFML-GUI Lib (Not yet available)
+- [SFML-GUI Lib 0.1.2 or later](https://github.com/MinecraftSRDEV/SFML-GUI)
 
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
@@ -26,6 +26,10 @@ THE PROGRAM DOES NOT SUPPORT OTHER PLATFORMS SUCH AS:
 - GOG
 - Microsoft Store
 
+# Screenshots
+![main launcher page](/.github/screenshots/main_page.png)
+![instances page](/.github/screenshots/instances.png.png)
+
 # :question: How It Works :question:
 
 The program uses an instance mounting system to bypass the restriction of running the game only from the main Steam installation folder. Created instances are stored by default in "Roaming/SRLauncher/instances".
@@ -39,6 +43,8 @@ Unmounting an instance restores the instance folder to its original location. If
 You will need to log in to your Steam account with the game.
 
 It is recommended to enter your login credentials in the profile settings. However, if you are concerned about your login details, you can enter them later directly in SteamCMD.
+
+Your gamesaves, options and achivements are automatically separated for each instance.
 
 Notes:
 

@@ -25,7 +25,7 @@ void create_instance()
                     obj.add("name", new JSONEncoder::JSONString(instance_name));
                     obj.add("version", new JSONEncoder::JSONString(version_selected));
 
-                    std::string jsonConfig =  obj.stringify();
+                    std::string jsonConfig =  JSONEncoder::formatJson(obj.stringify());
                     std::ofstream configfile;
                     configfile.open(new_instance_path / "info.json");
                     configfile << jsonConfig;

@@ -68,7 +68,9 @@
 			"iomanip": "cpp",
 			"cinttypes": "cpp",
 			"filesystem": "cpp",
-			"codecvt": "cpp"
+			"codecvt": "cpp",
+			"set": "cpp",
+			"unordered_set": "cpp"
 		}
 	}
 }

@@ -25,37 +25,47 @@ void add_instance(fs::path path)
     {
         if (fs::exists(path_str + "/info.json"))
         {
+            bool instance_installed_status_placeholder = false;
+
             JSON json = JSON::parseFromFile(path_str + "/info.json");
 
             std::string name = json.getObject().at("name").getString();
             std::string version = json.getObject().at("version").getString();
 
-            if (versions_map[version].mod_support == true)
+            if (check_file_exists(path_str + "/SlimeRancher.exe") == true)
             {
-                if (versions_map[version].version_type == "pre-release")
+                instance_installed_status_placeholder = true;
+                if (versions_map[version].mod_support == true)
                 {
-                    if (fs::exists(path_str + "/SlimeRancher_Data/Managed/SlimeRancherModtool.dll"))
+                    if (versions_map[version].version_type == "pre-release")
                     {
-                        modsAttribs.StaysModtool_installed = true;
-                    }  
-                }
-                else if (versions_map[version].version_type == "stable-release")
-                {
-                    if (fs::exists(path_str + "/SlimeRancher_Data/Managed/UnityCoreMod.dll"))
-                    {
-                        modsAttribs.SatysModLoader_installed = true;
+                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/SlimeRancherModtool.dll"))
+                        {
+                            modsAttribs.StaysModtool_installed = true;
+                        }  
                     }
-                    if (fs::exists(path_str + "/SlimeRancher_Data/Managed/uModFramework.dll"))
+                    else if (versions_map[version].version_type == "stable-release")
                     {
-                        modsAttribs.UMF_installed = true;
+                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/UnityCoreMod.dll"))
+                        {
+                            modsAttribs.SatysModLoader_installed = true;
+                        }
+                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/uModFramework.dll"))
+                        {
+                            modsAttribs.UMF_installed = true;
+                        }
                     }
-                }
-                  
+                    
+                }    
             }
-            
+            else
+            {
+                instance_installed_status_placeholder = false;
+            }
 
             instances_list[name].create(10, last_insnace_entry_y, 1260, 80, name, version, font, modsAttribs);
             last_insnace_entry_y += 85;
+            instances_list[name].setInstalledStatus(instance_installed_status_placeholder);
         }
         else
         {

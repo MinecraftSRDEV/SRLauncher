@@ -29,11 +29,20 @@ void events_loop()
             }
         }
 
-        new_instance_name_textbox.handleEvent(event);
-
-        for (const auto& pair : instances_list)
+        if (versions_list.getState() == false)
         {
-            instances_list[pair.first].event(event);
+            new_instance_name_textbox.handleEvent(event);
+
+            import_instance_name_textbox.handleEvent(event);
+            import_instance_path_textbox.handleEvent(event);
+        }
+
+        if (UI_current == UI_PAGES::InstancesMenu)
+        {
+            for (const auto& pair : instances_list)
+            {
+                instances_list[pair.first].event(event);
+            }    
         }
 
         if (UI_current == UI_PAGES::SettingsMenu)
@@ -41,12 +50,13 @@ void events_loop()
             if (options_ui == SETTIGNS_CATEGORIES::MAIN_PAGE)
             {
                 SlimeRancher_steam_path_textbox.handleEvent(event);
-                SlimeRancher_instances_path_textbox.handleEvent(event);    
+                SlimeRancher_instances_path_textbox.handleEvent(event);
+                steamcmd_path_textbox.handleEvent(event);
             }
             if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)
             {
                 SteamProfile_name_textbox.handleEvent(event);
-                SteamProfile_password_textbox.handleEvent(event);
+                // SteamProfile_password_textbox.handleEvent(event);
             }
         }
     }

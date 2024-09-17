@@ -81,32 +81,48 @@ size_t findIgnoreCase(const std::string& data, const std::string& toSearch, size
 }
 
 void extractListItems(const std::string& htmlContent) {
-    size_t ulStartPos = 0;
-    size_t ulEndPos = 0;
+    
+    // HtmlParser parser;
 
-    // Szukanie każdego <ul>
-    while ((ulStartPos = findIgnoreCase(htmlContent, "<ul", ulEndPos)) != std::string::npos) {
-        ulEndPos = findIgnoreCase(htmlContent, "</ul>", ulStartPos);
-        if (ulEndPos == std::string::npos) break;
+    // shared_ptr<HtmlDocument> doc = parser.Parse(htmlContent.c_str(), htmlContent.size());
 
-        // Przetwarzanie zawartości <ul>
-        size_t liStartPos = ulStartPos;
-        size_t liEndPos = ulStartPos;
+    // std::vector<shared_ptr<HtmlElement>> center = doc->GetElementByClassName("center");
 
-        // Szukanie każdego <li> w obrębie znalezionego <ul>
-        while ((liStartPos = findIgnoreCase(htmlContent, "<li", liEndPos)) != std::string::npos && liStartPos < ulEndPos) {
-            liEndPos = findIgnoreCase(htmlContent, "</li>", liStartPos);
-            if (liEndPos == std::string::npos || liEndPos > ulEndPos) break;
+    // if(!center.empty()){
+    //     std::cout << center[0]->GetName() << std::endl;
+    //     std::cout << center[0]->GetAttribute("id") << std::endl;
+    // }
+    // else
+    // {
+    //     std::cout << "empty" << std::endl;
+    // }
 
-            // Wyodrębnienie zawartości <li>
-            size_t liContentStart = htmlContent.find('>', liStartPos) + 1;
-            size_t liContentEnd = liEndPos;
-            if (liContentStart < liContentEnd) {
-                std::string liContent = htmlContent.substr(liContentStart, liContentEnd - liContentStart);
-                std::cout << liContent << std::endl;
-            }
-        }
-    }
+    // size_t ulStartPos = 0;
+    // size_t ulEndPos = 0;
+
+    // // Szukanie każdego <ul>
+    // while ((ulStartPos = findIgnoreCase(htmlContent, "<ul", ulEndPos)) != std::string::npos) {
+    //     ulEndPos = findIgnoreCase(htmlContent, "</ul>", ulStartPos);
+    //     if (ulEndPos == std::string::npos) break;
+
+    //     // Przetwarzanie zawartości <ul>
+    //     size_t liStartPos = ulStartPos;
+    //     size_t liEndPos = ulStartPos;
+
+    //     // Szukanie każdego <li> w obrębie znalezionego <ul>
+    //     while ((liStartPos = findIgnoreCase(htmlContent, "<li", liEndPos)) != std::string::npos && liStartPos < ulEndPos) {
+    //         liEndPos = findIgnoreCase(htmlContent, "</li>", liStartPos);
+    //         if (liEndPos == std::string::npos || liEndPos > ulEndPos) break;
+
+    //         // Wyodrębnienie zawartości <li>
+    //         size_t liContentStart = htmlContent.find('>', liStartPos) + 1;
+    //         size_t liContentEnd = liEndPos;
+    //         if (liContentStart < liContentEnd) {
+    //             std::string liContent = htmlContent.substr(liContentStart, liContentEnd - liContentStart);
+    //             std::cout << liContent << std::endl;
+    //         }
+    //     }
+    // }
 }
 
 void display_version_log()

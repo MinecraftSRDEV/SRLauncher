@@ -13,21 +13,18 @@ void download_game(std::string gamerun_path)
         launch_last_instance_button.setText("Downloading");
         std::thread animThread(downloading_animation);
         animThread.detach();
-        fs::path cmdpath = defaultDir / "SteamCMD" / "steamcmd.exe";
+        fs::path cmdpath = fs::path(steamcmd_dir);
         std::string steamcmdPath = cmdpath.string();
 
-        std::string command = "+login " + decryptor(steam_profile_name) + " +password " + decryptor(steam_profile_passwd) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
+        std::string command = "+login " + decryptor(steam_profile_name) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
         log_message("Running steamCMD command: " + command, LOG_TYPES::LOG_INFO);
 
-        // Składamy pełne polecenie
         std::string fullCommand = steamcmdPath + " " + command;
 
-        // Wykonujemy polecenie
         int result = system(fullCommand.c_str());
-        // int result = 0;
 
-        // Sprawdzamy wynik
-        if (result == 0) {
+        if (result == 0)
+        {
             log_message("Command executed successfully", LOG_TYPES::LOG_INFO);
             fs::path outputDir = defaultDir / "SteamCMD" / "steamapps" / "content" / "app_433340" / "depot_433342"; 
             if (fs::exists(outputDir) && fs::is_directory(outputDir))
@@ -35,14 +32,19 @@ void download_game(std::string gamerun_path)
                 move_directory(outputDir, steam_dir / "Slime Rancher");
                 log_message("Game download success", LOG_TYPES::LOG_INFO);
                 game_downloading = false;
-                prelaunch_tasks(gamerun_path);
+                if (autolaunch_instances == true)
+                {
+                    prelaunch_tasks(gamerun_path);    
+                }
             }
             else
             {
                 log_message("Game download falied", LOG_TYPES::LOG_ERROR);
                 game_downloading = false;
             }
-        } else {
+        }
+        else
+        {
             log_message("Command cannot be executed", LOG_TYPES::LOG_ERROR);
             game_downloading = false;
         }
