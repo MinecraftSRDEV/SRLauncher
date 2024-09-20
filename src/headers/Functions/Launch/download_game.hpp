@@ -14,7 +14,7 @@ void download_game(std::string gamerun_path)
         std::thread animThread(downloading_animation);
         animThread.detach();
         fs::path cmdpath = fs::path(steamcmd_dir);
-        std::string steamcmdPath = cmdpath.string();
+        std::string steamcmdPath = cmdpath.string() + "/steamcmd.exe";
 
         std::string command = "+login " + decryptor(steam_profile_name) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
         log_message("Running steamCMD command: " + command, LOG_TYPES::LOG_INFO);
@@ -26,7 +26,7 @@ void download_game(std::string gamerun_path)
         if (result == 0)
         {
             log_message("Command executed successfully", LOG_TYPES::LOG_INFO);
-            fs::path outputDir = defaultDir / "SteamCMD" / "steamapps" / "content" / "app_433340" / "depot_433342"; 
+            fs::path outputDir = cmdpath / "steamapps" / "content" / "app_433340" / "depot_433342"; 
             if (fs::exists(outputDir) && fs::is_directory(outputDir))
             {
                 move_directory(outputDir, steam_dir / "Slime Rancher");

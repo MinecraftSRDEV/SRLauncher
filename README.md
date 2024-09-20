@@ -28,7 +28,7 @@ THE PROGRAM DOES NOT SUPPORT OTHER PLATFORMS SUCH AS:
 
 # Screenshots
 ![main launcher page](/.github/screenshots/main_page.png)
-![instances page](/.github/screenshots/instances.png.png)
+![instances page](/.github/screenshots/instances.png)
 
 # :question: How It Works :question:
 
