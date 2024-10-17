@@ -2,41 +2,42 @@ class instance_list_class {
 public:
 instance_list_class () {}
 
-void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Font& font, InstanceModAttributes modsAtrb)
+void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Font& font, InstanceModAttributes modsAtrb, int it_number)
 {
     version_string = version;
     name_string = name;
     size_y_global = size_y;
+    number_on_list = it_number;
 
     backgorund.setSize(sf::Vector2f(size_x, size_y));
-    backgorund.setFillColor(sf::Color(255, 255, 255, 200));
-    backgorund.setOutlineColor(sf::Color::Black);
+    backgorund.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::semitransparrent]);
+    backgorund.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     backgorund.setOutlineThickness(1);
     backgorund.setPosition(x, y);
 
     instance_name_text.setString(name);
-    instance_name_text.setFillColor(sf::Color::Black);
+    instance_name_text.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     instance_name_text.setCharacterSize(26);
     instance_name_text.setFont(font);
 
     version_text.setString(version);
-    version_text.setFillColor(sf::Color::Black);
+    version_text.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     version_text.setCharacterSize(26);
     version_text.setFont(font);
 
     modLoaders_text.setString("Vanilla");
-    modLoaders_text.setFillColor(sf::Color::Black);
+    modLoaders_text.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     modLoaders_text.setCharacterSize(26);
     modLoaders_text.setFont(font);
 
-    Play_button.create(0,0, 60, 30, font, "Mount");
-    Edit_button.create(0,0, 60, 30, font, "Edit");
-    Menage_button.create(0,0, 60, 30, font, "Menage");
-    OpenGameFolder_button.create(0,0, 100, 30, font, "Open game folder");
-    OpenSavesFolder_button.create(0,0, 100, 30, font, "Open saves folder");
-    Remove_button.create(0,0, 70, 30, font, "Remove");
+    Play_button.create(0,0, 60, 30, font, "Mount", false, theme_selected);
+    Edit_button.create(0,0, 60, 30, font, "Edit", false, theme_selected);
+    Menage_button.create(0,0, 60, 30, font, "Menage", false, theme_selected);
+    OpenGameFolder_button.create(0,0, 100, 30, font, "Open game folder", false, theme_selected);
+    OpenSavesFolder_button.create(0,0, 100, 30, font, "Open saves folder", false, theme_selected);
+    Remove_button.create(0,0, 70, 30, font, "Remove", false, theme_selected);
 
-    selected_checkbox.create(40, 40, 0, 0, "Selected", 26, font, false);
+    selected_checkbox.create(40, 40, 0, 0, "Selected", 26, font, false, theme_selected);
 
     mods_attributes = modsAtrb;
 
@@ -46,7 +47,7 @@ void create(int x, int y, int size_x, int size_y, std::string name, std::string 
 
 void render(sf::RenderWindow& window)
 {
-    if (backgorund.getPosition().y >= 85 and backgorund.getPosition().y <= 700)
+    if (backgorund.getPosition().y >= 85 and backgorund.getPosition().y <= 800)
     {
         window.draw(backgorund);
         window.draw(instance_name_text);
@@ -69,7 +70,7 @@ void render(sf::RenderWindow& window)
     }
 }
 
-void update(sf::Vector2f mouse)
+void update(sf::Vector2f& mouse)
 {
     if (show_selection == false)
     {
@@ -101,29 +102,31 @@ bool getInstalledStatus()
     return installed;
 }
 
+int getItNumber()
+{
+    return number_on_list;
+}
+
 void event(sf::Event& event)
 {
-    if (event.type == sf::Event::MouseWheelMoved)
-    {
-        int mouse_scroll = event.mouseWheel.delta;
+    
+}
 
-        if (mouse_scroll > 0)
-        {
-            backgorund.setPosition(backgorund.getPosition().x, backgorund.getPosition().y + size_y_global);
-            reposition();
-        }
-        else
-        {
-            backgorund.setPosition(backgorund.getPosition().x, backgorund.getPosition().y - size_y_global);
-            reposition();
-        }
-    }
+void changePosition(int x, int y)
+{
+    backgorund.setPosition(x, y);
+    reposition();
 }
 
 enum status {
     Unmounted,
     Mounted
 };
+
+sf::Vector2f getPosition()
+{
+    return backgorund.getPosition();
+}
 
 std::string getID()
 {
@@ -151,6 +154,11 @@ void updateStatus(int status)
             break;
         }
     }
+}
+
+sf::FloatRect getHitbox()
+{
+    return backgorund.getGlobalBounds();
 }
 
 sf::FloatRect getMountButtonHitbox()
@@ -264,6 +272,8 @@ void reposition()
 std::string version_string;
 int size_y_global;
 
+int number_on_list = 0;
+
 bool installed;
 bool selected;
 bool show_selection = false;
@@ -276,11 +286,11 @@ sf::Text modLoaders_text;
 
 InstanceModAttributes mods_attributes;
 
-Button Play_button;
-Button Edit_button;
-Button Menage_button;
-Button OpenGameFolder_button;
-Button OpenSavesFolder_button;
-Button Remove_button;
-Checkbox selected_checkbox;
+sfg::Button Play_button;
+sfg::Button Edit_button;
+sfg::Button Menage_button;
+sfg::Button OpenGameFolder_button;
+sfg::Button OpenSavesFolder_button;
+sfg::Button Remove_button;
+sfg::Checkbox selected_checkbox;
 };

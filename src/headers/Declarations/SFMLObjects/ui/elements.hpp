@@ -1,68 +1,157 @@
-Button new_instance_button;
-Button import_instnace_button;
-DropDownList versions_list;
+namespace CategoriesUI
+{
+    sfg::TransparrentBackground categories_bg;
+    sfg::Button MainCategory_button;
+    sfg::Button InstancesCategory_button;
+    sfg::Button SettingsCategory_button;
+    sfg::Button VersionsCategory_button;
+}
 
-Textbox new_instance_name_textbox;
-Button create_button;
-Button instance_creation_cancel;
-Checkbox separate_data_checkbox;
+namespace MainpageElements
+{
+    sfg::TransparrentBackground last_played_bg;
+    sfg::Button launch_last_instance_button;
+    sf::Text mounted_instance_version;
+    sf::Text Mounted_instance_info_text;
+    sf::Text Launcher_version_text;
+    sf::Text downloading_progress_text;
+    SteamGuardAuthClass GuardBox;
+    sfg::Button console_clear_button;
+}
 
-Textbox import_instance_name_textbox;
-Textbox import_instance_path_textbox;
-Button import_instance_path_browse_button;
-Button import_instance_confirm_button;
-Button import_instance_cancel_button;
+namespace InstanceslistElements
+{
+    sfg::Button new_instance_button;
+    sfg::Button import_instnace_button;
+    sfg::TransparrentBackground instances_bg;
+}
 
-Checkbox move_imported_instance_files_checkbox;
+namespace CreateInstanceUI
+{
+    sfg::Textbox new_instance_name_textbox;
+    sfg::Button create_button;
+    sfg::Button instance_creation_cancel;
+    sfg::Checkbox separate_data_checkbox;
+}
 
-TransparrentBackground last_played_bg;
-Button launch_last_instance_button;
+namespace ImportInstanceUI
+{
+    sfg::Textbox import_instance_name_textbox;
+    sfg::Textbox import_instance_path_textbox;
+    sfg::Button import_instance_path_browse_button;
+    sfg::Button import_instance_confirm_button;
+    sfg::Button import_instance_cancel_button;
+    sfg::Checkbox move_imported_instance_files_checkbox;
+}
 
-TransparrentBackground categories_bg;
-Button MainCategory_button;
-Button InstancesCategory_button;
-Button SettingsCategory_button;
-Button SavesToolCategory_button;
+namespace SettingsElemets
+{
+    sfg::TransparrentBackground settings_bg;
+    sfg::Button RestoreSettings_button;
+    sfg::Button SaveConfig_button;
+}
 
-TransparrentBackground settings_bg;
+namespace SettingsSubcatsUI
+{
+    sfg::Button Subcat_settings_main_button;
+    sfg::Button Subcat_settings_progile_button;
+    sfg::Button Subcat_settings_updates_button;
+    sfg::Button Subcat_settings_credits_button;
+    sfg::TransparrentBackground subcat_separator;
+}
 
-Button Subcat_settings_main_button;
+namespace MainSettingsUI
+{
+    sfg::Textbox SlimeRancher_steam_path_textbox;
+    sfg::Button SlimeRancher_steam_path_getfolder_button;
+    sfg::Textbox SlimeRancher_instances_path_textbox;
+    sfg::Button SlimeRancher_instances_path_getfolder_button;
+    sfg::Textbox steamcmd_path_textbox;
+    sfg::Button steamcmd_path_getfolder_button;
+    sfg::Checkbox Show_older_instances_checkbox;
+    sfg::Checkbox Show_moded_instances_checkbox;
+    sfg::Checkbox Save_logs_files_checkbox;
+    sfg::Checkbox Colored_logs_checkbox;
+    sfg::Checkbox automatically_run_downloaded_instances_checkbox;
+    sfg::Checkbox do_not_show_warnings_checkbox;
+    sf::Text theme_label_text;
+    sfg::DropDownList theme_list_ddl;
+    sf::Text downloaders_list_text;
+    sfg::DropDownList downloaders_ddl;
 
-Textbox SlimeRancher_steam_path_textbox;
-Button SlimeRancher_steam_path_getfolder_button;
-Textbox SlimeRancher_instances_path_textbox;
-Button SlimeRancher_instances_path_getfolder_button;
-Textbox steamcmd_path_textbox;
-Button steamcmd_path_getfolder_button;
+}
 
-Checkbox Show_older_instances_checkbox;
-Checkbox Show_moded_instances_checkbox;
+namespace SteamAccountSettingsUI
+{
+    sfg::Textbox SteamProfile_name_textbox;
+    sfg::Passwordbox SteamProfile_password_textbox;
+    sfg::Button save_profile_button;
+    sf::Text Profile_warning_text;
+    sf::Sprite steam_profile_icon;
+    sf::Texture profile_icon_tx;
+    sf::Texture userAvatar_tx;
+    sf::Text steam_profile_offline_status_text;
+    sf::Text steam_profile_AccountName_text;
+    sf::Text steam_profile_PersonalName_text;
+    sf::Text steam_profile_UID_text;
+}
 
-Button RestoreSettings_button;
-Button SaveConfig_button;
+namespace UpdatesSettingsUI
+{
+    sf::Text update_status_text;
+    sfg::Button check_for_update_button;
+    sfg::Checkbox autocheck_for_update_checkbox;    
+}
 
-Checkbox Save_logs_files_checkbox;
-Checkbox Colored_logs_checkbox;
+namespace CreditsUI
+{
+    sf::Text credits_programming_text;
+}
 
-Checkbox automatically_run_downloaded_instances_checkbox;
-Checkbox do_not_show_warnings_checkbox;
+namespace VersionsElements
+{
+    sfg::TransparrentBackground versions_bg;
+    sf::Text version_description_text;
+    sfg::TransparrentBackground ver_desc_bg;
+    sfg::Button version_back_button;
+}
 
-Button Subcat_settings_progile_button;
+namespace ManageSubcatListUI
+{
+    sfg::Button manage_vanilla_saves_button;
+    sfg::Button manage_mod_saves_button;
+    sfg::Button manage_betterbuild_world_button;
+    sfg::Button manage_backups_button;
+    sfg::Button manage_mods_button;
+    sfg::Button manage_main_back_button;
+    sfg::TransparrentBackground manage_cats_separator;
+}
 
-Textbox SteamProfile_name_textbox;
-Passwordbox SteamProfile_password_textbox;
-Button save_profile_button;
-Checkbox login_manualy_checkbox;
-sf::Text Profile_warning_text;
+namespace ManageMainUI
+{
+    sf::Text MNG_Instance_name_text;
+    sf::Text MNG_installed_mods_text;
+    sf::Text MNG_Instance_saves_text;
+    sf::Text MNG_instance_mods_own_text;
+    sf::Text MNG_instance_mods_launcher_text;
+}
 
-sf::Text Mounted_instance_info_text;
-sf::Text Launcher_version_text;
+namespace ManageModsUI
+{
+    sf::Text list_mods_instance_text;
+    sf::Text list_mods_launcher_text;
+    sfg::TransparrentBackground mods_separator;
+}
 
-Button Subcat_settings_versions_button;
+namespace ManageOthers
+{
+    sf::Text bbw_tittle_text;
+    sfg::TransparrentBackground manage_bg;
+}
 
-Button Subcat_settings_credits_button;
+sfg::DropDownList versions_list;
 
-TransparrentBackground instances_bg;
+sf::Text dataLoading_text;
 
 
-TransparrentBackground datatools_bg;
+

@@ -1,0 +1,16 @@
+Changes:
+
+    Official translations for German, Spanish, French and Russian are now available! You can change the game language on the title screen as well as in-game via Options/Other/Language.
+    A volcanic island is now explorable in the Indigo Quarry. It contains a host of crystal slimes and will be an important part of a future update.
+    Teleporters have received a visual upgrade and now have fancy animations that our fancy artist added. They even have a fancy screen that tells you where it's going.
+    Puddle slimes will now dramatically reduce their plort production when ~8 puddle plorts are nearby. This is because in addition to being very shy, puddle plorts also greatly dislike clutter. Strange slimes, those puddles.
+    A few minor adjustments to the ranch house's lamps were added.
+    Our code wizards have added a great many optimizations to rendering, especially when standing near large walls or when many objects are hidden from view. Additionally a great deal of optimizations were done to particle rendering, especially the crystal slime effects. This should all produce a substantial bump in performance for some players. Thanks, code wizards for using your magic for the good of humanity!
+
+Fixes:
+
+    Fixed bug where some hunter slimes could sometimes appear in an inactive state. We thought they were sleeping because cats tend to do that.
+    Fixed bug where games progressed thousands of days in could become unstable. And hats off to the amazing player that discovered this naturally!
+    Fixed bug where FOV would sometimes reset on game startup.
+    Fixed bug where small items launched from the back would sometimes go through the floor/walls or get stuck in them.
+    Fixed bug where carrots launched from the vacpack were sometimes more bouncy than intended. We've switched to a different produce supplier who grows less rubbery carrots.

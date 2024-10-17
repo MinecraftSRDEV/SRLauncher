@@ -1,0 +1,7 @@
+Another small patch was issued today to address additional issues related to the Slime Science Update:
+
+    Fixed extractors sometimes resetting their timer on reloading a save file. Our best guess is they were cheating because they didn't want to explode :(
+    Fixed spam of 'blueprint available' notifications on game reload.
+    Fixed text of the "Builder's Shop" title.
+    Fixed layout issue in certain languages and resolutions on About screen.
+    Adjusted the Refinery's depositer area to more easily accept plorts. Let's all have a moment of silence for all those lost puddle plorts...

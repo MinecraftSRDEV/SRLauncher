@@ -1,0 +1,13 @@
+Changes:
+
+    The Ranch house now has a new background image that changes based on the time of day.
+    The Ranch house's door now has an open/close sound effect, because silent doors are spooky.
+    Puddle slimes now blush when they become too shy to make plorts. If you're trying to picture this, your mental picture is likely not adorable enough.
+
+Bugfixes:
+
+    Fixed an issue where phosphor slimes could sometimes disappear from the Grotto or corrals with solar shields.
+    Fixed an issue where tabbies would fight over a chicken instead of the fastest one simply eating it like nature intended.
+    Fixed an issue where a slime stack would result in slime folding into themselves.
+    Fixed an issue where rad largos would become invisible when held.
+    Fixed an issue where the tutorial would become stuck.

@@ -1,0 +1,2 @@
+    Fixed a bug causing feral slimes and tarr to possibly cause continual damage to the player
+    Slightly increased the spawn rates of hunter slimes in the Moss Blanket.

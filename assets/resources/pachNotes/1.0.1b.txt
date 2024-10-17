@@ -1,0 +1,3 @@
+A follow-up patch was issued to address a bug where oases in the Glass Desert were being reset.
+
+If you have a save file where oases were already reset, you will simply need to re-water the oases with ancient water. We apologize for the inconvenience. 

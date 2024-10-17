@@ -1,0 +1,1 @@
+Another bug related to treasure pods was discovered that required another quick patch. You may experience certain pods are re-closed., but just as before, this should not negatively impact your game in any way.

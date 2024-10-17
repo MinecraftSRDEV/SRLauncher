@@ -1,0 +1,14 @@
+Changes:
+
+    Resources can now be vac'd out of autofeeders for those indecisive ranchers.
+    The game name for new games now supports any character (including spaces and special characters) and can be up to 24 characters long. (Note: The filename used to store the save now takes the form of {timestamp}_{gamenamelettersandnumbers} )
+    Changed the way the load game screen is populated. It should be slightly faster now when you have a very large number of saves, provided they are saved with the newest format.
+
+Fixes:
+
+    Fixed bug where clicking back/cancel from emergency return warning popup did not allow you to navigate the pause menu with a controller.
+    Fixed bug where med station could sometimes overfill the health bar.
+    Fixed bug where the Invalid Format warning in the Load Game menu would show text exiting the boundaries of the Load Game window and the buttons would be sized inappropriately.
+    Fixed missing level geometry on ledge near honey gordo.
+    Fixed missing level geometry causing a gap in Moss Blanket.
+    Fixed bug sometimes allowing you to interact with the scene after starting emergency return and causing strange time loops (technical term).

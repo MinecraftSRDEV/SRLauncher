@@ -1,0 +1,16 @@
+using namespace CategoriesUI;
+using namespace MainpageElements;
+using namespace InstanceslistElements;
+using namespace CreateInstanceUI;
+using namespace ImportInstanceUI;
+using namespace SettingsElemets;
+using namespace SettingsSubcatsUI;
+using namespace MainSettingsUI;
+using namespace SteamAccountSettingsUI;
+using namespace UpdatesSettingsUI;
+using namespace CreditsUI;
+using namespace VersionsElements;
+using namespace ManageSubcatListUI;
+using namespace ManageMainUI;
+using namespace ManageModsUI;
+using namespace ManageOthers;

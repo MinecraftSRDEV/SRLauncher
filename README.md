@@ -3,13 +3,17 @@ Early release! You are using on your own risk!
 
 # Requirements
 - [Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+
+- Net Runtime 8.0.8<br>
+or
 - [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
+
 - Steam account with purchased Slime Rancher
 
 # Requirements to compile the code
 - [SFML 2.6.1](https://www.sfml-dev.org/download/sfml/2.6.1)
 - [MinGW 13.1.0](https://www.mingw-w64.org/downloads)
-- [SFML-GUI Lib 0.1.2 or later](https://github.com/MinecraftSRDEV/SFML-GUI)
+- [SFML-GUI Lib 0.1.3 or later](https://github.com/MinecraftSRDEV/SFML-GUI)
 
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
@@ -38,11 +42,9 @@ For a folder to be recognized as an instance, it must contain an "info.json" fil
 
 When a user selects an instance from the list, its folder is swapped with the one in the Steam game folder. YOU CANNOT HAVE MULTIPLE INSTANCES MOUNTED AT THE SAME TIME! **IF THE FOLDER IS NOT DETECTED AND ALREADY CONTAINS FILES FROM ANOTHER INSTANCE, IT MAY BE OVERWRITTEN!**
 
-Unmounting an instance restores the instance folder to its original location. If the instance does not contain the downloaded game, a script will run to download it using SteamCMD.
+Unmounting an instance restores the instance folder to its original location. If the instance does not contain the downloaded game, a script will run to download it using Included specially modified [DepotDownloader](https://github.com/MinecraftSRDEV/SRLauncherDepotDownloader) or SteamCMD.
 
 You will need to log in to your Steam account with the game.
-
-It is recommended to enter your login credentials in the profile settings. However, if you are concerned about your login details, you can enter them later directly in SteamCMD.
 
 Your gamesaves, options and achivements are automatically separated for each instance.
 

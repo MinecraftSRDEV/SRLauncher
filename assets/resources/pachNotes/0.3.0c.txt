@@ -1,0 +1,4 @@
+    Fix bug allowing attempting to load two games at once from the loading screen, which could delete/corrupt save games.
+    Fix reversed list of most profitable plorts in 5-day-rush.
+    Fix bug where Puddle Slimes on low graphics settings did not have eyes.
+    Increased rad slime spawn rates in the Indigo Quarry.

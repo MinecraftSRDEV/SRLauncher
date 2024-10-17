@@ -17,7 +17,7 @@ int last_insnace_entry_y = 85;
 
 
 
-void add_instance(fs::path path)
+bool add_instance(fs::path path, int itr)
 {
     std::string path_str = path.string();
     InstanceModAttributes modsAttribs;
@@ -32,7 +32,7 @@ void add_instance(fs::path path)
             std::string name = json.getObject().at("name").getString();
             std::string version = json.getObject().at("version").getString();
 
-            if (check_file_exists(path_str + "/SlimeRancher.exe") == true)
+            if (fs::exists(path_str + "/SlimeRancher.exe") == true)
             {
                 instance_installed_status_placeholder = true;
                 if (versions_map[version].mod_support == true)
@@ -63,9 +63,11 @@ void add_instance(fs::path path)
                 instance_installed_status_placeholder = false;
             }
 
-            instances_list[name].create(10, last_insnace_entry_y, 1260, 80, name, version, font, modsAttribs);
+            instances_list[name].create(10, last_insnace_entry_y, 1260, 80, name, version, font, modsAttribs, itr);
             last_insnace_entry_y += 85;
             instances_list[name].setInstalledStatus(instance_installed_status_placeholder);
+            instances_list_iterations[itr] = name;
+            return true;
         }
         else
         {
@@ -73,22 +75,26 @@ void add_instance(fs::path path)
             // MessageBoxA(NULL, "Cannot find \"info.json\" file in game directory!", "Warning", MB_ICONEXCLAMATION);
         }
     }
+    return false;
 }
 
-void refresh_instances_list()
+void loadInstancesList(fs::path instances_path)
 {
-    instances_list.clear();
-    last_insnace_entry_y = 85;
+    int iteration = 0;
 
-    fs::path instances_path = instances_dir;
-
-    add_instance(fs::path(steam_game_dir) / "Slime Rancher");
+    if (add_instance(fs::path(steam_game_dir) / "Slime Rancher", iteration) == true)
+    {
+        iteration++;
+    }
 
     try
     {
         for (const auto& entry : fs::directory_iterator(instances_path))
         {
-            add_instance(instances_path / entry.path());
+            if (add_instance(instances_path / entry.path(), iteration) == true)
+            {
+                iteration++;
+            }
         }    
     }
     catch (fs::filesystem_error e)
@@ -97,6 +103,30 @@ void refresh_instances_list()
         log_message("Instance refresh error: " + errormsg, LOG_TYPES::LOG_ERROR);
     }
     
-
     instances_stat_refresh();
+
+    if (mounted_instance != "Unmounted")
+    {
+        mounted_instance_version.setString("v." + instances_list[mounted_instance].getVer());
+    }
+
+    instancesListLoading = false;
+}
+
+void refresh_instances_list()
+{
+    instances_list.clear();
+    instances_list_iterations.clear();
+    instance_list_b.erase();
+    instance_list_l.erase();
+    last_insnace_entry_y = 85;
+
+    fs::path instances_path = instances_dir;
+
+    dataLoading_text.setString("Loading instances...");
+    dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
+    instancesListLoading = true;
+
+    std::thread loadThr(loadInstancesList, instances_path);
+    loadThr.detach();
 }

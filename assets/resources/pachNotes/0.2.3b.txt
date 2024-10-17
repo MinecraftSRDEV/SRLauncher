@@ -1,0 +1,11 @@
+Changes:
+
+    Adjustmented the in-home background image.
+    Increased the time the explore tutorial stays on screen.
+
+Bugfixes:
+
+    Fixed bug where nutrient soil was causing gardens to not grow as many fruit & veggies as they should.
+    Fixed bug where health, energy, and ammo upgrades would sometimes carry into new games.
+    Fixed bug that could sometimes cause lag related to watering.
+    Fixed bug where ponds were too easy to refill.

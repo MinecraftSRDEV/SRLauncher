@@ -1,0 +1,21 @@
+Changes:
+
+    Improved gamepad handling. Please note that this required resetting all custom key/button bindings but should allow more types of gamepads to work with the game as well as eliminate issues with continual input (e.g. continual player spinning).
+    Added gamepad look sensitivity options under Options|Gamepad
+    The sandy area of the dry reef beyond the feral canyon is now open and has been reworked. It includes a happy little beach area where slimes like to relax. You can also access this area from the overgrowth ranch expansion.
+    The ancient slime gates and their keys scattered across the range have received an art pass. A new one can be found leading to the new beach area in the reef.
+    Fruits and veggies and fruit trees have received a lovely makeover and are now more visually distinct. The cuberry tree is now cube-shaped because science.
+    A fancy, new loading screen has been added when loading a save game. It contains secret knowledge.
+    Improved UI scaling at larger resolutions.
+    Improved some UI selection highlights.
+    Feral slimes now sport a grumpier look and have flashy, new effects for when they do their butt(?) stomp.
+    A link to the official forums and support is now available on the main menu. Join the forums and get chatty!
+    Improved chicken spawning logic in the overgrowth ranch expansion. A small number of chickens should now spawn even if you have coops filled with chickens in the overgrowth.
+    The moss blanket now has a dreamy night-time tune.
+    Added the ranch house radar indicator (toggle on with ‘R’ by default) in case you get lost.
+
+Bugfixes:
+
+    Fixed a bug where some slimes’ audio loops would continue to use resources while not audible, resulting in decreased performance for some players.
+    Fixed a bug where the splat particles when a slime hit a surface could appear much darker than intended on some platforms.
+    Fixed a bug where previously feral slimes would continue to chase players. We were convinced it was because they just wanted a hug, but it was just a bug.

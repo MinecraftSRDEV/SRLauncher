@@ -1,0 +1,15 @@
+June 14, 2017 A small patch was issued today to address some issues related to the Glass Desert Update release:
+
+    Reduce skybox cloud complexity on lower graphics settings to boost performance
+    Replaced a broken treasure pod that awarded nothing with one that awards gold plorts. Since some of you may have already opened this pod, we added another treasure pod in the desert with gold plorts too :)
+    Added some additional resources in the Glass Desert to make the introductory experience a little smoother
+    Adjusted some colliders to prevent clipping issues
+    Adjusted a few decorative objects in the Glass Desert
+    Increased the time between firestorm breakouts in the desert
+    Fixed incorrect favored-by listings for Silver Parsnip and Prickle Pear
+    Fixed missing description for Prickle Pear
+    Fixed bug causing music not actively being used to use much more memory than necessary, which could have lead to performance problems and crashes.
+    Fixed bug where tutorial radar markers could get stuck.
+    Fixed bug where you could re-vac ancient water blobs (and water blobs) shot from the vac.
+    Fixed some bugs with distant geometry (LOD/Proxy bugs)
+    Fixed a bug causing fire slimes to not periodically spawn during firestorms. See, they’re not entirely a bad thing.

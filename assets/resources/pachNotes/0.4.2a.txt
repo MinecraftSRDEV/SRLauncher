@@ -1,0 +1,33 @@
+Changes:
+
+    Added 18 new treasure pods, many of which contain rare Slime Science resources.
+    Added 3 new fashion pods: Cute, Dandy, and Royal.
+    Added a fashion remover gadget to remove fashion pod accessories from largos and gordos.
+    Gordos can now receive fashion pod accessories! It is as awesome as it sounds.
+    Added additional nighttime music track for the radio. It's quite romantic.
+    Using new text rendering/layout library to improve clarity of text as well as line-wrapping and sizing in certain situations.
+    Made puddle slimes less likely to hang out in corners of ponds by telling them that the world is a brighter place when you are willing to mingle with others.
+    Changed puddle slime dehydration logic such that they won’t disappear due to touching other slimes while in the water.
+    Improved handling of player pushback while holding a largo, specifically around quickly turning to face a wall.
+    Added some additional decorations near the paths to the Moss Blanket and Indigo Quarry so players won't miss it.
+    Added a manual collection button to the corral’s plort collector upgrade for all those do-it-yourselfers out there.
+    Changed plort collector to always turn on for a minimum time even when no plorts are present.
+    Added a vac sound to the plort collector.
+    Game will now pause when a controller is unplugged.
+    Slightly reduced the number of required food for gordos to burst.
+
+Fixes:
+
+    Fixed bug where cuberries could end up stuck on top of their tree.
+    Fixed bug with Ball Pit achievement awarding incorrectly.
+    Fixed bugs related to the way the player moves along the edge of steep slopes - prevents some cases where the player would get caught and be unable to move forward for a few moments. No, we didn't grease all the sides of every cliff in the game. That's not even a thing.
+    Fixed bug where auto-feeder corral upgrade would sometimes not properly handle returning to the ranch, resulting in corrals with large amounts of food in them. This fix should broadly improve the experience of using an auto-feeder overall.
+    Fixed bug where Emergency Return would sometimes put the player well above or below where it was supposed to, resulting in a whole other kind of emergency, really.
+    Some Russian translation improvements.
+    Adjusted the refinery link's depositer to be more receptive.
+    Fixed bug where the vsync setting was sometimes not getting correctly initialized.
+
+Other:
+
+    Lastly, we are changing the listed minimum memory requirement for Slime Rancher from 2GB to 4GB of RAM. As we've added more and more features and areas to the game the used memory has grown somewhat over time. Additionally, we feel this better reflects the increasing amount of memory that is in use by newer versions of Windows, which use quite a bit of the system memory at all times.
+    In short, if you've been able to run Slime Rancher, nothing will change.

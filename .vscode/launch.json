@@ -24,7 +24,6 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "build",
       "miDebuggerPath": "C:/Compillers/c++/MinGW64/bin/gdb.exe",
       "internalConsoleOptions": "neverOpen",
       "logging": {

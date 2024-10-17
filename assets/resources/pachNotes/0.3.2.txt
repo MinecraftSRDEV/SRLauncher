@@ -1,0 +1,25 @@
+Changes:
+
+    The most significant change of this update deals with performance. Many performance optimizations, especially in dealing with physics simulation have been added. This should be most noticeable for those closer to the minimum required specs. It is possible that you may notice a substantial boost in performance.
+    Full Steam Controller support added, including using the Steam binding setup.
+    Added navigation out of text input fields using a gamepad.
+    Hide the cursor on menus while using the gamepad.
+    Improved precision of movement and overall feel using the gamepad.
+    Improved the save game file format.
+    Made selection of checkboxes in the options screen more obvious.
+    Some mountains have been added to the Moss Blanket to make the zone feel more inline with the other zones. This however is not the previously mentioned update to the Moss Blanket.
+    Various environment changes to the range, including sand piles.
+    Added additional Slimepedia entries for Largos, Ferals, and Gordos.
+    Increased shadow rendering distance when on Medium shadow settings.
+    Slightly larger control explanation text on tutorials.
+    The Credits section has been renamed About and now contains additional info aside from listing some pretty cool people.
+    The Indigo Quarry now has night time versions of its musical themes.
+
+Bugfixes:
+
+    Fixed a bug where Largos and crates would sometimes leave a ghost image stuck on the camera when shot away. We apologize for anyone spooked by these ghost images.
+    Fixed a bug where the glowing effect on opening a slime door was sometimes shown reversed.
+    Fixed a bug where various foliage would pop between positions/sizes.
+    Fixed a bug where shadows on various foliage was sometimes drawn in the wrong location.
+    Fixed a bug causing Largos and crates held on the end of the vac to vibrate while moving.
+    Fixed a bug where the “Radar Toggle” and “Record Gif” button/key bindings were stored incorrectly. Note that you will need to reset any custom bindings you were using for these actions.

@@ -1,0 +1,1 @@
+A small patch has been issued to address issues with save file compatibility by improving the handling of certain types of corrupted saved data files so that they are properly shown as invalid on the load menu. 

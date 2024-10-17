@@ -1,0 +1,6 @@
+    Capped 7Zee Rewards Club level prices at 150k, reducing costs at the very high end of the rewards club.
+    Puddle plorts no longer pop on touching slime toys, such as adorable rubber duckies.
+    Fixed bug where you could pick up Gordo Snares with the gordo on them and reuse the snare.
+    Fixed bug where you could re-add bait to an already baited Gordo Snare.
+    Fixed rendering issue with Hobson journals and water.
+    Fixed a fail to load game bug that could sometimes happen when saving games from very old profiles.

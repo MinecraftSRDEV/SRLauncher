@@ -1,0 +1,18 @@
+Changes:
+
+    The crystal slime has arrived on the Far, Far Range! As dangerous as it is beautiful, the crystal slime can produce fields of searing-hot, crystal hazards if left unattended. Have some water handy!
+    Odd onions can now be found in the Indigo Quarry. A favorite of the crystal slime, these curious veggies can't be reliably grown in gardens, let alone foraged.
+    The Far, Far Range has some new areas to explore, including a distant island wrapped in mysterious, giant rings in the Dry Reef, and a volcanic cave in the Indigo Quarry that's home to the crystal slimes.
+    We've upgraded to a newer version of Unity and many players should see increased game stability and performance improvements.
+    We've also added some additional performance improvements of our own because why the heck not.
+    The tabby gordo on the beach behind the Overgrowth no longer drops a slime key. Instead it provides a teleporter to the ring island. Keys acquired from this gordo previously should now be considered ultimately useless trinkets or priceless collectibles that make you a better person for owning them, depending on your perspective.
+    Previously purchased items from shops now show up as disabled entries at the bottom of the purchase list.
+    The Moss Blanket has received some additional decorative props.
+    Items like plorts and veggies now have soft sound effects when striking surfaces. No, we didn't obtain these sound effects by throwing live chickens at a wall. Who told you that?
+    Added a numeric value to the FOV slider.
+
+Fixes:
+
+    Fixed a bug where loading random tips were hidden at some screen resolutions.
+    Fixed a bug where the purchase interface could cut off some descriptions.
+    Fixed a bug where the Range Exchange could occasionally double-count certain items. The hamster inside the Range Exchange now has a calculator.

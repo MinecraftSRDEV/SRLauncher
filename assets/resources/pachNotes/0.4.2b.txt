@@ -1,0 +1,1 @@
+We discovered a bug that caused old treasure pods to close again following the release of v0.4.2 and have issued a fix. If you have a save file with the pods re-closed you simply have to open them again if you wish to have all pods opened. This will not cause any other issues with your save file. All blueprints you had previously received will remain available to you.

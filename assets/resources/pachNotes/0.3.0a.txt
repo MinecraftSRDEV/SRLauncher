@@ -1,0 +1,104 @@
+Save Compatibility
+Though we recommend starting a fresh save for the best possible experience, we have ensured that pre-version 0.3.0 saves would be compatible with version 0.3.0. However, as we’ve stated before, this won’t necessarily be the case in other future updates. There may come a time when significant changes need to be made that would make compatibility impossible.
+
+Please note: it is entirely possible that older saves will load players stuck inside new geometry, such as a mountain. This can be a strange, disorienting experience. Should that be the case, simply use the Emergency Return in the options menu.
+
+Edit: If you continue to experience save game issues on Mac, please consult this post to migrate your save games: http://forums.monomipark.com/viewtopic.php?f=5&t=2466
+
+New Zone: The Indigo Quarry
+A new, explorable zone has been added: the Indigo Quarry. The Indigo Quarry is a winding network of caves and cliffs, striated with deep purple hues from the rare minerals found within it. It was once the site of a mining project but went bust after the discovery that the rare ores it produces quickly break down in atmospheres other than that of the Far, Far Range.
+
+The quarry increases the range’s explorable space by about 50%. Future updates will expand it some and connect it to future areas in order to create a more cohesive world.
+
+New Slime: Rad Slimes
+Rad slimes can be wrangled from the Indigo Quarry. Though rad plorts are quite valuable, ranchers need to be careful to avoid rad sickness when dealing with rad slimes. When a rancher gets inside a rad slime’s rad aura, a rad exposure meter will begin to fill. Once filled, further exposure to rad auras will damage the rancher. Simply being away from rad auras for a short while will remove rad exposure.
+
+New Slime: Lucky Slimes
+A new rare slime has been added, the elusive lucky slime. Lucky slimes are a strange variant of tabby slimes that seem to have a fascination with shiny objects, particularly newbuck coins. A lucky slime gobbles up any coin it can find, giving it a distinct jingling sound as they move about.
+
+If a rancher is fortunate enough to find a lucky slime, they’ll need to be clever enough to figure out how to get at the newbucks inside a lucky slime’s bulging belly. If you’re stumped, just ask BOb.
+
+New Veggie: Oca Oca
+A staple of cooking on the range, the hearty oca oca is a naturally salty, soft spud. As the key ingredient to the always tasty 'rancher's hashbrowns' they have likely been the fuel for a great deal of slime wrangling since their discovery on the range. Look for oca oca in the quarry.
+
+New Game Mode: Five Day Rush
+A new game mode has been added, the 5-Day Rush (the standard experience is now ‘Adventure’) where ranchers try to collect as many newbucks as possible over the course of 5 days. This new game mode can be considered a test of sorts. If the community responds positively to it, other modes will be considered and the 5-Day Rush could even be expanded. We welcome your feedback.
+
+The rules and new features of the 5-Day Rush are as follows:
+
+    The rush begins at 9:00 on Day 1 and ends at 12:00 on Day 6 (5 days and 3 hours)
+    Upon completion, a score window will open allowing you to take a screenshot and share with your friends. Please do!
+    Every day, the Range Exchange’s exchange of the day will always offer 3 gold plorts in return. Don’t miss it!
+    The Plort Market does not fluctuate in 5-Day Rush.
+    You begin the 5-Day Rush with 500 newbucks.
+    Death only advances the clock 1 hour, but also removes 10% of your current newbucks.
+    Entering the ranch house still pauses time, but Starmail cannot be accessed in 5-Day Rush.
+
+New Feature: Water Tank
+A water tank is now purchasable and is the only means of collecting fresh water. This allows you the flexibility of always collecting fresh water when available, as only water can be stored in the water tank. If you had a saved game with water in another vac tank, you will find it removed. Water tanks upgrade alongside your other vac tanks.
+
+Puddle Slime Changes
+Puddle slimes have received a graphical overhaul and are now much more puddle-y. Puddle slimes are naturally very shy and this is now reflected in their behaviors. If a puddle slime is in close proximity to more than 3 other slimes, puddle or otherwise, they will not produce plorts. Puddle slimes also realize that they greatly resemble frisbees when shot from a vacpack. You can do what you will with that information.
+
+Other New Features:
+
+    Added additional Slimepedia entries, including missing entries for some chickens. No disrespect intended to chickens for taking so long on this one.
+    The title menu now offers more information about your save game and also allows you to set a handy icon for a new game. Technically you can choose other icons than a puddle slime, but why would you do that?
+    A Credits screen is now available to showcase the fine folks who made this crazy dream possible.
+    Shooting and vac-ing when near the receivers for a silo, the plort market, auto-feeders, and plort collectors now rapidly increase in speed after a moment.
+    You can now choose your vacpack grip-style when holding on to large objects like crates and largos. ‘Enable Vacpack Toggle Grip-Style’ in the options menu now locks a large object to the vac’s nozzle until you press shoot or vac again. This grip-style is reminiscent of games like Half-Life 2 and Portal and is now enabled by default.
+    Giant, craggy mountains are now all over the Far, Far Range. Not only do they add a pleasant variety to the horizon, they also limit some of the shortcuts or navigation exploits otherwise available. Generally speaking, if you see a mountain blocking something, you’re expected to find another way around, not over.
+    Gordos are now extra gordo and have improved visual effects. They’re now bordering on gordo-iest.
+    Torches now have flickering fire.
+    Distant geometry now loads in multiple stages. It also allows for distant geometry to load from further out.
+    Night-time variants of musical tracks now begin at 18:00. However only the Ranch and Reef support this feature at this time.
+    Steam Cloud Saves have been enabled. Note that on Mac, for various reasons, this meant that we needed to move the game save path. The game files should be automatically migrated.
+    Steam badges and trading cards have been added.
+    The Overgrowth and Grotto now include two-way teleporters to other areas of the range. However, the gordos blocking the other end need to be dealt with first...
+
+Balance Changes:
+
+    Prices for some vacpack upgrades and both ranch expansions have been increased.
+    Jetpack energyconsumption has been changed when mid-air. Repeatedly boosting the jetpack will result in more energy consumed than simply holding a sustained boost. This is intended to remove the exploit of the jetpack covering much greater distances than intended, as well as making it more obvious how far you can travel with a given amount of energy.
+
+Art Polish:
+
+    Added improved transparency to largos and crates when held with the vacpack.
+    Added new icons for ranch upgrades, expansions, and vacpack upgrades.
+    Added fancy new portraits for the other ranchers. I know, I want Ogden merch too.
+    Digital displays on the ranch now have a really cool LED screen effect. whatsecretshiddeninthepixelspsssshwhatareyoueventalkingabout?
+    Garden upgrades now have improved models and animations.
+    Improved ground and cliff textures.
+    Improved tree textures.
+    Improved appearance of barriers blocking Ranch Expansions.
+    Improved slime mouth rendering to show depth. Are you still reading?
+    Improved how light shines on slime body materials to increase highlight quality.
+    Improved grass animation quality.
+    Increased flower prop detail. Still reading, huh? We’re talking about flowers here.
+    Improved the visual effect for Boom Slime explosions.
+    New visual effect for Tarr death explosion. It’s prismatic and full of joy because in death, one must celebrate the tarr’s life.
+    New visual effect for player damage indicator.
+    New visual effect for water splashing on camera when water tank full.
+
+Bugfixes:
+
+    Fix bug where vacuuming items from a silo/collector at close range could leave them on the floor.
+    Fix bug where footsteps sounds weren’t playing when camera bob was disabled.
+    Fix bug where bushes and trees would appear to change size.
+    Fix bug where chicken sounds looped where they were not meant to, which also caused other issues with sounds not playing.
+    Fix bug where sleeping just before 6:00AM would cause the game to be stuck at fast-forward speed.
+    Fix bug where vac effect was not correctly visually aligned with the vac nozzle.
+    Fix bug where cave darkness could remain in place after leaving the cave.
+    Fix bug where the main menu game logo was lower resolution than intended.
+    Fix bug where using the keyboard bindings reset could block Esc from working to bring up the pause menu.
+    Fix bug which was causing gaps in shadows.
+
+
+Edit: A couple of additional bugfixes were added immediately following this release that include:
+
+    Fix bug granting jetpack access when not purchased.
+    Fix bug with elder hen and roostro Slimepedia entries.
+    Fix bug with the load game option menu.
+    Fix bug with Mac users not being able to load previous save games. If this continues to be an issue, please consult this forum post: viewtopic.php?f=5&t=2466
+
+That about wraps it up! We hope you enjoy v0.3.0 and appreciate your sharing this journey with us as we continue to develop Slime Rancher into the best game possible! 

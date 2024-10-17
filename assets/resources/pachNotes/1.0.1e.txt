@@ -1,0 +1,1 @@
+Fixed bug where fruits/veggies could sometimes not be vac'd off of trees/out of patches after reloading a game.

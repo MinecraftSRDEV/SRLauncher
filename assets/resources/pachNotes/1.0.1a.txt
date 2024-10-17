@@ -1,0 +1,40 @@
+Slime Rancher v1.0.1, The Navigation Update, has arrived! This updates includes the much-requested map feature and a few other goodies, as well a bunch of fixes and optimizations.
+
+Changes:
+
+    Added a map interface that gives you a general sense of where you are on the Far, Far Range. Map zones are unlocked after activating map data nodes in each zone. The map will also tracked any teleporters or extractors you’ve placed, and give you a total count of slime keys and treasure pods collected in each zone.
+    Optimized tracking of distant areas of the world to improve overall performance.
+    Added slime toys for the fire, mosaic, dervish, and tangle slimes.
+    A single gilded ginger now grows once a day in the Glass Desert but can be very difficult to find. Gilded ginger is the only veggie a gold slime will eat, providing extra plorts for those that manage to feed one. And while it can’t be grown in a garden, it can be used to [REDACTED]
+    Added a treasure pod behind the barn in the Lab to give new players a head start in building their first teleporter.
+    Added some new tabby slime sound effects when they steal an item.
+    Added intro text when starting a new save file in Adventure Mode.
+    Adjusted extractor cycle time from 22 hrs to 12 hrs. Please note that the 10 hours we removed did not go to waste and were recycled.
+    Ponds now produce infinite water, much like water sources in the wild.
+    Gardens now produce infinite harvests! In order to plant a new crop, you must select to replant from the garden menu.
+    Added Return teleporters to Hobson vaults after watching a few streams where players met untimely deaths in the vaults and lost their gold plorts and Nick almost cried for them.
+    Added water tutorial message on purchasing the water tank.
+    Adjusted Incinerator trough to prevent fire slimes despawning in the trough. As a note, an empty ash trough will not despawn a fire slime, though it will not feed them either.
+    Odd onion crops on the ranch will now produce a minimum of 4 odd onions, but generally 6-8 of them.
+    Shooting a chickadoo at a gold slime will now knock plorts out of it like other resources. As a note, chickadoos have stated that they are really not cool with this change.
+    Starmail popups now disappear once you’ve read the mail.
+    Reduced time ranch-specific tutorials stay on screen after leaving the ranch.
+    Optimized occlusion culling.
+    Optimized lighting where a near-zero intensity directional light was being unnecessarily processed on the GPU.
+    Optimized some miscellaneous memory usage.
+
+Fixes:
+
+    Fixed bug where some players’ progress at opening slime gates and the plort puzzle door was not being tracked properly and affected their receiving certain Casey mails.
+    Fixed bug where you could vac fruit off a tree from an angle and get them shaking but not ever popping off.
+    Fixed some issues with the French translation.
+    Fixed bug where slimes were not turning into largos properly while sleeping at night.
+    Fixed bug where some new sounds could play when sleeping at night or after being knocked out.
+    Fixed bug where some sounds would play right as the ranch initially loaded in. Fun fact: this quirk has always persisted on the dev side and any time we test the game we hear the crickets chirping sound effect for a moment. Now when I hear crickets in real life I think of our editor.
+    Fixed bug where unripe phase lemons could fall through the world when their tree phased away.
+    Fixed bug where Dervish Gordo’s key could spawn into the ground.
+    Fixed a floating platform in the Glass Desert.
+    Fixed bug where Beatrix was being stretched when viewed at different aspect ratios.
+    Fixed bug where the Humble installer was not fully replacing certain files from an existing installation.
+    Fixed bug where some geometry would allow the player to get too close and see inside the walls. If any player claims they saw enslaved gnomes inside these walls building our levels, they are LYING.
+    Fixed bug where Pause Menu could interfere with other in-game UIs on Xbox.

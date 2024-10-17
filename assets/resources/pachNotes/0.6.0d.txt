@@ -1,0 +1,11 @@
+A small patch was issued today to address some additional issues related to the Glass Desert Update release:
+
+    Fixed an XBox-specific bug where buttons around scrolling areas on the main menu could sometimes appear garbled.
+    Fixed bug where some slime toys' effect area was smaller than intended.
+    Fixed bug where the Quantum Mosaic Largo's mosaic shell was sometimes entirely hidden within its body.
+    Fixed bug where sound would sometimes cut out after too much time around Dervish Slimes.
+    Fixed bug where returning to Largos in a corral with an auto-feeder and plort-collector would sometimes not produce all of the proper plorts.
+    Fixed bug where Diversification achievement was not properly counting Largos across all parts of the Ranch.
+    Fixed bug where carrots and parsnips would sometimes become stuck against corral posts.
+    Optimized some textures for a minor memory usage improvement.
+    Optimized some object management for a minor CPU usage improvement.

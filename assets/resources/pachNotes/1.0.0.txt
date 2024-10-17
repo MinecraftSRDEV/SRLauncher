@@ -1,0 +1,38 @@
+Slime Rancher v1.0.0 marks the end of our early access development and shifts into our official launch. For everyone at Monomi Park, it has been an incredible journey building Slime Rancher as you play it, and we are very grateful for the support you have shown us over the last year and a half.
+
+But this is not the end of your adventures on the Far, Far Range! Slime Rancher will continue to receive content updates that you can read more about on our roadmap: viewtopic.php?f=3&t=448
+
+Slime Rancher v1.0.0 is a small patch designed to tie up a few loose ends with the existing game and offer some closure to the current iteration of Adventure mode.
+
+Changes:
+
+    Added the final Hobson journal nodes and Casey starmail to Adventure Mode. Reading both is required for ‘completing’ Adventure Mode.
+    Added a small new area to the end of the Glass Desert where the Hobson journals are located.
+    Added two new achievements.
+    Added a small surprise for players that complete Adventure Mode and view credits sequence.
+    Adjusted garden logic so that gardens will never despawn themselves mid-harvest. They will always wait to mature their crops and leave them on the ground before despawning.
+    Beatrix is now viewable on the title screen and in her house. Hello, Beatrix!
+    Added a button to re-watch the credits on the About screen. You must have completed Adventure Mode in order to access this feature.
+    Added logo and game splash screens at beginning of game load. 
+    Optimized the handling of some music and sounds to reduce memory usage.
+    Optimized some textures to reduce memory usage.
+    Optimized some object management to slightly improve CPU usage.
+    Optimized snack layout in Monomi Park pantry to improve kitchen usage.
+    Improved overall balance between music tracks.
+    Improved sound effects for picking a fruit/veggie from tree/ground.
+    Made adjustments to the About page credits to showcase all the wonderful people that have contributed to Slime Rancher even though it still means leaving out people that didn’t work on it directly but made it all possible- oh Elizabeth I love you so much.
+    Adjusted some geometry around the Range to prevent objects getting stuck, reduce pop-in, and prevent other strange interactions.
+    Removed the early access version watermark from the in-game HUD and it was surprisingly cathartic.
+    Adjusted text spacing in the Slimepedia.
+    Added some planks on the pathway to the Lab. Because all great science begins with the path forged from the great science before it.
+
+Fixes:
+
+    Fixed bug sometimes resulting in becoming stuck in the Ranch House when sleeping with Tarr around the Ranch.
+    Fixed bug sometimes resulting in certain fruits and veggies falling through the floor.
+    Fixed bug where Mosaic slimes still produced and managed glints while far away from the player.
+    Fixed some layout issues on the purchase interface in some languages
+    Fixed some layout issues with the Bug Reporting screen.
+    Fixed bug where a spring pad would respond to an echo repeatedly even though it would not launch it.
+    Fixed bug where extractor sounds were sometimes not played.
+    Fixed a gap in the geometry with the Upgraded Lab entrance.

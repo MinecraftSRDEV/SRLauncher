@@ -15,7 +15,15 @@ void construct_paths()
     backups_path = defaultDir / "backups";
     autobackup_path = backups_path / "PreLauncherInstalled";
     configuration_path = defaultDir / "config";
-    temp_path = defaultDir / "temp";
-    cmd_path = defaultDir / "SteamCMD";
+    components_path = defaultDir / "components";
+    cmd_path = defaultDir / components_path / "SteamCMD";
+    downloader_path = defaultDir / components_path / "depotDownloader";
     logs_path = defaultDir / "logs";
+    mods_path = defaultDir/ "mods";
+    steam_default_path = fs::path(get_steamLocation_default_path());
+    
+    UMFmodsFolder_path = mods_path / "UMF";
+    SMTFolder_path = mods_path / "SMT";
+    SMLFolder_path = mods_path / "SML";
+    SRMLmodsFolder_path = mods_path / "SRML";
 }

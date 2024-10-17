@@ -1,0 +1,29 @@
+Changes:
+
+    The Ancient Ruins is a new zone located between the Moss Blanket and Indigo Quarry. It contains a new slime, resource, and other secrets to discover. This zone will also serve as the key to accessing the Glass Desert in a future update. The Ancient Ruins is very different form other zones in Slime Rancher and ranchers can easily get lost within its twisting passages if they're not careful. Travel safely!
+    The quantum slime is native to the ancient ruins and can emit other possible realities of itself, merging with one of those realities when agitated. Ranchers will need to keep a close eye on these slimes on the ranch, and make sure that eye is actually on the real quantum slime!
+    Phase lemon trees are another strange product of the Ancient Ruins: a fruit tree that echoes across multiple realities, only half present in any one at a time. Though quantum slimes love its fruit, it will need some sort of binding agent in order to harvest those enigmatic lemons into our reality.
+    Echoes are a new collectable item found tucked away in the Ancient Ruins. These little motes of light are often used by ranchers as decorations, though their origins remain a mystery. Echoes can be found daily in the many corners or the Ancient Ruins, or extracted with resource extractors.
+    New achievements have been added
+    6 new deco gadgets have been added featuring beautiful art from the Ancient Ruins.
+    12 new treasure pods have been added: get hunting!
+    Renamed Slime Quality to Model Quality and Water Quality to Shader Quality to better reflect those settings' usage in the game.
+    Slime agitation now reduced more by eating, especially eating favorite foods.
+    Hunter largos that get sufficiently agitated will revert to their feral form. Watch out!
+    Adjusted prices of Hunter and Crystal Plorts to be a little more valuable, matching those of quantum plorts. These three slimes now represent the 'fourth tier' of slime difficulty.
+    Improved some CPU efficiency items.
+    Improved efficiency of grass mesh. That's right, here at Monomi Park even our grass is efficient.
+    Updated version of Input library, which is related to gamepad inner workings.
+    Puddle plorts are not longer requested or rewarded in the Range Exchange.
+
+Fixes:
+
+    Fixed bug where music could sometimes be stuck playing for an area you had just entered and then left.
+    Fixed bug where starting to vac fruits and veggies but stopping while they were still vibrating would still cause them to come loose.
+    Fixed bugs relating to vac-ing veggies out of the ground.
+    Fixed bug where it was sometimes possible to vac items through a wall.
+    Fixed bug where Tarrs placed on Slime Stage could quickly escape. Maybe it wasn't a bug though and deep down, tarrs are just really shy.
+    Fixed bug where Honey slimes and plorts were not properly included in Range Exchange.
+    Fixed bug with appearance of slime mouths being off-color.
+
+...and that's it! We hope you really enjoy this new update and we look forward to hearing all about your adventures in the Ancient Ruins! 

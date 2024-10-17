@@ -1,0 +1,74 @@
+Slime Science is the biggest update ever to Slime Rancher! It’s an all-new set of features that allow you to craft gadgets and place them all over the world. This release represents a great deal of hard work from the Monomi Park team and we’re really proud of how this content expands the possibilities of Slime Rancher.
+
+But the journey doesn’t end here. You can look forward to Slime Science being expanded in future updates, as well as even more slimes, explorable zones, and more!
+
+SLIME SCIENCE
+Slime Science has a lot more added features than our typical releases, so we're breaking down the patch notes into an overview of all the new parts. Let's get started!
+
+How to Unlock Slime Science
+Slime Science can be accessed after purchasing the new Lab ranch expansion. After purchasing the Lab, a brief tutorial will begin explaining the basics of Slime Science. You can also access more Slime Science info via the new Slime Science tab in the Slimepedia.
+
+The Lab
+The Lab is a new ranch expansion containing an old barn that Hobson once converted into a homemade Slime Science lab.
+
+The Refinery
+Using advanced technology, the Refinery breaks down plorts and other resources to their molecular level, allowing them to be fabricated into various Slime Science gadgets.
+
+The Builder’s Shop
+The Builder’s Shop sells blueprints that allow you to craft gadgets. Building all sorts of gadgets is the best way to unlock new blueprints in the Builder’s Shop.
+
+Blueprints
+Blueprints allow you to craft gadgets at the Fabricator. Once you own a blueprint for a specific gadget, you can craft it as many times as you like, provided you have the necessary resources and are not exceeding the build limit.
+
+The Fabricator
+The Fabricator allows you to craft gadgets from a blueprint using resources you have stored in the Refinery.
+
+Treasure Pods
+Treasure pods are now scattered all over the range (some of them are in super-secret hiding spots!). They contain exclusive blueprints but can only be opened with a treasure cracker. Treasure crackers can be purchased from the Vacpack Upgrade Shop.
+
+Gadget Mode
+Gadget mode is a new vacpack mode that can be toggled after unlocking Slime Science. Once toggled, all the possible gadget build sites will become visible, allowing you to install any gadgets that you own. However, while in gadget mode you cannot vac or shoot.
+
+There are over 45 gadgets to unlock, with more coming in future updates. All gadgets fit into one of 5 categories:
+
+Extractors
+Extractors are a special class of Slime Science gadgets that are essential for building all other types of gadgets. Extractors include drills, pumps, and apiaries.
+
+Once placed on a build site, an extractor will begin working, collecting resources from the environment over time. Once it is full of resources, an extractor can be emptied. The best extractors can repeat this cycle multiple times before they finally break down.
+
+Utilities
+Utilities are a class of Slime Science gadgets that provide useful features to aid you in managing your ranch, as well as exploring the range.
+
+Warp Tech
+Warp tech is a class of Slime Science gadgets that allow you to harness the power of instantaneous travel. It includes teleporters that you can use to create shortcuts, as well as gadgets that allow you to transport items.
+
+Decorations
+Decorations are a class of Slime Science gadgets that allow you to decorate the world with attractive objects or recreations of natural findings from the environment.
+
+Curios
+Curios are a class of Slime Science gadgets that while functional, are not necessarily useful. Curios include toys, games, and other gimmicky gadgets that can be a great time with an equally great imagination.
+
+Changes:
+
+    The Dry Reef and the Moss Blanket have new, explorable areas. The Moss Blanket’s new area, much like previous additions to the Reef and Quarry, will be important in a future update.
+    A Vsync toggle has been added to the display options. Enabling it will prevent screen tearing but can affect framerate.
+    A new gordo has been added to the ring island in the Dry Reef.
+    A host of small improvements and beautifications have been added to various areas that may prove to be an inspiration if you have inclination to optimization.
+    Starmails that notified you of new items in the shop have been removed and replaced with pedia-style pop up notifications. Starmail will now be reserved for only the most important missives, and perhaps an occasional request for newbucks from a galactic prince.
+    Ranch expansion barriers are now more subdued from a distance to be less distracting.
+    Text adjustments have been made to all purchase interfaces, including a warning before demolishing things that have stored items, such as a silo.
+    Purchase screens no longer auto-close on purchase. With ranch tech it will allow you to instantly purchase plot upgrades.
+    The option to disable tutorials has been removed to prevent players from missing Slime Science tutorials and other future tutorials.
+
+Fixes:
+
+    Fixed bug where range exchange wasn’t including the proper items from unlocked Moss Blanket and Indigo Quarry. I think we’ve fixed this like 5 times now, so I’m already thinking about how I’ll phrase this the next time around.
+    Fixed confusing no-longer relevant bit in starmail from Thora.
+    Fixed a memory leak related to the incinerator. It was literally burning up your memory. Crazy.
+    Fixed a bug causing pop-in of large parts of the world from certain viewpoints, especially when viewing through trees. Trees hold many secrets.
+    Fixed a bug where the slime sea could occasionally become invisible on certain settings from certain viewpoints.
+    Fixed bug where tutorial popups could appear on the main menu screen after leaving a game. While we agree one should never stop learning, it was annoying.
+
+...and that about wraps up this update! Slime Science is a big, new feature with a lot of moving parts. Please help us out and report any bugs you may discover to bugs@monomipark.com and feel free to reach out to one of our support agents at support@monomipark.com should you experience any issues.
+
+We would also ask that you provide as much feedback as possible to us on our official forums, reddit, the Steam forums, or wherever Slime Rancher is discussed regarding Slime Science balance, user experience stuff, etc. 

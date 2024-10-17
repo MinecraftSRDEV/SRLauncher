@@ -1,0 +1,69 @@
+Slime Rancher v0.6.0 has arrived! This is the biggest Slime Rancher update to date, containing multiple new slimes, a huge, new zone, new gadgets, art polish, and much more.
+
+This is the last major Slime Rancher update before v1.0.0, which will mark the end of Early Access on PC and Game Preview on Xbox. Slime Rancher v1.0.0 will be a much smaller update, focusing on fixes, concluding Adventure Mode, and a couple other surprises.
+
+But that’s not the end of your adventures on the Far, Far Range! Following v1.0.0 we’ll be continuing to update Slime Rancher with new, unexpected content.
+
+So without further ado, here’s the major features in Slime Rancher v0.6.0:
+
+The Glass Desert
+The Glass Desert is the biggest and most challenging zone we’ve ever added to Slime Rancher! Featuring new slimes, resources, and unique challenges, the Glass Desert has something for every rancher brave enough to explore its sweeping dunes and secret ruins.
+
+Firestorms
+The monolithic glass structures in the Glass Desert can cause a terrifying phenomenon known as firestorms. Believed to be a sudden disruption of heat from below the surface, firestorms produce massive fire columns and expel flaming crags of debris. If you’re exploring the desert when a firestorm goes off, it’s best you take cover!
+
+Oases
+In order to fully explore the Glass Desert and collect all the slimes and resources within it, you’ll need to bring life back to it in the form of oases. Oases protect you from the harmful effects of firestorms, but you’ll first need to bring them to life before you can harness them. Search the ruins within the desert…
+
+Mosaic Slimes
+The mosaic slime gets its name from the glittering array of glass tiles that cover its body. This glass produces a similar anomaly to those found in the desert itself, making the mosaic slime beautiful, but quite dangerous.
+
+Dervish Slimes
+A dervish slime is a swirling, whirling bundle of energy in slimy form. Dervish slimes are commonly found in the Glass Desert, cruising across its dusty dunes at high speed atop little whirlwinds. Just don’t let them get too agitated, they have a lot of emotions swirling around inside them that might wreak havoc on your ranch.
+
+Tangle Slimes
+Though the tangle slime may look innocent with its wide smile and colorful flower atop its head, it's actually a fearsome predator with a big appetite for tasty meat. The tangle slime earned its name from the twisting vines that it can produce to grab things in the environment. It also can produce a noxious pollen that makes slimes sneeze! It’s adorable but makes them quite agitated.
+
+Fire Slimes
+Fire slimes are a rare breed of slime that lives on ash. Fire slimes will eat just about any food, but not without it being burned into ash first. The only way to feed a fire slime is to use an incinerator with an ash trough upgrade.
+
+New Resources
+The silver parsnip, prickle pear, and painted hen and chicks can now be collected in the Glass Desert, the new favorite foods of the mosaic, dervish, and tangle slimes. Three new Slime Science resources have been added that can be found with extractors in the Glass Desert: Silky Sand, Glass Shard, and Pepper Jam.
+
+Other Changes:
+
+    Starmails from Casey have been overhauled to reduce feelings of clinginess, be less dramatic, and fit more with the tone of the game. However, the conclusion to the story remains unchanged.
+    The Ancient Ruins have been expanded to connect to the Glass Desert via a special mechanism.
+    A beautiful, new skybox has been added that includes dawn and dusk lighting and real time cloud formations. And the moon! Let me tell you, it's the best.
+    Garden crops now have a grow-in animation because they saw how fancy the new skybox is and were like, ‘come on Monomi Park! Gimmie some love here.’
+    Torches have new fire effects.
+    New achievements have been added.
+
+    New Slime Science gadgets have been added, including more teleporters and warp depots, a potted tactus, more gordo snares, Glass Desert deco, and other advanced versions of existing gadgets.
+    New 7Zee Rewards Club rewards have been added to existing ranks, including the handy Market Link, Ultra Dash Boots, and the Golden Sureshot.
+    Two new gordos have been added to the Moss Blanket and Indigo Quarry. One of them is quite mad. There’s also some new ones in the Glass Desert!
+    Gordo eat requirements have been reduced. Or has their food simply become more fattening? No one can say for sure.
+    Vacpack Upgrades obtained via the 7ZRC now show up in the Vacpack Upgrade shop as ‘sold out.’
+    Gold plorts can now be deposited into the Refinery. I wonder why…?
+    Extractor rare item drop rates have been increased across all extractors.
+    Quantum slimes can no longer merge with a ghost in a foreign corral. The purpose of this change is to make quantum slimes a little easier to manage. They can still ghost out of their own corral, but will never ghost into another corral on your ranch.
+    Fabricated teleporters now show their destination like static teleporters.
+    Plort icons on the Plort Market are now de-emphasized if you haven’t discovered their zone of origin yet.
+    Small tweaks to Options UI layout to better accommodate various languages.
+    The incinerator has received a visual overhaul and has a new upgrade, the ash trough, that is used for corralling fire slimes.
+
+Bugfixes:
+
+    Fixed bug where saving before getting Thora’s first Range Exchange offer would immediately give you said offer on game load.
+    Fixed bug where flying phosphor slimes only moved north east. The great phosphor slime migration has finally ended and they are now free to fly wherever they wish.
+    Fixed bug where slimes present on the Ranch would be hungry and agitated despite plentiful food available in their corral. Hallelujah!
+    Fixed bug where dash boots were not nearly as efficient as advertised. Efficiency increased and advertisement reduced to meet in the middle.
+    Fixed bug where honey plorts weren’t always considered extra-tasty by slimes. Tastyness has now been increased by 34.68 tastigrams.
+    Fixed bug where some achievements could re-announce their awarding on game reload.
+    Fixed bug where puddle slimes would sometimes disappear when leaving them alone, especially on the Docks.
+    Fixed issues with puddle slime movement.
+    Fixed bug where sound effects could continue to play while the game was paused or the player was in the house.
+    Fixed bug where the rad camera effect could sometimes be disabled while inside a rad aura.
+    Fixed a bug where vac-ing a non-tabby largo would give them tabby stripes. How did we not catch this sooner???
+
+That wraps up v0.6.0! We hope you enjoy this update and the unique features it offers. Slime Rancher has been quite a journey for us and we’re excited to soon be leaving Early Access and into official release, and then the exciting content that follows! 

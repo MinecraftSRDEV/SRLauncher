@@ -1,0 +1,15 @@
+A small patch was issued today to address some additional issues related to the Glass Desert Update release:
+
+    Changed some desert terrain slightly to improve player movement.
+    Rotated one mosaic plort statue to be more accessible
+    Added a few more decorative objects in desert to help make different areas a little more identifiable.
+    Made firestorm effects and music remain active in more areas of the desert.
+    Made firestorm effects timing more precise.
+    Updated the Main Menu to use the new skybox.
+    Improved chicken efficiency to improve performance. And because an efficient hen hen is a happy hen hen.
+    Added two new places to build Slime Science gadgets within the desert.
+    Fixed bug where some tangle slime statues would reset to being unfilled on game reload.
+    Fixed bug where fruit on garden trees could sometimes appear too low on the tree.
+    Fixed bug where garden patches could sometimes end up with no crop but not allow the next crop to be planted.
+    Fixed bug where small items around the oasis plant would rest just under the visible ground.
+    Fixed typo in one of Ogden's Range Exchange greetings.

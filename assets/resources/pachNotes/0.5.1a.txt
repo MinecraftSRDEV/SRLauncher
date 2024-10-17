@@ -1,0 +1,67 @@
+    The 7Zee Rewards Club
+
+The 7Zee Rewards Club is a new feature that rewards highly successful ranchers with unique rewards. Starting at noon on day 7 you’ll receive a starmail form 7Zee introducing you to the rewards club. You must read the starmail in order to unlock the rewards club. Each tier of the rewards club costs increasingly larger amounts of newbucks to unlock, but comes with a unique reward. These rewards are generally prestigious, signifying your success in the world of slime ranching, including visual upgrades for your ranch, color customization features, slime toys, and more. The highest tier rewards will cost enormous sums of newbucks to acquire.
+
+Please note that while these rewards are intended to be expensive (especially in the final third), we don’t wish to make them completely unobtainable for all but a small group of players. So please visit this thread linked below and provide us with feedback on the costs of the rewards club. The prices could absolutely change in a future patch if the community feels strongly about it.
+
+viewtopic.php?f=3&t=4198
+
+
+    Chroma Packs
+
+Chroma packs are color customization items obtainable through the 7Zee Rewards Club, making up about half of the total rewards available. Once unlocked, a chroma pack station can be found on the side of the ranch house. As each new set of chroma packs are unlocked via the 7Zee Rewards Club, they can be assigned to your ranch house, ranch tech, and vacpack at no charge and as often as you like.
+
+The rarest chroma packs are only obtainable by reaching the end tiers of the 7Zee Rewards Club.
+
+    Slime Toys
+
+Slime toys give your slimes fun toys to play with, soothing their agitation like a music box. A slime toy shop is unlocked via the 7Zee Rewards Club and features a stock of basic slime toys, with more advanced options being unlocked at a later rewards rank.
+
+Slime toys reduce slime agitation when a slime is near them, making it a handy object to drop into a corral. However, each slime has a favorite toy which reduces agitation even further. The calming effect from slime toys stacks with the music box corral upgrade, but does not stack with other slime toys. If multiple toys are near a slime, a slime will always receive the best possible bonus from the toys, so feel free to mix and match.
+
+    Hobson and Letters from Home
+
+New story elements have been added. You will now find journals left behind by Hobson Twilgers, the former owner of Beatrix’s ranch, all over the world. These journals provide a little backstory on Hobson, or offer the occasional helpful tip or observation.
+
+Additionally, you will now receive occasional starmails from Casey, someone important to Beatrix whom she left behind back on Earth. While there is plenty to read in this update, both Casey and Hobson’s story will be completed in a future update.
+
+    The Docks
+
+The Docks is a new ranch expansion accessible behind the Overgrowth. It contains a fresh water pond and waterfall, four empty ranch patches, a beautiful seaside view, and a bunch of fishing nets that you can use to snare wayward slimes. It also contains a secret feature…
+
+    Gordo Snares
+
+Gordo snares are a new series of Slime Science gadgets that you can use to catch your own gordos! Simply place one down and shoot food into the snare as your bait. If you’re lucky (and patient), you might snare the gordo you desire. And while these gordos will offer a few rewards upon bursting, we have the feeling most of you will be using snares to acquire some large buddies to hang out on your ranch.
+
+More advanced snares will be available in future updates.
+
+Additional Features:
+
+    Added a new Echo Net gadget that allows you to collect echoes from the ruins over time. It is hidden inside a treasure pod somewhere in the ruins. 
+    The auto-feeder corral upgrade now has 3 speed settings. You can change these setting via a button on the auto-feeder.
+    Tank Booster Ultra is now available deep into the 7Zee Rewards Club. It allows you to store 100 units in each vac tank!
+    Starmail now has an unread mail notification showing you how many unread mails you still need to read. Hopefully it doesn’t cause as much anxiety as the one you stare at in real life, reminding you that you should be replying to those emails instead of reading Slime Rancher patch notes.
+    Coop high walls are now more obviously upgraded, visually.
+    Reduced the slowdown when fabricating several gadgets in quick succession.
+    The plort collector’s manual button now animates. I know right? Way to bury the lead in these patch notes.
+    A few new achievements added from 7Zee Rewards Club stuff.
+    Updated ruins music tracks with higher quality version to remove some audio artifacts. Or alternatively, we procured some artifacts form the ancient ruins. Oooh.
+    The starmail interface has received some visual improvements and readability changes.
+    Extractor rare resource drop rates have been doubled.
+
+Fixes:
+
+    Fixed bug where especially agitated hunter largos responding to the taming bell would immediately turn feral again. 
+    Fixed RadTabbyLargo and QuantumTabbyLargo mouths.
+    Fixed RadHunter and QuantumHunter eyes.
+    Fixed bug where some extractor production rates were slightly lower than intended.
+    Fixed texture on pillar on volcano island
+    Fixed a scrolling issue on the fabricate gadget screen.
+    Fixed bug where Quantum Crystal Largo wasn’t going after plorts properly.
+    Fixed bug where it was sometimes possible for the music to switch to the Ranch tracks inexplicably. Not gonna lie, it was a ghost.
+    Fixed some issues with slimes not having eaten while you slept.
+    Fixed bug where bold text was not bold.
+    Fixed Beatrix’s last name spelling on Range Exchange email.
+    Fixed the placement of a few mountains in overgrowth
+    Fixed bug where rock slimes sometimes didn’t damage player if they were stationary.
+    Fixed bug where ferals could sometimes launch items through corral walls.

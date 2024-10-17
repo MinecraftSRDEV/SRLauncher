@@ -1,0 +1,6 @@
+Another series of issues were discovered that we deemed worth a quick patch. This includes:
+
+    Significantly reduce memory usage by game music (roughly 650 MB savings!). For those of you that just barely met the minimum requirements, you should see a significant performance boost.
+    Fix rad poisoning text not updating
+    Fix warp depot display text/bar not updating
+    Fix flowers in Moss Blanket having turned yellow. Our best guess is that the winds were strong on our local build and blew some seeds over from the Ruins :)

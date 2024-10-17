@@ -1,0 +1,8 @@
+A followup patch has been issued to address a few bugs we discovered shortly after releasing v0.3.0
+
+    Fix bug where rapidly double-clicking ‘Continue’ could delete save files. We apologize if your file was deleted as a result of this bug.
+    Fix issue with puddle slime pathfinding.
+    Fix missing StarMails.
+    Fix area in the reef where players could become trapped.
+    Fix bug where Emergency Return sometimes put the player in a state requiring a second Emergency Return.
+    Adjusted text of the Largo tutorial prompt.

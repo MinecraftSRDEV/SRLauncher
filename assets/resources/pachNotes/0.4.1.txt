@@ -1,0 +1,31 @@
+Changes:
+
+    Added fashion pod gadgets! Fashion pods allow you to shoot costumes on to your slimes. We'll give you a moment to let that sink in.
+    Added the taming bell and refinery link gadgets. 
+    Added more slime lamps and gave the amber slime lamp some happy pills.
+    New icons for install/remove gadgets and remove crops.
+    Changed the Fabricate Gadget screen to keep the previously fabricated gadget selected.
+    Added an effect on the purchase screens to make it obvious when you make a purchase.
+    Added animations to the tutorial popups.
+    Added indicator to the tutorial popup when you complete the task requested.
+    Changed tutorials requiring an on-ranch action to hide themselves if you’re away from the ranch for 15 seconds.
+    Changed some tutorial timing and completion checks.
+    Adjusted treasure pod opening effect.
+    Changed the Slimepedia Vacpack tab to Tutorial and changed the entries to better mirror tutorial info.
+    Added some new treasure pods to the world. One of them is amazing.
+    Changed the colors of fill meters for the science resources.
+    Adjusted the volume for some sounds including extractor working sounds.
+    Added sound while the extractor is ready. The machines no longer dance in silence. (Whoa, that sounded way more ominous than intended).
+    Strange diamonds, royal jelly, and lava dust now randomly show up as Range Exchange rewards (rarely) after unlocking Slime Science.
+    Tweaked rare drop rates on extractors to be slightly less rare.
+
+Fixes:
+
+    Fixed bug where slimes and resources could get stuck under the ranch porch.
+    Fixed bug where some purchase buttons could be pressed via a gamepad while otherwise disabled.
+    Fixed an issue where Xbox One controllers on some versions of Windows 10 were not properly recognizing actions on the DPad.
+    Fixed bug where largos could be fired into or carried into walls in some situations. 
+    Fixed bug where slime would sometimes vibrate back and forth while trying to look a particular direction. We've switched the slimes to decaf.
+    Fixed bug where the Range Exchange screen sometimes lost information at certain resolutions.
+    Fixed bug where transition between far and near versions of slimes was less smooth than intended.
+    Fixed bug where the red teleporter and warp depot were possible to unlock without acquiring the appropriate treasure pod.

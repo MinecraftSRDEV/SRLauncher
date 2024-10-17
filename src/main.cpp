@@ -13,8 +13,10 @@
 #include <fstream>
 #include <filesystem>
 #include <cstdlib>
+#include <cstdint>
 #include <windows.h>
 #include <shlobj.h>
+#include <iomanip>
 
 #include <curl/curl.h>
 
@@ -69,15 +71,20 @@ void load_sequence()
     ///// Set SFML-GUI Buttons attributes onetime /////
     setButtons();
 
+    console.unlockQueue();
+    log_message("Console ready", LOG_TYPES::LOG_INFO);
+
     ///// Set functions to buttons from SFML-GUI onetime /////
     setFunctions();
 
     ///// Check run functions /////
     runtime_check();
+
+    ///// set theme to objects /////
+    setTheme();
     
     ///// Create DropDownList from all "versions_map" contents /////
-    createDDListFromVersionsMap(); 
-
+    createDDListFromVersionsMap();
 }
 
 int main()

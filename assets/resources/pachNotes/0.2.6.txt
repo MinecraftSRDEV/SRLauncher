@@ -1,0 +1,11 @@
+A small bugfix patch has arrived today. It includes the following changes:
+
+Bugfixes:
+
+    Fix bug resetting custom control settings.
+    Fix bug where some slimes were invisible underwater.
+    Fix bug where time could be put in fast-forward mode using the Emergency Return function.
+
+Changes:
+
+    Increased the potency of Scareslimes. The Scareslimes felt bad that slimes would sometimes just ignore them entirely and we're making this change in order to boost their self-esteem.

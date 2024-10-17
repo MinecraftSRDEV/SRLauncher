@@ -1,0 +1,46 @@
+Changes and Balance:
+
+    Improve economy reactions to plorts sold.
+    Update Scareslime model. Springy!
+    Improve vacpack controls handling both shoot and vac being held at once - now consistently does the last mode selected.
+    Improve Air Net ability to hold Phosphor Slimes.
+    Improve handling of game saves to minimize the likelihood of corrupted save files.
+    Switch the default Gif-render keyboard shortcut to 'G' (If you've previously played yours will remain single-quote.)
+    Slightly smaller version number watermark.
+    Add a reset defaults button for key/mouse controls and gamepad.
+    Make it easier to collect water from the fresh water springs.
+    Improve water visuals for Slime Sea, Fresh Water, and water from the vac.
+    Change logic to make the alternate versions of various areas' music play more often.
+    Humble download Windows version now comes as an installer.
+
+Bugfixes:
+
+    Fix audio for boom slime explode warmup ignoring volume settings.
+    Fix some Slimepedia typos.
+    Fix a memory leak involving water shot from the vacpack.
+    Fix bug with Ball Pit & Six Pack achievements awarding too early.
+    Fix bug with Phosphor Slimes not noticing when the solar shield they were in went away.
+    Fix bug with economy sometimes not correctly resetting on a new game.
+    Fix bug where the Auto-Feeder and Plort Collector timing could be incorrect when reloading a game.
+    Fix bug where players could remove items from the silo or plort collector while holding a largo.
+    Fix bug where items could be launched from the vacpack through floors and walls.
+    Fix bug preventing standard chickadoos from being accepted in silos and feeders.
+    Fix bug where Beatrix would jump in response to making a purchase via the controller.
+    Fix bugs affecting the vacpack animations.
+    Fix bug where player could sometimes press Sleep Until Morning repeatedly and enter continual fast-forward mode.
+    Fix bug causing a significant delay on displaying the first Slimepedia popup.
+    Fix bug where multiple slimes could eat the same food item at the same time.
+    Fix bug where the Starmail content did not initially scroll to the correct position.
+    Fix the description of the Hasty Exchange achievement requirements.
+    Fix bug causing Diversification achievement to sometimes not be awarded.
+    Fix bug causing Up All Night achievement to sometimes not be awarded.
+    Fix bug where the vac could sometimes still affect a largo that had been dropped behind Beatrix.
+    Fix bug where the Tarr music would sometimes continue after teleporting away from the Tarr.
+    Fix bug where the vac audio loop sometimes stopped.
+    Fix bug where water shot from the vac showed its type as if it were the last type of object.
+    Fix bug where puddle plorts sometimes played their splash effect on entering the Plort Market.
+    Fix bug where a Gold Slime's own plorts could trigger a Gold Slime to produce more gold plorts.
+    Fix bug where slimes could sometimes disappear from overly crowded ranch expansions.
+    Fix bug where holding a Largo or Crate, it could be placed inside a wall.
+    Fix bug where water shot from the vac floated upwards when in fresh water.
+    Fix bug where water was removed from Ponds even when the vacpack had no space.

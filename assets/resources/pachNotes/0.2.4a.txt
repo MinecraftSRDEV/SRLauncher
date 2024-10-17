@@ -1,0 +1,37 @@
+Version 0.2.4b is now live! This is largely a bugfix patch.
+
+    You can keep your save files for this update*
+
+Changes:
+
+    Adjusted boom slime explosion timing to make it significantly less likely that several of them in an area explode simultaneously.
+    Add an option to completely disable gamepad/joystick input. This may prevent your camera from spinning if other solutions did not.
+    Increased the range of the mouse sensitivity slider.
+    Add a "Safe Mode"/"Low Graphics" mode to force the game to start up with the lowest graphics settings. Right click on the Steam library entry and select 'Safe Mode.'
+    Adjusted the position of the plort market slightly.
+    Splash effect now used when a puddle plort is destroyed on hitting a solid surface.
+    Made the key icon on the slime gate more clear.
+    Added some extra under construction signs in the world for clarity.
+
+Bugfixes:
+
+    Fixed bug allowing Slimes and chickens to disappear in Grotto
+    Fixed bug where corrals and gardens on the ranch could sometimes be seen floating in space from far away.
+    Fixed bug with formatting of the garden crop countdown text.
+    Fixed bug where silos sometimes lost their contents on game load.
+    Fixed bug where special characters were allowed in game names, leading to problems saving the game later.
+    Fixed bug where shooting puddle plorts and slimes with water would cause them to disappear.
+    Fixed bug where the range exchange offers would sometimes carry over into a new game.
+    Fixed bug where footstep audio sometimes played during a jump.
+    Fixed bug where several sounds were ignoring the Sound Effects audio volume setting.
+    Fixed bug where the game time could be stuck in fast-forward mode.
+    Fixed bug where the Emergency Return confirmation was not properly closing on Esc.
+    Fixed bug where Phosphor slimes when on low graphics settings did not have wings.
+    Fixed bug where Boom Rock Largos would eat fruit to transform into Tarr.
+    Fixed some typos in slimepedia descriptions.
+    Reduced game stutter when loading the first Slimepedia popup.
+    Fixed bug where the slimepedia sometimes didn't properly unlock the initial vac and ranch pages.
+    Fixed bug where controlling the view with mouse or gamepad didn't work until a button was pressed.
+    Fixed bug where Tabby slimes and Tabby Largos would get stuck staring at food.
+    Fixed bug where crops in gardens sometimes ripened early on game reload.
+    Fixed bug where objects could end up inside the plort collector's collection box.

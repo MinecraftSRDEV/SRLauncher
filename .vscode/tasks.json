@@ -6,13 +6,13 @@
       "type": "shell",
       "command": "windres",
       "args": [
-        "${fileDirname}/resources/resources.rc",
+        "${workspaceFolder}/src/resources/resources.rc",
         "-o",
-        "${fileDirname}/resources/resources.o"
+        "${workspaceFolder}/src/resources/resources.o"
       ],
       "group": {
         "kind": "build",
-        "isDefault": false
+        "isDefault": true
       },
       "problemMatcher": []
     },
@@ -21,6 +21,7 @@
       "type": "shell",
       "command": "g++",
       "args": [
+        "-std=c++20",
         "-I",
         "C:/SFML-2.6.1/include",
         "-I",
@@ -33,7 +34,7 @@
         "C:/C++Libs/curl-8.9.0/lib",
         "-g",
         "${file}",
-        "${fileDirname}/resources/resources.o",
+        "${workspaceFolder}/src/resources/resources.o",
         "-o",
         "${workspaceFolder}/SRLauncher.exe",
         "-lsfml-graphics",
@@ -48,7 +49,7 @@
       },
       "problemMatcher": ["$gcc"],
       "dependsOn": "compile-resources",
-      "detail": "Generated task by Debugger."
+      "detail": "Compile SRLauncher."
     }
   ]
 }

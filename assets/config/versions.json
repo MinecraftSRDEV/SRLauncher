@@ -4,377 +4,599 @@
         "type": "pre-release",
         "mod_support": false,
         "date": "14 January 2016 19:40:18",
-        "manifest": "4045174004136343292"
+        "manifest": "4045174004136343292",
+        "iteration": 0
     },
     "0.2.4a":
     {
         "type": "pre-release",
         "mod_support": true,
         "date": "14 January 2016 19:40:18",
-        "manifest": "4045174004136343292"
+        "manifest": "4045174004136343292",
+        "iteration": 1
     },
     "0.2.4b":
     {
         "type": "pre-release",
         "mod_support": true,
         "date": "20 January 2016 22:10:47",
-        "manifest": "7182296344122123132"
+        "manifest": "7182296344122123132",
+        "iteration": 2
     },
     "0.2.5":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "24 February 2016 18:50:03",
-        "manifest": "6799269289357766840"
+        "manifest": "6799269289357766840",
+        "iteration": 3
     },
     "0.2.6":
     {
         "type": "pre-release",
         "mod_support": true,
         "date": "2 March 2016 21:33:00",
-        "manifest": "1033183441576441347"
+        "manifest": "1033183441576441347",
+        "iteration": 4
     },
     "0.3.0a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "13 April 2016 18:38:14",
-        "manifest": "5739960724280512899"
+        "manifest": "5739960724280512899",
+        "iteration": 5
     },
     "0.3.0b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "13 April 2016 20:20:35",
-        "manifest": "3772336976531939949"
+        "manifest": "3772336976531939949",
+        "iteration": 6
     },
     "0.3.0c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "14 April 2016 21:05:13",
-        "manifest": "4623224924342845759"
+        "manifest": "4623224924342845759",
+        "iteration": 7
     },
     "0.3.0d":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "19 April 2016 18:01:01",
-        "manifest": "2972284991921612878"
+        "manifest": "2972284991921612878",
+        "iteration": 8
     },
     "0.3.1":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "11 May 2016 18:18:27",
-        "manifest": "5743640177165165681"
+        "manifest": "5743640177165165681",
+        "iteration": 9
     },
     "0.3.2":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "25 May 2016 18:03:45",
-        "manifest": "2946735614319817428"
+        "manifest": "2946735614319817428",
+        "iteration": 10
     },
     "0.3.3":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "6 June 2016 17:15:22",
-        "manifest": "7738864408631168506"
+        "manifest": "7738864408631168506",
+        "iteration": 11
     },
     "0.3.4a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "28 June 2016 18:12:15",
-        "manifest": "6758041439170534385"
+        "manifest": "6758041439170534385",
+        "iteration": 12
     },
     "0.3.4b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "7 July 2016 18:31:15",
-        "manifest": "7445301902417763300"
+        "manifest": "7445301902417763300",
+        "iteration": 13
     },
     "0.3.5a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "2 August 2016 18:19:36",
-        "manifest": "441665626499515573"
+        "manifest": "441665626499515573",
+        "iteration": 14
     },
     "0.3.5b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "3 August 2016 20:22:31",
-        "manifest": "4160302346993532058"
+        "manifest": "4160302346993532058",
+        "iteration": 15
     },
     "0.3.5c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "4 August 2016 20:45:16",
-        "manifest": "7951669086951816288"
+        "manifest": "7951669086951816288",
+        "iteration": 16
     },
     "0.3.6":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "4 October 2016 18:08:15",
-        "manifest": "2275413498306063160"
+        "manifest": "2275413498306063160",
+        "iteration": 17
     },
     "0.3.7":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "26 October 2016 20:14:52",
-        "manifest": "9095519627420606792"
+        "manifest": "9095519627420606792",
+        "iteration": 18
     },
     "0.4.0a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "16 November 2016 18:59:07",
-        "manifest": "1077313905221894874"
+        "manifest": "1077313905221894874",
+        "iteration": 19
     },
     "0.4.0b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "17 November 2016 19:31:43",
-        "manifest": "7584701036356484349"
+        "manifest": "7584701036356484349",
+        "iteration": 20
     },
     "0.4.0c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "18 November 2016 19:22:05",
-        "manifest": "6870286703332284824"
+        "manifest": "6870286703332284824",
+        "iteration": 21
     },
     "0.4.1":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "13 December 2016 18:30:01",
-        "manifest": "8303185920772797051"
+        "manifest": "8303185920772797051",
+        "iteration": 22
     },
     "0.4.2a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "18 January 2017 18:37:05",
-        "manifest": "1694335367612045422"
+        "manifest": "1694335367612045422",
+        "iteration": 23
     },
     "0.4.2b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "18 January 2017 19:50:02",
-        "manifest": "5897923490926635963"
+        "manifest": "5897923490926635963",
+        "iteration": 24
     },
     "0.4.2c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "19 January 2017 00:10:50",
-        "manifest": "4530001700882359796"
+        "manifest": "4530001700882359796",
+        "iteration": 25
     },
     "0.4.2d":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "19 January 2017 21:20:06",
-        "manifest": "4191601468284027157"
+        "manifest": "4191601468284027157",
+        "iteration": 26
     },
     "0.4.3a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "8 February 2017 20:52:51",
-        "manifest": "7833287157571905798"
+        "manifest": "7833287157571905798",
+        "iteration": 27
     },
     "0.4.3b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "10 February 2017 00:19:26",
-        "manifest": "283920316031094754"
+        "manifest": "283920316031094754",
+        "iteration": 28
     },
     "0.4.3c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "10 February 2017 19:58:13",
-        "manifest": "4043740644288891779"
+        "manifest": "4043740644288891779",
+        "iteration": 29
     },
     "0.5.0a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "6 March 2017 19:30:38",
-        "manifest": "8187804633390722888"
+        "manifest": "8187804633390722888",
+        "iteration": 30
     },
     "0.5.0b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "7 March 2017 18:39:58",
-        "manifest": "3327198351526229552"
+        "manifest": "3327198351526229552",
+        "iteration": 31
     },
     "0.5.1a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "18 April 2017 20:05:05",
-        "manifest": "2766321578005003158"
+        "manifest": "2766321578005003158",
+        "iteration": 32
     },
     "0.5.1b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "19 April 2017 00:01:09",
-        "manifest": "1463473742245212406"
+        "manifest": "1463473742245212406",
+        "iteration": 33
     },
     "0.5.1c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "19 April 2017 20:09:44",
-        "manifest": "8728768945717888662"
+        "manifest": "8728768945717888662",
+        "iteration": 34
     },
     "0.6.0a":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "12 June 2017 18:40:15",
-        "manifest": "3005166342762747575"
+        "manifest": "3005166342762747575",
+        "iteration": 35
     },
     "0.6.0b":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "14 June 2017 17:21:55",
-        "manifest": "5726208285649647890"
+        "manifest": "5726208285649647890",
+        "iteration": 36
     },
     "0.6.0c":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "15 June 2017 17:59:11",
-        "manifest": "5417110692020453501"
+        "manifest": "5417110692020453501",
+        "iteration": 37
     },
     "0.6.0d":
     {
         "type": "pre-release",
         "mod_support": false,
         "date": "21 June 2017 17:27:50",
-        "manifest": "2082346440087920581"
+        "manifest": "2082346440087920581",
+        "iteration": 38
     },
     "1.0.0":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "1 August 2017 15:53:23",
-        "manifest": "5135774656716118593"
+        "manifest": "5135774656716118593",
+        "iteration": 39
     },
     "1.0.1a":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "7 August 2017 20:39:04",
-        "manifest": "4851587196133886854"
+        "manifest": "4851587196133886854",
+        "iteration": 40
     },
     "1.0.1b":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "7 August 2017 22:54:12",
-        "manifest": "4324966178055253335"
+        "manifest": "4324966178055253335",
+        "iteration": 41
     },
     "1.0.1c":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "9 August 2017 00:46:50",
-        "manifest": "422152276091152701"
+        "manifest": "422152276091152701",
+        "iteration": 42
     },
     "1.0.1d":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "15 August 2017 19:58:41",
-        "manifest": "247273116485453688"
+        "manifest": "247273116485453688",
+        "iteration": 43
     },
     "1.0.1e":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "16 August 2017 20:26:51",
-        "manifest": "8423504983419915811"
+        "manifest": "8423504983419915811",
+        "iteration": 44
     },
     "1.1.0a":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "17 October 2017 20:09:35",
-        "manifest": "5897958052374083277"
+        "manifest": "5897958052374083277",
+        "iteration": 45
     },
     "1.1.0b":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "20 October 2017 20:51:31",
-        "manifest": "1919820526115725711"
+        "manifest": "1919820526115725711",
+        "iteration": 46
     },
     "1.1.0c":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "22 October 2017 22:33:48",
-        "manifest": "4845007903748570401"
+        "manifest": "4845007903748570401",
+        "iteration": 47
     },
     "1.1.0d":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "26 October 2017 20:36:46",
-        "manifest": "2079501695052122794"
+        "manifest": "2079501695052122794",
+        "iteration": 48
     },
     "1.1.0e":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "31 October 2017 18:36:28",
-        "manifest": "3036455992843227148"
+        "manifest": "3036455992843227148",
+        "iteration": 49
     },
-    "1.1.1a":
+    "1.1.1":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "28 November 2017 19:45:22",
+        "manifest": "1637502931535337305",
+        "iteration": 50
+    },
+    "1.1.2":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "11 December 2017 19:45:51",
+        "manifest": "5474736100245866216",
+        "iteration": 51
+    },
+    "1.2.0a":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "13 March 2018 17:39:43",
+        "manifest": "5711025897832057767",
+        "iteration": 52
+    },
+    "1.2.0b":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "14 March 2018 22:27:22",
+        "manifest": "7382698957251043649",
+        "iteration": 53
+    },
+    "1.2.1a":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "3 April 2018 20:18:47",
+        "manifest": "4303510215236835719",
+        "iteration": 54
+    },
+    "1.2.1b":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "3 April 2018 23:19:35",
+        "manifest": "4113156500573990230",
+        "iteration": 55
+    },
+    "1.2.2":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "22 May 2018 20:48:30",
+        "manifest": "6567583593680649790",
+        "iteration": 56
+    },
+    "1.3.0a":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "17 July 2018 18:11:23",
+        "manifest": "2157716521240164266",
+        "iteration": 57
+    },
+    "1.3.0b":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "24 July 2018 17:32:10",
+        "manifest": "1403677244604722355",
+        "iteration": 58
+    },
+    "1.3.1a":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "23 October 2018 17:59:02",
+        "manifest": "7026817123929157660",
+        "iteration": 59
+    },
+    "1.3.1b":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "25 October 2018 17:05:43",
+        "manifest": "8949870417267410650",
+        "iteration": 60
+    },
+    "1.3.1c":
+    {
+        "type": "stable-release",
+        "mod_support": false,
+        "date": "31 October 2018 22:13:39",
+        "manifest": "9139465071697603267",
+        "iteration": 61
+    },
+    "1.3.2a":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "4 December 2018 21:07:52",
-        "manifest": "5058231856610850876"
+        "manifest": "5058231856610850876",
+        "iteration": 62
     },
-    "1.1.1b":
+    "1.3.2b":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "5 December 2018 23:03:54",
-        "manifest": "7164530134796481521"
+        "manifest": "7164530134796481521",
+        "iteration": 63
     },
     "1.3.2c":
     {
         "type": "stable-release",
         "mod_support": false,
         "date": "2 April 2019 21:59:29",
-        "manifest": "5431269293947431949"
+        "manifest": "5431269293947431949",
+        "iteration": 64
+    },
+    "1.4.0a":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "18 June 2019 18:02:24",
+        "manifest": "7506286600836917564",
+        "iteration": 65
+    },
+    "1.4.0b":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "20 June 2019 01:32:45",
+        "manifest": "6519949657988813973",
+        "iteration": 66
+    },
+    "1.4.0c":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "27 June 2019 21:36:03",
+        "manifest": "8175446157514313384",
+        "iteration": 67
+    },
+    "1.4.0d":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "5 August 2019 20:21:12",
+        "manifest": "5031921718320326634",
+        "iteration": 68
+    },
+    "1.4.1a":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "3 December 2019  17:23:06",
+        "manifest": "7606486939041161388",
+        "iteration": 69
+    },
+    "1.4.1b":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "5 December 2019 19:16:46",
+        "manifest": "5794995706320684390",
+        "iteration": 70
+    },
+    "1.4.1c":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "10 December 2019 22:12:21",
+        "manifest": "3625841615104358190",
+        "iteration": 71
+    },
+    "1.4.2":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "26 May 2020 17:01:02",
+        "manifest": "4980735195179703363",
+        "iteration": 72
+    },
+    "1.4.3":
+    {
+        "type": "stable-release",
+        "mod_support": true,
+        "date": "8 December 2020 17:00:34",
+        "manifest": "5877768838748196408",
+        "iteration": 73
     },
     "1.4.4":
     {
         "type": "stable-release",
         "mod_support": true,
         "date": "1 December 2021 18:01:02",
-        "manifest": "4496584778521264766"
+        "manifest": "4496584778521264766",
+        "iteration": 74
     }
 }

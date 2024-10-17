@@ -1,0 +1,4 @@
+A small patch was issued to address a few lingering bugs form the v1.0.1 update:
+
+    Fixed bug where during sleep or when returning to a ranch, largos sometimes produced only one type of plort.
+    Fixed bug where gadget map icons were not clearing properly from the map when the gadgets were picked up/demolished.

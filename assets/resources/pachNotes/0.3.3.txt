@@ -1,0 +1,16 @@
+Changes:
+
+    The Pulse Wave has received an overhaul: the visuals have been greatly improved and the knockback and its effectiveness has been increased against largos and tarr.
+    Boom slime explosion logic has been improved and has greatly reduced the chances of small items escaping corral barriers when they explode.
+    An FOV slider has been added in the Video Options menu.
+    Slimes that are actively fleeing Tarrs will now attempt to break up their slime stacks, because when things go south, it's every slime for themselves.
+    Adjusted the volume and falloff of a number of sound effects.
+    The music of the Slime Sea now has a new day and night theme.
+    Adjusted a bunch of environmental props.
+    Reordered a few items in the Slimepedia.
+    Removed normal slime voice overs from ferals. It was hard to be intimidating when you sounded that darn cute.
+
+Bugfixes:
+
+    Fixed bug causing fruit and vegetables to shrivel too much when they rot.
+    Fixed bug preventing use of “w” in text fields (game name, bug reports).

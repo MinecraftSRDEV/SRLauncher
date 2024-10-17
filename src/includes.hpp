@@ -5,14 +5,26 @@
 
 #include "headers/Classes/json_parser.hpp"
 #include "headers/Classes/json_encoder.hpp"
+#include "headers/Classes/md5calculator.hpp"
+#include "headers/Classes/VDF_parser.hpp"
 
 #include "headers/Functions/Logs/log_message.hpp"
 
 #include "headers/Classes/popup_message_window.hpp"
 #include "headers/Classes/instance_list.hpp"
+#include "headers/Classes/version_class.hpp"
+#include "headers/Classes/save_menagement/betterbuild_save.hpp"
+#include "headers/Classes/save_menagement/mod_class.hpp"
+#include "headers/Classes/save_menagement/game_save_class.hpp"
+
+// #include "headers/Classes/formattedText.hpp"
+
+#include "headers/Classes/steamGuardAuthClass.hpp"
 
 #include "headers/Declarations/SFMLObjects/objects.hpp"
 #include "headers/Declarations/SFMLObjects/ui/elements.hpp"
+
+#include "headers/Declarations/namespaces.hpp"
 
 #include "headers/Start/create_versions_list.hpp"
 #include "headers/Start/objects_attributes.hpp"
@@ -47,9 +59,12 @@
 
 #include "headers/SetObjectsParams/textures/setTextures.hpp"
 #include "headers/SetObjectsParams/ui/setButtons.hpp"
+#include "headers/SetObjectsParams/ui/setTheme.hpp"
 
 #include "headers/Functions/Userdata/get_userdata_path.hpp"
 #include "headers/Functions/Userdata/get_steam_default_path.hpp"
+
+#include "headers/Functions/Userdata/get_steam_profile.hpp"
 
 #include "headers/Start/construct_paths.hpp"
 
@@ -92,5 +107,7 @@
 
 #include "headers/Functions/window/draw.hpp"
 #include "headers/Functions/window/display.hpp"
+
+#include "headers/Functions/updates/launcher_update_check.hpp"
 
 #include "headers/SetObjectsParams/buttons/setFunctions.hpp"

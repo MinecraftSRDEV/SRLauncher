@@ -1,3 +1,5 @@
+void checkUpdate();
+
 /**
  * This function check if Main Launcher directory exists.
  * 
@@ -25,9 +27,47 @@ void runtime_check()
             directory_auto(backups_path);
             directory_auto(autobackup_path);
             directory_auto(configuration_path);
-            directory_auto(temp_path);
+            directory_auto(components_path);
+            directory_auto(downloader_path);
             directory_auto(cmd_path);
             directory_auto(logs_path);
+            directory_auto(mods_path);
+
+            directory_auto(UMFmodsFolder_path);
+            directory_auto(SMTFolder_path);
+            directory_auto(SMLFolder_path);
+            directory_auto(SRMLmodsFolder_path);
+
+            if (fs::is_empty(downloader_path))
+            {
+                copy_directory(fs::path("./assets/components/downloader"), downloader_path);
+                log_message("Installed DepotDownloader", LOG_TYPES::LOG_INFO);
+            }
+            else
+            {
+                try
+                {
+                    MD5 calculateMd5;
+
+                    std::string installedMD5 = calculateMd5.calculateFromFile(downloader_path.string() + "/DepotDownloader.exe");
+                    std::string includedMD5 = calculateMd5.calculateFromFile("./assets/components/downloader/DepotDownloader.exe");
+
+                    if (installedMD5 != includedMD5)
+                    {
+                        fs::remove_all(downloader_path);
+                        copy_directory(fs::path("./assets/components/downloader"), downloader_path);
+                        log_message("Included downloader MD5 wrong", LOG_TYPES::LOG_WARN);
+                    }    
+                }
+                catch (fs::filesystem_error e)
+                {
+                    
+                }
+                catch (std::runtime_error e)
+                {
+
+                }
+            }
 
             log_message("Loading config", LOG_TYPES::LOG_INFO);
             if (load_config_file(configuration_path.string() + "/config.json") == true)
@@ -38,16 +78,25 @@ void runtime_check()
             {
                 log_message("Launcher config load FAIL", LOG_TYPES::LOG_ERROR);
             }
+            
+            if (check_updates_when_start == true)
+            {
+                checkUpdate();
+            }
 
             SlimeRancher_steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
             SlimeRancher_instances_path_textbox.setText(reduceBackslashes(instances_dir));
             steamcmd_path_textbox.setText(reduceBackslashes(steamcmd_dir));
 
+            if (downloader_selected != steamcmd)
+            {
+                steamcmd_path_textbox.setReadOnlyMode(true);
+            }
+
             SteamProfile_name_textbox.setText(decryptor(steam_profile_name));
-            // SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
+            SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
 
             Save_logs_files_checkbox.setState(save_log_files);
-            login_manualy_checkbox.setState(loging_manualy);
             Show_older_instances_checkbox.setState(show_prerelease_version);
             Colored_logs_checkbox.setState(display_log_colors);
             automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
@@ -68,12 +117,14 @@ void runtime_check()
                 log_message("No instance mounted", LOG_TYPES::LOG_INFO);
                 mounted_instance = "Unmounted";
                 Mounted_instance_info_text.setString("No instance mounted");
+                mounted_instance_version.setString("");
             }
             else
             {
                 if (mounted_instance == "Unmounted")
                 {
                     Mounted_instance_info_text.setString("No instance mounted");
+                    mounted_instance_version.setString("");
                 }
                 else
                 {
@@ -84,10 +135,16 @@ void runtime_check()
 
             refresh_instances_list();
 
-            if (SteamCMDCheck() == true)
+            if (downloader_selected == steamcmd)
             {
-                log_message("SteamCMD is not installed", LOG_TYPES::LOG_WARN);
+                if (SteamCMDCheck() == true)
+                {
+                    log_message("SteamCMD is not installed", LOG_TYPES::LOG_WARN);
+                }    
             }
+
+            theme_list_ddl.setFromResult(std::to_string(theme_selected));
+            downloaders_ddl.setFromResult(std::to_string(downloader_selected));
         }
         else
         {
@@ -112,7 +169,7 @@ void runtime_check()
             update_config_file();
 
             SteamProfile_name_textbox.setText(steam_profile_name);
-            // SteamProfile_password_textbox.setText(steam_profile_passwd);
+            SteamProfile_password_textbox.setText(steam_profile_passwd);
 
             goto restart_runtime;
         }    

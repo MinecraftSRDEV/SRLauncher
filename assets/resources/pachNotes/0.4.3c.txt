@@ -1,0 +1,4 @@
+A fix was issued to address a bug that was potentially corrupting save files. You can read more about it here:
+viewtopic.php?f=3&t=3790
+
+And if you haven't been following Monomi Park's Twitter or blog, here's a sneak peek of the quantum slimes and the mysterious ruins they inhabit coming in v0.5.0! 

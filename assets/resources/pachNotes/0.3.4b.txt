@@ -1,0 +1,4 @@
+    Achievements are now awarded in Steam, hurray!
+    Fixed a minor layout bug in the Achievements Screen
+    Fixed some achievement description translations
+    Fixed a bug with resetting your profile

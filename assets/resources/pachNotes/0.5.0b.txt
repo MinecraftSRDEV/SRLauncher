@@ -1,0 +1,11 @@
+A patch was issued today to fix some bugs following the release of v0.5.0:
+
+    Fixed bug where quantum plort was not shown on the Refinery screen.
+    Fixed bug where quantum slimes could escape the grotto to above the ceiling.
+    Fixed bug where quantum slimes would intentionally escape directly to the Slime Sea. It is unclear if one day they would return as hardened, salt-crusted pirates, but we just weren't going to take that chance.
+    Fixed bug where pink quantum largos would eat quantum plorts but not boom plorts.
+    Fixed bug where quantum crystal largo would appear pink while rolling.
+    Fixed bug where quantum largos were not transparent went[sic] held on the vac.
+    Fixed bug where water was not going in through corral walls.
+    Fixed bug where fashion pods were not going in through corral walls.
+    Fixed bug where echoes were showing as 'Echoes' when targeted instead of the specified type (e.g. 'Red Echo')

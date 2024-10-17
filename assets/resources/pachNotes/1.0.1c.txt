@@ -1,0 +1,6 @@
+A small patch was issued to address a few lingering bugs form the v1.0.1 update:
+
+    Charcoal bricks are no longer incinerated by incinerator.
+    Fixed bug where painted chicks did not award the 'You Monster' achievement
+    Fixed gadget markers in Glass Desert map displaying upside down.
+    Fixed bug where slimes could occasionally eat plorts through a pen wall while sleeping until morning, resulted in unexpected largos.

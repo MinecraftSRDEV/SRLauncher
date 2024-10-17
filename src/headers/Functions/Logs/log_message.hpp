@@ -1,3 +1,5 @@
+sfg::Textfield console;
+
 void log_message(std::string message, int type)
 {
     std::time_t t = std::time(0);
@@ -52,6 +54,8 @@ void log_message(std::string message, int type)
     }
 
     log_output += std::to_string(cur_H) + ":" + std::to_string(cur_M) + ":" + std::to_string(cur_S) + " " + message;
+
+    console.addText(log_output);
 
     std::cout << log_output;
     if (display_log_colors == true)

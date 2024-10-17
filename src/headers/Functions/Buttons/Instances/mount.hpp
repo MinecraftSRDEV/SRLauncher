@@ -10,6 +10,7 @@ void mount_function(std::string instance_id)
         unmount_funtcion();
         mounted_instance = instances_list[instance_id].getID();
         Mounted_instance_info_text.setString(mounted_instance);
+        mounted_instance_version.setString("v." + instances_list[instance_id].getVer());
 
         steam_game_dir = SlimeRancher_steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;

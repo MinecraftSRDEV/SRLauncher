@@ -4,7 +4,9 @@ void run_game(std::string path)
     launch_last_instance_button.setText("Running");
     ShowWindow(launcherWindow, SW_MINIMIZE);
     game_running = true;
+    window.setFramerateLimit(5);
     system(formatPathForSystem(path).c_str());
+    window.setFramerateLimit(15);
     ShowWindow(launcherWindow, SW_RESTORE);
     game_running = false;
     reset_play_button_text();
@@ -28,7 +30,7 @@ std::string compile_current_date()
 
 void reset_play_button_text()
 {
-    launch_last_instance_button.setText("Launch mounted instance");
+    launch_last_instance_button.setText("Launch instance");
 }
 
 bool create_achivements_backup()

@@ -1,0 +1,6 @@
+A small patch was issued today to address a few issues related to the Slime Science Update:
+
+    Fixed some missing sounds that include the feral largo spawn, and the boom slime's explosion. Because boom slimes really did not need to be silent AND deadly.
+    Fixed some issues with geometry pop-in.
+    Fixed an issue with Slime Sea becoming invisible in certain narrow situations. We realize this is just more fuel for those Slime Sea deniers out there.
+    Fixed already-open treasure pods replaying their effects on reloading a game, because the party must eventually end.

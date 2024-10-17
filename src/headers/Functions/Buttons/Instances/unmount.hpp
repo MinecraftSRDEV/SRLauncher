@@ -32,6 +32,7 @@ bool unmount_funtcion()
                 
                 mounted_instance = "Unmounted";
                 Mounted_instance_info_text.setString("No instance mounted");
+                mounted_instance_version.setString("");
                 update_config_file();
                 log_message("Instance unmounted", LOG_TYPES::LOG_INFO);
                 return true;

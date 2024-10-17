@@ -1,0 +1,30 @@
+Changes:
+
+    The Moss Blanket has received a major overhaul! It’s about twice as big as it was previously and has a whole suite of unique art assets to make it the moody, emerald forest it always dreamed it could be.
+    Hunter slimes are now on the prowl and can be discovered within the Moss Blanket! These sly predators can utilize a natural cloaking ability and create feral largos with their plorts.
+    Improved gamepad UI-navigation on purchase/shop screens.
+    Improved gamepad UI-navigation on Load Game screen.
+    Garden depositors now simply display the icon of the food growing instead of the ‘Harvest Time’ countdown. After thorough testing and player feedback we determined the timer was confusing. Though more info may be added to it in the future.
+    Added a “Loading” step when bringing up the Load Game screen while waiting for the game summaries to load. Only really noticeable for very large sets of save files.
+    The world is now prettier and easier to see in at night thanks to a lovely rim light added to all the environmental objects.
+    The radio in Beatrix’s house now plays some catchy tunes that change throughout the day.
+    Reorganized the Gamepad Options panel
+    Water is now more effective against Tarr, though just as before, they are twice as hard to kill at night.
+    Tarrs now visibly flash red when hit. At first we thought it was because the water made them blush but then they exploded...
+    Adjusted the fill color for vac slots of various poultry to be in accordance with the International Association of Chicken in Video Games standards.
+    Added puddle and hunter slimes to the Range Exchange
+    Added ravian flocks to Moss blanket and other parts of the Range (pretty bird-like things way up in the sky)
+    Made Slimepedia Vacpack entries show gamepad-specific defaults when using the gamepad.
+    Added a sprint toggle option
+    Improved New Game panel, especially for use with gamepads.
+    Increased visibility on veggies, fruit, and chickens in the dark.
+    Made a significant optimization pass to art and level assets that should improve overall performance.
+
+Fixes:
+
+    Fixed bug where feral largos could become un-feral after a reload. The fix involves quickly but savagely insulting feral slimes on game load in order to ensure continual anger.
+    Fixed bug where the Slimepedia title was of poor quality on low graphics settings.
+    Fixed bug where New Game / Load Game screens were not responding to the B button.
+    Fixed bug where Range Exchange was not recognizing that players had progressed into new areas and continuing to request the same old stuff.
+    Fixed memory leak related to boom slimes.
+    Fixed bug vac-ing water was not playing the appropriate sound effect.
