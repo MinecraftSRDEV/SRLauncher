@@ -1,5 +1,7 @@
-void update_config_file()
+bool update_config_file()
 {
+    const std::string FAIL_TEXT = "Cannot save config file: ";
+
     JSONEncoder::JSONObject config;
 
     config.add("steam_game_dir", new JSONEncoder::JSONString(steam_game_dir));
@@ -19,8 +21,26 @@ void update_config_file()
     config.add("downloader", new JSONEncoder::JSONNumber(downloader_selected));
     
     std::string jsonConfig =  config.stringify();
-    std::ofstream configfile;
-    configfile.open(configuration_path / "config.json");
-    configfile << JSONEncoder::formatJson(jsonConfig);;
-    configfile.close();
+
+    if (!jsonConfig.empty())
+    {
+        std::ofstream configfile;
+        configfile.open(configuration_path / "config.json");
+        if (configfile.is_open())
+        {
+            configfile << JSONEncoder::formatJson(jsonConfig);
+            configfile.close();
+            return true;
+        }
+        configfile.close();
+        log_message(FAIL_TEXT + "cannot open file", LogTypes::LOG_ERROR);
+        return false;
+    }
+    else
+    {
+        log_message(FAIL_TEXT + "json is empty", LogTypes::LOG_ERROR);
+        return false;
+    }
+
+    return false;
 }

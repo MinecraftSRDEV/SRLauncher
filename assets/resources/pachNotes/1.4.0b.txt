@@ -1,0 +1,4 @@
+A small patch was issued to fix a few issues related to the last release.
+
+    Fixed a visual bug relating to the skybox
+    Fixed an issue with Advanced Drones program assignment

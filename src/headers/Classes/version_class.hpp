@@ -46,6 +46,13 @@ void repositionScroll()
 
 void render(sf::RenderWindow& window)
 {
+    if (show_prerelease_version == false)
+    {
+        if (versionsData_map[this->versionSet].version_type == "pre-release")
+        {
+            return;
+        }    
+    }
     if (background.getPosition().y > -200 and background.getPosition().y <= 800)
     {
         window.draw(background);

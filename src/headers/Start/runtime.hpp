@@ -41,7 +41,7 @@ void runtime_check()
             if (fs::is_empty(downloader_path))
             {
                 copy_directory(fs::path("./assets/components/downloader"), downloader_path);
-                log_message("Installed DepotDownloader", LOG_TYPES::LOG_INFO);
+                log_message("Installed DepotDownloader", LogTypes::LOG_INFO);
             }
             else
             {
@@ -56,7 +56,7 @@ void runtime_check()
                     {
                         fs::remove_all(downloader_path);
                         copy_directory(fs::path("./assets/components/downloader"), downloader_path);
-                        log_message("Included downloader MD5 wrong", LOG_TYPES::LOG_WARN);
+                        log_message("Included downloader MD5 wrong", LogTypes::LOG_WARN);
                     }    
                 }
                 catch (fs::filesystem_error e)
@@ -69,14 +69,14 @@ void runtime_check()
                 }
             }
 
-            log_message("Loading config", LOG_TYPES::LOG_INFO);
+            log_message("Loading config", LogTypes::LOG_INFO);
             if (load_config_file(configuration_path.string() + "/config.json") == true)
             {
-                log_message("Launcher config load OK", LOG_TYPES::LOG_INFO);
+                log_message("Launcher config load OK", LogTypes::LOG_INFO);
             }
             else
             {
-                log_message("Launcher config load FAIL", LOG_TYPES::LOG_ERROR);
+                log_message("Launcher config load FAIL", LogTypes::LOG_ERROR);
             }
             
             if (check_updates_when_start == true)
@@ -97,31 +97,31 @@ void runtime_check()
             SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
 
             Save_logs_files_checkbox.setState(save_log_files);
-            Show_older_instances_checkbox.setState(show_prerelease_version);
+            Show_prereleases_checkbox.setState(show_prerelease_version);
             Colored_logs_checkbox.setState(display_log_colors);
             automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
             do_not_show_warnings_checkbox.setState(show_warnings);
-            log_message("Loading versions list", LOG_TYPES::LOG_INFO);
+            log_message("Loading versions list", LogTypes::LOG_INFO);
             if (load_versions_list() == true)
             {
-                log_message("Versions list load OK", LOG_TYPES::LOG_INFO);
+                log_message("Versions list load OK", LogTypes::LOG_INFO);
             }
             else
             {
-                log_message("Versions list load FAIL", LOG_TYPES::LOG_ERROR);
+                log_message("Versions list load FAIL", LogTypes::LOG_ERROR);
             }
 
             if (mounted_instance.empty())
             {
                 rename_orginal_dir();
-                log_message("No instance mounted", LOG_TYPES::LOG_INFO);
-                mounted_instance = "Unmounted";
+                log_message("No instance mounted", LogTypes::LOG_INFO);
+                mounted_instance = UNMOUNTED_INSTANCE;
                 Mounted_instance_info_text.setString("No instance mounted");
                 mounted_instance_version.setString("");
             }
             else
             {
-                if (mounted_instance == "Unmounted")
+                if (mounted_instance == UNMOUNTED_INSTANCE)
                 {
                     Mounted_instance_info_text.setString("No instance mounted");
                     mounted_instance_version.setString("");
@@ -130,31 +130,32 @@ void runtime_check()
                 {
                     Mounted_instance_info_text.setString(mounted_instance);
                 }
-                log_message("Mounted instance: " + mounted_instance, LOG_TYPES::LOG_INFO);
+                log_message("Mounted instance: " + mounted_instance, LogTypes::LOG_INFO);
             }
 
-            refresh_instances_list();
 
             if (downloader_selected == steamcmd)
             {
                 if (SteamCMDCheck() == true)
                 {
-                    log_message("SteamCMD is not installed", LOG_TYPES::LOG_WARN);
+                    log_message("SteamCMD is not installed", LogTypes::LOG_WARN);
                 }    
             }
 
             theme_list_ddl.setFromResult(std::to_string(theme_selected));
             downloaders_ddl.setFromResult(std::to_string(downloader_selected));
+
+            loadLicences();
         }
         else
         {
             if (create_dir(defaultDir) == true)
             {
-                log_message("Launcher directory created in: " + defaultDir.string(), LOG_TYPES::LOG_INFO);
+                log_message("Launcher directory created in: " + defaultDir.string(), LogTypes::LOG_INFO);
             }
             else
             {
-                log_message("Cannot create launcher directory", LOG_TYPES::LOG_ERROR);
+                log_message("Cannot create launcher directory", LogTypes::LOG_ERROR);
                 MessageBoxA(NULL, "Cannot create launcher directory", "Error", MB_ICONERROR | MB_OK);
                 close_launcher();
             }

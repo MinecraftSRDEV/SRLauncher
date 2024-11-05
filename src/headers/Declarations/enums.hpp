@@ -1,4 +1,4 @@
-enum UI_PAGES {
+enum UiPages {
     MainMenu,
     InstancesMenu,
     NewInstanceMenu,
@@ -6,17 +6,19 @@ enum UI_PAGES {
     VersionsList,
     ImportInstanceMenu,
     ManageMenu,
-    VersionDescriptionMenu
+    VersionDescriptionMenu,
+    EditInstanceMenu
 };
 
-enum SETTIGNS_CATEGORIES {
+enum SettingsCategories {
     MAIN_PAGE,
     PROFILE_PAGE,
     CREDITS_PAGE,
-    UPDATES_PAGE
+    UPDATES_PAGE,
+    LICENCES_PAGE
 };
 
-enum MANAGE_CATEGORIES {
+enum ManageCategories {
     MNG_MAIN_PAGE,
     VANILLA_SAVES,
     BETTERBUILD_SAVES,
@@ -25,19 +27,37 @@ enum MANAGE_CATEGORIES {
     MODS_PAGE
 };
 
-enum LOG_TYPES {
+enum LogTypes {
     LOG_INFO,
     LOG_WARN,
     LOG_ERROR
 };
 
-enum DOWNLOADERS {
+enum Downloaders {
     depotdownloader,
     steamcmd
+};
+
+enum SaveTypes {
+    vanilla_save_backup,
+    betterbuild_save_backup
 };
 
 enum OfflineModeCheckState {
     result_online,
     result_offline,
     result_fail
+};
+
+enum ModLoaders {
+    SMT_ld,
+    SML_ld,
+    SRML_ld,
+    UMF_ld,
+    UNKNOWN_ld
+};
+
+enum BbReaderMode {
+    old_loader,
+    new_loader
 };

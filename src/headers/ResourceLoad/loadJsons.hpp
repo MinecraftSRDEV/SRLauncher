@@ -1,18 +1,23 @@
 void positionListElements()
 {
-    int ver_last_x = 100;
+    int ver_last_x = 113;
     int ver_last_y = 85;
     for (const auto& pair : versions_pachnotes_list)
     {
-        if (Show_older_instances_checkbox.getState() == true and versions_map[versions_pachnotes_list[pair.first].getVersion()].version_type != "pre_release")
+        if (show_prerelease_version == false)
         {
-            versions_pachnotes_list[pair.first].reposition(ver_last_x, ver_last_y);
-            ver_last_x += 266;
-            if (ver_last_x > 940)
+            if (versionsData_map[versions_pachnotes_list[pair.first].getVersion()].version_type == "pre-release")
             {
-                ver_last_x = 100;
-                ver_last_y += 190;
-            }
+                continue;
+            }    
+        }
+        
+        versions_pachnotes_list[pair.first].reposition(ver_last_x, ver_last_y);
+        ver_last_x += 266;
+        if (ver_last_x > 940)
+        {
+            ver_last_x = 113;
+            ver_last_y += 190;
         }
     }
 }
@@ -89,7 +94,7 @@ void create_mods_directories(const SRVersion& prsp)
                         {
                             fs::remove(SMTFolder_path / "0.2.6/SRMultimod.dll");
                             fs::copy_file(fs::path("./assets/components/mods/SRMultimod.dll"), SMTFolder_path / "0.2.6/SRMultimod.dll");
-                            log_message("Included MultiMod MD5 wrong", LOG_TYPES::LOG_WARN);
+                            log_message("Included MultiMod MD5 wrong", LogTypes::LOG_WARN);
                         }
                     }
                 }
@@ -131,22 +136,24 @@ bool load_versions_list()
             output.release_date = versionObject.getObject().at("date").getString();
             output.manifest = versionObject.getObject().at("manifest").getString();
             output.itr = versionObject.getObject().at("iteration").getNumber();
+            output.executable_hash = versionObject.getObject().at("SH").getString();
+            output.assembly_hash = versionObject.getObject().at("AH").getString();
 
             loadVersionPachnotes(name, output.itr);
             create_mods_directories(output);
-            versions_map[output.version_name] = output;
+            versionsData_map[output.version_name] = output;
         }    
     }
     catch (std::runtime_error re)
     {
         std::string errmsg = re.what();
-        log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);
+        log_message("Json error: " + errmsg, LogTypes::LOG_ERROR);
         return false;
     }
     catch (std::out_of_range pe)
     {
         std::string errmsg = pe.what();
-        log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);
+        log_message("Parse error: " + errmsg, LogTypes::LOG_ERROR);
         return false;
     }
     return true;
@@ -171,7 +178,7 @@ void steamcmd_dir_def()
 void show_prerelease_def()
 {
     show_prerelease_version = true;
-    Show_older_instances_checkbox.setState(show_prerelease_version);
+    Show_prereleases_checkbox.setState(show_prerelease_version);
 }
 void save_logs_def()
 {
@@ -209,132 +216,102 @@ void downloader_def()
     downloader_selected = depotdownloader;
 }
 
+typedef void (*FunctionType)();
+void loadConfigKeyStr(const JSON& json, std::string& value, const std::string& key, const std::string& message, FunctionType defaultFunction)
+{
+    try
+    {
+        value = reduceBackslashes(json.getObject().at(key).getString());
+        if (!message.empty())
+        {
+            log_message(message + value, LogTypes::LOG_INFO);       
+        }
+    }
+    catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}
+    catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}    
+}
+
+void loadConfigKeyInt(const JSON& json, int& value, const std::string& key, const std::string& message, FunctionType defaultFunction)
+{
+    try
+    {
+        value = json.getObject().at(key).getNumber();
+        if (!message.empty())
+        {
+            log_message(message + std::to_string(value), LogTypes::LOG_INFO);       
+        }    
+    }
+    catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}
+    catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}  
+}
+
+void loadConfigKeyBool(const JSON& json, bool& value, const std::string& key, const std::string& message, FunctionType defaultFunction)
+{
+    try
+    {
+        value = json.getObject().at(key).getBool();
+        if (!message.empty())
+        {
+            log_message(message + std::to_string(value), LogTypes::LOG_INFO);       
+        }    
+    }
+    catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}
+    catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LogTypes::LOG_ERROR);if(defaultFunction != nullptr){defaultFunction();}}  
+}
+
 bool load_config_file(std::string path_to_config)
 {
     try
     {
         JSON json = JSON::parseFromFile(path_to_config);
 
-        try
-        {
-            steam_game_dir = reduceBackslashes(json.getObject().at("steam_game_dir").getString());
-            log_message("Steam game dir: " + steam_game_dir, LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);steam_gamedir_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);steam_gamedir_def();}
+        loadConfigKeyStr(json, steam_game_dir, "steam_game_dir", "Steam game dir: ", steam_gamedir_def);
+        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
 
-        try
-        {
-            mounted_instance = json.getObject().at("mounted_instance").getString();
-            log_message("Mounted instance: " + mounted_instance, LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);}
+        loadConfigKeyStr(json, mounted_instance, "mounted_instance", "Mounted instance: ", nullptr);
 
-        try
-        {
-            instances_dir = reduceBackslashes(json.getObject().at("instances_dir").getString());
-            log_message("Instances dir: " + instances_dir, LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);instances_dir_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);instances_dir_def();}
+        loadConfigKeyStr(json, instances_dir, "instances_dir", "Instances dir: ", instances_dir_def);
+        SlimeRancher_instances_path_textbox.setText(instances_dir);
 
-        try
-        {
-            steamcmd_dir = reduceBackslashes(json.getObject().at("steamcmd_dir").getString());
-            log_message("SteamCMD dir: " + steamcmd_dir, LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);steamcmd_dir_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);steamcmd_dir_def();}
+        loadConfigKeyStr(json, steamcmd_dir, "steamcmd_dir", "SteamCMD dir: ", steamcmd_dir_def);
+        steamcmd_path_textbox.setText(steamcmd_dir);
 
-        try
-        {
-            steam_profile_name = json.getObject().at("spn").getString();
-            steam_profile_passwd = json.getObject().at("spp").getString();
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);}
+        loadConfigKeyStr(json, steam_profile_name, "spn", "", nullptr);
+        loadConfigKeyStr(json, steam_profile_passwd, "spp", "", nullptr);
+        loadConfigKeyStr(json, saved_version, "saved_version", "Saved version: ", nullptr);
 
-        try
-        {
-            saved_version = json.getObject().at("saved_version").getString();
-            log_message("Saved version: " + saved_version, LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);}
+        loadConfigKeyBool(json, save_log_files, "save_logs", "Log file autosave: ", save_logs_def);
+        Save_logs_files_checkbox.setState(save_log_files);
 
-        try
-        {
-            save_log_files = json.getObject().at("save_logs").getBool();
-            log_message("Log file autosave: " + std::to_string(save_log_files), LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);save_logs_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);save_logs_def();}
+        loadConfigKeyBool(json, display_log_colors, "colored_logs", "Colored logs: ", logs_color_def);
+        Colored_logs_checkbox.setState(display_log_colors);
 
-        try
-        {
-            display_log_colors = json.getObject().at("colored_logs").getBool();
-            log_message("Colored logs: " + std::to_string(display_log_colors), LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);logs_color_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);logs_color_def();}
+        loadConfigKeyBool(json, show_prerelease_version, "show_prereleases", "Show pre-release game versions: ", show_prerelease_def);
+        Show_prereleases_checkbox.setState(show_prerelease_version);
 
-        try
-        {
-            show_prerelease_version = json.getObject().at("show_prereleases").getBool();
-            log_message("Show pre-release game versions: " + std::to_string(show_prerelease_version), LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);show_prerelease_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);show_prerelease_def();}
+        loadConfigKeyBool(json, autolaunch_instances, "auto_launch", "autolaunch instances: ", autolaunch_instances_def);
+        automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
+        
+        loadConfigKeyBool(json, show_warnings, "show_warnings", "show_warnings: ", show_warns_def);
+        do_not_show_warnings_checkbox.setState(show_warnings);
 
-        try
-        {
-            autolaunch_instances = json.getObject().at("auto_launch").getBool();
-            log_message("autolaunch instances: " + std::to_string(autolaunch_instances), LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);autolaunch_instances_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);autolaunch_instances_def();}
+        loadConfigKeyBool(json, check_updates_when_start, "auto_update_check", "update check: ", autocheck_updates_def);
+        autocheck_for_update_checkbox.setState(check_updates_when_start);
 
-        try
-        {
-            show_warnings = json.getObject().at("show_warnings").getBool();
-            log_message("show_warnings: " + std::to_string(show_warnings), LOG_TYPES::LOG_INFO);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);show_warns_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);show_warns_def();}
+        loadConfigKeyInt(json, theme_selected, "theme", "theme: ", theme_def);
 
-        try
-        {
-            check_updates_when_start = json.getObject().at("auto_update_check").getBool();
-            autocheck_for_update_checkbox.setState(check_updates_when_start);
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);autocheck_updates_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);autocheck_updates_def();}
-
-        try
-        {
-            theme_selected = json.getObject().at("theme").getNumber();
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);theme_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);theme_def();}
-
-        try
-        {
-            downloader_selected = json.getObject().at("downloader").getNumber();
-        }
-        catch (std::runtime_error re){std::string errmsg = re.what();log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);downloader_def();}
-        catch (std::out_of_range pe){std::string errmsg = pe.what();log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);downloader_def();}
+        loadConfigKeyInt(json, downloader_selected, "downloader", "downloader: ", downloader_def);
     }
     catch (std::runtime_error re)
     {
         std::string errmsg = re.what();
-        log_message("Json error: " + errmsg, LOG_TYPES::LOG_ERROR);
+        log_message("Json error: " + errmsg, LogTypes::LOG_ERROR);
         return false;
     }
     catch (std::out_of_range pe)
     {
         std::string errmsg = pe.what();
-        log_message("Parse error: " + errmsg, LOG_TYPES::LOG_ERROR);
+        log_message("Parse error: " + errmsg, LogTypes::LOG_ERROR);
         return false;
     }
     return true;

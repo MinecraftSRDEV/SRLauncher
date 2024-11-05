@@ -1,10 +1,3 @@
-struct SRVersionChangelog {
-    std::string deskription;
-    std::string changes;
-    std::string fixes;
-    std::string image_link;
-};
-
 struct SRVersion {
     std::string version_name;
     bool mod_support;
@@ -12,6 +5,8 @@ struct SRVersion {
     std::string manifest;
     std::string version_type;
     int itr;
+    std::string executable_hash;
+    std::string assembly_hash;
 };
 
 struct InstanceModAttributes {
@@ -31,6 +26,22 @@ struct WorldData {
     int objectCount;
     int spawnerCount;
     std::string levelname;
+};
+
+struct SavegameData {
+    std::string name;
+    std::string version;
+    std::string last_played;
+    int currency;
+    int day;
+    int slimepedia;
+};
+
+struct BackupData {
+    std::string name;
+    std::string date;
+    std::string source;
+    int type;
 };
 
 struct ModAttribs {

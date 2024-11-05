@@ -1,0 +1,15 @@
+A bugfix patch was issued today to address a few smaller issues, as well as to begin address a larger, standing issue.
+
+While this patch will not fix a save file that is currently unusable, it should mitigate future occurrences of the issue, so we decided to push this update now. We hope to have a solution for the unusable save files issues as soon as a fix is available. Thank you for your patience.
+
+    Fixed bug where a behavior used by saber/tabby/hunter slimes could sometimes cause them to get into an invalid position which could lead to instability.
+    Fixed a situation where gold slimes could sometimes fail to properly flee from Beatrix.
+    Fixed saber plorts being missing from the refinery.
+    Fixed a typo in the saber slime description.
+    Fixed a typo in an Ogden dialogue message.
+    Fixed hunter slimes not being willing to eat spicy tofu.
+    Fixed saber slimes incorrectly having a favorite food.
+    Fixed spicy tofu being a favorite of tangle slimes
+    Fixed incorrect icon on spare slime key.
+    Fixed bug where on Linux the game could sometimes attempt to change resolution resulting in a black screen.
+    Fixed bug where Mac clients would show resolutions as running a 0Hz when the monitor was not reporting the refresh rate.

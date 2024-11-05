@@ -1,0 +1,44 @@
+The Storage Situation:
+Do you have hundreds of echoes hovering in a corner somewhere? Maybe a few thousand Wiggly Wonderland ornaments stashed in The Grotto? The Little Big Storage Update is here to help! Ranch storage is getting a huge upgrade and it’s just in time for a little spring cleaning.
+
+    Silos and warp depots now accept ornaments and echoes.
+    Silo and warp depot slot capacity increased to a whopping 300 units (from 100).
+    Silos now have 3 storage slots per side.
+
+That’s right, we’re giving you 12 slots with the ability to hold 300 items each. You do the math!
+
+Achievements:
+
+    Unlinked Steam achievements from in-game achievements to better support the case of multiple people sharing a machine and playing the game on two different Steam accounts.
+    Resetting in-game achievements will no longer reset Steam achievements.
+    In-game achievements will no longer sync when starting a new game on Steam.
+    If you earn an achievement while having only one type unlocked (in-game vs Steam), you will now see the pop-up for the missing achievement.
+    Non-Rush Mode achievements will no longer be awarded while in Rush Mode.
+    Updated silo achievement so you won’t need to completely fill the new silos.
+
+Other:
+
+    You got a raise! Mochi will now pay you 200 newbucks for every 10 quicksilver plorts you deliver.
+    Added some flashy effects to the Nimble Valley countdown animation.
+    Added an intro animation to the start of Rush Mode.
+    Added a pinch of pizzazz to the end animation for Rush Mode. (it’s much more than a pinch tbh)
+    Coins dropped in the world are snatched up and pocketed much quicker now.
+    Created an innovative game save mechanism that can see through space and time to prevent confusion when ranchers time travel or access their ranch on different machines.
+    Made it so the map tutorial will be completed immediately upon opening the map to complete the map tutorial.
+    Updated some Russian in the Russian translation.
+
+Fixes:
+
+    Fixed a bug where names of items stored in the vac wouldn’t translate when selecting a different language.
+    “Fixed” the snooze button on the ranch alarm clock so Beatrix won’t be able to sleep past 6:00AM.
+    Fixed a treacherous spot in the Glass Desert where you could get stuck.
+    Fixed a part of Mochi’s Manor where you could get stuck before you opened the expansion barrier.
+    Fixed a spot in the Nimble Valley where you could get stuck.
+    Fixed bug where radar icons would sometimes shake while moving. At least it wasn’t getting stuck!
+    Fixed bug where the vac would jitter while moving.
+    Fixed a bug where very sneaky ranchers were able to sneak quicksilver plorts off of the Valley using a sneaky arrangement of warp depots and silos.
+    Fixed some bugs related to the Tabby Space Program where tabby slimes were attempting to rocket to the moon.
+    Fixed a bug where fire slimes would (tragically) bounce (out of their troughs) with excitement when they saw Beatrix return to the ranch.
+    Fixed a bug where the incinerator could destroy glints. They will no longer fight fire with fire.
+    Fixed a bug where Mochi’s Manor icon was not appearing on teleporters.
+    Fixed some quicksilver slime sounds so they now sound like quicksilver slimes.

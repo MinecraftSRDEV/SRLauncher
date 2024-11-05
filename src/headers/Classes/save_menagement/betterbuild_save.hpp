@@ -91,6 +91,16 @@ sf::FloatRect getHitbox()
     return background.getGlobalBounds();
 }
 
+sf::FloatRect getBackupButtonHitbox()
+{
+    return make_backup_button.hitbox();
+}
+
+WorldData getData()
+{
+    return data;
+}
+
 void changePosition(int x, int y)
 {
     background.setPosition(x, y);
@@ -103,14 +113,15 @@ void event(sf::Event& event)
 }
 typedef void (*FunctionType)();
 
-void transportFunction(FunctionType function)
+void transportFunction(FunctionType function, FunctionType backup)
 {
     cachedFunction = function;
+    backupFunction = backup;
 
     remove_lock_button.setFunction(cachedFunction);     //placeholder
     remove_button.setFunction(cachedFunction);      //placeholder
     gamesaves_slots_button.setFunction(cachedFunction);     //placeholder
-    make_backup_button.setFunction(cachedFunction);     //placeholder
+    make_backup_button.setFunction(backupFunction);
 }
 
 private:
@@ -165,4 +176,5 @@ sfg::Button gamesaves_slots_button;
 sfg::Button make_backup_button;
 
 FunctionType cachedFunction = nullptr;
+FunctionType backupFunction = nullptr;
 };

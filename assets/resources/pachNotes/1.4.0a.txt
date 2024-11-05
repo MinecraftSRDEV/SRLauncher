@@ -1,0 +1,87 @@
+This update is jam-packed with cutting-edge ranch tech including: Advanced Drones to help with daily chores, a (questionably useful) Chicken Cloner, and a whole collection of wacky gadgets designed by Viktor himself! There’s also a new zone, new ranch expansion, and a new slime!
+
+
+Viktor’s Slimeulation:
+Viktor has been working on a virtual re-creation of the Far, Far Range and it’s full of bugs. Well, glitches. Well… glitch slimes to be exact.
+
+    Viktor will invite you to his Workshop after you’ve unlocked the Ruins, purchase the Lab Ranch Expansion, unlocked Treasure Cracker MKII, and then successfully complete a Range Exchange request with him.
+    Travel to Viktor’s Workshop and login to his Slimeulation.
+    Use Viktor's patented debug spray to reveal hidden glitch slimes and vac them up before they disappear!
+    Try to collect as many glitch slimes as you can before the simulation becomes corrupted.
+    Once the corruption starts to spread, Viktor will open an exit portal for you; make a break for it before things get out of control and escape the Slimeulation safely!
+
+Glitch Slimes:
+Glitch slimes are hiding everywhere inside Viktor's Slimeulation and it's up to you to help him capture, quarantine, and research them before they spread! Be extra careful while exploring: taking damage from the corruption could give those tricky glitch slimes a chance to wiggle out of your tank!
+
+Glitch slimes will turn into bug reports after you leave the Slimeulation. Turn in your collection of bug reports for unique rewards and mysterious manifold cubes you can use to craft new gadgets.
+
+
+New Gadgets!
+It wouldn't be a very science-y update without a ton of new slime science gadgets! Help Viktor wrangle glitch slimes and he’ll reward you with a smattering of useful gadgets he’s been developing!
+
+
+Advanced Drones
+These new-and-improved drones can handle not one, but TWO programs! Talk about advanced! Set a primary AND a secondary task to keep these busy bees busy while you’re busy being breezy.
+
+Portable Water Tap
+Water taps are a small, placeable water source that can be used to refill your tank if there aren’t ponds nearby.
+
+Chicken Cloner
+This is an experimental gadget constructed by one of Viktor’s scientific peers and, when it works, it creates a perfect clone of any chicken. When it doesn’t, well, that’s a data point at least!
+
+Slime Bait
+Fruit, Veggie, and Meat Slime Bait can be placed around your ranch or out in the Far, Far Range to attract slimes who favor that type of food.
+
+Portable Scareslime
+Place this on your ranch to keep slimes away from things they shouldn’t be around or… :slimescared:
+
+Dash Pad
+Ready, set, RUN! Use the Dash Pad to instantly refill your energy levels so you never need to slow down!!!
+
+
+The Decorizer
+This new storage device allows you to store, clean up, and manage decorative ranch items (ornaments, echoes, etc.) with the press of a button! Deck out your ranch and then clean it all up in a snap.
+
+The Decorizer can be unlocked via the 7Zee Rewards Club as a mid-tier reward (it will already be available for ranchers who have unlocked or surpassed Silver Storm I).
+
+
+The Secret Style Pack:
+
+
+We are also excited to announce that the Secret Style Pack is now available for purchase! It’s an all-new downloadable content pack for Slime Rancher!
+
+Search for special treasure pods throughout the Far, Far Range and discover each slime's unique secret style. Once discovered, you will be able to re-style every slime of that type whenever you choose!
+
+This new DLC pack adds 20 slime styles for you to find and unlock!
+
+Learn more over HERE!
+
+Note: Secret styles do not affect gordos as the gordos in the world, and their appearances, are an important part of game progression and we didn’t want to make it confusing to new players. This may change in a future update after further evaluation.
+
+
+Visual Updates:
+
+    Slimes got a facelift! The art tech we developed for the Secret Style Pack resulted in all slimes getting new, crisper, more detailed faces with added depth. The new, beautified faces are available for every rancher with this update.
+    Added a new animation for boom slime explosions (they may be prettier, but they are still very dangerous. Please observe with caution!)
+    Added new tutorial popups which replace the old lightbulb animation with stuff like: an even more adorable Beatrix, slimes doing slime things, and so on. Is it worth restarting the game and playing for hundreds more hours just to see these new tutorial images? Maybe...
+    Updated Viktor’s Range Exchange icon.
+
+
+Other Changes:
+
+    Added the option to disable basic, advanced, or all tutorials.
+    Added new Slimepedia entries for Ogden’s Kookadoba Hunt, Mochi’s Quicksilver Job, and Viktor’s Slimeulation Testing that you can reference if you need a refresher on what to do.
+    Lowered gadget fabrication requirements to unlock Treasure Cracker Mk II (from 35 to 20) and Mk III (from 100 to 50).
+    Updated the translation of “Tabby Slime” in the Korean translation.
+    Updated the game credits to include all the new team members that help make Slime Rancher here at Monomi Park! <3
+    chikKns
+
+
+Fixes:
+
+    Drone pathing got an update so they should buzz harder, better, faster, smarter.
+    Phosphor largos will now disappear in the sun when the are carried outside.
+    Fixed an issue where puddle plorts in silos weren’t being collected by drones when you left the ranch.
+    Fixed a bug on Xbox that caused crates to appear blacked out.
+    Improved the performance of clouds. This was a very complicated change but technically speaking we made them ‘do cloud stuff better.’
+    Other various visual improvements to some terrain and structures.

@@ -15,30 +15,30 @@ void log_message(std::string message, int type)
     
     switch(type)
     {
-        case LOG_TYPES::LOG_ERROR:
+        case LogTypes::LOG_ERROR:
         {
             log_output = " [ERROR] ";
             if (display_log_colors == true)
             {
-                std::cout << Red;    
+                std::cout << RED;    
             }
             break;
         }
-        case LOG_TYPES::LOG_INFO:
+        case LogTypes::LOG_INFO:
         {
             log_output = " [INFO] ";
             if (display_log_colors == true)
             {
-                std::cout << Cyan;    
+                std::cout << CYAN;    
             }
             break;
         }
-        case LOG_TYPES::LOG_WARN:
+        case LogTypes::LOG_WARN:
         {
             log_output = " [WARNING] ";
             if (display_log_colors == true)
             {
-                std::cout << Yellow;    
+                std::cout << YELLOW;    
             }
             break;
         }
@@ -47,7 +47,7 @@ void log_message(std::string message, int type)
             log_output = " [INFO] ";
             if (display_log_colors == true)
             {
-                std::cout << Cyan;    
+                std::cout << CYAN;    
             }
             break;
         }
@@ -60,7 +60,7 @@ void log_message(std::string message, int type)
     std::cout << log_output;
     if (display_log_colors == true)
     {
-        std::cout << Clear;
+        std::cout << CLEAR;
     }
     std::cout << std::endl;
     logs[logs.size() + 1] = log_output;

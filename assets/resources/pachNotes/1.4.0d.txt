@@ -1,0 +1,2 @@
+    Fixed a Drones catch-up issue with Mochi's and Ogden's ranch.
+    Minor translation corrections.

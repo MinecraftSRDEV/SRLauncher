@@ -58,7 +58,7 @@ std::string encryptor(std::string encrypt_input)
 
 		if (encrypted_password.empty())
 		{
-			log_message("Cannot encrypt: " + encrypt_input, LOG_TYPES::LOG_ERROR);
+			log_message("Cannot encrypt: " + encrypt_input, LogTypes::LOG_ERROR);
 		}
 		
 		return encrypted_password;	
@@ -66,7 +66,7 @@ std::string encryptor(std::string encrypt_input)
 	catch (std::out_of_range e)
 	{
 		std::string errmsg = e.what();
-		log_message("encryptor error: " + errmsg, LOG_TYPES::LOG_ERROR);
+		log_message("encryptor error: " + errmsg, LogTypes::LOG_ERROR);
 	}
 	return "";
 }

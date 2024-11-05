@@ -1,0 +1,15 @@
+    Corrected a number of minor localization errors.
+    Corrected handling of the virtual keyboard in Steam. The virtual keyboard is only meant to run in Big Picture mode. The game will no longer attempt to open the virtual keyboard if a player is using a gamepad and is not in Big Picture mode.
+    Reduced some player log spam.
+    Updated the support link on the main menu.
+    Corrected a few 7Zee reward icons.
+    Removed refresh rates from the resolution selection box in the Options menu. The Unity Player was ignoring the refresh rate. The game should run at the refresh rate assigned to the monitor in question by Windows.
+    Fixed a bug that would prevent the vac from functioning properly in certain save files. Players who have saves where the vac does not appear to function should try opening those save files.
+    Updated the calendar for Party Gordo and Wiggly Wonderland.
+    Fixed a bug where vaccing items under certain conditions could "shrink" the item for the duration of the play session.
+    Corrected an issue where water would "hide" some objects under the surface.
+    Added a number of minor performance improvements, especially around physics and raycasting.
+    Corrected the colliders around the deluxe coop to prevent players from getting stuck behind the coop's screen.
+    Corrected a small set of cases where the game could get into a soft-locked state due to the Input
+    Mode of the game becoming invalid.
+    Updated the credits.

@@ -1,4 +1,4 @@
-void prelaunch_tasks(std::string game_runpath);
+void prelaunch_tasks(std::string game_runpath, std::string gamepath);
 void reset_play_button_text();
 
 struct depotProsp
@@ -14,9 +14,9 @@ struct depotProsp
 
 void runDownloader(const depotProsp& depot)
 {
+    log_message("Sending task to DepotDownloader", LogTypes::LOG_INFO);
     std::string command = downloader_path.string() + "/DepotDownloader.exe -app "
     + depot.appid + " -depot " + depot.depotid + " -manifest " + depot.manifestid + " -username " + depot.username + " -password " + depot.password + " -dir " + downloader_path.string() + "/output";
-    std::cout << "running : " << command << std::endl;
     system(command.c_str());
     game_downloading = false;
 
@@ -51,6 +51,12 @@ void runDownloader(const depotProsp& depot)
     // CloseHandle(pi.hThread);
 }
 
+void createMD5Files(fs::path steam_dir)
+{
+    savemd5File(fs::path(steam_dir / "Slime Rancher" / "data").string(), fs::path(steam_dir / "Slime Rancher" / "SlimeRancher.exe").string());
+    savemd5File(fs::path(steam_dir / "Slime Rancher" / "data").string(), fs::path(steam_dir / "Slime Rancher" / "SlimeRancher_Data" / "Managed" / "Assembly-CSharp.dll").string());
+}
+
 bool comunicate = false;
 
 void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
@@ -79,10 +85,10 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
 
                 log_message(msg, type);
 
-                if (type == LOG_TYPES::LOG_ERROR)
+                if (type == LogTypes::LOG_ERROR)
                 {
                     CloseHandle(hPipe);
-                    log_message("Comunication stopped", LOG_TYPES::LOG_INFO);
+                    log_message("Comunication stopped", LogTypes::LOG_INFO);
                     comunicate = false;
                     game_downloading = false;
                     return;
@@ -111,7 +117,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 int type = json.getObject().at("logType").getNumber();
                 CloseHandle(hPipe);
                 log_message(msg, type);
-                log_message("Comunication stopped", LOG_TYPES::LOG_INFO);
+                log_message("Comunication stopped", LogTypes::LOG_INFO);
                 comunicate = false;
                 game_downloading = false;
                 recieved.erase();
@@ -131,12 +137,20 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 if (fs::exists(outputDir) && fs::is_directory(outputDir))
                 {
                     move_directory(outputDir, steam_dir / "Slime Rancher");
-                    log_message("Game download success", LOG_TYPES::LOG_INFO);
+                    log_message("Game download success", LogTypes::LOG_INFO);
                     game_downloading = false;
+
+                    createMD5Files(steam_dir);
+
                     if (autolaunch_instances == true)
                     {
-                        prelaunch_tasks(depot.runpath);
+                        prelaunch_tasks(depot.runpath, fs::path(steam_dir / "Slime Rancher").string());
                     }
+                }
+                else
+                {
+                    log_message("Game downloading failed!", LogTypes::LOG_ERROR);
+                    MessageBoxA(NULL, "Game downloading failed!", "Error", MB_ICONERROR | MB_OK);
                 }
 
                 reset_play_button_text();
@@ -202,12 +216,14 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
 void downloaderPipe(depotProsp& depot)
 {
     game_downloading = true;
-    launch_last_instance_button.setText("Downloading");
+    launch_game_button.setText("Downloading");
     std::thread animThread(downloading_animation);
     animThread.detach();
 
     std::thread dt(runDownloader, depot);
     dt.detach();
+
+    log_message("Preparing comunication pipe", LogTypes::LOG_INFO);
 
     const char* pipeName = R"(\\.\pipe\DepotDownloaderPipe)";
     HANDLE hPipe = CreateNamedPipeA(
@@ -222,31 +238,27 @@ void downloaderPipe(depotProsp& depot)
     );
 
     if (hPipe == INVALID_HANDLE_VALUE) {
-        std::cerr << "Błąd tworzenia potoku: " << GetLastError() << std::endl;
+        log_message("Cannot create pipe: " + GetLastError(), LogTypes::LOG_ERROR);
         return;
     }
 
     std::cout << "Czekam na połączenie z DepotDownloader..." << std::endl;
     BOOL connected = ConnectNamedPipe(hPipe, NULL);
     if (!connected) {
-        std::cerr << "Nie udało się połączyć: " << GetLastError() << std::endl;
+        log_message("Problem with comunication with DepotDownloader: " + GetLastError(), LogTypes::LOG_ERROR);
         CloseHandle(hPipe);
         return;
     }
 
-    std::cout << "Połączono z DepotDownloader!" << std::endl;
+    log_message("DepotDownloader connected", LogTypes::LOG_INFO);
 
     comunicate = true;
 
     std::thread rcv(recieveMessage, hPipe, depot);
     rcv.detach();
-
-    
-    // const char* args = "arguments";
-    // DWORD bytesWritten;
-    // WriteFile(hPipe, args, strlen(args) + 1, &bytesWritten, NULL);
 }
 
+//Legacy downloader
 void download_game2(std::string gamerun_path)
 {
     if (SteamCMDCheck() == true)
@@ -256,14 +268,14 @@ void download_game2(std::string gamerun_path)
         fs::path game_dir = steam_dir / "Slime Rancher";
 
         game_downloading = true;
-        launch_last_instance_button.setText("Downloading");
+        launch_game_button.setText("Downloading");
         std::thread animThread(downloading_animation);
         animThread.detach();
         fs::path cmdpath = fs::path(steamcmd_dir);
         std::string steamcmdPath = cmdpath.string() + "/steamcmd.exe";
 
-        std::string command = "+login " + decryptor(steam_profile_name) + " +download_depot 433340 433342 " + versions_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
-        log_message("Running steamCMD command: " + command, LOG_TYPES::LOG_INFO);
+        std::string command = "+login " + decryptor(steam_profile_name) + " +download_depot 433340 433342 " + versionsData_map[instances_list[mounted_instance].getVer()].manifest + " +quit";
+        log_message("Running steamCMD command: " + command, LogTypes::LOG_INFO);
 
         std::string fullCommand = steamcmdPath + " " + command;
 
@@ -271,27 +283,30 @@ void download_game2(std::string gamerun_path)
 
         if (result == 0)
         {
-            log_message("Command executed successfully", LOG_TYPES::LOG_INFO);
+            log_message("Command executed successfully", LogTypes::LOG_INFO);
             fs::path outputDir = cmdpath / "steamapps" / "content" / "app_433340" / "depot_433342"; 
             if (fs::exists(outputDir) && fs::is_directory(outputDir))
             {
                 move_directory(outputDir, steam_dir / "Slime Rancher");
-                log_message("Game download success", LOG_TYPES::LOG_INFO);
+                log_message("Game download success", LogTypes::LOG_INFO);
                 game_downloading = false;
+
+                createMD5Files(steam_dir);
+
                 if (autolaunch_instances == true)
                 {
-                    prelaunch_tasks(gamerun_path);    
+                    prelaunch_tasks(gamerun_path, fs::path(steam_dir / "Slime Rancher").string());    
                 }
             }
             else
             {
-                log_message("Game download falied", LOG_TYPES::LOG_ERROR);
+                log_message("Game download falied", LogTypes::LOG_ERROR);
                 game_downloading = false;
             }
         }
         else
         {
-            log_message("Command cannot be executed", LOG_TYPES::LOG_ERROR);
+            log_message("Command cannot be executed", LogTypes::LOG_ERROR);
             game_downloading = false;
         }
     }
@@ -310,7 +325,8 @@ void download_game(std::string gamerun_path)
     fs::path destPath = fs::path(steam_game_dir) / "Slime Rancher";
     depot.path = destPath.string();
 
-    depot.manifestid = versions_map[instances_list[mounted_instance].getVer()].manifest;
+    log_message("Preparing downloading script", LogTypes::LOG_INFO);
+    depot.manifestid = versionsData_map[instances_list[mounted_instance].getVer()].manifest;
     depot.username = decryptor(steam_profile_name);
     depot.password = decryptor(steam_profile_passwd);
     depot.appid = "433340";
@@ -319,6 +335,7 @@ void download_game(std::string gamerun_path)
 
     if (downloader_selected == depotdownloader)
     {
+        log_message("Downloader: DepotDownloader", LogTypes::LOG_INFO);
         if (!depot.username.empty())
         {
             if (!depot.password.empty())
@@ -328,19 +345,20 @@ void download_game(std::string gamerun_path)
             else
             {
                 std::string msg = "Cannot download game: No steam password configured!";
-                log_message(msg, LOG_TYPES::LOG_ERROR);
+                log_message(msg, LogTypes::LOG_ERROR);
                 MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
             }
         }
         else
         {
             std::string msg = "Cannot download game: No steam username configured!";
-            log_message(msg, LOG_TYPES::LOG_ERROR);
+            log_message(msg, LogTypes::LOG_ERROR);
             MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
         }
     }
     else if (downloader_selected == steamcmd)
     {
+        log_message("Downloader: SteamCMD", LogTypes::LOG_INFO);
         download_game2(gamerun_path);
     }
 }

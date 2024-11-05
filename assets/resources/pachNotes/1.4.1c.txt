@@ -1,0 +1,3 @@
+    Fixed some errors that were resulting in game crashes.
+    Adjusted a text issue that was impacting some regions.
+    Other minor adjustments and bug fixes.

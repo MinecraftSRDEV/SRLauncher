@@ -1,0 +1,31 @@
+Save System Improvements
+Slime Rancher now maintains several prior copies of your save file to protect against system crashes or power outages that result in corrupt data. If the game cannot load the most recent autosave it will revert to the most recent one it can find. As part of this change, the autosave frequency has been reduced to autosaving every 5 minutes.
+
+Changes:
+
+    Added Swedish language translation to the game. Welcome, Swedish friends!
+    The Range Exchange now has a countdown clock for the remaining duration of the current offer.
+    Teleporters from the Wilds now lead to Ogden’s Retreat instead of directly to Beatrix’s Ranch.
+    Reduced the corral autofeeder frequency on Low and Medium to give food every 9 and 6 hours, respectively.
+    Added tutorial ‘star’ to point you to the teleporter to reach Ogden’s Retreat.
+    The Tarr's Slimepedia entry is now immediately unlocked in Casual Mode… but don’t worry, that’s as far as they go in Casual Mode.
+    Minor improvements to various shaders. That’s right, MINOR improvements.
+    Optimized the way that many particles in the world are instantiated to improve memory usage.
+    Rotten kookadobas are now more obviously rotten. But either way, they stink.
+    Firestorm effect should now activate/deactivate more rapidly when teleporting to/from the desert during a firestorm.
+    Renamed Garden Deluxe as Deluxe Upgrade.
+    Added a tip to the loading screen explaining the save icon.
+
+Fixes:
+
+    Fixed bug where amber slime lamps’ glow could be seen through walls.
+    Fixed bug where some largos in The Wilds near the waterfall could end up hovering in the air. Fun fact: it’s because they thought they were still in water and were ‘swimming.’ See, you can do anything you put your mind to!
+    Fixed bug where certain effects could sometimes make water disappear.
+    Fixed bug where the Gadget Mode effect was upside down on some systems.
+    Fixed bug where on certain graphics settings, a biting Tarr appeared to have an additional smaller Tarr inside it. Creepy.
+    Fixed bug where Boom Slimes could sometimes become lethargic and stop most types of activities, including booming.
+    Fixed bug where Tarr and Fire slimes were bounced too aggressively out of ponds.
+    Fixed bug where the Hat Trick achievement could be improperly withheld.
+    Fixed bug (Xbox-only) where gamepad icons were replaced with keyboard/mouse prompts when the controller was disconnected.
+    Fixed bug where Kookadoba sometimes did not correctly attach to their plants on game load.
+    Fixed bug where a teleporter in the desert’s icon could appear on the map before that teleporter was actually available to use.

@@ -25,41 +25,56 @@ void mount_function(std::string instance_id)
                 {
                     if (fs::exists(instnace_dir / "data" / "gamedata" / "options_and_achivements.prf"))
                     {
-                        fs::rename(instnace_dir / "data" / "gamedata" / "options_and_achivements.prf", local_save_path / "slimerancher.prf");    
+                        if (move_file(instnace_dir / "data" / "gamedata" / "options_and_achivements.prf", local_save_path / "slimerancher.prf") != true)
+                        {
+                            return;
+                        }    
                     }
+                    
                     if (fs::exists(instnace_dir / "data" / "gamedata" / "slimerancher.cfg"))
                     {
-                        fs::rename(instnace_dir / "data" / "gamedata" / "slimerancher.cfg", local_save_path / "slimerancher.cfg");    
+                        if (move_file(instnace_dir / "data" / "gamedata" / "slimerancher.cfg", local_save_path / "slimerancher.cfg") != true)
+                        {
+                            return;
+                        }    
                     }
-
+                    
+                    
                     move_directory(instnace_dir / "data" / "saves", local_save_path);    
                 }    
             }
         }
         catch (fs::filesystem_error& e)
         {
-            std::string errormsg = e.what();
-            log_message(errormsg, LOG_TYPES::LOG_ERROR);
+            log_message(std::string(e.what()), LogTypes::LOG_ERROR);
             MessageBoxA(NULL, "Cannot overwrite savedata files", "Error", MB_ICONERROR | MB_OK);
+            return;
+        }
+        catch (std::exception& e)
+        {
+            log_message(std::string(e.what()), LogTypes::LOG_ERROR);
+            return;
         }
 
         if (fs::exists(steam_dir / "Slime Rancher") && fs::is_directory(steam_dir / "Slime Rancher"))
         {
-            log_message("Cannot overwrite current instance", LOG_TYPES::LOG_ERROR);
+            log_message("Cannot overwrite current instance", LogTypes::LOG_ERROR);
+            return;
         }
         else
         {
             try
             {
                 fs::rename(instnace_dir, steam_dir / "Slime Rancher");
-                log_message("Mounted instance: " + instances_list[instance_id].getID() + "Version: " + instances_list[instance_id].getVer(), LOG_TYPES::LOG_INFO);
+                log_message("Mounted instance: " + instances_list[instance_id].getID() + " Version: " + instances_list[instance_id].getVer(), LogTypes::LOG_INFO);
                 update_config_file();
-                instances_stat_refresh();    
+                instances_stat_refresh();
+                 
             }
             catch (fs::filesystem_error& e)
             {
-                std::string errormsg = e.what();
-                log_message("Cannot mount instance: " + errormsg, LOG_TYPES::LOG_ERROR);
+                log_message("Cannot mount instance: " + std::string(e.what()), LogTypes::LOG_ERROR);
+                return;
             }
         }
     }

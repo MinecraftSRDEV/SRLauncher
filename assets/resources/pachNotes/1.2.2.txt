@@ -1,0 +1,28 @@
+The Party Gordo Has Arrived!
+
+Every weekend, the Party Gordo comes to the Far, Far Range, but you have to find him first! Hunt down the Party Gordo who is hiding somewhere on the map and pop him to receive lots of party presents containing festive ornaments for your ranch.
+
+But the party doesn't end there! You can also discover presents hidden around the world all weekend long! Because though the Party Gordo may be gone, the party... well it LIVES ON.
+
+The Party Gordo is available all-day Friday, Saturday, and Sunday (local time) and will return every weekend with new treasures to discover!
+
+Changes:
+
+    Added an official Chinese translation. Welcome, friends!
+    Added some improvements and optimizations around game saving and animated objects.
+    Improved visual effects for crate breaking. Fun fact: this has been on our to-do list for like, 100 years.
+    Added rich presence for Discord so now you can let your pals know where you are and what you’re up to on the range.
+
+Fixes:
+
+    Fixed bug with some Rush Mode translations not fitting on the end-game screen.
+    Fixed bug with items sometimes getting stuck in corral barriers.
+    Fixed some spots in Mochi’s Manor where players could get stuck.
+    Fixed some spots in Moss Blanket where players could get stuck.
+    Improved the damage indicator effect.
+    Fixed a typo in Mochi’s dialogue. Mochi wanted us to make it clear that we made a mistake, not her.
+    Fixed some animation issues for silo storage screens.
+    Fixed a bug where gamepad button icons would show the wrong thing for a frame before switching to the correct icon.
+    Fixed a bug where ornaments oriented themselves facing slightly downwards. We told them to keep their chins up.
+    Fixed a bug allowing popping up certain screens while sleeping until morning.
+    Fixed a bug sometimes causing inaccurate shooting while running in the Nimble Valley. Again, Mochi has stated this was your fault all along.

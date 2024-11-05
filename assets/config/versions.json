@@ -5,7 +5,9 @@
         "mod_support": false,
         "date": "14 January 2016 19:40:18",
         "manifest": "4045174004136343292",
-        "iteration": 0
+        "iteration": 0,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "7da6ec09a105d1ebbef86013ed5386c5"
     },
     "0.2.4a":
     {
@@ -13,7 +15,9 @@
         "mod_support": true,
         "date": "14 January 2016 19:40:18",
         "manifest": "4045174004136343292",
-        "iteration": 1
+        "iteration": 1,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "7da6ec09a105d1ebbef86013ed5386c5"
     },
     "0.2.4b":
     {
@@ -21,7 +25,9 @@
         "mod_support": true,
         "date": "20 January 2016 22:10:47",
         "manifest": "7182296344122123132",
-        "iteration": 2
+        "iteration": 2,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "c9181641a7aedca43b924713cf51a09e"
     },
     "0.2.5":
     {
@@ -29,7 +35,9 @@
         "mod_support": false,
         "date": "24 February 2016 18:50:03",
         "manifest": "6799269289357766840",
-        "iteration": 3
+        "iteration": 3,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "861e0ad7e35fda34ba96ccb54844f25a"
     },
     "0.2.6":
     {
@@ -37,7 +45,9 @@
         "mod_support": true,
         "date": "2 March 2016 21:33:00",
         "manifest": "1033183441576441347",
-        "iteration": 4
+        "iteration": 4,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "346984a4ee62d8d77e08b019b5132cbe"
     },
     "0.3.0a":
     {
@@ -45,7 +55,9 @@
         "mod_support": false,
         "date": "13 April 2016 18:38:14",
         "manifest": "5739960724280512899",
-        "iteration": 5
+        "iteration": 5,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "8918afc65bf537b3bfab416f36af3f72"
     },
     "0.3.0b":
     {
@@ -53,7 +65,9 @@
         "mod_support": false,
         "date": "13 April 2016 20:20:35",
         "manifest": "3772336976531939949",
-        "iteration": 6
+        "iteration": 6,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "b951fd298f621d7928eabb349e311b08"
     },
     "0.3.0c":
     {
@@ -61,7 +75,9 @@
         "mod_support": false,
         "date": "14 April 2016 21:05:13",
         "manifest": "4623224924342845759",
-        "iteration": 7
+        "iteration": 7,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "d5b861d8e7d8864ec13213a54af17c28"
     },
     "0.3.0d":
     {
@@ -69,7 +85,9 @@
         "mod_support": false,
         "date": "19 April 2016 18:01:01",
         "manifest": "2972284991921612878",
-        "iteration": 8
+        "iteration": 8,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "1b51b95f383ac0fb2a70c88b83a62e7a"
     },
     "0.3.1":
     {
@@ -77,7 +95,9 @@
         "mod_support": false,
         "date": "11 May 2016 18:18:27",
         "manifest": "5743640177165165681",
-        "iteration": 9
+        "iteration": 9,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "3facc24b3cfcd67acdac2da46813632d"
     },
     "0.3.2":
     {
@@ -85,7 +105,9 @@
         "mod_support": false,
         "date": "25 May 2016 18:03:45",
         "manifest": "2946735614319817428",
-        "iteration": 10
+        "iteration": 10,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "720d0ac7d5e8ab31b067f64b0ec2ff8a"
     },
     "0.3.3":
     {
@@ -93,7 +115,9 @@
         "mod_support": false,
         "date": "6 June 2016 17:15:22",
         "manifest": "7738864408631168506",
-        "iteration": 11
+        "iteration": 11,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "f164922694f070984173388da2b86a44"
     },
     "0.3.4a":
     {
@@ -101,7 +125,9 @@
         "mod_support": false,
         "date": "28 June 2016 18:12:15",
         "manifest": "6758041439170534385",
-        "iteration": 12
+        "iteration": 12,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "45d33ba52cb0c458e8f9b303f99af0f6"
     },
     "0.3.4b":
     {
@@ -109,7 +135,9 @@
         "mod_support": false,
         "date": "7 July 2016 18:31:15",
         "manifest": "7445301902417763300",
-        "iteration": 13
+        "iteration": 13,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "ef4aa0de19b6f30736366588781b402c"
     },
     "0.3.5a":
     {
@@ -117,7 +145,9 @@
         "mod_support": false,
         "date": "2 August 2016 18:19:36",
         "manifest": "441665626499515573",
-        "iteration": 14
+        "iteration": 14,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "ed601e2d4d308694a057a6e531f9b5ad"
     },
     "0.3.5b":
     {
@@ -125,7 +155,9 @@
         "mod_support": false,
         "date": "3 August 2016 20:22:31",
         "manifest": "4160302346993532058",
-        "iteration": 15
+        "iteration": 15,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "c329a23303f7f0bbe07f9a858af48c8e"
     },
     "0.3.5c":
     {
@@ -133,7 +165,9 @@
         "mod_support": false,
         "date": "4 August 2016 20:45:16",
         "manifest": "7951669086951816288",
-        "iteration": 16
+        "iteration": 16,
+        "SH": "f2c8591d48954169ec26832e28c62cb6",
+        "AH": "0ddf6ffdb84094d0756e8e9fb1e40942"
     },
     "0.3.6":
     {
@@ -141,7 +175,9 @@
         "mod_support": false,
         "date": "4 October 2016 18:08:15",
         "manifest": "2275413498306063160",
-        "iteration": 17
+        "iteration": 17,
+        "SH": "cb0ae170566268ebe64680827786928f",
+        "AH": "e346f233bb1685db8164bbcac6a89309"
     },
     "0.3.7":
     {
@@ -149,7 +185,9 @@
         "mod_support": false,
         "date": "26 October 2016 20:14:52",
         "manifest": "9095519627420606792",
-        "iteration": 18
+        "iteration": 18,
+        "SH": "cb0ae170566268ebe64680827786928f",
+        "AH": "776d5d533c3abfc3ef7ea9a960e1b445"
     },
     "0.4.0a":
     {
@@ -157,7 +195,9 @@
         "mod_support": false,
         "date": "16 November 2016 18:59:07",
         "manifest": "1077313905221894874",
-        "iteration": 19
+        "iteration": 19,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "4842ed9f1a0784e5c8d927dea77ed065"
     },
     "0.4.0b":
     {
@@ -165,7 +205,9 @@
         "mod_support": false,
         "date": "17 November 2016 19:31:43",
         "manifest": "7584701036356484349",
-        "iteration": 20
+        "iteration": 20,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "3b8de0ed0d8ff3a9e8e854c322a489b9"
     },
     "0.4.0c":
     {
@@ -173,7 +215,9 @@
         "mod_support": false,
         "date": "18 November 2016 19:22:05",
         "manifest": "6870286703332284824",
-        "iteration": 21
+        "iteration": 21,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "c5cf98d684e6eca316e024c689d07d80"
     },
     "0.4.1":
     {
@@ -181,7 +225,9 @@
         "mod_support": false,
         "date": "13 December 2016 18:30:01",
         "manifest": "8303185920772797051",
-        "iteration": 22
+        "iteration": 22,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "6cf3d6cee5c5b2c83ca3786c8075ae9f"
     },
     "0.4.2a":
     {
@@ -189,7 +235,9 @@
         "mod_support": false,
         "date": "18 January 2017 18:37:05",
         "manifest": "1694335367612045422",
-        "iteration": 23
+        "iteration": 23,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "70cfc9a469291fe446735771a2ef7803"
     },
     "0.4.2b":
     {
@@ -197,7 +245,9 @@
         "mod_support": false,
         "date": "18 January 2017 19:50:02",
         "manifest": "5897923490926635963",
-        "iteration": 24
+        "iteration": 24,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "29b94717d547fcf6bfe9c89b96eed3d1"
     },
     "0.4.2c":
     {
@@ -205,7 +255,9 @@
         "mod_support": false,
         "date": "19 January 2017 00:10:50",
         "manifest": "4530001700882359796",
-        "iteration": 25
+        "iteration": 25,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "fb692f27152476a5172f7e5a855fa2d2"
     },
     "0.4.2d":
     {
@@ -213,7 +265,9 @@
         "mod_support": false,
         "date": "19 January 2017 21:20:06",
         "manifest": "4191601468284027157",
-        "iteration": 26
+        "iteration": 26,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "4e067b4294b573ee28e6a90ee8b2b7e8"
     },
     "0.4.3a":
     {
@@ -221,7 +275,9 @@
         "mod_support": false,
         "date": "8 February 2017 20:52:51",
         "manifest": "7833287157571905798",
-        "iteration": 27
+        "iteration": 27,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "3bd0ba0818e80c5943e17584b7dc4110"
     },
     "0.4.3b":
     {
@@ -229,7 +285,9 @@
         "mod_support": false,
         "date": "10 February 2017 00:19:26",
         "manifest": "283920316031094754",
-        "iteration": 28
+        "iteration": 28,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "c92e1e4ce4f26ff291e231ac33226574"
     },
     "0.4.3c":
     {
@@ -237,7 +295,9 @@
         "mod_support": false,
         "date": "10 February 2017 19:58:13",
         "manifest": "4043740644288891779",
-        "iteration": 29
+        "iteration": 29,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "9dbc229968c82b8dbd0d783c35df4724"
     },
     "0.5.0a":
     {
@@ -245,7 +305,9 @@
         "mod_support": false,
         "date": "6 March 2017 19:30:38",
         "manifest": "8187804633390722888",
-        "iteration": 30
+        "iteration": 30,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "e2cdc0615bbd5a1b832c2ecdf7a33d54"
     },
     "0.5.0b":
     {
@@ -253,7 +315,9 @@
         "mod_support": false,
         "date": "7 March 2017 18:39:58",
         "manifest": "3327198351526229552",
-        "iteration": 31
+        "iteration": 31,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "7a9e7197ff2b9e939d9c90f3f9c7e5e9"
     },
     "0.5.1a":
     {
@@ -261,7 +325,9 @@
         "mod_support": false,
         "date": "18 April 2017 20:05:05",
         "manifest": "2766321578005003158",
-        "iteration": 32
+        "iteration": 32,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "b9b9039ac3bb866888f09c49936b184b"
     },
     "0.5.1b":
     {
@@ -269,7 +335,9 @@
         "mod_support": false,
         "date": "19 April 2017 00:01:09",
         "manifest": "1463473742245212406",
-        "iteration": 33
+        "iteration": 33,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "a759fa606bb9a0ffe0eb69e08cfdc09e"
     },
     "0.5.1c":
     {
@@ -277,7 +345,9 @@
         "mod_support": false,
         "date": "19 April 2017 20:09:44",
         "manifest": "8728768945717888662",
-        "iteration": 34
+        "iteration": 34,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "42c86aa3c6da9b388ddc5ce360017949"
     },
     "0.6.0a":
     {
@@ -285,7 +355,9 @@
         "mod_support": false,
         "date": "12 June 2017 18:40:15",
         "manifest": "3005166342762747575",
-        "iteration": 35
+        "iteration": 35,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "75c2115872e997694e3db43a12c655d6"
     },
     "0.6.0b":
     {
@@ -293,7 +365,9 @@
         "mod_support": false,
         "date": "14 June 2017 17:21:55",
         "manifest": "5726208285649647890",
-        "iteration": 36
+        "iteration": 36,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "0e8b01549c749dcd4355c2a03e2830a3"
     },
     "0.6.0c":
     {
@@ -301,7 +375,9 @@
         "mod_support": false,
         "date": "15 June 2017 17:59:11",
         "manifest": "5417110692020453501",
-        "iteration": 37
+        "iteration": 37,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "6f13d190f0ee12de318030af9ecf2ec8"
     },
     "0.6.0d":
     {
@@ -309,7 +385,9 @@
         "mod_support": false,
         "date": "21 June 2017 17:27:50",
         "manifest": "2082346440087920581",
-        "iteration": 38
+        "iteration": 38,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "95e41df7c99c32e5f1ff92b5f087ec2a"
     },
     "1.0.0":
     {
@@ -317,7 +395,9 @@
         "mod_support": false,
         "date": "1 August 2017 15:53:23",
         "manifest": "5135774656716118593",
-        "iteration": 39
+        "iteration": 39,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "90fd2e134dbf8aa111e0c75a37b177d8"
     },
     "1.0.1a":
     {
@@ -325,7 +405,9 @@
         "mod_support": false,
         "date": "7 August 2017 20:39:04",
         "manifest": "4851587196133886854",
-        "iteration": 40
+        "iteration": 40,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "f2925fedbdc1c93b6572ef6e9129be8b"
     },
     "1.0.1b":
     {
@@ -333,7 +415,9 @@
         "mod_support": false,
         "date": "7 August 2017 22:54:12",
         "manifest": "4324966178055253335",
-        "iteration": 41
+        "iteration": 41,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "85b2fff4dcd3dd9effa85135dffa5121"
     },
     "1.0.1c":
     {
@@ -341,7 +425,9 @@
         "mod_support": false,
         "date": "9 August 2017 00:46:50",
         "manifest": "422152276091152701",
-        "iteration": 42
+        "iteration": 42,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "a7ac5808fc1113912df08359c7ae2882"
     },
     "1.0.1d":
     {
@@ -349,7 +435,9 @@
         "mod_support": false,
         "date": "15 August 2017 19:58:41",
         "manifest": "247273116485453688",
-        "iteration": 43
+        "iteration": 43,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "3ceec40325efc9b54ebb2ed989661b9d"
     },
     "1.0.1e":
     {
@@ -357,7 +445,9 @@
         "mod_support": false,
         "date": "16 August 2017 20:26:51",
         "manifest": "8423504983419915811",
-        "iteration": 44
+        "iteration": 44,
+        "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
+        "AH": "defaca5da715df9b7b591c38ec84768b"
     },
     "1.1.0a":
     {
@@ -365,7 +455,9 @@
         "mod_support": false,
         "date": "17 October 2017 20:09:35",
         "manifest": "5897958052374083277",
-        "iteration": 45
+        "iteration": 45,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "8f9ac1fa2456a7075efd8af52edd6d17"
     },
     "1.1.0b":
     {
@@ -373,7 +465,9 @@
         "mod_support": false,
         "date": "20 October 2017 20:51:31",
         "manifest": "1919820526115725711",
-        "iteration": 46
+        "iteration": 46,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "3d55ecbd311680d2b5efa01ed912d188"
     },
     "1.1.0c":
     {
@@ -381,7 +475,9 @@
         "mod_support": false,
         "date": "22 October 2017 22:33:48",
         "manifest": "4845007903748570401",
-        "iteration": 47
+        "iteration": 47,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "d740480e7cd6b3f245f657080dfd31f9"
     },
     "1.1.0d":
     {
@@ -389,7 +485,9 @@
         "mod_support": false,
         "date": "26 October 2017 20:36:46",
         "manifest": "2079501695052122794",
-        "iteration": 48
+        "iteration": 48,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "d740480e7cd6b3f245f657080dfd31f9"
     },
     "1.1.0e":
     {
@@ -397,7 +495,9 @@
         "mod_support": false,
         "date": "31 October 2017 18:36:28",
         "manifest": "3036455992843227148",
-        "iteration": 49
+        "iteration": 49,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "55c3c8d5e9f41370a0ef89e8ecfcd592"
     },
     "1.1.1":
     {
@@ -405,7 +505,9 @@
         "mod_support": false,
         "date": "28 November 2017 19:45:22",
         "manifest": "1637502931535337305",
-        "iteration": 50
+        "iteration": 50,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "f8bd02210ac68c89864e6687b1b05cdd"
     },
     "1.1.2":
     {
@@ -413,111 +515,139 @@
         "mod_support": false,
         "date": "11 December 2017 19:45:51",
         "manifest": "5474736100245866216",
-        "iteration": 51
+        "iteration": 51,
+        "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
+        "AH": "c82dd91d61fe85e70d775a39087df8e4"
     },
     "1.2.0a":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "13 March 2018 17:39:43",
         "manifest": "5711025897832057767",
-        "iteration": 52
+        "iteration": 52,
+        "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
+        "AH": "f33c4a4124b2d90e3287721a4aadab2d"
     },
     "1.2.0b":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "14 March 2018 22:27:22",
         "manifest": "7382698957251043649",
-        "iteration": 53
+        "iteration": 53,
+        "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
+        "AH": "eaba02f70d1446536e6b03d03ae79438"
     },
     "1.2.1a":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "3 April 2018 20:18:47",
         "manifest": "4303510215236835719",
-        "iteration": 54
+        "iteration": 54,
+        "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
+        "AH": "b96f1286b13636e6f1fab53374c237a3"
     },
     "1.2.1b":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "3 April 2018 23:19:35",
         "manifest": "4113156500573990230",
-        "iteration": 55
+        "iteration": 55,
+        "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
+        "AH": "aa806358b0056b2eec5ba79661e49b87"
     },
     "1.2.2":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "22 May 2018 20:48:30",
         "manifest": "6567583593680649790",
-        "iteration": 56
+        "iteration": 56,
+        "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
+        "AH": "89f727b0587b9b1a7ebcff2844a994b5"
     },
     "1.3.0a":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "17 July 2018 18:11:23",
         "manifest": "2157716521240164266",
-        "iteration": 57
+        "iteration": 57,
+        "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
+        "AH": "c2ba28137d24f613532812259dfafaae"
     },
     "1.3.0b":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "24 July 2018 17:32:10",
         "manifest": "1403677244604722355",
-        "iteration": 58
+        "iteration": 58,
+        "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
+        "AH": "eb092cde86c14acfc459ff9048127bb1"
     },
     "1.3.1a":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "23 October 2018 17:59:02",
         "manifest": "7026817123929157660",
-        "iteration": 59
+        "iteration": 59,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "eea0f0762283e4d1c0cabab06ee6bb2f"
     },
     "1.3.1b":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "25 October 2018 17:05:43",
         "manifest": "8949870417267410650",
-        "iteration": 60
+        "iteration": 60,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "900fae90f0898149b2d21b8245ba07cc"
     },
     "1.3.1c":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "31 October 2018 22:13:39",
         "manifest": "9139465071697603267",
-        "iteration": 61
+        "iteration": 61,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "7fbdce29d9c627fbecd4687c82da2ba7"
     },
     "1.3.2a":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "4 December 2018 21:07:52",
         "manifest": "5058231856610850876",
-        "iteration": 62
+        "iteration": 62,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "e23f88545e3e127966c0fe7b62bf63be"
     },
     "1.3.2b":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "5 December 2018 23:03:54",
         "manifest": "7164530134796481521",
-        "iteration": 63
+        "iteration": 63,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "25464f19afd219064d017d5aa906ddff"
     },
     "1.3.2c":
     {
         "type": "stable-release",
-        "mod_support": false,
+        "mod_support": true,
         "date": "2 April 2019 21:59:29",
         "manifest": "5431269293947431949",
-        "iteration": 64
+        "iteration": 64,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "0795194955c929671f93b3f24f92add5"
     },
     "1.4.0a":
     {
@@ -525,7 +655,9 @@
         "mod_support": true,
         "date": "18 June 2019 18:02:24",
         "manifest": "7506286600836917564",
-        "iteration": 65
+        "iteration": 65,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "770f29b39c54c36d9446b36556e65435"
     },
     "1.4.0b":
     {
@@ -533,7 +665,9 @@
         "mod_support": true,
         "date": "20 June 2019 01:32:45",
         "manifest": "6519949657988813973",
-        "iteration": 66
+        "iteration": 66,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "d4ad494a3dac5e5fc0a5bd157461e39e"
     },
     "1.4.0c":
     {
@@ -541,7 +675,9 @@
         "mod_support": true,
         "date": "27 June 2019 21:36:03",
         "manifest": "8175446157514313384",
-        "iteration": 67
+        "iteration": 67,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "cdd28d6e71fa59952a90659ade697da2"
     },
     "1.4.0d":
     {
@@ -549,7 +685,9 @@
         "mod_support": true,
         "date": "5 August 2019 20:21:12",
         "manifest": "5031921718320326634",
-        "iteration": 68
+        "iteration": 68,
+        "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
+        "AH": "b1202fe5e11da41e7926ff2016e20a5f"
     },
     "1.4.1a":
     {
@@ -557,7 +695,9 @@
         "mod_support": true,
         "date": "3 December 2019  17:23:06",
         "manifest": "7606486939041161388",
-        "iteration": 69
+        "iteration": 69,
+        "SH": "6f4022591acdb4fe7817dc1b7f8c333a",
+        "AH": ""
     },
     "1.4.1b":
     {
@@ -565,7 +705,9 @@
         "mod_support": true,
         "date": "5 December 2019 19:16:46",
         "manifest": "5794995706320684390",
-        "iteration": 70
+        "iteration": 70,
+        "SH": "95dedfdd3eed4693d1a373435c21120a",
+        "AH": "8bbc83ec0b3a5b5b7b74b33ff08e44ba"
     },
     "1.4.1c":
     {
@@ -573,7 +715,9 @@
         "mod_support": true,
         "date": "10 December 2019 22:12:21",
         "manifest": "3625841615104358190",
-        "iteration": 71
+        "iteration": 71,
+        "SH": "95dedfdd3eed4693d1a373435c21120a",
+        "AH": "ece061262d38705645bc77b007bdab9a"
     },
     "1.4.2":
     {
@@ -581,7 +725,9 @@
         "mod_support": true,
         "date": "26 May 2020 17:01:02",
         "manifest": "4980735195179703363",
-        "iteration": 72
+        "iteration": 72,
+        "SH": "e51a945e2bd473d7ea1251de509bdeae",
+        "AH": "41716f1a072f860d3f6cc54ac3900349"
     },
     "1.4.3":
     {
@@ -589,7 +735,9 @@
         "mod_support": true,
         "date": "8 December 2020 17:00:34",
         "manifest": "5877768838748196408",
-        "iteration": 73
+        "iteration": 73,
+        "SH": "2d7ee3cb650efda9f6a7da0e50d1b513",
+        "AH": "4460efbe6b51a56f9b2a352e2f4cf601"
     },
     "1.4.4":
     {
@@ -597,6 +745,8 @@
         "mod_support": true,
         "date": "1 December 2021 18:01:02",
         "manifest": "4496584778521264766",
-        "iteration": 74
+        "iteration": 74,
+        "SH": "99b478ad77272adb82f19f082060b639",
+        "AH": "ed14065a68e80ab3ddc317b32cbb89bb"
     }
 }

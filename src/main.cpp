@@ -17,6 +17,7 @@
 #include <windows.h>
 #include <shlobj.h>
 #include <iomanip>
+#include <memory.h>
 
 #include <curl/curl.h>
 
@@ -31,7 +32,7 @@ void install_all_instances()
     
 }
 
-std::map <int, std::string> scan_all_instances()
+std::map <int, std::string> scan_all_instances()    
 {
     std::map <int, std::string> queue;
     int itr = 1;
@@ -72,7 +73,7 @@ void load_sequence()
     setButtons();
 
     console.unlockQueue();
-    log_message("Console ready", LOG_TYPES::LOG_INFO);
+    log_message("Console ready", LogTypes::LOG_INFO);
 
     ///// Set functions to buttons from SFML-GUI onetime /////
     setFunctions();
@@ -83,7 +84,7 @@ void load_sequence()
     ///// set theme to objects /////
     setTheme();
     
-    ///// Create DropDownList from all "versions_map" contents /////
+    ///// Create DropDownList from all "versionsData_map" contents /////
     createDDListFromVersionsMap();
 }
 
@@ -92,6 +93,8 @@ int main()
     create_window(1280, 800);
 
     load_sequence();
+
+    devUiView.disable();
 
     if (window_actived == true)
     {

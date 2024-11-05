@@ -1,15 +1,120 @@
-std::map <std::string, SRVersion> versions_map;
+class uiElements {
+public:
+
+void createButton(sfg::Button& button, int posX, int posY, int sizeX, int sizeY, sf::Font& font, std::string input_text, bool block_state = false)
+{
+    button.create(posX, posY, sizeX, sizeY, font, input_text, block_state, theme_selected);
+    UIButtons.emplace_back(&button);
+}
+
+void createCheckbox(sfg::Checkbox& checkbox, int sizeX, int sizeY, int posX, int posY, std::string text, int fontsize, sf::Font& font, bool defaultState)
+{
+    checkbox.create(sizeX, sizeY, posX, posY, text, fontsize, font, defaultState, theme_selected);
+    UICheckboxes.emplace_back(&checkbox);
+}
+
+void createTextbox(sfg::Textbox& textbox, int x, int y, int size_x, int size_y, bool active_value, bool cursorVisible_value, sf::Font& font, int fontSize, std::string defaultText = "", bool readonly_default = false, std::string label_text = "")
+{
+    textbox.create(x, y, size_x, size_y, active_value, cursorVisible_value, font, fontSize, defaultText, readonly_default, label_text, theme_selected);
+    UITextboxes.emplace_back(&textbox);
+}
+
+void createDropDownList(sfg::DropDownList& ddl, int sizeX, int sizeY, int posX, int posY, std::map <std::string, std::string>options, std::string default_selected, sf::Font& font, bool block_state = false)
+{
+    ddl.create(sizeX, sizeY, posX, posY, options, default_selected, font, block_state, theme_selected);
+    UIDropDownLists.emplace_back(&ddl);
+}
+
+void createPasswordbox(sfg::Passwordbox& passwordbox, int x, int y, int size_x, int size_y, bool active_value, bool cursorVisible_value, sf::Font& font, int fontSize, std::string defaultText = "", bool readonly_default = false, std::string label_text = "")
+{
+    passwordbox.create(x, y, size_x, size_y, active_value, cursorVisible_value, font, fontSize, defaultText, readonly_default, label_text, theme_selected);
+    UIPasswordboxes.emplace_back(&passwordbox);
+}
+
+void createTextfield(sfg::Textfield& textfield, int x, int y, int size_x, int size_y, sf::Font& fontset)
+{
+    textfield.create(x, y, size_x, size_y, fontset, theme_selected);
+    UITextfields.emplace_back(&textfield);
+}
+
+void createTransparrentBg(sfg::TransparrentBackground& tpbg, int x, int y, int size_x, int size_y, bool outline = false)
+{
+    tpbg.create(x, y, size_x, size_y, outline, theme_selected);
+    UITpBgs.emplace_back(&tpbg);
+}
+
+void setElementsTheme()
+{
+    for (auto* textItr : UITexts)
+    {
+        textItr->setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
+    }
+    for (auto* buttonItr : UIButtons)
+    {
+        buttonItr->setTheme(theme_selected);
+    }
+    for (auto* checkboxItr : UICheckboxes)
+    {
+        checkboxItr->setTheme(theme_selected);
+    }
+    for (auto* textboxItr : UITextboxes)
+    {
+        textboxItr->setTheme(theme_selected);
+    }
+    for (auto* ddlItr : UIDropDownLists)
+    {
+        ddlItr->setTheme(theme_selected);
+    }
+    for (auto* passwordboxItr : UIPasswordboxes)
+    {
+        passwordboxItr->setTheme(theme_selected);
+    }
+    for (auto* textfieldItr : UITextfields)
+    {
+        textfieldItr->setTheme(theme_selected);
+        textfieldItr->applyTextColor(theme_selected);
+    }
+    for (auto* tpbgItr : UITpBgs)
+    {
+        tpbgItr->setTheme(theme_selected);
+    }
+}
+
+std::vector <sf::Text*> UITexts;
+std::vector <sfg::Button*> UIButtons;
+std::vector <sfg::Textbox*> UITextboxes;
+std::vector <sfg::Checkbox*> UICheckboxes;
+std::vector <sfg::DropDownList*> UIDropDownLists;
+std::vector <sfg::Passwordbox*> UIPasswordboxes;
+std::vector <sfg::Textfield*> UITextfields;
+std::vector <sfg::TransparrentBackground*> UITpBgs;
+};
+
+std::map <std::string, SRVersion> versionsData_map;
 
 class instance_list_class;
 class BetterBuildSave;
+class VanillaSave;
 class versionClass;
 class ModClass;
+class BackupList;
+class InstanceIconBarOption;
 std::map <std::string, instance_list_class> instances_list;
 std::map <int, std::string> instances_list_iterations;
 std::map <int, BetterBuildSave> betterbuildworlds_list;
+std::map <int, VanillaSave> vanillasaves_list;
+std::map <int, VanillaSave> betterbuildsaves_list;
 std::map <int, versionClass> versions_pachnotes_list;
+std::map <int, BackupList> Backups_list;
 std::map <std::string, ModClass> LauncherMods_list;
 std::map <std::string, ModClass> InstanceMods_list;
 
 std::vector <ModAttribs> mods_folder_data_list;
 std::vector <ModAttribs> instance_mods_folder_list;
+
+uiElements UIElements;
+
+namespace InstanceIconBar
+{
+    std::map <std::string, InstanceIconBarOption> IconBarMap;
+}

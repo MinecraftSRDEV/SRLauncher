@@ -1,0 +1,4 @@
+    Fixed an issue on Linux that was making it impossible to start the game.
+    Fixed a bug where language settings were not saving between restarts.
+    Fixed an issue where some regions were not able to open/create games due to regional settings.
+    Added mono support back to the Windows version of the game.

@@ -1,0 +1,89 @@
+Nimble Valley: The Nimble Valley is a new zone that is home to the exceedingly rare quicksilver slimes. Not much is known about the Valley outside of the fact that it is owned by the one and only Mochi Miles. Work for Mochi and prove yourself to be a first-rate rancher!
+
+    Mochi will invite you to her Manor after you successfully complete a Range Exchange request with her, unlock the Indigo Quarry, and purchase The Grotto ranch expansion. Please note that you will need to complete a NEW Range Exchange request from Mochi in order to trigger her contacting you.
+    Work in the Valley involves running a series of Rance Exchange assignments which will reward you with newbucks and special upgrades.
+    Mochi will GENEROUSLY (emphasis added by request of Mochi Miles) pay you for every 10 plorts you deliver. Fulfill larger requests to earn: Mochi’s Extra Mile, the Deluxe coop upgrade, and then access to Mochi’s Manor.
+    The Nimble Valley has two tracks you can run to collect resources for Mochi. One is trickier than the other!
+    Each track is equipped with a special generator to get quicksilver slimes out of their hiding spots. Generators can only run for a limited time, so collect as much as you can before they need to recharge. Extend your available time using relay rings throughout the Valley.
+    The Valley is rigged with Miles Tech that will automatically gather plorts for you. Mochi assures you that she is not skimming any of them off the top. And frankly, it’s outrageous that you even think so.
+
+
+Quicksilver Slimes: Quicksilver slimes are lightning quick, and feed on electricity. This is generally accomplished by their moving really fast and slowly accumulating the static charge they generate. However, Mochi has decided to speed up the process and created a method for feeding them energy in a far more direct fashion. - Feed quicksilver slimes by electrifying them using Mochi’s cutting-edge Miles Tech. - Be careful while collecting plorts; electrified quicksilver slimes are dangerous to touch! - Quicksilver plorts can’t be sold on the Plort Market and can only be deposited at Mochi’s Manor.
+
+
+Electrical Charges and Power Stations:
+
+    Spark Shot: Feed a spark shots to quicksilver slimes and rake in the newbucks.
+    Static Clinger: Charges a quicksilver slime with electricity that can chain to nearby quicksilvers. Make them work for YOU!
+    Slooow Field: Experimental tech that creates a dome of photonic jelly, slowing down quicksilvers that pass through it.
+    Thunderclap: A super-charged spark shot that is capable of hitting a whole bunch of quicksilvers at once!
+    Charge Stations: Fill your vac tank with random electrical charges designed to make plort harvesting a breeze (randomly assigns a slooow field, static clinger, or thunderclap)
+    Relay Rings: Run through relay rings to extend your time.
+    Energy Boost Station: Refills your energy meter so you can keep running and jumping and collecting those plorts.
+
+
+Rush Mode:
+
+    5-Day Rush has been replaced and is now Rush Mode!
+    Create the most efficient ranch you can to earn the most newbucks within the allotted time. Getting knocked out reduces your newbucks by 10%.
+    Complete daily Range Exchange requests to earn extra time and gilded ginger.
+    Collect 25 of any plort and receive a bonus multiplier when your score is calculated. Each bonus can only be collected once per plort type, for a total of 16 bonus multipliers. Slimes from the Glass Desert are worth the most!
+    Use your gilded ginger on the gold gordos that are now scattered all over the map.
+    Make use of Slime Science gadgets that are already in your inventory such as: warp depots, teleporters, and hydro turrets.
+    Other features have been included in order to speed up gameplay, including semi-fed gordos, an open plort gate, all available power ups being unlocked, and a selection of Slime Science gadgets available to you.
+
+Other Changes:
+
+    Added 3 new gadget sites to Moustache Island. If you’re asking yourself, ‘what’s Moustache Island?’ don’t worry, it doesn’t actually exist.
+    Ogden’s Retreat and Mochi’s Manor can now be recolored separately from Beatrix’s home ranch.
+    Special chroma packs are unlocked by starting Ogden’s and Mochi’s missions. Mochi however has declared that depending on how you look at it, there is now only one chroma pack available.
+    Added pop-up text whenever you earn or spend newbucks.
+    On-ranch tutorials are now only on Beatrix’s ranch, and not Ogden or Mochi’s expansions.
+    Locked the framerate to never go above 120Hz to prevent GPU overheating issues(this is ignored in VSync mode).
+    Added option to disable the very limited mouse smoothing that is on by default.
+    Upgraded Unity engine version.
+    Gave the newbucks icon a facelift.
+    Improved the way we are storing profile data: now you can have different options on different computers.
+    Improved scrolling on map while using a gamepad.
+    5-Day Rush achievements have been adjusted to better suit Rush Mode.
+
+Fixes:
+
+    Fixed a possible bug related to gold slimes fleeing improperly.
+    Fixed a bug related to tangle vines and dervish whirlwinds that could sometimes result in launched slimes and other items.
+    Fixed stuck spot in Dry Reef where players with no jet pack could get wedged.
+    Fixed spot in Overgrowth where chickens could get stuck behind a tree. It was likely a secret hideout for chicken scheming so YOU’RE WELCOME.
+    Fixed a minor offset in the vac rotation.
+    Fixed bug where market reported all prices as having risen on game load. Thanks, Mochi.
+    Fixed bug where oasis music was sometimes not playing properly on game load.
+    Fixed the garden tutorial getting stuck if you planted a crop before the tutorial prompt.
+    Fixed bug where Rush Mode was sending rancher intro emails.
+    Fixed bug with diet readout for gold/lucky slimes and gordos.
+    Fixed bug where it was possible to keep receiving radiation after teleporting while in rad auras.
+    Fixed bug where silos were showing pink slime icon on empty slots.
+    Fixed bug where doors in the Ruins would disappear from our reality if you look at it from a certain angle.
+    Fixed bug where slimes could sometimes eat things beyond a corral barrier while Beatrix sleeps.
+    Fixed bug with kookacrackers not playing their particle effects.
+    Fixed bug where the Hobson journal glow would block the vac.
+    Fixed bug where Range Exchange crates would sometimes launch their contents aggressively on break.
+    Fixed issue with slime spawning taking into account chicken density. Thanks, BOb.
+    Fixed damage hit flash so that it flashes again, because pain shouldn’t be ignored.
+    Fixed bug where fire slimes in ponds sometimes did not despawn properly.
+    Fixed bug where fire slimes in water did not become extinguished.
+    Fixed bug where gold slimes could create plorts due to touching gold plorts. There should be a lore reason for this so gather round and let me tell you the epic tale of Game Balance...
+    Fixed timing bug related to getting newbucks from crates/exchange such that logging out at the wrong time doesn't cost you newbucks.
+    Fixed small gap along edge of Grotto floor.
+    Fixed bugs related to restarting tutorials on game load.
+    Fixed bug where extractors sometimes were not fully destroying themselves when complete.
+    Fixed a particular type of ivy being used in the world that was insufficiently thick. Oh yes, you knew this update was going to be good.
+    Fixed gamepad navigation on Load/Save Error Screens.
+    Fixed "Requires" label missing in the Fabricator UI.
+    Fixed bug where the Quarry central cave was incorrectly being treated as part of the ranch.
+    Fixed bug where low-res version of honey slimes had the wrong crest.
+    Fixed bug on loading a game with max energy capping at 100 initially before refilling.
+    Fixed some incorrect lighting in some small sections of the world.
+    Fixed bug where disable-gamepad option was not saving properly.
+    Fixed misspelling of “omelettes.” It is now spelled “fancy egg taco.”
+    Fixed bug on restoring default screen resolution on Linux.
+    Fixed some minor issues with water rendering.
+    A bunch of other miscellaneous small optimizations.

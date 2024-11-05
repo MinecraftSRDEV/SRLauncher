@@ -2,17 +2,17 @@ void backup_orginal_game(fs::path gamedir)
 {
     try
     {
-        log_message("Creating autobackup of: \"" + gamedir.string(), LOG_TYPES::LOG_INFO);
+        log_message("Creating autobackup of: \"" + gamedir.string(), LogTypes::LOG_INFO);
         directory_auto(autobackup_path / "Slime Rancher");
         fs::copy(gamedir, autobackup_path / "Slime Rancher");
-        log_message("Creating autobackup of: \"" + local_save_path.string(), LOG_TYPES::LOG_INFO);
+        log_message("Creating autobackup of: \"" + local_save_path.string(), LogTypes::LOG_INFO);
         directory_auto(autobackup_path / "savedata");
         fs::copy(local_save_path, autobackup_path / "savedata");    
     }
     catch (fs::filesystem_error e)
     {
         std::string errormsg = e.what();
-        log_message("Backup error: " + errormsg, LOG_TYPES::LOG_ERROR);
+        log_message("Backup error: " + errormsg, LogTypes::LOG_ERROR);
     }
     
 }
@@ -31,6 +31,6 @@ void rename_orginal_dir()
     }
     else
     {
-        log_message("No Slime Rancher instance detected in: \"" + orginal_game_dir.string() + "\"", LOG_TYPES::LOG_INFO);
+        log_message("No Slime Rancher instance detected in: \"" + orginal_game_dir.string() + "\"", LogTypes::LOG_INFO);
     }
 }

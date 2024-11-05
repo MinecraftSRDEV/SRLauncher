@@ -15,44 +15,79 @@ void instances_stat_refresh()
 
 int last_insnace_entry_y = 85;
 
+struct instanceAttribs {
+    std::string name;
+    std::string version;
+    std::string edited;
+    std::string iconId;
+    std::string importPath;
+    std::string path_str;
+    std::string playTime;
 
+    fs::path directory_path;
+    InstanceModAttributes modsAttribs;
+};
 
 bool add_instance(fs::path path, int itr)
 {
-    std::string path_str = path.string();
-    InstanceModAttributes modsAttribs;
+    instanceAttribs inst;
+    
+    inst.path_str = path.string();
+    inst.directory_path = path;
     if (check_directory_exists(path) == true)
     {
-        if (fs::exists(path_str + "/info.json"))
+        if (fs::exists(inst.path_str + "/info.json"))
         {
             bool instance_installed_status_placeholder = false;
 
-            JSON json = JSON::parseFromFile(path_str + "/info.json");
+            JSON json = JSON::parseFromFile(inst.path_str + "/info.json");
 
-            std::string name = json.getObject().at("name").getString();
-            std::string version = json.getObject().at("version").getString();
+            inst.name = json.getObject().at("name").getString();
+            inst.version = json.getObject().at("version").getString();
+            try
+            {
+                inst.edited = json.getObject().at("edited").getString();
+            }
+            catch(std::exception){}
+            try
+            {
+                inst.iconId = json.getObject().at("icon").getString();
+            }
+            catch(std::exception){}
+            if (inst.iconId.empty())
+            {
+                inst.iconId = "pink";
+            }
+            try
+            {
+                inst.playTime = json.getObject().at("playtime").getString();
+            }
+            catch(std::exception)
+            {
+                inst.playTime = "0";
+            }
 
-            if (fs::exists(path_str + "/SlimeRancher.exe") == true)
+            if (fs::exists(inst.path_str + "/SlimeRancher.exe") == true)
             {
                 instance_installed_status_placeholder = true;
-                if (versions_map[version].mod_support == true)
+                if (versionsData_map[inst.version].mod_support == true)
                 {
-                    if (versions_map[version].version_type == "pre-release")
+                    if (versionsData_map[inst.version].version_type == "pre-release")
                     {
-                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/SlimeRancherModtool.dll"))
+                        if (fs::exists(inst.path_str + "/SlimeRancher_Data/Managed/SlimeRancherModtool.dll"))
                         {
-                            modsAttribs.StaysModtool_installed = true;
+                            inst.modsAttribs.StaysModtool_installed = true;
                         }  
                     }
-                    else if (versions_map[version].version_type == "stable-release")
+                    else if (versionsData_map[inst.version].version_type == "stable-release")
                     {
-                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/UnityCoreMod.dll"))
+                        if (fs::exists(inst.path_str + "/SlimeRancher_Data/Managed/UnityCoreMod.dll"))
                         {
-                            modsAttribs.SatysModLoader_installed = true;
+                            inst.modsAttribs.SatysModLoader_installed = true;
                         }
-                        if (fs::exists(path_str + "/SlimeRancher_Data/Managed/uModFramework.dll"))
+                        if (fs::exists(inst.path_str + "/SlimeRancher_Data/Managed/uModFramework.dll"))
                         {
-                            modsAttribs.UMF_installed = true;
+                            inst.modsAttribs.UMF_installed = true;
                         }
                     }
                     
@@ -63,15 +98,16 @@ bool add_instance(fs::path path, int itr)
                 instance_installed_status_placeholder = false;
             }
 
-            instances_list[name].create(10, last_insnace_entry_y, 1260, 80, name, version, font, modsAttribs, itr);
+            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], font, inst.modsAttribs, itr, inst.playTime);
             last_insnace_entry_y += 85;
-            instances_list[name].setInstalledStatus(instance_installed_status_placeholder);
-            instances_list_iterations[itr] = name;
+            instances_list[inst.name].setInstalledStatus(instance_installed_status_placeholder);
+            instances_list[inst.name].setEditedStatus(inst.edited);
+            instances_list_iterations[itr] = inst.name;
             return true;
         }
         else
         {
-            log_message("Cannot find \"info.json\" file in: " + path.string() + "!", LOG_TYPES::LOG_WARN);
+            log_message("Cannot find \"info.json\" file in: " + path.string() + "!", LogTypes::LOG_WARN);
             // MessageBoxA(NULL, "Cannot find \"info.json\" file in game directory!", "Warning", MB_ICONEXCLAMATION);
         }
     }
@@ -99,13 +135,12 @@ void loadInstancesList(fs::path instances_path)
     }
     catch (fs::filesystem_error e)
     {
-        std::string errormsg = e.what();
-        log_message("Instance refresh error: " + errormsg, LOG_TYPES::LOG_ERROR);
+        log_message("Instance refresh error: " + std::string(e.what()), LogTypes::LOG_ERROR);
     }
     
     instances_stat_refresh();
 
-    if (mounted_instance != "Unmounted")
+    if (mounted_instance != UNMOUNTED_INSTANCE)
     {
         mounted_instance_version.setString("v." + instances_list[mounted_instance].getVer());
     }

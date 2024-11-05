@@ -1,0 +1,1 @@
+Fixed an issue where some ranchers were experiencing odd disappearances and reappearances of items and slimes in some areas on the range.

@@ -23,19 +23,19 @@ void remove_instnace_function(std::string instnace_id)
                     try
                     {
                         fs::remove_all(path);
-                        log_message("instance deleted", LOG_TYPES::LOG_INFO);
+                        log_message("instance deleted", LogTypes::LOG_INFO);
                         refresh_instances_list();
                     }
                     catch (const fs::filesystem_error& e)
                     {
                         std::string errormsg = e.what();
-                        log_message("cannot delete instnace: " + errormsg, LOG_TYPES::LOG_ERROR);
+                        log_message("cannot delete instnace: " + errormsg, LogTypes::LOG_ERROR);
                         MessageBoxA(NULL, "Cannot delete instnace!", "Error", MB_ICONERROR | MB_OK);
                     }
                 }
                 else
                 {
-                    log_message("Directory \"" + path.string() + "\" not found", LOG_TYPES::LOG_ERROR);
+                    log_message("Directory \"" + path.string() + "\" not found", LogTypes::LOG_ERROR);
                 }
                 break;
             }

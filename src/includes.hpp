@@ -1,4 +1,5 @@
 #include "headers/Declarations/varriables.hpp"
+#include "headers/Declarations/dictionaries.hpp"
 #include "headers/Declarations/enums.hpp"
 #include "headers/Declarations/structs.hpp"
 #include "headers/Declarations/maps.hpp"
@@ -8,14 +9,22 @@
 #include "headers/Classes/md5calculator.hpp"
 #include "headers/Classes/VDF_parser.hpp"
 
+#include "headers/Functions/crypt/md5calc.hpp"
+
 #include "headers/Functions/Logs/log_message.hpp"
+
+#include "headers/Functions/Buttons/Instances/playtimeCalculator.hpp"
+
+#include "headers/Classes/dev_ui_viewer.hpp"
 
 #include "headers/Classes/popup_message_window.hpp"
 #include "headers/Classes/instance_list.hpp"
 #include "headers/Classes/version_class.hpp"
+#include "headers/Classes/instance_icon_bar_options.hpp"
 #include "headers/Classes/save_menagement/betterbuild_save.hpp"
 #include "headers/Classes/save_menagement/mod_class.hpp"
 #include "headers/Classes/save_menagement/game_save_class.hpp"
+#include "headers/Classes/save_menagement/backup_list_class.hpp"
 
 // #include "headers/Classes/formattedText.hpp"
 
@@ -50,9 +59,12 @@
 
 #include "headers/ResourceLoad/loadElements.hpp"
 #include "headers/ResourceLoad/loadJsons.hpp"
+#include "headers/ResourceLoad/loadLicences.hpp"
 
 #include "headers/Functions/crypt/decryptor.hpp"
 #include "headers/Functions/crypt/encryptor.hpp"
+
+#include "headers/Functions/Data_menagement/file_editor.hpp"
 
 #include "headers/Functions/Config/update_file.hpp"
 #include "headers/Functions/Userdata/textbox_data.hpp"
@@ -80,16 +92,39 @@
 
 #include "headers/Functions/Data_menagement/SteamCMDCheck.hpp"
 
+#include "headers/Functions/Buttons/Instances/iconbar.hpp"
+
 #include "headers/Functions/Buttons/Launcher_pages/categories.hpp"
+#include "headers/Functions/Buttons/Launcher_pages/manageCategories.hpp"
 #include "headers/Functions/Buttons/Instances/import.hpp"
 #include "headers/Functions/Buttons/Instances/new_instance.hpp"
 #include "headers/Functions/Buttons/Instances/refresh_list.hpp"
 #include "headers/Functions/Buttons/Instances/create.hpp"
 
+#include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/dateFromat.hpp"
+#include "headers/Functions/Buttons/Instances/menage/backups/makeBackupAsk.hpp"
+#include "headers/Functions/Buttons/Instances/menage/backups/bcScanner.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/binaryReader.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/unlocker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/scanner.hpp"
+#include "headers/Functions/Buttons/Instances/menage/mainpage/detailsText.hpp"
+#include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/deserializer.hpp"
+#include "headers/Functions/Buttons/Instances/menage/saveScaner/vanilla.hpp"
+#include "headers/Functions/Buttons/Instances/menage/saveScaner/autoSelector.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/findSpecyficMod.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/recognizer.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/scanFolder.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/loadModsFolder.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/betterBuildChecker.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 
 #include "headers/Functions/Buttons/Instances/downloadCMD.hpp"
 
+#include "headers/Events/scrolling/ScrollVersionDescription.hpp"
+#include "headers/Events/scrolling/ScrollpatchNotesList.hpp"
+#include "headers/Events/scrolling/ScrollInstancesList.hpp"
+#include "headers/Events/scrolling/manage/bbw.hpp"
+#include "headers/Events/scrolling/manage/vanillaSaves.hpp"
 #include "headers/Events/loop.hpp"
 
 #include "headers/Functions/Buttons/Instances/unmount.hpp"

@@ -59,6 +59,11 @@ void update(sf::Vector2f& mouse)
     move_button.update(mouse);
 }
 
+ModAttribs getAttribs()
+{
+    return attribs;
+}
+
 private:
 
 void setAttributes()

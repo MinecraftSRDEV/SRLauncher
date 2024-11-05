@@ -114,7 +114,7 @@ std::string decryptor(std::string deencrypt_input)
 		
 		if (decrypted_string.empty())
 		{
-			log_message("Cannot decrypt: " + deencrypt_input, LOG_TYPES::LOG_ERROR);
+			log_message("Cannot decrypt: " + deencrypt_input, LogTypes::LOG_ERROR);
 		}
 
 		return decrypted_string;	
@@ -122,12 +122,12 @@ std::string decryptor(std::string deencrypt_input)
 	catch (std::invalid_argument e)
 	{
 		std::string errmsg = e.what();
-		log_message("Decryptor error: " + errmsg, LOG_TYPES::LOG_ERROR);
+		log_message("Decryptor error: " + errmsg, LogTypes::LOG_ERROR);
 	}
 	catch (std::out_of_range e)
 	{
 		std::string errmsg = e.what();
-		log_message("Decryptor error: " + errmsg, LOG_TYPES::LOG_ERROR);
+		log_message("Decryptor error: " + errmsg, LogTypes::LOG_ERROR);
 	}
 	
     return "";

@@ -1,0 +1,18 @@
+Join us December 18-30 for a special holiday event- Wiggly Wonderland. Seek the mystical Twinkle Slime on the Far, Far Range and collect rare chimes. Burst the Twinkle Slime and unlock exclusive instruments that can be used at your chime changer on the ranch! This event lasts for a short time, so don't miss out on your chance to see the elusive Twinkle Slime. This year, new instruments are available. Collect all nine!
+
+This update is designed to also deliver some quality of life updates and patch some bugs from the backlog.
+
+Wiggly Wonderland 2020
+
+    Updated the schedule for Wiggly Wonderland
+    Added the Wiggly Wonderland Theme to the game. Using the chime changer will play it.
+    Added new instruments: chiptune, violin, and flute.
+    Fixed Twinkle Slime bubbles appearing as black boxes when growing and popping.
+    Fixed display issue related to stacked chimes interfering with one another.
+
+Patch Notes
+
+    Updated the Party Gordo schedule for 2021
+    Corrected Viktor's descriptions of glitch slimes.
+    Various localization corrections and updates.
+    Updated in-game email address and URLs for support.

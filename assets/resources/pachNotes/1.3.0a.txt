@@ -1,0 +1,40 @@
+The Automatic Update is Now Available!
+
+DRONES ARE NOW AVAILABLE!!! Drones are happy little helper bots that can be programmed to help with various tasks around the ranch!
+
+Drones:
+Drones are a new gadget that can reduce some of the work a rancher needs to perform on the ranch. They will happily bring food to corrals, take plorts to the market, or help store excess crops in silos. There are many different types of tasks you can program a drone to do, so it will be up to you to figure out how they can help!
+
+    A Blueprint for drones is now available for purchase at the Lab. Once you unlock the Blueprint, you will be able to craft the drones gadget from the Fabricator!
+    Program drones by using three simple inputs: target, source, and destination.
+
+
+    Drones can deliver to warp depots, market links, silos, auto feeders, and more! Destination options will change dynamically depending on what the drone is targeting.
+    Drones can only operate within a single ranch expansion and only two drone stations may be placed per expansion.
+    Drones are smarter than you think! A drone will never empty a coop and will try its best not to overfeed your slimes.
+    Drone stations are hydro-powered and require regular watering to stay active. A drone will run for about a day before its station requires another splash of water. If a drone station is out of water, the petals will close and the drone will go into stasis until it is watered.
+
+
+When a drone completes its task it will sleep at its station until it is time to get back to work!
+
+
+New Translations:
+
+    Added Japanese translation! Konnichiwa, new friends!
+    Added Brazilian Portuguese translation! Oi, tudo bem?
+
+Other Changes:
+
+    Optimized the experience when you return to an area of the world you haven’t visited in awhile. Feels more like “Welcome back!” and less like “Why did you leave?!”
+    Using a PS4 controller on PC now shows PS4 button prompts, nifty!
+    Made some adjustments to SFX volume and balance.
+    Updated some font choices to better-match Chinese/Japanese characters in spots where we use Latin characters.
+
+Fixes:
+
+    Fixed bug where when phase lemon trees in the ruins were watered, they would get overly excited and phase repeatedly.
+    Fixed bug where a ball of water could sometimes spawn in the docks after a player knockout. But who was the water?!
+    Fixed bug where some slimes (and especially Hunter Largos) stayed happy and calm and were not becoming agitated, even under the most extreme circumstances.
+    Fixed bug where PS4 controllers on PC could not bring up the game menu.
+    Fixed bug where items washed up in docks sometimes stood up unnaturally straight. We fixed this because it was really creepy.
+    Fixed bug where puddle and fire slimes sometimes did not properly notice that they weren’t on their preferred surface.

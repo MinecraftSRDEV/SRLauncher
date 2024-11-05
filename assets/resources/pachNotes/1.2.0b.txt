@@ -1,0 +1,5 @@
+    Added Slime Toy dispenser in Mochi's Manor since some of you would rather be entertaining slimes instead of working.
+    Did some minor landscaping in Mochi’s garden.
+    Fixed bug where some gadgets placed in Mochi's Manor were disappearing if you weren’t looking. It’s safe to blink and/or quit playing Slime Rancher now.
+    Fixed bug where certain gold gordos (not pointing any fingers here) in Rush Mode could “forget” how many gingers they'd eaten after you left the game.
+    Fixed bug where a Rush Mode feature snuck into Adventure Mode. The plort market is back to showing market trends and no longer show stars for plorts you’ve sold a lot of.

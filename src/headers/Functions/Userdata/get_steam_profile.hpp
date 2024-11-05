@@ -77,7 +77,7 @@ int getUserOfflineMode()
     }
     catch (std::runtime_error e)
     {
-        log_message("Cannot read Steam userdata: " + std::string(e.what()), LOG_TYPES::LOG_ERROR);
+        log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
         steam_profile_offline_status_text.setString("OFFLINE mode: unknown");
         return result_fail;
     }
@@ -110,13 +110,13 @@ bool getSteamProfile()
         }
         catch (std::runtime_error e)
         {
-            log_message("Cannot read Steam userdata: " + std::string(e.what()), LOG_TYPES::LOG_ERROR);
+            log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
             Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
             return false;
         }
         catch (std::out_of_range e)
         {
-            log_message("Cannot read Steam userdata: " + std::string(e.what()), LOG_TYPES::LOG_ERROR);
+            log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
             Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
             return false;
         }   

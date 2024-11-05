@@ -1,0 +1,5 @@
+A small patch was issued to fix a few issues related to the last release.
+
+    Oases now destroy tarr and provide safety from firestorms.
+
+    Fixed a timer issue when saving and reloading during a Nimble Valley race.

@@ -1,0 +1,48 @@
+The Optimized Update
+The Optimized Update is here to improve overall performance of Slime Rancher. Yes, even though we're nearly 3 years out from initial release, we're still hard at work to make Slime Rancher the best possible experience for everyone!
+
+Game Optimization:
+We have upgraded Slime Rancher’s game engine which will bring performance improvements for a majority of players!
+
+    We did a lot of technical wizardry, but the short of it is we upgraded the game engine to Unity 2018 and all game data has been reorganized to optimize the way we store data and manage certain game states.
+    Most PC players, as well as all Xbox and PS4 players should see improved performance and overall frame rate.
+    DirectX 9 is no longer supported. More on this here.
+
+Drone Improvements:
+Drones got a nice little update that allows them to deliver to the Refinery and improves how they interact with some targets/destinations!
+
+For plorts only:
+
+    Refinery and Refinery Link have been added as a destination—for science!
+    Updated “Outside Plots” to a new “Free Range” option. Drones set to “Free Range” will collect the target item from anywhere on the ranch expansion that is not in storage (e.g. Silos, Plort Collectors).
+    Updated programming interface to clarify that drones can deliver to the Plort Market via Market Links when you’re in another ranch expansion. The destination will dynamically update to either read “Plort Market” or “Market Link” depending on where you are.
+
+Miscellaneous:
+
+    Updated incinerator programming so they now serve the sole purpose of feeding fire slimes rather than infinitely destroying items. Drones will only deliver food to incinerators until the ash trough is full. If you’re looking to burn two thousand carrots because you really hate carrots, you’re going to have to do that manually. But come on, they’re just carrots.
+    Drones are now able to deliver food directly from silos to corrals.
+
+New & Updated Translations:
+
+    Added Korean translation! 어떻게 지내?
+    Completely overhauled the French translation!
+    Updated the Chinese translation!
+
+Other:
+
+    Updated the Party Gordo’s schedule.
+
+Fixes:
+
+    Fixed an issue where fruits and veggies would almost always be unripe in an area that you haven’t visited in awhile.
+    Added a fix that will prevent some cases of items getting stuck below ground in Ogden’s Retreat.
+    Fixed drone trail artifacts upon re-entering areas with drones.
+    Fixed it so that drones would stop grabbing carrots out of gardens instead of odd onions while you’re not looking.
+    Fixed a bug where certain other slime types were counting towards the Omnivorous achievement.
+    Fixed gamepad bindings buttons being invisible in certain resolutions.
+    Fixed an issue where the ash trough was not correctly remembering its fullness after a save/reload.
+    Fixed a few instances where some game translations would overflow in the UI.
+    Fixed the “Reset Defaults” button on the gamepad options panel leaving the invert-y-axis option in an inconsistent state which was resulting in some players not knowing what was up and what was down.
+    Fixed an issue where plorts didn’t know if they should stay or they should go after a save/load.
+    Fixed ferals sometimes cooling off after jumping into water while chasing you. This involved delicately balancing their ‘Hangry’ parameter. Game development is fun.
+    Fixed a bug where gold slimes were leaving an incorrectly, unfabulous colored splat.

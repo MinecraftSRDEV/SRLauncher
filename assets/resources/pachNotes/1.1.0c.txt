@@ -1,0 +1,5 @@
+A bugfix patch was issued today to attempt to further fix the bugs related to teleporter crashes, and other similar actions. Please give us feedback if this patch helps you!
+
+    We are disabling some very minor graphics optimizations we had activated in 1.1.0 because they appear to have been causing crashes for certain players (often around the time of teleporting), especially those with specific Radeon graphics cards. We are interested in whether this change in 1.1.0c is successfully preventing these crashes for those players who were having them.
+    Add some better logging related to the slimes getting into invalid positions.
+    Fix crash on the currently-existing unopenable game files. If you previously were unable to open a save this change may fix that.

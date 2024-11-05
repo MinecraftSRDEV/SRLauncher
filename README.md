@@ -4,9 +4,9 @@ Early release! You are using on your own risk!
 # Requirements
 - [Visual C++ Redist](https://learn.microsoft.com/en-en/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
-- Net Runtime 8.0.8<br>
+- Net Runtime 8.0.8 for [DepotDownloader](https://github.com/MinecraftSRDEV/SRLauncherDepotDownloader) (included with this launcher)<br>
 or
-- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
+- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) (not included)
 
 - Steam account with purchased Slime Rancher
 
@@ -38,9 +38,11 @@ THE PROGRAM DOES NOT SUPPORT OTHER PLATFORMS SUCH AS:
 
 The program uses an instance mounting system to bypass the restriction of running the game only from the main Steam installation folder. Created instances are stored by default in "Roaming/SRLauncher/instances".
 
-For a folder to be recognized as an instance, it must contain an "info.json" file with information about the version and name. The main game folder named "Slime Rancher" is automatically treated as a mounted instance. If it does not contain an "info.json" file, it may not be recognized.
+For a folder to be recognized as an instance, it must contain an "info.json" file with information about the instance. The main game folder named "Slime Rancher" is automatically treated as a mounted instance. If it does not contain an "info.json" file, it may not be recognized if instance is unmounted, but it doesn' t empty you can't mount any instance(this is to avoid overwrite). 
 
-When a user selects an instance from the list, its folder is swapped with the one in the Steam game folder. YOU CANNOT HAVE MULTIPLE INSTANCES MOUNTED AT THE SAME TIME! **IF THE FOLDER IS NOT DETECTED AND ALREADY CONTAINS FILES FROM ANOTHER INSTANCE, IT MAY BE OVERWRITTEN!**
+If you running version different than 1.4.4 the Steam were disabled for this time.
+
+When a user selects an instance from the list, its folder is swapped with the one in the Steam game folder. YOU CANNOT HAVE MULTIPLE INSTANCES MOUNTED AT THE SAME TIME!
 
 Unmounting an instance restores the instance folder to its original location. If the instance does not contain the downloaded game, a script will run to download it using Included specially modified [DepotDownloader](https://github.com/MinecraftSRDEV/SRLauncherDepotDownloader) or SteamCMD.
 
@@ -52,9 +54,10 @@ Notes:
 
 - The procedure is very delicate! If something goes wrong during execution, it may result in game data, save files, or other files being corrupted!
 - If you are running this launcher with a game that was already installed via Steam, it is recommended to rename the original game directory to something other than "Slime Rancher". This step is crucial to avoid potential issues with the launcher.
-- If you plan to play an older version of the game, YOU MUST FIRST SWITCH Steam to OFFLINE MODE to avoid automatic updates.
+- If you plan to play an older version of the game, recommend to swtich Steam to OFFLINE MODE to avoid automatic updates.
 - When launching an older version of the game, settings and achievements saved in the game may be lost, so it is recommended to make a backup.
 - The launcher currently supports only x64 game builds.
+- You can't use Steam with this launcher because when game were launched, to bypass SteamApi which is force you to run the latest game build, Steam will be closed and "steam.exe" is renamed
 
 # :hammer::wrench: Work In Progress...
 

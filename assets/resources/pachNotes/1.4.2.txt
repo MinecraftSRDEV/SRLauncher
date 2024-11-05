@@ -1,0 +1,57 @@
+Slime Rancher v1.4.2 is primarily focused on further improving performance, adding a few community-requested features, plus some additional bug fixes and back-end tweaks.
+
+New Fashion & Playset
+
+Party Fashion - With these super rad Party Glasses, your slimes will be the stars of the party! Just note that the Party Hat + Glasses combo is a unique fashion for our VIPG (Very Important Party Gordo).
+
+Scuba Playset - This new Playset includes a Scuba Fashion Pod and Octo Buddy Toy! Slimes that are wearing the Scuba Fashion love to play with their best pool-pal, Octo.
+
+
+Workshop Disposal
+
+Things were starting to get a little crowded down in Viktor's Workshop so he built a recycling system to help keep the place tidy. Go ahead and toss any unwanted items or slimes into the water chute and Viktor will see to it that they are recycled or released back into the Far, Far Range!
+
+Minimal HUD
+
+Have you ever wanted to take a little break from ranching and just enjoy the sunset in the Ancient Ruins or the sunrise over the Moss Blanket? Give the 'Minimal HUD' option a try!
+
+Be sure you're extra careful if you use it while exploring! You may find your jetpack has run out of energy halfway through a risky jump across a wide canyon that spans across the Slime Sea... o_o
+
+
+Patch Notes
+
+New Features:
+
+    Now every day can be Friday once you’ve unlocked the new Party Fashion Pod (party hats not included).
+    Make a splash with the Scuba Playset!
+    Added a “Minimal HUD” feature so you can relax and enjoy the scenery.
+
+Changes:
+
+    Added a disposal mechanism to Viktor’s Workshop to help recycle any unwanted items.
+    Reduced the frequency in which the game will passively auto-save.
+    Added auto-save checkpoints after: a Slime Gate is opened, a Ranch Expansion is purchased, and a 7Zee Rewards Club level is purchased.
+    Gamepad now scrolls through menus quicker. Scroll through your dozens of ornaments faster than ever before!
+    Improve Gadget Mode messaging to better emphasize the ability to rotate gadgets.
+    A few ranchers accidentally deleted their collection of gold plorts and rare ornaments, so we made it take a little bit longer to demolish Silos.
+    Range Exchange icons no longer change to reflect a slime’s active secret style (from the Secret Style Pack DLC).
+
+Fixes:
+
+    Enhanced the delicious, smoky aroma of the charcoal brick toys to make them more exciting for fire slimes.
+    Added +5 luck to all lucky slimes to prevent them from being eaten by tarr.
+    Fixed an astrophysical anomaly that was causing phase lemons to shrink in size.
+    Also fixed a similar anomaly that was preventing phase lemon trees from casting shadows.
+    Fixed a bug related to the “Boop” achievement.
+    Fixed an issue with hunter largo mouths.
+    Fixed a missing music track that should play while relaxing by the Slime Sea at night.
+    Fixed a rare issue that you could run into while collecting gilded gingers.
+    Corrected some typos and grammatical errors in the Spanish and Russian translation.
+    Fixed a very science-y issue with quantum slimes. (It would take at least 6 years of University, plus a deep understanding of Slime Science to understand it fully, so we’ll just call it the “Failure to Duplicate Phenomenon”)
+    Fixed a bug where Range Exchange reward crates were not persisting between sessions.
+    Fixed a UI issue so mouse icons will properly display in tutorial popups.
+    Fixed an issue where the autosave icon wasn’t appearing when the game autosaved after a rancher got knocked out.
+    Fixed some bugs that were resulting in errors when trying to load an existing save.
+    Fixed an issue where Mochi’s Nimble Valley tutorials weren’t clearing properly.
+    [XB1/PS4] Fixed a number of pesky bugs that were the cause of a handful of game crashes.
+    [PS4] Fixed a graphical issue that was causing water to be extremely reflective.

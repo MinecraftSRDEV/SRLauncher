@@ -1,0 +1,1 @@
+v1.1.0d is now live and should resolve all teleporter bug crashes. Please mail support@monomipark.com if you are running v1.1.0d and still getting crashes when using teleporters. 

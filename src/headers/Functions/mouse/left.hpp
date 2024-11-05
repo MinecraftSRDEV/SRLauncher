@@ -12,17 +12,18 @@ void executeSubcategories(sf::Vector2f mouse)
     Subcat_settings_progile_button.update(mouse);
     Subcat_settings_updates_button.update(mouse);
     Subcat_settings_credits_button.update(mouse);
+    Subcat_settings_licences_button.update(mouse);
 }
 
 void mouse_left()
 {
     sf::Vector2f mouse = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
-    if (UI_current == UI_PAGES::MainMenu)
+    if (UI_current == UiPages::MainMenu)
     {
         executeCategories(mouse);
 
-        launch_last_instance_button.update(mouse);
+        launch_game_button.update(mouse);
 
         console_clear_button.update(mouse);
 
@@ -32,7 +33,7 @@ void mouse_left()
         }
     }
 
-    if (UI_current == UI_PAGES::InstancesMenu)
+    if (UI_current == UiPages::InstancesMenu)
     {
         executeCategories(mouse);
 
@@ -142,12 +143,12 @@ void mouse_left()
         }
     }
 
-    if (UI_current == UI_PAGES::SettingsMenu)
+    if (UI_current == UiPages::SettingsMenu)
     {
         executeCategories(mouse);
         executeSubcategories(mouse);
 
-        if (options_ui == SETTIGNS_CATEGORIES::MAIN_PAGE)
+        if (options_ui == SettingsCategories::MAIN_PAGE)
         {
             SlimeRancher_steam_path_textbox.update(mouse);
             SlimeRancher_instances_path_textbox.update(mouse);
@@ -156,7 +157,7 @@ void mouse_left()
             steamcmd_path_textbox.update(mouse);
             steamcmd_path_getfolder_button.update(mouse);
 
-            Show_older_instances_checkbox.update(mouse);
+            Show_prereleases_checkbox.update(mouse);
             Save_logs_files_checkbox.update(mouse);
             Colored_logs_checkbox.update(mouse);
 
@@ -169,13 +170,13 @@ void mouse_left()
             theme_list_ddl.update(mouse);
             downloaders_ddl.update(mouse);
         }
-        if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)
+        if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
             SteamProfile_name_textbox.update(mouse);
             SteamProfile_password_textbox.update(mouse);
             save_profile_button.update(mouse);
         }
-        if (options_ui == SETTIGNS_CATEGORIES::UPDATES_PAGE)
+        if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
             check_for_update_button.update(mouse);
             autocheck_for_update_checkbox.update(mouse);
@@ -185,10 +186,10 @@ void mouse_left()
         }
     }
 
-    if (UI_current == UI_PAGES::ManageMenu)
+    if (UI_current == UiPages::ManageMenu)
     {
         manage_vanilla_saves_button.update(mouse);
-        manage_mod_saves_button.update(mouse);
+        manage_betterbuild_saves_button.update(mouse);
         manage_betterbuild_world_button.update(mouse);
         manage_backups_button.update(mouse);
         manage_mods_button.update(mouse);
@@ -202,6 +203,10 @@ void mouse_left()
             }
             case VANILLA_SAVES:
             {
+                for (const auto& pair : vanillasaves_list)
+                {
+                    vanillasaves_list[pair.first].update(mouse);
+                }
                 break;
             }
             case BETTERBUILD_WORLDS:
@@ -220,58 +225,108 @@ void mouse_left()
                 }
                 break;
             }
+            case BACKUPS:
+            {
+                for (const auto& pair : Backups_list)
+                {
+                    Backups_list[pair.first].update(mouse);
+                }
+                break;
+            }
         }
     }
 
-    if (UI_current == UI_PAGES::VersionDescriptionMenu)
+    if (UI_current == UiPages::VersionDescriptionMenu)
     {
         version_back_button.update(mouse);
     }
 
-    if (UI_current == UI_PAGES::VersionsList)
+    if (UI_current == UiPages::VersionsList)
     {
         executeCategories(mouse);
 
         for (const auto& pair : versions_pachnotes_list)
         {
-            if (Show_older_instances_checkbox.getState() == true and versions_map[versions_pachnotes_list[pair.first].getVersion()].version_type != "pre_release")
+            versions_pachnotes_list[pair.first].update(mouse);
+            if (versions_pachnotes_list[pair.first].getPosition().y > 65)
             {
-                versions_pachnotes_list[pair.first].update(mouse);
-                if (versions_pachnotes_list[pair.first].getPosition().y > 65)
+                if (versions_pachnotes_list[pair.first].hitbox().contains(mouse) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
                 {
-                    if (versions_pachnotes_list[pair.first].hitbox().contains(mouse) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-                    {
-                        version_description_text.setString(versions_pachnotes_list[pair.first].getDescription());
-                        version_description_text.setPosition(10, 10);
-                        UI_current = UI_PAGES::VersionDescriptionMenu;
-                    }    
-                }
+                    version_description_text.setString(versions_pachnotes_list[pair.first].getDescription());
+                    version_description_text.setPosition(10, 10);
+                    UI_current = UiPages::VersionDescriptionMenu;
+                }    
             }
         }
     }
 
-    if (UI_current == UI_PAGES::NewInstanceMenu)
+    if (UI_current == UiPages::NewInstanceMenu)
     {
-        versions_list.update(mouse);
+        versions_list_ddl.update(mouse);
 
-        if (versions_list.getState() == false)
+        if (versions_list_ddl.getState() == false)
         {
             new_instance_name_textbox.update(mouse);
             create_button.update(mouse);
+            instance_creation_cancel.update(mouse);
+
+            InstanceIconBar::next_button.update(mouse);
+
+            updateInstanceInfo();
+        }
+
+        if (graphics_preset_ddl.getState() == false)
+        {
+            InstanceIconBar::prev_button.update(mouse);
+        }
+
+        automount_checkbox.update(mouse);
+        create_with_graphics_preset_checkbox.update(mouse);
+        graphics_preset_ddl.update(mouse);
+
+        if (create_with_graphics_preset_checkbox.getState() == true)
+        {
+            graphics_preset_ddl.setBlockState(false);
+        }
+        else
+        {
+            graphics_preset_ddl.setBlockState(true);
+        }
+    }
+
+    if (UI_current == UiPages::EditInstanceMenu)
+    {
+        versions_list_ddl.update(mouse);
+
+        if (versions_list_ddl.getState() == false)
+        {
+            new_instance_name_textbox.update(mouse);
+            saveEditedButton.update(mouse);
             instance_creation_cancel.update(mouse);    
+
+            InstanceIconBar::prev_button.update(mouse);
+            InstanceIconBar::next_button.update(mouse);
+
+            updateInstanceInfo();
         }   
     }
 
-    if (UI_current == UI_PAGES::ImportInstanceMenu)
+    if (UI_current == UiPages::ImportInstanceMenu)
     {
-        if (versions_list.getState() == false)
+        if (versions_list_ddl.getState() == false)
         {
             import_instance_name_textbox.update(mouse);
             import_instance_path_textbox.update(mouse);
             import_instance_path_browse_button.update(mouse);
             import_instance_confirm_button.update(mouse);
             import_instance_cancel_button.update(mouse);
+            InstanceIconBar::prev_button.update(mouse);
+            InstanceIconBar::next_button.update(mouse);
+
+            updateInstanceInfo();
         }
-        versions_list.update(mouse);
+        versions_list_ddl.update(mouse);
     }
+
+    devUiView.update(mouse, font);
 }

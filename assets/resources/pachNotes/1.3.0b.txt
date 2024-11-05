@@ -1,0 +1,10 @@
+A small followup patch was issued to fix a few issues related to the last release.
+
+    Fixed bug where drones could get stuck on gordos and slime toys
+    Fixed bug where sometimes gardens would produce slightly less food than intended. To claim any carrots you may have lost, please send a postcard to 'Where's My Carrots?' c/o Monomi Park in Walla Walla Washington, or visit your local grocer.
+    Fixed bug where drones sometimes did not properly perform their behaviors while the player was knocked out.
+    Fixed bug where some drone behaviors were performing extra times while sleeping.
+    Fixed bug resulting in drones sometimes trying to take a position inside the archways on the docks
+    Fixed bug where gordos could sometimes be replaced by another gordo.
+    Optimized some drone plort-selling behavior.
+    Optimized some aspects of mosaic slime glints.

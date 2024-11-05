@@ -7,19 +7,31 @@ void renderCategories()
     VersionsCategory_button.render(window);
 }
 
+void renderIconBar()
+{
+    window.draw(InstanceIconBar::selectedBG);
+    InstanceIconBar::next_button.render(window);
+    InstanceIconBar::prev_button.render(window);
+    window.draw(InstanceIconBar::icon_bar_text);
+    for (const auto& pair : InstanceIconBar::IconBarMap)
+    {
+        InstanceIconBar::IconBarMap[pair.first].render(window);
+    }
+}
+
 void window_draw()
 {
     window.draw(background);
     
-    if (UI_current == UI_PAGES::MainMenu)
+    if (UI_current == UiPages::MainMenu)
     {
         renderCategories();
 
         console.render(window);
         console_clear_button.render(window);
 
-        last_played_bg.render(window);
-        launch_last_instance_button.render(window);
+        main_page_playbar_bg.render(window);
+        launch_game_button.render(window);
 
         if (game_downloading == true)
         {
@@ -45,7 +57,7 @@ void window_draw()
         }
     }
 
-    if (UI_current == UI_PAGES::InstancesMenu)
+    if (UI_current == UiPages::InstancesMenu)
     {
         renderCategories();
 
@@ -66,40 +78,87 @@ void window_draw()
         }
     }
 
-    if (UI_current == UI_PAGES::NewInstanceMenu)
+    if (UI_current == UiPages::NewInstanceMenu)
     {
+        instance_creation_bg.render(window);
+        instance_creation_info1_bg.render(window);
+        instance_creation_info2_bg.render(window);
+
         new_instance_name_textbox.render(window);
 
-        if (versions_list.getState() == false)
+        if (versions_list_ddl.getState() == false)
         {
             create_button.render(window); 
-            instance_creation_cancel.render(window);    
+            instance_creation_cancel.render(window);
+            window.draw(CreateInstanceUI::isntance_will_be_created_in_text);
+
+            window.draw(CreateInstanceUI::instance_file_separation_text);
+
+            if (graphics_preset_ddl.getState() == false)
+            {
+                renderIconBar();
+            }
         }
 
-        versions_list.render(window); 
+        CreateInstanceUI::automount_checkbox.render(window);
+        CreateInstanceUI::create_with_graphics_preset_checkbox.render(window);
+        window.draw(CreateInstanceUI::instance_ver_info_text);
+
+        CreateInstanceUI::graphics_preset_ddl.render(window);
+
+        versions_list_ddl.render(window); 
     }
 
-    if (UI_current == UI_PAGES::ImportInstanceMenu)
+    if (UI_current == UiPages::ImportInstanceMenu)
     {
+        instance_creation_bg.render(window);
+        instance_creation_info1_bg.render(window);
+        instance_creation_info2_bg.render(window);
+
         import_instance_name_textbox.render(window);
 
-        if (versions_list.getState() == false)
+        if (versions_list_ddl.getState() == false)
         {
             import_instance_path_textbox.render(window);
             import_instance_path_browse_button.render(window);
             import_instance_confirm_button.render(window);
-            import_instance_cancel_button.render(window);    
+            import_instance_cancel_button.render(window);
+            window.draw(CreateInstanceUI::instance_file_separation_text);
+
+            renderIconBar();
         }        
 
-        versions_list.render(window);
+        window.draw(CreateInstanceUI::instance_ver_info_text);
+
+        versions_list_ddl.render(window);
     }
 
-    if (UI_current == UI_PAGES::ManageMenu)
+    if (UI_current == UiPages::EditInstanceMenu)
+    {
+        instance_creation_bg.render(window);
+        instance_creation_info1_bg.render(window);
+        instance_creation_info2_bg.render(window);
+
+        new_instance_name_textbox.render(window);
+
+        if (versions_list_ddl.getState() == false)
+        {
+            saveEditedButton.render(window); 
+            instance_creation_cancel.render(window);    
+            window.draw(editInstanceSource);
+            renderIconBar();
+        }
+
+        window.draw(CreateInstanceUI::instance_ver_info_text);
+        versions_list_ddl.render(window); 
+    }
+
+    if (UI_current == UiPages::ManageMenu)
     {
         manage_bg.render(window);
 
         manage_vanilla_saves_button.render(window);
-        manage_mod_saves_button.render(window);
+        manage_betterbuild_saves_button.render(window);
         manage_betterbuild_world_button.render(window);
         manage_backups_button.render(window);
         manage_mods_button.render(window);
@@ -121,6 +180,7 @@ void window_draw()
                 window.draw(MNG_Instance_saves_text);
                 window.draw(MNG_instance_mods_own_text);
                 window.draw(MNG_instance_mods_launcher_text);
+                window.draw(tldr_text);
                 break;
             }
             case BETTERBUILD_WORLDS:
@@ -128,37 +188,66 @@ void window_draw()
                 for (const auto& pair : betterbuildworlds_list)
                 {
                     betterbuildworlds_list[pair.first].render(window);
-                    window.draw(bbw_tittle_text);
-                }    
+                }
+                window.draw(bbw_tittle_text);
+                break;
+            }
+            case VANILLA_SAVES:
+            {
+                window.draw(vsc_text);
+                for (const auto& pair : vanillasaves_list)
+                {
+                    vanillasaves_list[pair.first].render(window);
+                }
+                break;
+            }
+            case BETTERBUILD_SAVES:
+            {
+                window.draw(msc_text);
                 break;
             }
             case MODS_PAGE:
             {
-                window.draw(list_mods_instance_text);
-                window.draw(list_mods_launcher_text);
-                mods_separator.render(window);
+                if (versionsData_map[instances_list[selected_instance].getVer()].mod_support == true)
+                {
+                    window.draw(list_mods_instance_text);
+                    window.draw(list_mods_launcher_text);
+                    mods_separator.render(window);
 
-                for (const auto& pair : InstanceMods_list)
-                {
-                    InstanceMods_list[pair.first].render(window);
+                    for (const auto& pair : InstanceMods_list)
+                    {
+                        InstanceMods_list[pair.first].render(window);
+                    }
+                    for (const auto& pair : LauncherMods_list)
+                    {
+                        LauncherMods_list[pair.first].render(window);
+                    }    
                 }
-                for (const auto& pair : LauncherMods_list)
+                else
                 {
-                    LauncherMods_list[pair.first].render(window);
+                    window.draw(bbw_tittle_text);
+                }
+                break;
+            }
+            case BACKUPS:
+            {
+                for (const auto& pair : Backups_list)
+                {
+                    Backups_list[pair.first].render(window);
                 }
                 break;
             }
         }
     }
 
-    if (UI_current == UI_PAGES::VersionDescriptionMenu)
+    if (UI_current == UiPages::VersionDescriptionMenu)
     {
         ver_desc_bg.render(window);
         window.draw(version_description_text);
         version_back_button.render(window);
     }
 
-    if (UI_current == UI_PAGES::SettingsMenu)
+    if (UI_current == UiPages::SettingsMenu)
     {
         renderCategories();
         
@@ -167,10 +256,11 @@ void window_draw()
         Subcat_settings_progile_button.render(window);
         Subcat_settings_updates_button.render(window);
         Subcat_settings_credits_button.render(window);
+        Subcat_settings_licences_button.render(window);
 
         subcat_separator.render(window);
 
-        if (options_ui == SETTIGNS_CATEGORIES::MAIN_PAGE)
+        if (options_ui == SettingsCategories::MAIN_PAGE)
         {
             SlimeRancher_steam_path_textbox.render(window);
             SlimeRancher_instances_path_textbox.render(window);
@@ -179,7 +269,7 @@ void window_draw()
             steamcmd_path_textbox.render(window);
             steamcmd_path_getfolder_button.render(window);
 
-            Show_older_instances_checkbox.render(window);
+            Show_prereleases_checkbox.render(window);
             Save_logs_files_checkbox.render(window);
             Colored_logs_checkbox.render(window);
 
@@ -194,11 +284,12 @@ void window_draw()
             window.draw(downloaders_list_text);
             downloaders_ddl.render(window);
         }
-        if (options_ui == SETTIGNS_CATEGORIES::PROFILE_PAGE)
+        if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
             SteamProfile_name_textbox.render(window);
             SteamProfile_password_textbox.render(window);
             save_profile_button.render(window);
+            window.draw(profile_presonal_data_warning_text);
             window.draw(steam_profile_icon);
 
             window.draw(Profile_warning_text);
@@ -208,7 +299,7 @@ void window_draw()
             window.draw(steam_profile_PersonalName_text);
             window.draw(steam_profile_UID_text);
         }
-        if (options_ui == SETTIGNS_CATEGORIES::UPDATES_PAGE)
+        if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
             check_for_update_button.render(window);
             autocheck_for_update_checkbox.render(window);
@@ -217,23 +308,26 @@ void window_draw()
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
         }
-        if (options_ui == SETTIGNS_CATEGORIES::CREDITS_PAGE)
+        if (options_ui == SettingsCategories::CREDITS_PAGE)
         {
             window.draw(credits_programming_text);
         }
+        if (options_ui == SettingsCategories::LICENCES_PAGE)
+        {
+            LicencesUI::licenseField.render(window);
+        }
     }
 
-    if (UI_current == UI_PAGES::VersionsList)
+    if (UI_current == UiPages::VersionsList)
     {
         versions_bg.render(window);
         for (const auto& pair : versions_pachnotes_list)
         {
-            if (Show_older_instances_checkbox.getState() == true and versions_map[versions_pachnotes_list[pair.first].getVersion()].version_type != "pre_release")
-            {
-                versions_pachnotes_list[pair.first].render(window);
-            }   
+            versions_pachnotes_list[pair.first].render(window);   
         }
 
         renderCategories();
     }
+
+    devUiView.render(window);
 }

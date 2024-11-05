@@ -1,0 +1,5 @@
+    Corrected a few minor bugs related to dialog boxes getting stuck on the screen. This should fix most cases of this, but if you are still experiencing it please contact support@monomipark.com
+    (PS4) Fixed a number of graphical issues on PS4 in the Slimeulation.
+    (PS4) Fixed the transition effect from Viktor's Workshop into the Slimeulation on PS4.
+    Fixed a graphical issue when running the game with OpenGL drivers.
+    Other minor fixes.
