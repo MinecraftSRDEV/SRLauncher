@@ -163,12 +163,39 @@ void mouse_left()
 
             automatically_run_downloaded_instances_checkbox.update(mouse);
             do_not_show_warnings_checkbox.update(mouse);
+            use_secure_ipc_checkbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
 
             theme_list_ddl.update(mouse);
             downloaders_ddl.update(mouse);
+
+            if (mounted_instance != UNMOUNTED_INSTANCE)
+            {
+                SlimeRancher_steam_path_textbox.setReadOnlyMode(true);
+                SlimeRancher_instances_path_textbox.setReadOnlyMode(true);
+                SlimeRancher_steam_path_getfolder_button.setBlockState(true);
+                SlimeRancher_instances_path_getfolder_button.setBlockState(true);
+            }
+            else
+            {
+                SlimeRancher_steam_path_textbox.setReadOnlyMode(false);
+                SlimeRancher_instances_path_textbox.setReadOnlyMode(false);
+                SlimeRancher_steam_path_getfolder_button.setBlockState(false);
+                SlimeRancher_instances_path_getfolder_button.setBlockState(false);
+            }
+
+            if (downloader_selected == steamcmd)
+            {
+                steamcmd_path_textbox.setReadOnlyMode(false);
+                steamcmd_path_getfolder_button.setBlockState(false);
+            }
+            else
+            {
+                steamcmd_path_textbox.setReadOnlyMode(true);
+                steamcmd_path_getfolder_button.setBlockState(true);
+            }
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {

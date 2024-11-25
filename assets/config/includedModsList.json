@@ -1,0 +1,12 @@
+{
+    "SRMultimod":
+    {
+        "srversion": "0.2.6",
+        "loader": 0
+    },
+    "SRDebugBridge":
+    {
+        "srversion": "0.2.6",
+        "loader": 0
+    }
+}

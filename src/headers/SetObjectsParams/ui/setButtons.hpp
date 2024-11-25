@@ -1,13 +1,13 @@
 void setButtons()
 {
-    UIElements.createButton(launch_game_button, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, false);
+    UIElements.createButton(launch_game_button, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, true);
     UIElements.createTransparrentBg(main_page_playbar_bg, 0, 700, 1280, 100, true);
 
     UIElements.createTransparrentBg(categories_bg, 0, 0, 1280, 40, true);
-    UIElements.createButton(MainCategory_button, 0, 0, 320, 35, font, "Main", false);
-    UIElements.createButton(InstancesCategory_button, 320, 0, 320, 35, font, "Instances", false);
-    UIElements.createButton(SettingsCategory_button, 640, 0, 320, 35, font, "Settings", false);
-    UIElements.createButton(VersionsCategory_button, 960, 0, 320, 35, font, "Slime Rancher Versions", false);
+    UIElements.createButton(MainCategory_button, 0, 0, 320, 35, font, "Main", true);
+    UIElements.createButton(InstancesCategory_button, 320, 0, 320, 35, font, "Instances", true);
+    UIElements.createButton(SettingsCategory_button, 640, 0, 320, 35, font, "Settings", true);
+    UIElements.createButton(VersionsCategory_button, 960, 0, 320, 35, font, "Slime Rancher Versions", true);
 
     UIElements.createTransparrentBg(settings_bg, 0, 40, 1280, 800, true);
 
@@ -23,13 +23,16 @@ void setButtons()
     UIElements.createButton(SlimeRancher_steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
     UIElements.createTextbox(SlimeRancher_instances_path_textbox, 130, 175, 1085, 40, false, false, font, 26, "", false, "Insrances location path");
     UIElements.createButton(SlimeRancher_instances_path_getfolder_button, 1215, 206, 60, 40, font, "Browse", false);
-    UIElements.createTextbox(steamcmd_path_textbox, 130, 250, 1085, 40, false, false, font, 26, "", false, "SteamCMD location path");
+    UIElements.createTextbox(steamcmd_path_textbox, 130, 250, 1085, 40, false, false, font, 26, "", false, settmaindi::CMDPATH_TEXT);
     UIElements.createButton(steamcmd_path_getfolder_button, 1215, 281, 60, 40, font, "Browse", false);
     UIElements.createCheckbox(Show_prereleases_checkbox, 30, 30, 130, 340, "Show pre-release game versions", 26, font, true);
     UIElements.createCheckbox(Save_logs_files_checkbox, 30, 30, 130, 375, "Autosave log files", 26, font, true);
     UIElements.createCheckbox(Colored_logs_checkbox, 30, 30, 130, 410, "Enable colored logs", 26, font, true);
     UIElements.createCheckbox(automatically_run_downloaded_instances_checkbox, 30, 30, 130, 445, "Run downloaded instances automatically", 26, font, true);
     UIElements.createCheckbox(do_not_show_warnings_checkbox, 30, 30, 130, 480, "Enable warning messages", 26, font, true);
+    UIElements.createCheckbox(use_secure_ipc_checkbox, 30, 30, 130, 515, "Use secure IPC (experimental)", 26, font, false);
+    UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 590, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
+    UIElements.createDropDownList(downloaders_ddl, 200, 40, 680, 590, {{{"DepotDownloader (recomended)"},{std::to_string(depotdownloader)}},{{"SteamCMD (slower)"},{std::to_string(steamcmd)}}}, "DepotDownloader (recomended)", font, false);
 
     UIElements.createButton(RestoreSettings_button, 1000, 750, 120, 40, font, "Restore defaults", false);
     UIElements.createButton(SaveConfig_button, 1120, 750, 120, 40, font, "Save config", false);
@@ -86,9 +89,6 @@ void setButtons()
 
     UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for update", false);
     UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
-
-    UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 560, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
-    UIElements.createDropDownList(downloaders_ddl, 200, 40, 680, 560, {{{"DepotDownloader (recomended)"},{std::to_string(depotdownloader)}},{{"SteamCMD (slower)"},{std::to_string(steamcmd)}}}, "DepotDownloader (recomended)", font, false);
 
     UIElements.createButton(console_clear_button, 1160, 651, 100, 30, font, "Clear console", false);
     UIElements.createTextfield(console, 20, 50, 1240, 600, font);

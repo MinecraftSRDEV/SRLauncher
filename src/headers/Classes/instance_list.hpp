@@ -2,7 +2,7 @@ class instance_list_class {
 public:
 instance_list_class () {}
 
-void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Font& font, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count)
+void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Texture& clock_texture, sf::Font& font, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count)
 {
     version_string = version;
     name_string = name;
@@ -11,8 +11,7 @@ void create(int x, int y, int size_x, int size_y, std::string name, std::string 
     playtime = playtime_count;
 
     icon_spr_tx = icon_texture;
-
-    playtime_clock_tx.loadFromMemory(clock_png, playtime_clock_png_len);
+    playtime_clock_tx = clock_texture;
 
     icon_sprite.setTexture(icon_spr_tx);
 

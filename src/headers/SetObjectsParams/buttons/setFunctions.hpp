@@ -20,6 +20,21 @@ void applyTheme()
     setTheme();
 }
 
+void setDownloader()
+{
+    std::string result = downloaders_ddl.getRResult();
+    downloader_selected = std::stoi(result);
+
+    if (downloader_selected == steamcmd)
+    {
+        steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
+    }
+    else
+    {
+        steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
+    }
+}
+
 void setFunctions()
 {
     MainCategory_button.setFunction(changeCategory_main);
@@ -58,6 +73,7 @@ void setFunctions()
     SlimeRancher_instances_path_getfolder_button.setFunction(getfolder_instancesdir);
     steamcmd_path_getfolder_button.setFunction(getfolder_steamcmddir);
 
+    downloaders_ddl.setFunction(setDownloader);
     theme_list_ddl.setFunction(applyTheme);
 
     SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);

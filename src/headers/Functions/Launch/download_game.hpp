@@ -59,6 +59,21 @@ void createMD5Files(fs::path steam_dir)
 
 bool comunicate = false;
 
+void steamGuardTimeout(sf::Time elapsed)
+{
+    if (use_secure_ipc == true)
+    {
+        if (elapsed > sf::seconds(25))
+        {
+            system("taskkill /f /im DepotDownloader.exe");
+            log_message("Guard authentication time out!", LOG_ERROR);
+            log_message("Comunication stopped", LogTypes::LOG_INFO);
+            comunicate = false;
+            game_downloading = false;
+        }    
+    }
+}
+
 void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
 {
     while (true)
@@ -165,8 +180,10 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 display_guard_window = true;
                 send_guard_code = false;
 
+                sf::Clock timeout;
                 do
                 {
+                    steamGuardTimeout(timeout.getElapsedTime());
                     if (send_guard_code == true)
                     {
                         DWORD bytesWritten;
@@ -185,8 +202,10 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 display_guard_window = true;
                 send_guard_code = false;
 
+                sf::Clock timeout;
                 do
                 {
+                    steamGuardTimeout(timeout.getElapsedTime());
                     if (send_guard_code == true)
                     {
                         DWORD bytesWritten;
@@ -213,15 +232,61 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
     }
 }
 
+void downloaderChecker()
+{
+    sf::Clock checkDelay;
+
+    while(true)
+    {
+        sf::sleep(sf::milliseconds(500));
+
+        if (comunicate == false)
+        {
+            break;
+        }
+
+        if (checkDelay.getElapsedTime() > sf::seconds(5))
+        {
+            checkDelay.restart();
+
+            std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("tasklist", "r"), pclose);
+            if (!pipe) {
+            }
+
+            std::vector<std::string> processList;
+            char buffer[128];
+            while (fgets(buffer, sizeof(buffer), pipe.get()) != nullptr) {
+                processList.emplace_back(buffer);
+            }
+
+            for (const auto& line : processList) {
+                if (line.find("DepotDownloader.exe") != std::string::npos) {
+                    log_message("Detected unexpected downloader shutdown!", LOG_WARN);
+                    // CloseHandle(hPipe);
+                    log_message("Comunication stopped", LogTypes::LOG_INFO);
+                    comunicate = false;
+                    game_downloading = false;
+                }
+            }
+
+        }
+    }
+}
+
 void downloaderPipe(depotProsp& depot)
 {
     game_downloading = true;
-    launch_game_button.setText("Downloading");
+    
     std::thread animThread(downloading_animation);
     animThread.detach();
-
     std::thread dt(runDownloader, depot);
     dt.detach();
+
+    if (use_secure_ipc == true)
+    {
+        std::thread secureIpcThr(downloaderChecker);
+        secureIpcThr.detach(); 
+    }
 
     log_message("Preparing comunication pipe", LogTypes::LOG_INFO);
 
@@ -242,7 +307,7 @@ void downloaderPipe(depotProsp& depot)
         return;
     }
 
-    std::cout << "Czekam na połączenie z DepotDownloader..." << std::endl;
+    log_message("Waiting for DepotDownloader connection", LogTypes::LOG_INFO);
     BOOL connected = ConnectNamedPipe(hPipe, NULL);
     if (!connected) {
         log_message("Problem with comunication with DepotDownloader: " + GetLastError(), LogTypes::LOG_ERROR);
@@ -251,6 +316,7 @@ void downloaderPipe(depotProsp& depot)
     }
 
     log_message("DepotDownloader connected", LogTypes::LOG_INFO);
+    launch_game_button.setText("Downloading");
 
     comunicate = true;
 

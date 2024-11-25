@@ -17,7 +17,7 @@ void create_instance(const std::string& instance_name, const std::string& versio
             }
             else
             {
-                if (version_selected != "none")
+                if (version_selected != "none" and !version_selected.empty())
                 {
                     if (fs::create_directory(new_instance_path))
                     {

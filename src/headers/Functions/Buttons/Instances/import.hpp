@@ -50,7 +50,7 @@ void import_instance()
         }
         else
         {
-            if (version_selected != "none")
+            if (version_selected != "none" and !version_selected.empty())
             {
                 std::string message = "Source directory:\n" + source_path.string() + "\nwill be moved to launcher instances directory:\n" + new_instance_path.string() + "\n\nDo you want to continue?";
                 int result = MessageBoxA(NULL, message.c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);

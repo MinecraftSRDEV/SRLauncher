@@ -25,13 +25,19 @@ void setRuntimeTexts()
     setTextAtt(Launcher_version_text, launcher_version, 36, 0, 0);
     Launcher_version_text.setPosition((window.getSize().x - 10) - Launcher_version_text.getLocalBounds().width, 725);
 
+    setTextAtt(no_instances_text, "No game instances were found. Create them or import currently existing.", 30, 0, 0);
+
+    setTextAtt(instances_vanish_tooltip_text, "Have your instances vanished? Check if instances directory path is correct in settings.", 26, 0, 0);
+
     setTextAtt(bbw_tittle_text, "", 26, 0, 0);
 
     setTextAtt(update_status_text, "No update data", 26, 130, 380);
 
-    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 520);
+    setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 680, 520);
+    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 550);
+
+    setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 680, 550);
 
     setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 380);
 

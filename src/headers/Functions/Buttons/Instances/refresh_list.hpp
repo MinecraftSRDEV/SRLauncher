@@ -98,7 +98,7 @@ bool add_instance(fs::path path, int itr)
                 instance_installed_status_placeholder = false;
             }
 
-            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], font, inst.modsAttribs, itr, inst.playTime);
+            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, inst.modsAttribs, itr, inst.playTime);
             last_insnace_entry_y += 85;
             instances_list[inst.name].setInstalledStatus(instance_installed_status_placeholder);
             instances_list[inst.name].setEditedStatus(inst.edited);
@@ -116,6 +116,8 @@ bool add_instance(fs::path path, int itr)
 
 void loadInstancesList(fs::path instances_path)
 {
+    setUiProtection(true);
+
     int iteration = 0;
 
     if (add_instance(fs::path(steam_game_dir) / "Slime Rancher", iteration) == true)
@@ -146,9 +148,11 @@ void loadInstancesList(fs::path instances_path)
     }
 
     instancesListLoading = false;
+
+    setUiProtection(false);
 }
 
-void refresh_instances_list()
+void prepeareProcess(bool async = false)
 {
     instances_list.clear();
     instances_list_iterations.clear();
@@ -156,12 +160,32 @@ void refresh_instances_list()
     instance_list_l.erase();
     last_insnace_entry_y = 85;
 
+    no_instances_text.setPosition((window.getSize().x / 2) - (no_instances_text.getLocalBounds().width / 2), 320);
+    instances_vanish_tooltip_text.setPosition((window.getSize().x / 2) - (instances_vanish_tooltip_text.getLocalBounds().width / 2), 770);
+
     fs::path instances_path = instances_dir;
 
     dataLoading_text.setString("Loading instances...");
     dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
     instancesListLoading = true;
 
-    std::thread loadThr(loadInstancesList, instances_path);
-    loadThr.detach();
+    if (async)
+    {
+        std::thread loadThr(loadInstancesList, instances_path);
+        loadThr.detach();    
+    }
+    else
+    {
+        loadInstancesList(instances_path);
+    }
+}
+
+void refresh_instances_list()
+{
+    prepeareProcess(true);
+}
+
+void sync_refresh_instances_list()
+{
+    prepeareProcess(false);
 }

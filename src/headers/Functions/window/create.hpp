@@ -13,4 +13,9 @@ void create_window(int size_x, int size_y)
 
     window.create(sf::VideoMode(size_x, size_y), "SRLauncher");
 	window.setFramerateLimit(15);
+    window.setActive(true);
+    window.setVisible(true);
+
+    window_icon_img.loadFromFile("./assets/resources/icon.png");
+    window.setIcon(window_icon_img.getSize().x, window_icon_img.getSize().y, window_icon_img.getPixelsPtr());
 }

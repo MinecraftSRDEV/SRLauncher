@@ -24,6 +24,8 @@ namespace InstanceslistElements
     sfg::Button new_instance_button;
     sfg::Button import_instnace_button;
     sfg::TransparrentBackground instances_bg;
+    sf::Text no_instances_text;
+    sf::Text instances_vanish_tooltip_text;
 }
 
 namespace CreateInstanceUI
@@ -79,6 +81,7 @@ namespace SettingsSubcatsUI
 
 namespace MainSettingsUI
 {
+    sf::Text blockedPaths_text;
     sfg::Textbox SlimeRancher_steam_path_textbox;
     sfg::Button SlimeRancher_steam_path_getfolder_button;
     sfg::Textbox SlimeRancher_instances_path_textbox;
@@ -90,6 +93,7 @@ namespace MainSettingsUI
     sfg::Checkbox Colored_logs_checkbox;
     sfg::Checkbox automatically_run_downloaded_instances_checkbox;
     sfg::Checkbox do_not_show_warnings_checkbox;
+    sfg::Checkbox use_secure_ipc_checkbox;
     sf::Text theme_label_text;
     sfg::DropDownList theme_list_ddl;
     sf::Text downloaders_list_text;
@@ -180,5 +184,7 @@ sf::Text dataLoading_text;
 
 sfg::Button saveEditedButton;
 sf::Text editInstanceSource;
+
+sf::Texture playtime_clock_tx;
 
 UiViewer devUiView;

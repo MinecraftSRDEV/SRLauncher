@@ -10,7 +10,7 @@ void loadElements()
 
     bg_texture.loadFromFile("./assets/resources/background.png");
     profile_icon_tx.loadFromFile("./assets/resources/unknown_user.png");
-
+    playtime_clock_tx.loadFromFile("./assets/resources/playtime_clock.png");
 
     int last_x = 50;
     int y = 330;

@@ -6,3 +6,9 @@ namespace instdi
 
     const std::string UNMOUNT_MSG = "Unmount this instance first!";
 }
+
+namespace settmaindi
+{
+    const std::string CMDPATH_TEXT = "SteamCMD location path";
+    const std::string CMDPATH_DISABLED = CMDPATH_TEXT + " (Choose SteamCMD downloader to change)";
+}

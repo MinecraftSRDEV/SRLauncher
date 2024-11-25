@@ -17,6 +17,7 @@ bool update_config_file()
     config.add("auto_launch", new JSONEncoder::JSONBool(autolaunch_instances));
     config.add("show_warnings", new JSONEncoder::JSONBool(show_warnings));
     config.add("auto_update_check", new JSONEncoder::JSONBool(check_updates_when_start));
+    config.add("use_secure_ipc", new JSONEncoder::JSONBool(use_secure_ipc));
     config.add("theme", new JSONEncoder::JSONNumber(theme_selected));
     config.add("downloader", new JSONEncoder::JSONNumber(downloader_selected));
     

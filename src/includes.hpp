@@ -2,6 +2,9 @@
 #include "headers/Declarations/dictionaries.hpp"
 #include "headers/Declarations/enums.hpp"
 #include "headers/Declarations/structs.hpp"
+
+#include "headers/Classes/uiElements_class.hpp"
+
 #include "headers/Declarations/maps.hpp"
 
 #include "headers/Classes/json_parser.hpp"
@@ -44,6 +47,8 @@
 
 #include "headers/Functions/Userdata/white_space_remover.hpp"
 
+#include "headers/SetObjectsParams/buttons/asyncCangeProtection.hpp"
+
 #include "headers/Functions/Data_menagement/move_directory.hpp"
 #include "headers/Functions/Data_menagement/directory_check.hpp"
 #include "headers/Functions/Data_menagement/rename_slime_rancher_dir.hpp"
@@ -57,7 +62,10 @@
 
 #include "headers/Functions/Userdata/slash_remover.hpp"
 
+#include "headers/Functions/Settings/defaults/default_functions.hpp"
+
 #include "headers/ResourceLoad/loadElements.hpp"
+#include "headers/ResourceLoad/loadPatchNotes.hpp"
 #include "headers/ResourceLoad/loadJsons.hpp"
 #include "headers/ResourceLoad/loadLicences.hpp"
 
@@ -134,6 +142,7 @@
 #include "headers/Functions/Buttons/Instances/remove.hpp"
 
 #include "headers/Start/runtime.hpp"
+#include "headers/Start/post_start_tasks.hpp"
 
 #include "headers/Functions/mouse/left.hpp"
 

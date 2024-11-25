@@ -17,6 +17,7 @@ void settings_updates_cat()
 void settings_licences_cat()
 {
     options_ui = SettingsCategories::LICENCES_PAGE;
+    LicencesUI::licenseField.toUp();
 }
 
 void settings_credits_cat()

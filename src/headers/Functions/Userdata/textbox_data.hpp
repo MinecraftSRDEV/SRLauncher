@@ -21,6 +21,7 @@ void get_textbox_settings_values_and_save()
     autolaunch_instances = automatically_run_downloaded_instances_checkbox.getState();
     show_warnings = do_not_show_warnings_checkbox.getState();
     show_prerelease_version = Show_prereleases_checkbox.getState();
+    use_secure_ipc = use_secure_ipc_checkbox.getState();
 
     check_updates_when_start = autocheck_for_update_checkbox.getState();
 

@@ -11,18 +11,6 @@ void events_loop()
                 break;
             }
 
-            case sf::Event::GainedFocus:
-            {
-                window_actived = true;
-                break;
-            }
-
-            case sf::Event::LostFocus:
-            {
-                window_actived = true;
-                break;
-            }
-
             case sf::Event::MouseWheelMoved:
             {
                 scrollVersionDescription(event, mouse_pos);

@@ -88,11 +88,6 @@ void runtime_check()
             SlimeRancher_instances_path_textbox.setText(reduceBackslashes(instances_dir));
             steamcmd_path_textbox.setText(reduceBackslashes(steamcmd_dir));
 
-            if (downloader_selected != steamcmd)
-            {
-                steamcmd_path_textbox.setReadOnlyMode(true);
-            }
-
             SteamProfile_name_textbox.setText(decryptor(steam_profile_name));
             SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
 
@@ -101,6 +96,7 @@ void runtime_check()
             Colored_logs_checkbox.setState(display_log_colors);
             automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
             do_not_show_warnings_checkbox.setState(show_warnings);
+            use_secure_ipc_checkbox.setState(use_secure_ipc);
             log_message("Loading versions list", LogTypes::LOG_INFO);
             if (load_versions_list() == true)
             {
@@ -136,10 +132,15 @@ void runtime_check()
 
             if (downloader_selected == steamcmd)
             {
+                steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
                 if (SteamCMDCheck() == true)
                 {
                     log_message("SteamCMD is not installed", LogTypes::LOG_WARN);
-                }    
+                } 
+            }
+            else
+            {
+                steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
             }
 
             theme_list_ddl.setFromResult(std::to_string(theme_selected));

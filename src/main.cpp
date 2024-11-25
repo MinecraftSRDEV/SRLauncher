@@ -96,18 +96,20 @@ int main()
 
     devUiView.disable();
 
-    if (window_actived == true)
+    while(window.isOpen())
     {
-        while(window.isOpen())
+        if (window.hasFocus())
         {	
             events_loop();
 
             mouse_left();
 
-            window_draw();
-            display_window();
-        }
+            postStartTasks();
 
-        close_launcher();
+            
+        }
+        window_draw();
+        display_window();
     }
+    close_launcher();
 }

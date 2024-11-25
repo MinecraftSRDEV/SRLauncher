@@ -62,15 +62,24 @@ void window_draw()
         renderCategories();
 
         instances_bg.render(window);
-        new_instance_button.render(window);
-        import_instnace_button.render(window);
-
+        
         if (instancesListLoading == false)
         {
-            for (const auto& pair : instances_list)
+            new_instance_button.render(window);
+            import_instnace_button.render(window);  
+
+            if (instances_list.size() > 0)
             {
-                instances_list[pair.first].render(window);
-            }    
+                for (const auto& pair : instances_list)
+                {
+                    instances_list[pair.first].render(window);
+                }     
+            }  
+            else
+            {
+                window.draw(no_instances_text);
+                window.draw(instances_vanish_tooltip_text);
+            }
         }
         else
         {
@@ -262,6 +271,11 @@ void window_draw()
 
         if (options_ui == SettingsCategories::MAIN_PAGE)
         {
+            if (mounted_instance != UNMOUNTED_INSTANCE)
+            {
+                window.draw(blockedPaths_text);
+            }
+
             SlimeRancher_steam_path_textbox.render(window);
             SlimeRancher_instances_path_textbox.render(window);
             SlimeRancher_steam_path_getfolder_button.render(window);
@@ -275,6 +289,7 @@ void window_draw()
 
             automatically_run_downloaded_instances_checkbox.render(window);
             do_not_show_warnings_checkbox.render(window);
+            use_secure_ipc_checkbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
