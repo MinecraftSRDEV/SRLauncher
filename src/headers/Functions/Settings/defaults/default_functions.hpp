@@ -62,5 +62,35 @@ namespace settings_defaults
     void downloader_def()
     {
         downloader_selected = depotdownloader;
-    }    
+    }
+
+    void debugging_enable_def()
+    {
+        enableDebugging = false;
+        debuggingEnabledCheckbox.setState(debugging_enable_def);
+    }
+
+    void debug_savelogs_def()
+    {
+        saveDebugLogsToOtherFile = false;
+        saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
+    }
+
+    void debug_print_all_def()
+    {
+        printDebugLogs = true;
+        printDebugLogsCheckbox.setState(printDebugLogs);
+    }
+
+    void debug_com_delay_def()
+    {
+        communicationDelay = 10;
+        comunicationDelayTextbox.setText(std::to_string(communicationDelay));
+    }
+
+    void debug_com_buffersize_def()
+    {
+        comunicationPipeBufferSize = 1024;
+        comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
+    }
 }

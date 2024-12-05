@@ -20,6 +20,11 @@ bool update_config_file()
     config.add("use_secure_ipc", new JSONEncoder::JSONBool(use_secure_ipc));
     config.add("theme", new JSONEncoder::JSONNumber(theme_selected));
     config.add("downloader", new JSONEncoder::JSONNumber(downloader_selected));
+    config.add("debugging_enabled", new JSONEncoder::JSONBool(enableDebugging));
+    config.add("debug_save_logs_to_other_file", new JSONEncoder::JSONBool(saveDebugLogsToOtherFile));
+    config.add("debug_print_logs", new JSONEncoder::JSONBool(printDebugLogs));
+    config.add("debug_com_delay", new JSONEncoder::JSONNumber(communicationDelay));
+    config.add("debug_com_buffer_size", new JSONEncoder::JSONNumber(comunicationPipeBufferSize));
     
     std::string jsonConfig =  config.stringify();
 

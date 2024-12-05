@@ -21,11 +21,18 @@ bool is_mouse_pressed = false;
 bool is_mouse_rels = false;
 
 bool game_downloading = false;
+bool downloadInitializing = false;
 bool game_running = false;
 
 bool check_updates_when_start = true;
 
 bool use_secure_ipc = false;
+
+bool enableDebugging = false;
+bool saveDebugLogsToOtherFile = false;
+bool printDebugLogs = false;
+int communicationDelay = 10;
+int comunicationPipeBufferSize = 1024;
 
 bool instanceDataLoading = false;
 bool instancesListLoading = false;
@@ -43,7 +50,7 @@ int screen_refresh_count = 0;
 
 std::string guard_code;
 
-std::string launcher_version = "inDev 0.10";
+std::string launcher_version = "inDev 0.11";
 std::string saved_version;
 
 /// Launcher Paths ////

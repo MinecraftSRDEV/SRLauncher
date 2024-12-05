@@ -11,6 +11,7 @@
 #include "headers/Classes/json_encoder.hpp"
 #include "headers/Classes/md5calculator.hpp"
 #include "headers/Classes/VDF_parser.hpp"
+#include "headers/Classes/downloadingProgressBar.hpp"
 
 #include "headers/Functions/crypt/md5calc.hpp"
 
@@ -146,6 +147,7 @@
 
 #include "headers/Functions/mouse/left.hpp"
 
+#include "headers/Functions/Launch/debugBridge.hpp"
 #include "headers/Functions/Launch/download_game.hpp"
 #include "headers/Functions/Launch/run_game.hpp"
 

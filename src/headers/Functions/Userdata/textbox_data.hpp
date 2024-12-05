@@ -30,6 +30,22 @@ void get_textbox_settings_values_and_save()
 
     result = downloaders_ddl.getRResult();
     downloader_selected = std::stoi(result);
+
+    enableDebugging = debuggingEnabledCheckbox.getState();
+    saveDebugLogsToOtherFile = saveDebugLogsToOtherFileCheckbox.getState();
+    printDebugLogs = printDebugLogsCheckbox.getState();
+
+    try
+    {
+        communicationDelay = std::stoi(comunicationDelayTextbox.getText());    
+    }
+    catch (std::exception e) {}
+    try
+    {
+        comunicationPipeBufferSize = std::stoi(comunicationPipeBufferSizeTextbox.getText());
+    }
+    catch (std::exception e) {}
+
     saveConfigWithCurrents();
 }
 

@@ -13,8 +13,10 @@ enum UiPages {
 enum SettingsCategories {
     MAIN_PAGE,
     PROFILE_PAGE,
-    CREDITS_PAGE,
+    DOWNLOADING_PAGE,
     UPDATES_PAGE,
+    DEBUGGING_PAGE,
+    CREDITS_PAGE,
     LICENCES_PAGE
 };
 

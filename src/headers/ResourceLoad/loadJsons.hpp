@@ -176,6 +176,21 @@ bool load_config_file(std::string path_to_config)
         loadConfigKeyInt(json, theme_selected, "theme", "theme: ", settings_defaults::theme_def);
 
         loadConfigKeyInt(json, downloader_selected, "downloader", "downloader: ", settings_defaults::downloader_def);
+
+        loadConfigKeyBool(json, enableDebugging, "debugging_enabled", "debugging: ", settings_defaults::debugging_enable_def);
+        debuggingEnabledCheckbox.setState(enableDebugging);
+
+        loadConfigKeyBool(json, saveDebugLogsToOtherFile, "debug_save_logs_to_other_file", "debug save logs to other file: ", settings_defaults::debug_savelogs_def);
+        saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
+
+        loadConfigKeyBool(json, printDebugLogs, "debug_print_logs", "debug print logs: ", settings_defaults::debug_print_all_def);
+        printDebugLogsCheckbox.setState(printDebugLogs);
+
+        loadConfigKeyInt(json, communicationDelay, "debug_com_delay", "debug com delay: ", settings_defaults::debug_com_delay_def);
+        comunicationDelayTextbox.setText(std::to_string(communicationDelay));
+
+        loadConfigKeyInt(json, comunicationPipeBufferSize, "debug_com_buffer_size", "debug com buffer size: ", settings_defaults::debug_com_buffersize_def);
+        comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
     }
     catch (std::runtime_error re)
     {

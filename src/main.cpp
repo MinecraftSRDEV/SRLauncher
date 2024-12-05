@@ -98,15 +98,12 @@ int main()
 
     while(window.isOpen())
     {
+        events_loop();
         if (window.hasFocus())
         {	
-            events_loop();
-
             mouse_left();
 
-            postStartTasks();
-
-            
+            postStartTasks();   
         }
         window_draw();
         display_window();

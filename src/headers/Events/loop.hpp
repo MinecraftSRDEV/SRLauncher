@@ -86,6 +86,14 @@ void events_loop()
                 SlimeRancher_instances_path_textbox.handleEvent(event);
                 steamcmd_path_textbox.handleEvent(event);
             }
+            if (options_ui == SettingsCategories::DEBUGGING_PAGE)
+            {
+                if (debuggingEnabledCheckbox.getState() == true)
+                {
+                    comunicationDelayTextbox.handleEvent(event);
+                    comunicationPipeBufferSizeTextbox.handleEvent(event);
+                }
+            }
             if (options_ui == SettingsCategories::PROFILE_PAGE)
             {
                 SteamProfile_name_textbox.handleEvent(event);

@@ -65,9 +65,18 @@ void run_game(std::string path, std::string gamepath)
     HWND launcherWindow = window.getSystemHandle();
     launch_game_button.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
-    ShowWindow(launcherWindow, SW_MINIMIZE);
+    if (debuggingEnabledCheckbox.getState() == false)
+    {
+        ShowWindow(launcherWindow, SW_MINIMIZE);
+        window.setFramerateLimit(5);
+    }
+    else
+    {
+        window.setFramerateLimit(60);
+        log_message("Launcher window refresh rate was changed to: 60", LOG_INFO);
+    }
     game_running = true;
-    window.setFramerateLimit(5);
+    
     sf::Clock playTime;
     playTime.restart();
     system(formatPathForSystem(path).c_str());
@@ -332,7 +341,13 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     if (launch_game == true)
     {
         std::thread gameThread(run_game, game_runpath, gamepath);
-        gameThread.detach();    
+        gameThread.detach();
+
+        if (debuggingEnabledCheckbox.getState() == true)
+        {
+            std::thread debugThread(DebugBridge::TryToConnect);
+            debugThread.detach();    
+        }        
     }
     else
     {

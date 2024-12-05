@@ -35,9 +35,11 @@ void setRuntimeTexts()
 
     setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 550);
+    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 450);
 
-    setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 680, 550);
+    setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
+
+    setTextAtt(debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
 
     setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 380);
 
@@ -90,6 +92,8 @@ void setRuntimeTexts()
     setTextAtt(CreateInstanceUI::instance_file_separation_text, "Your gamesaves, options and achivements will be automatically separated\nindyvidualy for each instance.\nIf you had any this files before launcher installation instance can't be mounted", 26, 10, 530);
     
     setTextAtt(InstanceIconBar::icon_bar_text, "Select icon", 26, 10, 300);
+
+    setTextAtt(debugIpcElapsedText, "", 12, 30, 670);
 }
 
 void setShapesAttributes()
@@ -103,6 +107,12 @@ void setShapesAttributes()
     progress_moveing.setSize(sf::Vector2f(70, 20));
     progress_moveing.setPosition(sf::Vector2f(-70, 780));
     progress_moveing.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::checkbox_inactive]);
+
+    debugWorking.setSize(sf::Vector2f(10, 10));
+    debugWorking.setPosition(sf::Vector2f(10, 670));
+    debugWorking.setFillColor(sf::Color::Red);
+
+    downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 
     InstanceIconBar::selectedBG.setSize(sf::Vector2f(80, 80));
     InstanceIconBar::selectedBG.setPosition(sf::Vector2f(50, 330));

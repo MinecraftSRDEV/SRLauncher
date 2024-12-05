@@ -10,7 +10,9 @@ void executeSubcategories(sf::Vector2f mouse)
 {
     Subcat_settings_main_button.update(mouse);
     Subcat_settings_progile_button.update(mouse);
+    Subcat_settings_downloading_button.update(mouse);
     Subcat_settings_updates_button.update(mouse);
+    Subcat_settings_debugging_button.update(mouse);
     Subcat_settings_credits_button.update(mouse);
     Subcat_settings_licences_button.update(mouse);
 }
@@ -154,14 +156,11 @@ void mouse_left()
             SlimeRancher_instances_path_textbox.update(mouse);
             SlimeRancher_steam_path_getfolder_button.update(mouse);
             SlimeRancher_instances_path_getfolder_button.update(mouse);
-            steamcmd_path_textbox.update(mouse);
-            steamcmd_path_getfolder_button.update(mouse);
 
             Show_prereleases_checkbox.update(mouse);
             Save_logs_files_checkbox.update(mouse);
             Colored_logs_checkbox.update(mouse);
 
-            automatically_run_downloaded_instances_checkbox.update(mouse);
             do_not_show_warnings_checkbox.update(mouse);
             use_secure_ipc_checkbox.update(mouse);
 
@@ -169,7 +168,6 @@ void mouse_left()
             SaveConfig_button.update(mouse);
 
             theme_list_ddl.update(mouse);
-            downloaders_ddl.update(mouse);
 
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
@@ -185,6 +183,19 @@ void mouse_left()
                 SlimeRancher_steam_path_getfolder_button.setBlockState(false);
                 SlimeRancher_instances_path_getfolder_button.setBlockState(false);
             }
+        }
+        if (options_ui == SettingsCategories::PROFILE_PAGE)
+        {
+            SteamProfile_name_textbox.update(mouse);
+            SteamProfile_password_textbox.update(mouse);
+            save_profile_button.update(mouse);
+        }
+        if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
+        {
+            steamcmd_path_textbox.update(mouse);
+            steamcmd_path_getfolder_button.update(mouse);
+            automatically_run_downloaded_instances_checkbox.update(mouse);
+            downloaders_ddl.update(mouse);
 
             if (downloader_selected == steamcmd)
             {
@@ -196,17 +207,43 @@ void mouse_left()
                 steamcmd_path_textbox.setReadOnlyMode(true);
                 steamcmd_path_getfolder_button.setBlockState(true);
             }
-        }
-        if (options_ui == SettingsCategories::PROFILE_PAGE)
-        {
-            SteamProfile_name_textbox.update(mouse);
-            SteamProfile_password_textbox.update(mouse);
-            save_profile_button.update(mouse);
+
+            RestoreSettings_button.update(mouse);
+            SaveConfig_button.update(mouse);
         }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
             check_for_update_button.update(mouse);
             autocheck_for_update_checkbox.update(mouse);
+
+            RestoreSettings_button.update(mouse);
+            SaveConfig_button.update(mouse);
+        }
+        if (options_ui == SettingsCategories::DEBUGGING_PAGE)
+        {
+            debuggingEnabledCheckbox.update(mouse);
+
+            bool state = debuggingEnabledCheckbox.getState();
+            state = !state;
+
+            saveDebugLogsToOtherFileCheckbox.setBlockState(state);
+            printDebugLogsCheckbox.setBlockState(state);
+            comunicationDelayTextbox.setReadOnlyMode(state);
+            comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
+            forcePipeCloseButton.setBlockState(state);
+            killInstanceButton.setBlockState(state);
+            saveLogFileButton.setBlockState(state);
+
+            if (state == false)
+            {
+                saveDebugLogsToOtherFileCheckbox.update(mouse);
+                printDebugLogsCheckbox.update(mouse);
+                comunicationDelayTextbox.update(mouse);
+                comunicationPipeBufferSizeTextbox.update(mouse);
+                forcePipeCloseButton.update(mouse);
+                killInstanceButton.update(mouse);
+                saveLogFileButton.update(mouse);
+            }
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);

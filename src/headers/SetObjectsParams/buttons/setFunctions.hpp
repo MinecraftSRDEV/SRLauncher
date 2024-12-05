@@ -63,7 +63,9 @@ void setFunctions()
 
     Subcat_settings_main_button.setFunction(settings_main_cat);
     Subcat_settings_progile_button.setFunction(settings_profile_cat);
+    Subcat_settings_downloading_button.setFunction(settings_downloading_cat);
     Subcat_settings_updates_button.setFunction(settings_updates_cat);
+    Subcat_settings_debugging_button.setFunction(settings_debugging_cat);
     Subcat_settings_licences_button.setFunction(settings_licences_cat);
     Subcat_settings_credits_button.setFunction(settings_credits_cat);
 
