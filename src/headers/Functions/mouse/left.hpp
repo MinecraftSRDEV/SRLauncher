@@ -25,7 +25,15 @@ void mouse_left()
     {
         executeCategories(mouse);
 
-        launch_game_button.update(mouse);
+        if (mounted_instance != UNMOUNTED_INSTANCE)
+        {
+            launch_game_button.update(mouse);
+            Mounted_instance_info_text.setPosition(sf::Vector2f(10, 725));
+        }
+        else
+        {
+            Mounted_instance_info_text.setPosition(sf::Vector2f((1280 / 2) - (Mounted_instance_info_text.getLocalBounds().width / 2), 725));
+        }
 
         console_clear_button.update(mouse);
 
@@ -221,29 +229,56 @@ void mouse_left()
         }
         if (options_ui == SettingsCategories::DEBUGGING_PAGE)
         {
-            debuggingEnabledCheckbox.update(mouse);
+            DebugSettingsUI::debuggingEnabledCheckbox.update(mouse);
 
-            bool state = debuggingEnabledCheckbox.getState();
+            bool state = DebugSettingsUI::debuggingEnabledCheckbox.getState();
             state = !state;
 
-            saveDebugLogsToOtherFileCheckbox.setBlockState(state);
-            printDebugLogsCheckbox.setBlockState(state);
-            comunicationDelayTextbox.setReadOnlyMode(state);
-            comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
-            forcePipeCloseButton.setBlockState(state);
-            killInstanceButton.setBlockState(state);
-            saveLogFileButton.setBlockState(state);
+            DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setBlockState(state);
+            DebugSettingsUI::printDebugLogsCheckbox.setBlockState(state);
+            DebugSettingsUI::comunicationDelayTextbox.setReadOnlyMode(state);
+            DebugSettingsUI::comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
+            DebugSettingsUI::forcePipeCloseButton.setBlockState(state);
+            DebugSettingsUI::killInstanceButton.setBlockState(state);
+            DebugSettingsUI::saveLogFileButton.setBlockState(state);
+            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state);
+
+            bool state2 = DebugSettingsUI::printDebugLogsCheckbox.getState();
+            state2 = !state2;
+
+            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state2);
+
+            DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
+            DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
+            DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
+            DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
 
             if (state == false)
             {
-                saveDebugLogsToOtherFileCheckbox.update(mouse);
-                printDebugLogsCheckbox.update(mouse);
-                comunicationDelayTextbox.update(mouse);
-                comunicationPipeBufferSizeTextbox.update(mouse);
-                forcePipeCloseButton.update(mouse);
-                killInstanceButton.update(mouse);
-                saveLogFileButton.update(mouse);
+                DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.update(mouse);
+                DebugSettingsUI::printDebugLogsCheckbox.update(mouse);
+                DebugSettingsUI::comunicationDelayTextbox.update(mouse);
+                DebugSettingsUI::comunicationPipeBufferSizeTextbox.update(mouse);
+                DebugSettingsUI::forcePipeCloseButton.update(mouse);
+                DebugSettingsUI::killInstanceButton.update(mouse);
+                DebugSettingsUI::saveLogFileButton.update(mouse);
+
+                acceptInfoLogs = DebugSettingsUI::acceptInfoCheckbox.getState();
+                acceptWarningLogs = DebugSettingsUI::acceptWarningCheckbox.getState();
+                acceptErrorLogs = DebugSettingsUI::acceptErrorCheckbox.getState();
+                acceptExceptionLogs = DebugSettingsUI::acceptExceptionCheckbox.getState();
             }
+
+            DebugSettingsUI::acceptInfoCheckbox.update(mouse);
+            DebugSettingsUI::acceptWarningCheckbox.update(mouse);
+            DebugSettingsUI::acceptErrorCheckbox.update(mouse);
+            DebugSettingsUI::acceptExceptionCheckbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);

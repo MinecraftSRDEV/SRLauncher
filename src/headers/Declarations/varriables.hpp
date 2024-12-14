@@ -33,6 +33,10 @@ bool saveDebugLogsToOtherFile = false;
 bool printDebugLogs = false;
 int communicationDelay = 10;
 int comunicationPipeBufferSize = 1024;
+bool acceptInfoLogs = true;
+bool acceptWarningLogs = true;
+bool acceptErrorLogs = true;
+bool acceptExceptionLogs = true;
 
 bool instanceDataLoading = false;
 bool instancesListLoading = false;

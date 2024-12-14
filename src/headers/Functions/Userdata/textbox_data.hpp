@@ -31,18 +31,18 @@ void get_textbox_settings_values_and_save()
     result = downloaders_ddl.getRResult();
     downloader_selected = std::stoi(result);
 
-    enableDebugging = debuggingEnabledCheckbox.getState();
-    saveDebugLogsToOtherFile = saveDebugLogsToOtherFileCheckbox.getState();
-    printDebugLogs = printDebugLogsCheckbox.getState();
+    enableDebugging = DebugSettingsUI::debuggingEnabledCheckbox.getState();
+    saveDebugLogsToOtherFile = DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.getState();
+    printDebugLogs = DebugSettingsUI::printDebugLogsCheckbox.getState();
 
     try
     {
-        communicationDelay = std::stoi(comunicationDelayTextbox.getText());    
+        communicationDelay = std::stoi(DebugSettingsUI::comunicationDelayTextbox.getText());    
     }
     catch (std::exception e) {}
     try
     {
-        comunicationPipeBufferSize = std::stoi(comunicationPipeBufferSizeTextbox.getText());
+        comunicationPipeBufferSize = std::stoi(DebugSettingsUI::comunicationPipeBufferSizeTextbox.getText());
     }
     catch (std::exception e) {}
 

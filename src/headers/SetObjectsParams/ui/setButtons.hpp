@@ -3,6 +3,8 @@ void setButtons()
     UIElements.createButton(launch_game_button, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, true);
     UIElements.createTransparrentBg(main_page_playbar_bg, 0, 700, 1280, 100, true);
 
+    UIElements.createCheckbox(DebuggerMainmenuLayout::acceptInfoCheckbox, 30, 30, 130, 85, "Info", 12, font, false);
+
     UIElements.createTransparrentBg(categories_bg, 0, 0, 1280, 40, true);
     UIElements.createButton(MainCategory_button, -2, 0, 320, 35, font, "Main", true);
     UIElements.createButton(InstancesCategory_button, 320, 0, 320, 35, font, "Instances", true);
@@ -44,14 +46,18 @@ void setButtons()
     UIElements.createCheckbox(automatically_run_downloaded_instances_checkbox, 30, 30, 130, 280, "Run downloaded instances automatically", 26, font, true);
     UIElements.createDropDownList(downloaders_ddl, 350, 40, 130, 75, {{{"DepotDownloader (recomended)"},{std::to_string(depotdownloader)}},{{"Legacy SteamCMD (slower)"},{std::to_string(steamcmd)}}}, "DepotDownloader (recomended)", font, false);
 
-    UIElements.createCheckbox(debuggingEnabledCheckbox, 30, 30, 130, 85, "Enable debugging", 26, font, false);
-    UIElements.createCheckbox(saveDebugLogsToOtherFileCheckbox, 30, 30, 130, 135, "Save logs to other file", 26, font, false);
-    UIElements.createCheckbox(printDebugLogsCheckbox, 30, 30, 130, 175, "Print all debug logs", 26, font, false);
-    UIElements.createTextbox(comunicationDelayTextbox, 130, 215, 400, 40, false, false, font, 26, "", false, "Pipe check delay (MS)");
-    UIElements.createTextbox(comunicationPipeBufferSizeTextbox, 130, 295, 400, 40, false, false, font, 26, "", false, "Pipe buffer size (bytes)");
-    UIElements.createButton(forcePipeCloseButton, 130, 400, 100, 40, font, "Force Pipe close", false);
-    UIElements.createButton(killInstanceButton, 232, 400, 100, 40, font, "Kill instance", false);
-    UIElements.createButton(saveLogFileButton, 334, 400, 100, 40, font, "Save log file", false);
+    UIElements.createCheckbox(DebugSettingsUI::debuggingEnabledCheckbox, 30, 30, 130, 85, "Enable debugging", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::saveDebugLogsToOtherFileCheckbox, 30, 30, 130, 135, "Save logs to other file", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::printDebugLogsCheckbox, 30, 30, 130, 175, "Print debug logs", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::acceptInfoCheckbox, 30, 30, 180, 205, "Info", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::acceptWarningCheckbox, 30, 30, 180, 245, "Warning", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::acceptErrorCheckbox, 30, 30, 180, 285, "Error", 26, font, false);
+    UIElements.createCheckbox(DebugSettingsUI::acceptExceptionCheckbox, 30, 30, 180, 325, "Exception", 26, font, false);
+    UIElements.createTextbox(DebugSettingsUI::comunicationDelayTextbox, 130, 375, 400, 40, false, false, font, 26, "", false, "Pipe check delay (MS)");
+    UIElements.createTextbox(DebugSettingsUI::comunicationPipeBufferSizeTextbox, 130, 375 + 80, 400, 40, false, false, font, 26, "", false, "Pipe buffer size (bytes)");
+    UIElements.createButton(DebugSettingsUI::forcePipeCloseButton, 130, 440 + 105, 100, 40, font, "Force Pipe close", false);
+    UIElements.createButton(DebugSettingsUI::killInstanceButton, 232, 440 + 105, 100, 40, font, "Kill instance", false);
+    UIElements.createButton(DebugSettingsUI::saveLogFileButton, 334, 440 + 105, 100, 40, font, "Save log file", false);
 
     UIElements.createTransparrentBg(instances_bg, 0, 40, 1280, 800, true);
 

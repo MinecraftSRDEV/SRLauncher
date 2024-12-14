@@ -87,13 +87,16 @@ class DebugBridge {
             if (!recieved.empty())
             {
                 LogEntry newLog = getLog(recieved);
-                log_message(newLog.message, newLog.type);
+                if (newLog.type != noDisplayLog)
+                {
+                    log_message(newLog.message, newLog.type);    
+                }
                 
                 recieved.erase();
                 logs.clear();
             }
 
-            debugIpcElapsedText.setString("IPC delay: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
+            debugIpcElapsedText.setString("IPC delayed: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
             sf::sleep(sf::milliseconds(communicationDelay));
         }
 
@@ -120,26 +123,36 @@ class DebugBridge {
         try
         {
             output.message = str.substr(1);
+            output.type = noDisplayLog;
 
             if (str[0] == '0')
             {
+                if (acceptInfoLogs)
                 output.type = LOG_INFO;
             }
             if (str[0] == '1')
             {
+                if (acceptWarningLogs)
                 output.type = LOG_WARN;
             }
             if (str[0] == '2')
             {
+                if (acceptErrorLogs)
                 output.type = LOG_ERROR;
             }
             if (str[0] == '3')
             {
-                output.type = LOG_ERROR;
+                if (acceptExceptionLogs)
+                output.type = LOG_EXCEPTION;
             }
         }
         catch (std::exception e) {}
         
         return output;
     }
+
+    enum
+    {
+        noDisplayLog = 23748348
+    };
 };

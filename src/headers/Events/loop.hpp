@@ -88,10 +88,10 @@ void events_loop()
             }
             if (options_ui == SettingsCategories::DEBUGGING_PAGE)
             {
-                if (debuggingEnabledCheckbox.getState() == true)
+                if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
                 {
-                    comunicationDelayTextbox.handleEvent(event);
-                    comunicationPipeBufferSizeTextbox.handleEvent(event);
+                    DebugSettingsUI::comunicationDelayTextbox.handleEvent(event);
+                    DebugSettingsUI::comunicationPipeBufferSizeTextbox.handleEvent(event);
                 }
             }
             if (options_ui == SettingsCategories::PROFILE_PAGE)

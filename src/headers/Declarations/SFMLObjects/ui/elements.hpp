@@ -140,6 +140,10 @@ namespace DebugSettingsUI
     sfg::Button forcePipeCloseButton;
     sfg::Button killInstanceButton;
     sfg::Button saveLogFileButton;
+    sfg::Checkbox acceptInfoCheckbox;
+    sfg::Checkbox acceptWarningCheckbox;
+    sfg::Checkbox acceptErrorCheckbox;
+    sfg::Checkbox acceptExceptionCheckbox;
 }
 
 namespace CreditsUI
@@ -194,6 +198,15 @@ namespace ManageOthers
     sf::Text vsc_text;
     sf::Text msc_text;
     sfg::TransparrentBackground manage_bg;
+}
+
+namespace DebuggerMainmenuLayout
+{
+    sfg::Checkbox acceptInfoCheckbox;
+    sfg::Checkbox acceptWarningCheckbox;
+    sfg::Checkbox acceptErrorCheckbox;
+    sfg::Checkbox acceptExceptionCheckbox;
+    sf::Text messageDuplicatedText;
 }
 
 sfg::DropDownList versions_list_ddl;

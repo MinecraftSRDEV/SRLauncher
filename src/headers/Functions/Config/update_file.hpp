@@ -25,6 +25,10 @@ bool update_config_file()
     config.add("debug_print_logs", new JSONEncoder::JSONBool(printDebugLogs));
     config.add("debug_com_delay", new JSONEncoder::JSONNumber(communicationDelay));
     config.add("debug_com_buffer_size", new JSONEncoder::JSONNumber(comunicationPipeBufferSize));
+    config.add("debug_accept_info_logs", new JSONEncoder::JSONBool(acceptInfoLogs));
+    config.add("debug_accept_warning_logs", new JSONEncoder::JSONBool(acceptWarningLogs));
+    config.add("debug_accept_error_logs", new JSONEncoder::JSONBool(acceptErrorLogs));
+    config.add("debug_accept_exception_logs", new JSONEncoder::JSONBool(acceptExceptionLogs));
     
     std::string jsonConfig =  config.stringify();
 

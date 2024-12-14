@@ -32,7 +32,8 @@ enum ManageCategories {
 enum LogTypes {
     LOG_INFO,
     LOG_WARN,
-    LOG_ERROR
+    LOG_ERROR,
+    LOG_EXCEPTION,
 };
 
 enum Downloaders {

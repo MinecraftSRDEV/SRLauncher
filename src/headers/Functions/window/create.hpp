@@ -14,7 +14,7 @@ void create_window(int size_x, int size_y)
         window.close();
     }
 
-    window.create(sf::VideoMode(size_x, size_y), "SRLauncher");
+    window.create(sf::VideoMode(size_x, size_y), "SRLauncher v." + launcher_version);
 	window.setFramerateLimit(15);
     window.setActive(true);
     window.setVisible(true);

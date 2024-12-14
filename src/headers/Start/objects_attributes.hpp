@@ -22,8 +22,8 @@ void setRuntimeTexts()
 
     setTextAtt(mounted_instance_version, "", 16, 10, 765);
 
-    setTextAtt(Launcher_version_text, launcher_version, 36, 0, 0);
-    Launcher_version_text.setPosition((window.getSize().x - 10) - Launcher_version_text.getLocalBounds().width, 725);
+    setTextAtt(Launcher_version_text, "    SRL\nv." + launcher_version, 16, 0, 0);
+    Launcher_version_text.setPosition((window.getSize().x - 10) - Launcher_version_text.getLocalBounds().width, 755);
 
     setTextAtt(no_instances_text, "No game instances were found. Create them or import currently existing.", 30, 0, 0);
 
@@ -39,7 +39,7 @@ void setRuntimeTexts()
 
     setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
 
-    setTextAtt(debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
+    setTextAtt(DebugSettingsUI::debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
 
     setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 380);
 

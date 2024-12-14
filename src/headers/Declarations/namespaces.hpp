@@ -7,7 +7,6 @@ using namespace SettingsElemets;
 using namespace SettingsSubcatsUI;
 using namespace MainSettingsUI;
 using namespace DownloadingSettingsUI;
-using namespace DebugSettingsUI;
 using namespace SteamAccountSettingsUI;
 using namespace UpdatesSettingsUI;
 using namespace CreditsUI;

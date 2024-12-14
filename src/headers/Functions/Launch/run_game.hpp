@@ -65,7 +65,7 @@ void run_game(std::string path, std::string gamepath)
     HWND launcherWindow = window.getSystemHandle();
     launch_game_button.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
-    if (debuggingEnabledCheckbox.getState() == false)
+    if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
     {
         ShowWindow(launcherWindow, SW_MINIMIZE);
         window.setFramerateLimit(5);
@@ -343,7 +343,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         std::thread gameThread(run_game, game_runpath, gamepath);
         gameThread.detach();
 
-        if (debuggingEnabledCheckbox.getState() == true)
+        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
         {
             std::thread debugThread(DebugBridge::TryToConnect);
             debugThread.detach();    

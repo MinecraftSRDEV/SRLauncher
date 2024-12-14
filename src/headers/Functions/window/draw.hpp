@@ -31,7 +31,10 @@ void window_draw()
         console_clear_button.render(window);
 
         main_page_playbar_bg.render(window);
-        launch_game_button.render(window);
+        if (mounted_instance != UNMOUNTED_INSTANCE)
+        {
+            launch_game_button.render(window);    
+        }
 
         if (game_downloading == true)
         {
@@ -65,7 +68,7 @@ void window_draw()
 
         if (game_running == true)
         {
-            if (debuggingEnabledCheckbox.getState() == true)
+            if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
             {
                 window.draw(debugWorking);
                 window.draw(debugIpcElapsedText);
@@ -358,6 +361,10 @@ void window_draw()
             DebugSettingsUI::saveLogFileButton.render(window);
             DebugSettingsUI::forcePipeCloseButton.render(window);
             DebugSettingsUI::killInstanceButton.render(window);
+            DebugSettingsUI::acceptInfoCheckbox.render(window);
+            DebugSettingsUI::acceptWarningCheckbox.render(window);
+            DebugSettingsUI::acceptErrorCheckbox.render(window);
+            DebugSettingsUI::acceptExceptionCheckbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
