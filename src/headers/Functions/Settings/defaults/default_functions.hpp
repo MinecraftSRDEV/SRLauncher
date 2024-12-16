@@ -93,4 +93,24 @@ namespace settings_defaults
         comunicationPipeBufferSize = 1024;
         DebugSettingsUI::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
     }
+
+    void debug_acc_info_def()
+    {
+        acceptInfoLogs = true;
+    }
+
+    void debug_acc_warn_def()
+    {
+        acceptWarningLogs = true;
+    }
+    
+    void debug_acc_err_def()
+    {
+        acceptErrorLogs = true;
+    }
+
+    void debug_acc_excp_def()
+    {
+        acceptExceptionLogs = true;
+    }
 }

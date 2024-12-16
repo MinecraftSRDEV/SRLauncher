@@ -254,11 +254,6 @@ void mouse_left()
             DebugSettingsUI::acceptErrorCheckbox.setBlockState(state2);
             DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state2);
 
-            DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
-            DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
-            DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
-            DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
-
             if (state == false)
             {
                 DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.update(mouse);

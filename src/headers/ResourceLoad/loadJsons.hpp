@@ -191,6 +191,18 @@ bool load_config_file(std::string path_to_config)
 
         loadConfigKeyInt(json, comunicationPipeBufferSize, "debug_com_buffer_size", "debug com buffer size: ", settings_defaults::debug_com_buffersize_def);
         DebugSettingsUI::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
+
+        loadConfigKeyBool(json, acceptInfoLogs, "debug_accept_info_logs", "", settings_defaults::debug_acc_info_def);
+        DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
+
+        loadConfigKeyBool(json, acceptWarningLogs, "debug_accept_warning_logs", "", settings_defaults::debug_acc_warn_def);
+        DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
+
+        loadConfigKeyBool(json, acceptErrorLogs, "debug_accept_error_logs", "", settings_defaults::debug_acc_err_def);
+        DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
+
+        loadConfigKeyBool(json, acceptExceptionLogs, "debug_accept_exception_logs", "", settings_defaults::debug_acc_excp_def);
+        DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
     }
     catch (std::runtime_error re)
     {

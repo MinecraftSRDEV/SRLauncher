@@ -97,6 +97,7 @@ void runtime_check()
             automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
             do_not_show_warnings_checkbox.setState(show_warnings);
             use_secure_ipc_checkbox.setState(use_secure_ipc);
+
             log_message("Loading versions list", LogTypes::LOG_INFO);
             if (load_versions_list() == true)
             {
@@ -147,6 +148,8 @@ void runtime_check()
             downloaders_ddl.setFromResult(std::to_string(downloader_selected));
 
             loadLicences();
+
+            checkSession();
         }
         else
         {
@@ -161,8 +164,7 @@ void runtime_check()
                 close_launcher();
             }
 
-            setDefault_paths();
-            setDefault_checkboxes();
+            setAllSettingsAsDefault();
             mounted_instance = "";
 
             steam_profile_name = "";

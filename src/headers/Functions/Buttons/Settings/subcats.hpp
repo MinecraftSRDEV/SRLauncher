@@ -22,6 +22,11 @@ void settings_updates_cat()
 void settings_debugging_cat()
 {
     options_ui = SettingsCategories::DEBUGGING_PAGE;
+
+    DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
+    DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
+    DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
+    DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
 }
 
 void settings_licences_cat()

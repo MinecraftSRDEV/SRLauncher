@@ -36,15 +36,9 @@ bool restoreSteam()
 {
     if (renamedSteam == true)
     {
-        try
+        if (steamRestore())
         {
-            fs::rename(steam_default_path / "_steam.exe", steam_default_path / "steam.exe");
-            renamedSteam = false; 
-            return true;
-        }
-        catch (std::exception e)
-        {
-
+            renamedSteam = false;    
         }   
     }
     return false;
@@ -93,6 +87,7 @@ void run_game(std::string path, std::string gamepath)
     reset_play_button_text();
 
     restoreSteam();
+    clearSessionFile();
 }
 
 /**
@@ -340,6 +335,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
 
     if (launch_game == true)
     {
+        createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
         std::thread gameThread(run_game, game_runpath, gamepath);
         gameThread.detach();
 

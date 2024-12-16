@@ -1,5 +1,5 @@
 void runGameInitial();
-void get_textbox_settings_values_and_save();
+void getSettingsValuesAndSave();
 void save_profiles();
 
 void clearConsole()
@@ -81,9 +81,9 @@ void setFunctions()
     SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);
 
     RestoreSettings_button.setFunction(setSettingsDefault);
-    SaveConfig_button.setFunction(get_textbox_settings_values_and_save);
+    SaveConfig_button.setFunction(getSettingsValuesAndSave);
 
-    save_profile_button.setFunction(get_profile_textboxes_values_and_save);
+    save_profile_button.setFunction(getProfileSettingsValuesAndSave);
 
     manage_main_back_button.setFunction(exit_manage_function);
     manage_betterbuild_world_button.setFunction(changeCategory_mng_bbworls);

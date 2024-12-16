@@ -47,7 +47,7 @@ void log_message(std::string message, int type)
             log_output = " [EXCEPTION] ";
             if (display_log_colors == true)
             {
-                std::cout << YELLOW;    
+                std::cout << RED;
             }
             break;
         }

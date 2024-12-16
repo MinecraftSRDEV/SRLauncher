@@ -5,8 +5,7 @@ void setSettingsDefault()
     {
         case IDYES:
         {
-            setDefault_paths();
-            setDefault_checkboxes();
+            setAllSettingsAsDefault();
             break;
         }
         case IDNO:

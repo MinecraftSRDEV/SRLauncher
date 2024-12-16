@@ -13,7 +13,7 @@ or
 # Requirements to compile the code
 - [SFML 2.6.1](https://www.sfml-dev.org/download/sfml/2.6.1)
 - [MinGW 13.1.0](https://www.mingw-w64.org/downloads)
-- [SFML-GUI Lib 0.1.3 or later](https://github.com/MinecraftSRDEV/SFML-GUI)
+- [SFML-GUI Lib 0.1.4 or later](https://github.com/MinecraftSRDEV/SFML-GUI)
 
 # About
 An open-source launcher designed to make it easier for users to manage various instances of the game Slime Rancher. It allows for the creation of individual game instances so you can separate the VANILLA game from modified versions and play any version of the game without the need to manually swap entire folders.
