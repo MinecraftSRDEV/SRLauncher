@@ -88,6 +88,7 @@ void setFunctions()
     manage_main_back_button.setFunction(exit_manage_function);
     manage_betterbuild_world_button.setFunction(changeCategory_mng_bbworls);
     manage_vanilla_saves_button.setFunction(changeCategory_mng_vanilla);
+    manage_betterbuild_saves_button.setFunction(changeCategory_mng_bbsaves);
     manage_mods_button.setFunction(changeCategory_mng_mods);
     manage_backups_button.setFunction(changeCategory_mng_backups);
 

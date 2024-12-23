@@ -18,6 +18,7 @@
 #include <shlobj.h>
 #include <iomanip>
 #include <memory.h>
+#include <csignal>
 
 #include <curl/curl.h>
 
@@ -90,6 +91,8 @@ void load_sequence()
 
 int main()
 {
+    addErrorHandlers();
+    
     create_window(1280, 800);
 
     load_sequence();

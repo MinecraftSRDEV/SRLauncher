@@ -75,6 +75,14 @@ void events_loop()
                     }
                     break;
                 }
+                case BETTERBUILD_SAVES:
+                {
+                    if (instanceDataLoading == false)
+                    {
+                        scrollManageBbw(event, mouse_pos);
+                    }
+                    break;
+                }
             }
         }
 

@@ -232,6 +232,10 @@ void window_draw()
             case BETTERBUILD_SAVES:
             {
                 window.draw(msc_text);
+                for (const auto& pair : betterbuildsaves_list)
+                {
+                    betterbuildsaves_list[pair.first].render(window);
+                }
                 break;
             }
             case MODS_PAGE:

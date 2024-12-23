@@ -35,6 +35,35 @@ void create_mods_directories(const SRVersion& prsp)
                 {
 
                 }
+
+                try
+                {
+                    if (!fs::exists(SMTFolder_path / "0.2.6/SRDebugBridge.dll"))
+                    {
+                        fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                    }
+                    else
+                    {
+                        MD5 ModHash;
+                        std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRDebugBridge.dll").string());
+                        std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRDebugBridge.dll");
+
+                        if (installedMD5 != includedMD5)
+                        {
+                            fs::remove(SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                            fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                            log_message("Included SRDebugBridge MD5 wrong", LogTypes::LOG_WARN);
+                        }
+                    }
+                }
+                catch (fs::filesystem_error e)
+                {
+                    return;
+                }
+                catch (std::runtime_error e)
+                {
+
+                }
             }
         }
         else

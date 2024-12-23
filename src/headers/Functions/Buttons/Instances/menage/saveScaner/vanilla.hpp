@@ -17,7 +17,7 @@ void VSRevealFunction()
     }
 }
 
-int scanVanillaSaves(const fs::path& dir, int loader)
+int scanVanillaSaves(const fs::path& dir, int loader,  std::map <int, VanillaSave>& containerPointer)
 {
     SavegameData saveData;
 
@@ -29,8 +29,8 @@ int scanVanillaSaves(const fs::path& dir, int loader)
         {
             std::string output = entry.path().filename().replace_extension().string();
             saveData = deserializeGameData(entry.path());
-            vanillasaves_list[itr].create(130, ir_pos, saveData, font);
-            vanillasaves_list[itr].transportFunction(VSRevealFunction, vanillasaves_list[itr].REVEAL);
+            containerPointer[itr].create(130, ir_pos, saveData, font);
+            containerPointer[itr].transportFunction(VSRevealFunction, containerPointer[itr].REVEAL);
             ir_pos += 120;
             itr++;
         }

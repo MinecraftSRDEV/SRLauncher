@@ -1,3 +1,5 @@
+#include "headers/Functions/CriticalErrorsDetection/errorDetection.hpp"
+
 #include "headers/Declarations/varriables.hpp"
 #include "headers/Declarations/dictionaries.hpp"
 #include "headers/Declarations/enums.hpp"
