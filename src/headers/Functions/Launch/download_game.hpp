@@ -114,16 +114,20 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
             else if (type == "DownloadProgress")
             {
                 display_download_progress = true;
+                downloadInitializing = false;
                 std::string msg = json.getObject().at("msg").getString();
                 int type = json.getObject().at("logType").getNumber();
 
                 int progress = std::stoi(msg);
                 downloading_progress_text.setString(std::to_string(progress) + " %");
                 downloading_progress_text.setPosition(640 - (downloading_progress_text.getLocalBounds().width / 2), progress_bg.getPosition().y);
-
+                float progressbar = progress;
+                downloadingProgress.setProgress(progressbar / 100.0f);
+ 
                 if (progress == 100)
                 {
                     display_download_progress = false;
+                    downloadInitializing = true;
                 }
             }
             else if (type == "SHD")
@@ -143,12 +147,12 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 std::string msg = json.getObject().at("msg").getString();
                 int type = json.getObject().at("logType").getNumber();
                 log_message(msg, type);
-                game_downloading = false;
                 recieved.erase();
 
                 steam_game_dir = SlimeRancher_steam_path_textbox.getText();
                 fs::path steam_dir = steam_game_dir;
-                fs::path outputDir = downloader_path / "output"; 
+                fs::path outputDir = downloader_path / "output";
+                downloadInitializing = true;
                 if (fs::exists(outputDir) && fs::is_directory(outputDir))
                 {
                     move_directory(outputDir, steam_dir / "Slime Rancher");
@@ -164,10 +168,12 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 }
                 else
                 {
+                    game_downloading = false;
                     log_message("Game downloading failed!", LogTypes::LOG_ERROR);
                     MessageBoxA(NULL, "Game downloading failed!", "Error", MB_ICONERROR | MB_OK);
                 }
 
+                game_downloading = false;
                 reset_play_button_text();
             }
             else if (type == "GUARD-appauth-ask")
@@ -276,6 +282,7 @@ void downloaderChecker()
 void downloaderPipe(depotProsp& depot)
 {
     game_downloading = true;
+    downloadInitializing = true;
     
     std::thread animThread(downloading_animation);
     animThread.detach();
@@ -356,6 +363,7 @@ void download_game2(std::string gamerun_path)
                 move_directory(outputDir, steam_dir / "Slime Rancher");
                 log_message("Game download success", LogTypes::LOG_INFO);
                 game_downloading = false;
+                downloadInitializing = true;
 
                 createMD5Files(steam_dir);
 

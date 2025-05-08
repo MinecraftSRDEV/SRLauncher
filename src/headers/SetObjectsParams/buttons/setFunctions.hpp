@@ -1,5 +1,5 @@
 void runGameInitial();
-void get_textbox_settings_values_and_save();
+void getSettingsValuesAndSave();
 void save_profiles();
 
 void clearConsole()
@@ -63,7 +63,9 @@ void setFunctions()
 
     Subcat_settings_main_button.setFunction(settings_main_cat);
     Subcat_settings_progile_button.setFunction(settings_profile_cat);
+    Subcat_settings_downloading_button.setFunction(settings_downloading_cat);
     Subcat_settings_updates_button.setFunction(settings_updates_cat);
+    Subcat_settings_debugging_button.setFunction(settings_debugging_cat);
     Subcat_settings_licences_button.setFunction(settings_licences_cat);
     Subcat_settings_credits_button.setFunction(settings_credits_cat);
 
@@ -79,13 +81,14 @@ void setFunctions()
     SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);
 
     RestoreSettings_button.setFunction(setSettingsDefault);
-    SaveConfig_button.setFunction(get_textbox_settings_values_and_save);
+    SaveConfig_button.setFunction(getSettingsValuesAndSave);
 
-    save_profile_button.setFunction(get_profile_textboxes_values_and_save);
+    save_profile_button.setFunction(getProfileSettingsValuesAndSave);
 
     manage_main_back_button.setFunction(exit_manage_function);
     manage_betterbuild_world_button.setFunction(changeCategory_mng_bbworls);
     manage_vanilla_saves_button.setFunction(changeCategory_mng_vanilla);
+    manage_betterbuild_saves_button.setFunction(changeCategory_mng_bbsaves);
     manage_mods_button.setFunction(changeCategory_mng_mods);
     manage_backups_button.setFunction(changeCategory_mng_backups);
 

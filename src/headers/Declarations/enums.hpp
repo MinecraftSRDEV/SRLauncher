@@ -13,8 +13,10 @@ enum UiPages {
 enum SettingsCategories {
     MAIN_PAGE,
     PROFILE_PAGE,
-    CREDITS_PAGE,
+    DOWNLOADING_PAGE,
     UPDATES_PAGE,
+    DEBUGGING_PAGE,
+    CREDITS_PAGE,
     LICENCES_PAGE
 };
 
@@ -30,7 +32,8 @@ enum ManageCategories {
 enum LogTypes {
     LOG_INFO,
     LOG_WARN,
-    LOG_ERROR
+    LOG_ERROR,
+    LOG_EXCEPTION,
 };
 
 enum Downloaders {

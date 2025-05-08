@@ -36,15 +36,9 @@ bool restoreSteam()
 {
     if (renamedSteam == true)
     {
-        try
+        if (steamRestore())
         {
-            fs::rename(steam_default_path / "_steam.exe", steam_default_path / "steam.exe");
-            renamedSteam = false; 
-            return true;
-        }
-        catch (std::exception e)
-        {
-
+            renamedSteam = false;    
         }   
     }
     return false;
@@ -65,9 +59,18 @@ void run_game(std::string path, std::string gamepath)
     HWND launcherWindow = window.getSystemHandle();
     launch_game_button.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
-    ShowWindow(launcherWindow, SW_MINIMIZE);
+    if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+    {
+        ShowWindow(launcherWindow, SW_MINIMIZE);
+        window.setFramerateLimit(5);
+    }
+    else
+    {
+        window.setFramerateLimit(60);
+        log_message("Launcher window refresh rate was changed to: 60", LOG_INFO);
+    }
     game_running = true;
-    window.setFramerateLimit(5);
+    
     sf::Clock playTime;
     playTime.restart();
     system(formatPathForSystem(path).c_str());
@@ -84,6 +87,7 @@ void run_game(std::string path, std::string gamepath)
     reset_play_button_text();
 
     restoreSteam();
+    clearSessionFile();
 }
 
 /**
@@ -331,8 +335,15 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
 
     if (launch_game == true)
     {
+        createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
         std::thread gameThread(run_game, game_runpath, gamepath);
-        gameThread.detach();    
+        gameThread.detach();
+
+        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+        {
+            std::thread debugThread(DebugBridge::TryToConnect);
+            debugThread.detach();    
+        }        
     }
     else
     {

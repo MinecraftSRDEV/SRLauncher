@@ -31,12 +31,22 @@ void window_draw()
         console_clear_button.render(window);
 
         main_page_playbar_bg.render(window);
-        launch_game_button.render(window);
+        if (mounted_instance != UNMOUNTED_INSTANCE)
+        {
+            launch_game_button.render(window);    
+        }
 
         if (game_downloading == true)
         {
-            window.draw(progress_bg);
-            window.draw(progress_moveing);
+            if (downloadInitializing == true)
+            {
+                window.draw(progress_bg);
+                window.draw(progress_moveing);    
+            }
+            else
+            {
+                downloadingProgress.render(window);
+            }
         }
 
         window.draw(Mounted_instance_info_text);
@@ -54,6 +64,15 @@ void window_draw()
         if (display_guard_window == true)
         {
             GuardBox.render(window);
+        }
+
+        if (game_running == true)
+        {
+            if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+            {
+                window.draw(debugWorking);
+                window.draw(debugIpcElapsedText);
+            }
         }
     }
 
@@ -213,6 +232,10 @@ void window_draw()
             case BETTERBUILD_SAVES:
             {
                 window.draw(msc_text);
+                for (const auto& pair : betterbuildsaves_list)
+                {
+                    betterbuildsaves_list[pair.first].render(window);
+                }
                 break;
             }
             case MODS_PAGE:
@@ -263,7 +286,9 @@ void window_draw()
         settings_bg.render(window);
         Subcat_settings_main_button.render(window);
         Subcat_settings_progile_button.render(window);
+        Subcat_settings_downloading_button.render(window);
         Subcat_settings_updates_button.render(window);
+        Subcat_settings_debugging_button.render(window);
         Subcat_settings_credits_button.render(window);
         Subcat_settings_licences_button.render(window);
 
@@ -280,14 +305,11 @@ void window_draw()
             SlimeRancher_instances_path_textbox.render(window);
             SlimeRancher_steam_path_getfolder_button.render(window);
             SlimeRancher_instances_path_getfolder_button.render(window);
-            steamcmd_path_textbox.render(window);
-            steamcmd_path_getfolder_button.render(window);
 
             Show_prereleases_checkbox.render(window);
             Save_logs_files_checkbox.render(window);
             Colored_logs_checkbox.render(window);
 
-            automatically_run_downloaded_instances_checkbox.render(window);
             do_not_show_warnings_checkbox.render(window);
             use_secure_ipc_checkbox.render(window);
 
@@ -296,8 +318,6 @@ void window_draw()
 
             window.draw(theme_label_text);
             theme_list_ddl.render(window);
-            window.draw(downloaders_list_text);
-            downloaders_ddl.render(window);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
@@ -314,11 +334,41 @@ void window_draw()
             window.draw(steam_profile_PersonalName_text);
             window.draw(steam_profile_UID_text);
         }
+        if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
+        {
+            steamcmd_path_textbox.render(window);
+            steamcmd_path_getfolder_button.render(window);
+            automatically_run_downloaded_instances_checkbox.render(window);
+            window.draw(downloaders_list_text);
+            downloaders_ddl.render(window);
+
+            RestoreSettings_button.render(window);
+            SaveConfig_button.render(window);
+        }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
             check_for_update_button.render(window);
             autocheck_for_update_checkbox.render(window);
             window.draw(update_status_text);
+
+            RestoreSettings_button.render(window);
+            SaveConfig_button.render(window);
+        }
+        if (options_ui == SettingsCategories::DEBUGGING_PAGE)
+        {
+            window.draw(DebugSettingsUI::debug_info_text);
+            DebugSettingsUI::debuggingEnabledCheckbox.render(window);
+            DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.render(window);
+            DebugSettingsUI::printDebugLogsCheckbox.render(window);
+            DebugSettingsUI::comunicationDelayTextbox.render(window);
+            DebugSettingsUI::comunicationPipeBufferSizeTextbox.render(window);
+            DebugSettingsUI::saveLogFileButton.render(window);
+            DebugSettingsUI::forcePipeCloseButton.render(window);
+            DebugSettingsUI::killInstanceButton.render(window);
+            DebugSettingsUI::acceptInfoCheckbox.render(window);
+            DebugSettingsUI::acceptWarningCheckbox.render(window);
+            DebugSettingsUI::acceptErrorCheckbox.render(window);
+            DebugSettingsUI::acceptExceptionCheckbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);

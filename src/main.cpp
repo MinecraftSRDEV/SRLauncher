@@ -18,6 +18,7 @@
 #include <shlobj.h>
 #include <iomanip>
 #include <memory.h>
+#include <csignal>
 
 #include <curl/curl.h>
 
@@ -90,6 +91,8 @@ void load_sequence()
 
 int main()
 {
+    addErrorHandlers();
+    
     create_window(1280, 800);
 
     load_sequence();
@@ -98,15 +101,12 @@ int main()
 
     while(window.isOpen())
     {
+        events_loop();
         if (window.hasFocus())
         {	
-            events_loop();
-
             mouse_left();
 
-            postStartTasks();
-
-            
+            postStartTasks();   
         }
         window_draw();
         display_window();

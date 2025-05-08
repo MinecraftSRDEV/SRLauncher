@@ -75,6 +75,14 @@ void events_loop()
                     }
                     break;
                 }
+                case BETTERBUILD_SAVES:
+                {
+                    if (instanceDataLoading == false)
+                    {
+                        scrollManageBbw(event, mouse_pos);
+                    }
+                    break;
+                }
             }
         }
 
@@ -85,6 +93,14 @@ void events_loop()
                 SlimeRancher_steam_path_textbox.handleEvent(event);
                 SlimeRancher_instances_path_textbox.handleEvent(event);
                 steamcmd_path_textbox.handleEvent(event);
+            }
+            if (options_ui == SettingsCategories::DEBUGGING_PAGE)
+            {
+                if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+                {
+                    DebugSettingsUI::comunicationDelayTextbox.handleEvent(event);
+                    DebugSettingsUI::comunicationPipeBufferSizeTextbox.handleEvent(event);
+                }
             }
             if (options_ui == SettingsCategories::PROFILE_PAGE)
             {

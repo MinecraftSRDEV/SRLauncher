@@ -62,5 +62,55 @@ namespace settings_defaults
     void downloader_def()
     {
         downloader_selected = depotdownloader;
-    }    
+    }
+
+    void debugging_enable_def()
+    {
+        enableDebugging = false;
+        DebugSettingsUI::debuggingEnabledCheckbox.setState(debugging_enable_def);
+    }
+
+    void debug_savelogs_def()
+    {
+        saveDebugLogsToOtherFile = false;
+        DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
+    }
+
+    void debug_print_all_def()
+    {
+        printDebugLogs = true;
+        DebugSettingsUI::printDebugLogsCheckbox.setState(printDebugLogs);
+    }
+
+    void debug_com_delay_def()
+    {
+        communicationDelay = 10;
+        DebugSettingsUI::comunicationDelayTextbox.setText(std::to_string(communicationDelay));
+    }
+
+    void debug_com_buffersize_def()
+    {
+        comunicationPipeBufferSize = 1024;
+        DebugSettingsUI::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
+    }
+
+    void debug_acc_info_def()
+    {
+        acceptInfoLogs = true;
+    }
+
+    void debug_acc_warn_def()
+    {
+        acceptWarningLogs = true;
+    }
+    
+    void debug_acc_err_def()
+    {
+        acceptErrorLogs = true;
+    }
+
+    void debug_acc_excp_def()
+    {
+        acceptExceptionLogs = true;
+    }
 }

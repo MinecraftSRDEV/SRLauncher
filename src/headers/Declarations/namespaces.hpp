@@ -6,6 +6,7 @@ using namespace ImportInstanceUI;
 using namespace SettingsElemets;
 using namespace SettingsSubcatsUI;
 using namespace MainSettingsUI;
+using namespace DownloadingSettingsUI;
 using namespace SteamAccountSettingsUI;
 using namespace UpdatesSettingsUI;
 using namespace CreditsUI;

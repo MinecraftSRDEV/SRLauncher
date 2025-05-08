@@ -9,9 +9,24 @@ void settings_profile_cat()
     getSteamAccountStats();
 }
 
+void settings_downloading_cat()
+{
+    options_ui = SettingsCategories::DOWNLOADING_PAGE;
+}
+
 void settings_updates_cat()
 {
     options_ui = SettingsCategories::UPDATES_PAGE;
+}
+
+void settings_debugging_cat()
+{
+    options_ui = SettingsCategories::DEBUGGING_PAGE;
+
+    DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
+    DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
+    DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
+    DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
 }
 
 void settings_licences_cat()

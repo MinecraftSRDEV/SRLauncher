@@ -57,3 +57,13 @@ struct UserData {
     std::string personalName;
     bool offlinemode;
 };
+
+struct SessionData {
+    std::string usedLauncherVer = "";
+    bool steamRenamed = false;
+    std::string gameVersion = "";
+    std::string instanceName = "";
+    bool debuggingEnabled = false;
+
+    bool loaded = false;
+};

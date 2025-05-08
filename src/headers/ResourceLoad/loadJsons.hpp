@@ -35,6 +35,35 @@ void create_mods_directories(const SRVersion& prsp)
                 {
 
                 }
+
+                try
+                {
+                    if (!fs::exists(SMTFolder_path / "0.2.6/SRDebugBridge.dll"))
+                    {
+                        fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                    }
+                    else
+                    {
+                        MD5 ModHash;
+                        std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRDebugBridge.dll").string());
+                        std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRDebugBridge.dll");
+
+                        if (installedMD5 != includedMD5)
+                        {
+                            fs::remove(SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                            fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                            log_message("Included SRDebugBridge MD5 wrong", LogTypes::LOG_WARN);
+                        }
+                    }
+                }
+                catch (fs::filesystem_error e)
+                {
+                    return;
+                }
+                catch (std::runtime_error e)
+                {
+
+                }
             }
         }
         else
@@ -176,6 +205,33 @@ bool load_config_file(std::string path_to_config)
         loadConfigKeyInt(json, theme_selected, "theme", "theme: ", settings_defaults::theme_def);
 
         loadConfigKeyInt(json, downloader_selected, "downloader", "downloader: ", settings_defaults::downloader_def);
+
+        loadConfigKeyBool(json, enableDebugging, "debugging_enabled", "debugging: ", settings_defaults::debugging_enable_def);
+        DebugSettingsUI::debuggingEnabledCheckbox.setState(enableDebugging);
+
+        loadConfigKeyBool(json, saveDebugLogsToOtherFile, "debug_save_logs_to_other_file", "debug save logs to other file: ", settings_defaults::debug_savelogs_def);
+        DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
+
+        loadConfigKeyBool(json, printDebugLogs, "debug_print_logs", "debug print logs: ", settings_defaults::debug_print_all_def);
+        DebugSettingsUI::printDebugLogsCheckbox.setState(printDebugLogs);
+
+        loadConfigKeyInt(json, communicationDelay, "debug_com_delay", "debug com delay: ", settings_defaults::debug_com_delay_def);
+        DebugSettingsUI::comunicationDelayTextbox.setText(std::to_string(communicationDelay));
+
+        loadConfigKeyInt(json, comunicationPipeBufferSize, "debug_com_buffer_size", "debug com buffer size: ", settings_defaults::debug_com_buffersize_def);
+        DebugSettingsUI::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
+
+        loadConfigKeyBool(json, acceptInfoLogs, "debug_accept_info_logs", "", settings_defaults::debug_acc_info_def);
+        DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
+
+        loadConfigKeyBool(json, acceptWarningLogs, "debug_accept_warning_logs", "", settings_defaults::debug_acc_warn_def);
+        DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
+
+        loadConfigKeyBool(json, acceptErrorLogs, "debug_accept_error_logs", "", settings_defaults::debug_acc_err_def);
+        DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
+
+        loadConfigKeyBool(json, acceptExceptionLogs, "debug_accept_exception_logs", "", settings_defaults::debug_acc_excp_def);
+        DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
     }
     catch (std::runtime_error re)
     {

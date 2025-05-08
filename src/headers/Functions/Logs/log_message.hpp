@@ -42,6 +42,15 @@ void log_message(std::string message, int type)
             }
             break;
         }
+        case LogTypes::LOG_EXCEPTION:
+        {
+            log_output = " [EXCEPTION] ";
+            if (display_log_colors == true)
+            {
+                std::cout << RED;
+            }
+            break;
+        }
         default:
         {
             log_output = " [INFO] ";

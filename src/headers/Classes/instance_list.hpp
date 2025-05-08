@@ -123,11 +123,6 @@ int getItNumber()
     return number_on_list;
 }
 
-void event(sf::Event& event)
-{
-    
-}
-
 void changePosition(int x, int y)
 {
     backgorund.setPosition(x, y);

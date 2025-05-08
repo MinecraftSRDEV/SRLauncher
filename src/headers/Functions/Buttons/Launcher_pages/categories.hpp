@@ -1,5 +1,4 @@
 void refresh_instances_list();
-void display_version_log();
 
 void changeCategory_main()
 {
@@ -22,5 +21,4 @@ void changeCategory_versions()
 {
     UI_current = UiPages::VersionsList;
     positionListElements();
-    // display_version_log();
 }

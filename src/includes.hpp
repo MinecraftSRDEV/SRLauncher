@@ -1,3 +1,5 @@
+#include "headers/Functions/CriticalErrorsDetection/errorDetection.hpp"
+
 #include "headers/Declarations/varriables.hpp"
 #include "headers/Declarations/dictionaries.hpp"
 #include "headers/Declarations/enums.hpp"
@@ -11,6 +13,7 @@
 #include "headers/Classes/json_encoder.hpp"
 #include "headers/Classes/md5calculator.hpp"
 #include "headers/Classes/VDF_parser.hpp"
+#include "headers/Classes/downloadingProgressBar.hpp"
 
 #include "headers/Functions/crypt/md5calc.hpp"
 
@@ -20,7 +23,6 @@
 
 #include "headers/Classes/dev_ui_viewer.hpp"
 
-#include "headers/Classes/popup_message_window.hpp"
 #include "headers/Classes/instance_list.hpp"
 #include "headers/Classes/version_class.hpp"
 #include "headers/Classes/instance_icon_bar_options.hpp"
@@ -28,8 +30,6 @@
 #include "headers/Classes/save_menagement/mod_class.hpp"
 #include "headers/Classes/save_menagement/game_save_class.hpp"
 #include "headers/Classes/save_menagement/backup_list_class.hpp"
-
-// #include "headers/Classes/formattedText.hpp"
 
 #include "headers/Classes/steamGuardAuthClass.hpp"
 
@@ -69,16 +69,18 @@
 #include "headers/ResourceLoad/loadJsons.hpp"
 #include "headers/ResourceLoad/loadLicences.hpp"
 
+#include "headers/Functions/Launch/steamworksBypass.hpp"
+
 #include "headers/Functions/crypt/decryptor.hpp"
 #include "headers/Functions/crypt/encryptor.hpp"
 
 #include "headers/Functions/Data_menagement/file_editor.hpp"
 
 #include "headers/Functions/Config/update_file.hpp"
-#include "headers/Functions/Userdata/textbox_data.hpp"
+#include "headers/Functions/Userdata/settingsValues.hpp"
 
 #include "headers/SetObjectsParams/textures/setTextures.hpp"
-#include "headers/SetObjectsParams/ui/setButtons.hpp"
+#include "headers/SetObjectsParams/ui/setUiElements.hpp"
 #include "headers/SetObjectsParams/ui/setTheme.hpp"
 
 #include "headers/Functions/Userdata/get_userdata_path.hpp"
@@ -91,8 +93,7 @@
 #include "headers/Functions/Settings/lock/lock.hpp"
 #include "headers/Functions/Settings/lock/unlock.hpp"
 
-#include "headers/Functions/Settings/defaults/dafault_paths.hpp"
-#include "headers/Functions/Settings/defaults/default_checkboxes.hpp"
+#include "headers/Functions/Settings/defaults/allSettings.hpp"
 
 #include "headers/Functions/Settings/defaults/reset_function.hpp"
 
@@ -126,7 +127,7 @@
 #include "headers/Functions/Buttons/Instances/menage/Mods/betterBuildChecker.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 
-#include "headers/Functions/Buttons/Instances/downloadCMD.hpp"
+#include "headers/Functions/updates/handleHTML.hpp"
 
 #include "headers/Events/scrolling/ScrollVersionDescription.hpp"
 #include "headers/Events/scrolling/ScrollpatchNotesList.hpp"
@@ -141,11 +142,13 @@
 #include "headers/Functions/Buttons/Instances/open_folder.hpp"
 #include "headers/Functions/Buttons/Instances/remove.hpp"
 
+#include "headers/Start/nonEmptyDataFolderCheck.hpp"
 #include "headers/Start/runtime.hpp"
 #include "headers/Start/post_start_tasks.hpp"
 
 #include "headers/Functions/mouse/left.hpp"
 
+#include "headers/Functions/Launch/debugBridge.hpp"
 #include "headers/Functions/Launch/download_game.hpp"
 #include "headers/Functions/Launch/run_game.hpp"
 

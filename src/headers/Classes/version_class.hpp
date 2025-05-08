@@ -71,11 +71,6 @@ std::string getDescription()
     return descriptionString;
 }
 
-void event(sf::Event& event)
-{
-    
-}
-
 std::string getVersion()
 {
     return version_text.getString();

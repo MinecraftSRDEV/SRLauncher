@@ -74,8 +74,10 @@ namespace SettingsSubcatsUI
     sfg::Button Subcat_settings_main_button;
     sfg::Button Subcat_settings_progile_button;
     sfg::Button Subcat_settings_updates_button;
-    sfg::Button Subcat_settings_credits_button;
+    sfg::Button Subcat_settings_downloading_button;
+    sfg::Button Subcat_settings_debugging_button;
     sfg::Button Subcat_settings_licences_button;
+    sfg::Button Subcat_settings_credits_button;
     sfg::TransparrentBackground subcat_separator;
 }
 
@@ -86,19 +88,13 @@ namespace MainSettingsUI
     sfg::Button SlimeRancher_steam_path_getfolder_button;
     sfg::Textbox SlimeRancher_instances_path_textbox;
     sfg::Button SlimeRancher_instances_path_getfolder_button;
-    sfg::Textbox steamcmd_path_textbox;
-    sfg::Button steamcmd_path_getfolder_button;
     sfg::Checkbox Show_prereleases_checkbox;
     sfg::Checkbox Save_logs_files_checkbox;
     sfg::Checkbox Colored_logs_checkbox;
-    sfg::Checkbox automatically_run_downloaded_instances_checkbox;
     sfg::Checkbox do_not_show_warnings_checkbox;
     sfg::Checkbox use_secure_ipc_checkbox;
     sf::Text theme_label_text;
     sfg::DropDownList theme_list_ddl;
-    sf::Text downloaders_list_text;
-    sfg::DropDownList downloaders_ddl;
-
 }
 
 namespace SteamAccountSettingsUI
@@ -122,6 +118,32 @@ namespace UpdatesSettingsUI
     sf::Text update_status_text;
     sfg::Button check_for_update_button;
     sfg::Checkbox autocheck_for_update_checkbox;    
+}
+
+namespace DownloadingSettingsUI
+{
+    sfg::Textbox steamcmd_path_textbox;
+    sfg::Button steamcmd_path_getfolder_button;
+    sfg::Checkbox automatically_run_downloaded_instances_checkbox;
+    sf::Text downloaders_list_text;
+    sfg::DropDownList downloaders_ddl;
+}
+
+namespace DebugSettingsUI
+{
+    sf::Text debug_info_text;
+    sfg::Checkbox debuggingEnabledCheckbox;
+    sfg::Checkbox saveDebugLogsToOtherFileCheckbox;
+    sfg::Checkbox printDebugLogsCheckbox;
+    sfg::Textbox comunicationDelayTextbox;
+    sfg::Textbox comunicationPipeBufferSizeTextbox;
+    sfg::Button forcePipeCloseButton;
+    sfg::Button killInstanceButton;
+    sfg::Button saveLogFileButton;
+    sfg::Checkbox acceptInfoCheckbox;
+    sfg::Checkbox acceptWarningCheckbox;
+    sfg::Checkbox acceptErrorCheckbox;
+    sfg::Checkbox acceptExceptionCheckbox;
 }
 
 namespace CreditsUI
@@ -176,6 +198,15 @@ namespace ManageOthers
     sf::Text vsc_text;
     sf::Text msc_text;
     sfg::TransparrentBackground manage_bg;
+}
+
+namespace DebuggerMainmenuLayout
+{
+    sfg::Checkbox acceptInfoCheckbox;
+    sfg::Checkbox acceptWarningCheckbox;
+    sfg::Checkbox acceptErrorCheckbox;
+    sfg::Checkbox acceptExceptionCheckbox;
+    sf::Text messageDuplicatedText;
 }
 
 sfg::DropDownList versions_list_ddl;

@@ -10,7 +10,9 @@ void executeSubcategories(sf::Vector2f mouse)
 {
     Subcat_settings_main_button.update(mouse);
     Subcat_settings_progile_button.update(mouse);
+    Subcat_settings_downloading_button.update(mouse);
     Subcat_settings_updates_button.update(mouse);
+    Subcat_settings_debugging_button.update(mouse);
     Subcat_settings_credits_button.update(mouse);
     Subcat_settings_licences_button.update(mouse);
 }
@@ -23,7 +25,15 @@ void mouse_left()
     {
         executeCategories(mouse);
 
-        launch_game_button.update(mouse);
+        if (mounted_instance != UNMOUNTED_INSTANCE)
+        {
+            launch_game_button.update(mouse);
+            Mounted_instance_info_text.setPosition(sf::Vector2f(10, 725));
+        }
+        else
+        {
+            Mounted_instance_info_text.setPosition(sf::Vector2f((1280 / 2) - (Mounted_instance_info_text.getLocalBounds().width / 2), 725));
+        }
 
         console_clear_button.update(mouse);
 
@@ -154,14 +164,11 @@ void mouse_left()
             SlimeRancher_instances_path_textbox.update(mouse);
             SlimeRancher_steam_path_getfolder_button.update(mouse);
             SlimeRancher_instances_path_getfolder_button.update(mouse);
-            steamcmd_path_textbox.update(mouse);
-            steamcmd_path_getfolder_button.update(mouse);
 
             Show_prereleases_checkbox.update(mouse);
             Save_logs_files_checkbox.update(mouse);
             Colored_logs_checkbox.update(mouse);
 
-            automatically_run_downloaded_instances_checkbox.update(mouse);
             do_not_show_warnings_checkbox.update(mouse);
             use_secure_ipc_checkbox.update(mouse);
 
@@ -169,7 +176,6 @@ void mouse_left()
             SaveConfig_button.update(mouse);
 
             theme_list_ddl.update(mouse);
-            downloaders_ddl.update(mouse);
 
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
@@ -185,6 +191,19 @@ void mouse_left()
                 SlimeRancher_steam_path_getfolder_button.setBlockState(false);
                 SlimeRancher_instances_path_getfolder_button.setBlockState(false);
             }
+        }
+        if (options_ui == SettingsCategories::PROFILE_PAGE)
+        {
+            SteamProfile_name_textbox.update(mouse);
+            SteamProfile_password_textbox.update(mouse);
+            save_profile_button.update(mouse);
+        }
+        if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
+        {
+            steamcmd_path_textbox.update(mouse);
+            steamcmd_path_getfolder_button.update(mouse);
+            automatically_run_downloaded_instances_checkbox.update(mouse);
+            downloaders_ddl.update(mouse);
 
             if (downloader_selected == steamcmd)
             {
@@ -196,17 +215,65 @@ void mouse_left()
                 steamcmd_path_textbox.setReadOnlyMode(true);
                 steamcmd_path_getfolder_button.setBlockState(true);
             }
-        }
-        if (options_ui == SettingsCategories::PROFILE_PAGE)
-        {
-            SteamProfile_name_textbox.update(mouse);
-            SteamProfile_password_textbox.update(mouse);
-            save_profile_button.update(mouse);
+
+            RestoreSettings_button.update(mouse);
+            SaveConfig_button.update(mouse);
         }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
             check_for_update_button.update(mouse);
             autocheck_for_update_checkbox.update(mouse);
+
+            RestoreSettings_button.update(mouse);
+            SaveConfig_button.update(mouse);
+        }
+        if (options_ui == SettingsCategories::DEBUGGING_PAGE)
+        {
+            DebugSettingsUI::debuggingEnabledCheckbox.update(mouse);
+
+            bool state = DebugSettingsUI::debuggingEnabledCheckbox.getState();
+            state = !state;
+
+            DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setBlockState(state);
+            DebugSettingsUI::printDebugLogsCheckbox.setBlockState(state);
+            DebugSettingsUI::comunicationDelayTextbox.setReadOnlyMode(state);
+            DebugSettingsUI::comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
+            DebugSettingsUI::forcePipeCloseButton.setBlockState(state);
+            DebugSettingsUI::killInstanceButton.setBlockState(state);
+            DebugSettingsUI::saveLogFileButton.setBlockState(state);
+            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state);
+            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state);
+
+            bool state2 = DebugSettingsUI::printDebugLogsCheckbox.getState();
+            state2 = !state2;
+
+            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state2);
+            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state2);
+
+            if (state == false)
+            {
+                DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.update(mouse);
+                DebugSettingsUI::printDebugLogsCheckbox.update(mouse);
+                DebugSettingsUI::comunicationDelayTextbox.update(mouse);
+                DebugSettingsUI::comunicationPipeBufferSizeTextbox.update(mouse);
+                DebugSettingsUI::forcePipeCloseButton.update(mouse);
+                DebugSettingsUI::killInstanceButton.update(mouse);
+                DebugSettingsUI::saveLogFileButton.update(mouse);
+
+                acceptInfoLogs = DebugSettingsUI::acceptInfoCheckbox.getState();
+                acceptWarningLogs = DebugSettingsUI::acceptWarningCheckbox.getState();
+                acceptErrorLogs = DebugSettingsUI::acceptErrorCheckbox.getState();
+                acceptExceptionLogs = DebugSettingsUI::acceptExceptionCheckbox.getState();
+            }
+
+            DebugSettingsUI::acceptInfoCheckbox.update(mouse);
+            DebugSettingsUI::acceptWarningCheckbox.update(mouse);
+            DebugSettingsUI::acceptErrorCheckbox.update(mouse);
+            DebugSettingsUI::acceptExceptionCheckbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
