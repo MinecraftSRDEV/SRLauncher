@@ -110,6 +110,7 @@ void runtime_check()
 
             if (mounted_instance.empty())
             {
+                displayNonEmptyDataAlert();
                 rename_orginal_dir();
                 log_message("No instance mounted", LogTypes::LOG_INFO);
                 mounted_instance = UNMOUNTED_INSTANCE;
@@ -120,6 +121,7 @@ void runtime_check()
             {
                 if (mounted_instance == UNMOUNTED_INSTANCE)
                 {
+                    displayNonEmptyDataAlert();
                     Mounted_instance_info_text.setString("No instance mounted");
                     mounted_instance_version.setString("");
                 }

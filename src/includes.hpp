@@ -142,6 +142,7 @@
 #include "headers/Functions/Buttons/Instances/open_folder.hpp"
 #include "headers/Functions/Buttons/Instances/remove.hpp"
 
+#include "headers/Start/nonEmptyDataFolderCheck.hpp"
 #include "headers/Start/runtime.hpp"
 #include "headers/Start/post_start_tasks.hpp"
 
