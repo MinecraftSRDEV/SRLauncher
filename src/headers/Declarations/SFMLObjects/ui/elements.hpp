@@ -93,6 +93,7 @@ namespace MainSettingsUI
     sfg::Checkbox Colored_logs_checkbox;
     sfg::Checkbox do_not_show_warnings_checkbox;
     sfg::Checkbox use_secure_ipc_checkbox;
+    sfg::Checkbox mount_only_data_checkbox;
     sf::Text theme_label_text;
     sfg::DropDownList theme_list_ddl;
 }
@@ -149,6 +150,9 @@ namespace DebugSettingsUI
 namespace CreditsUI
 {
     sf::Text credits_programming_text;
+    sf::Text github_page_link_text;
+    sf::Text repos_page_link_text;
+    sf::Text issules_page_link_text;
 }
 
 namespace LicencesUI

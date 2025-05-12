@@ -65,7 +65,10 @@ void mount_function(std::string instance_id)
         {
             try
             {
-                fs::rename(instnace_dir, steam_dir / "Slime Rancher");
+                if (mountOnlyData == false)
+                {
+                    fs::rename(instnace_dir, steam_dir / "Slime Rancher");    
+                }
                 log_message("Mounted instance: " + instances_list[instance_id].getID() + " Version: " + instances_list[instance_id].getVer(), LogTypes::LOG_INFO);
                 update_config_file();
                 instances_stat_refresh();

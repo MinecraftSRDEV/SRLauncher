@@ -202,6 +202,9 @@ bool load_config_file(std::string path_to_config)
         loadConfigKeyBool(json, use_secure_ipc, "use_secure_ipc", "secure ipc: ", settings_defaults::use_secure_ipc_def);
         use_secure_ipc_checkbox.setState(use_secure_ipc);
 
+        loadConfigKeyBool(json, mountOnlyData, "mount_only_data", "only data: ", settings_defaults::mount_only_data_def);
+        mount_only_data_checkbox.setState(mountOnlyData);
+
         loadConfigKeyInt(json, theme_selected, "theme", "theme: ", settings_defaults::theme_def);
 
         loadConfigKeyInt(json, downloader_selected, "downloader", "downloader: ", settings_defaults::downloader_def);

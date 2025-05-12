@@ -38,6 +38,8 @@ bool acceptWarningLogs = true;
 bool acceptErrorLogs = true;
 bool acceptExceptionLogs = true;
 
+bool mountOnlyData = false;
+
 bool instanceDataLoading = false;
 bool instancesListLoading = false;
 
@@ -54,7 +56,7 @@ int screen_refresh_count = 0;
 
 std::string guard_code;
 
-std::string launcher_version = "inDev 0.11";
+std::string launcher_version = "inDev 0.12";
 std::string saved_version;
 
 /// Launcher Paths ////

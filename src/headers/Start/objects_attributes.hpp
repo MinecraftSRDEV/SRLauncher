@@ -35,13 +35,16 @@ void setRuntimeTexts()
 
     setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 450);
+    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 510);
 
     setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
 
     setTextAtt(DebugSettingsUI::debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
 
-    setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 380);
+    setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 150);
+    setTextAtt(github_page_link_text, "                 GitHub project page\nhttps://github.com/MinecraftSRDEV/SRLauncher", 32, 60, 240, sf::Color::Blue);
+    setTextAtt(repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
+    setTextAtt(issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
 
     setTextAtt(dataLoading_text, "", 32, 130, 380);
 

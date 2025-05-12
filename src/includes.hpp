@@ -148,6 +148,7 @@
 
 #include "headers/Functions/mouse/left.hpp"
 
+#include "headers/Functions/Launch/installAll.hpp"
 #include "headers/Functions/Launch/debugBridge.hpp"
 #include "headers/Functions/Launch/download_game.hpp"
 #include "headers/Functions/Launch/run_game.hpp"

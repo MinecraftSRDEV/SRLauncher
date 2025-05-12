@@ -312,6 +312,7 @@ void window_draw()
 
             do_not_show_warnings_checkbox.render(window);
             use_secure_ipc_checkbox.render(window);
+            mount_only_data_checkbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
@@ -376,6 +377,9 @@ void window_draw()
         if (options_ui == SettingsCategories::CREDITS_PAGE)
         {
             window.draw(credits_programming_text);
+            window.draw(github_page_link_text);
+            window.draw(repos_page_link_text);
+            window.draw(issules_page_link_text);
         }
         if (options_ui == SettingsCategories::LICENCES_PAGE)
         {

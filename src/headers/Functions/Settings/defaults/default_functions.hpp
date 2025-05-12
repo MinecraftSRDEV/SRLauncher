@@ -54,6 +54,12 @@ namespace settings_defaults
         use_secure_ipc_checkbox.setState(use_secure_ipc);
     }
 
+    void mount_only_data_def()
+    {
+        mountOnlyData = false;
+        mount_only_data_checkbox.setState(mountOnlyData);
+    }
+
     void theme_def()
     {
         theme_selected = ColorPalete::Bright;

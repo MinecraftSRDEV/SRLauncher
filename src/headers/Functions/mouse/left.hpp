@@ -171,6 +171,7 @@ void mouse_left()
 
             do_not_show_warnings_checkbox.update(mouse);
             use_secure_ipc_checkbox.update(mouse);
+            mount_only_data_checkbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
@@ -183,6 +184,8 @@ void mouse_left()
                 SlimeRancher_instances_path_textbox.setReadOnlyMode(true);
                 SlimeRancher_steam_path_getfolder_button.setBlockState(true);
                 SlimeRancher_instances_path_getfolder_button.setBlockState(true);
+
+                mount_only_data_checkbox.setBlockState(false);
             }
             else
             {
@@ -190,6 +193,8 @@ void mouse_left()
                 SlimeRancher_instances_path_textbox.setReadOnlyMode(false);
                 SlimeRancher_steam_path_getfolder_button.setBlockState(false);
                 SlimeRancher_instances_path_getfolder_button.setBlockState(false);
+
+                mount_only_data_checkbox.setBlockState(true);
             }
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
