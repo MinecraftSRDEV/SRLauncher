@@ -41,6 +41,7 @@ struct BackupData {
     std::string name;
     std::string date;
     std::string source;
+    std::string filename;
     int type;
 };
 

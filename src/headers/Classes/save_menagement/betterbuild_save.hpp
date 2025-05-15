@@ -96,6 +96,21 @@ sf::FloatRect getBackupButtonHitbox()
     return make_backup_button.hitbox();
 }
 
+sf::FloatRect getRemoveButtonHitbox()
+{
+    return remove_button.hitbox();
+}
+
+sf::FloatRect getUnlockButtonHitbox()
+{
+    return remove_lock_button.hitbox();
+}
+
+sf::FloatRect getSaveslotsButtonHitbox()
+{
+    return gamesaves_slots_button.hitbox();
+}
+
 WorldData getData()
 {
     return data;
@@ -113,14 +128,16 @@ void event(sf::Event& event)
 }
 typedef void (*FunctionType)();
 
-void transportFunction(FunctionType function, FunctionType backup)
+void transportFunctions(FunctionType backup, FunctionType remove, FunctionType unlock, FunctionType saveslots)
 {
-    cachedFunction = function;
     backupFunction = backup;
+    removeFunction = remove;
+    unlockFunction = unlock;
+    saveslotsFunction = saveslots;
 
-    remove_lock_button.setFunction(cachedFunction);     //placeholder
-    remove_button.setFunction(cachedFunction);      //placeholder
-    gamesaves_slots_button.setFunction(cachedFunction);     //placeholder
+    remove_lock_button.setFunction(unlockFunction);
+    remove_button.setFunction(removeFunction);
+    gamesaves_slots_button.setFunction(saveslotsFunction);
     make_backup_button.setFunction(backupFunction);
 }
 
@@ -175,6 +192,8 @@ sfg::Button remove_button;
 sfg::Button gamesaves_slots_button;
 sfg::Button make_backup_button;
 
-FunctionType cachedFunction = nullptr;
 FunctionType backupFunction = nullptr;
+FunctionType removeFunction = nullptr;
+FunctionType unlockFunction = nullptr;
+FunctionType saveslotsFunction = nullptr;
 };

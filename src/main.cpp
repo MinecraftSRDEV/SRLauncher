@@ -10,14 +10,27 @@
 // Software in development You using it on your own risk!//
 ///////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////  
+//////////////////////////////////////////////////////////////////////////
 // Features planned in 0.12                                             //
-// - Mounting instances without mounting game   | InProgress            //  
-// - Old BetterBuild world unlocker   | InProgress                      //
-// - Instance auto installer    | InProgress                            //
-// - Debug options buttons functions    | InProgress                    //
-// - Launcher background customization  | InProgress                    //
-// - "informations" page in instance manage (BB lock)   | InProgress    //
+// - Mounting instances without mounting game                InProgress //
+// - Old BetterBuild world unlocker                          InProgress //
+// - Instance auto installer                                 InProgress //
+// - Debug options buttons functions                         InProgress //
+// - Launcher background customization                       InProgress //
+// - "informations" page in instance manage (BB lock)        InProgress //
+// - add function to remove BBW gamesave                     Finished   //
+// - add function to unlock BBW gamesave                     InProgress //
+// - add function to BBW gamesaves slots                     InProgress //
+// - add function to backups manager buttons                 InProgress //
+// - add function to mods explorer                           InProgress //
+// - add edit function by creating specyfic folder           InProgress //
+// - fix mods explorer                                       InProgress //
+// - fix Vgamesaves listing                                  InProgress //
+// - fix SIGSVG 22 ERROR                                     InProgress //
+// - fix default debug enabled as default                    InProgress //
+// - fix buttons blocking                                    InProgress //
+// - fix backups list refresh                                Resolved   //
+// - fix backups instance path                               Resolved   //
 //                                                                      //
 // Features maybe added                                                 //
 // - More languages                                                     //

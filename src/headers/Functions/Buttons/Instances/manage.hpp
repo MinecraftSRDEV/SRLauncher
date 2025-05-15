@@ -76,7 +76,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
 
     scanGamesaves(instance_save_directory, instance_id, vanillasaves_list);
 
-    scanBackups();
+    scanBackups(instance_id);
 
     setAndPositionMngMainTexts(instance_id, std::to_string(vanillasaves_list.size()), std::to_string(InstanceMods_list.size()), std::to_string(LauncherMods_list.size()));
 

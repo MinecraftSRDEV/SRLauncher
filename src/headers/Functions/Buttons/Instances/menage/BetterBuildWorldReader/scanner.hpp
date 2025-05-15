@@ -27,7 +27,7 @@ void scanBetterBuildWorlds(const fs::path& bbw_dir, int reader_mode)
             worldData.levelname = entry.path().filename().replace_extension().string();
 
             betterbuildworlds_list[iteration].create(130, last_bbsave_entry_y, worldData, font);
-            betterbuildworlds_list[iteration].transportFunction(noFunction, backupWorldAsk);
+            betterbuildworlds_list[iteration].transportFunctions(backupWorldAsk, removeBBWAsk, noFunction, noFunction);
             last_bbsave_entry_y += 120;
             iteration++;
         }

@@ -1,3 +1,5 @@
+void instance_manage(std::string instance_id);
+
 std::string formatDate(int value, int max)
 {
     if (value < max)
@@ -28,6 +30,7 @@ void backupWorld(const std::string& instance_id, const std::string& world_id)
         {
             fs::copy_file(source, backups_path / "instances" / fs::path(instance_id) / "BBW" / fs::path(world_id + date + ".world"));
             MessageBoxA(NULL, "Backup created successfully", "Info", MB_ICONINFORMATION | MB_OK);
+            instance_manage(instance_id);
         }
         catch (fs::filesystem_error e)
         {
