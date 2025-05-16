@@ -123,6 +123,7 @@
 #include "headers/Functions/Buttons/Instances/menage/mainpage/detailsText.hpp"
 #include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/deserializer.hpp"
 #include "headers/Functions/Buttons/Instances/menage/saveScaner/vanilla.hpp"
+#include "headers/Functions/Buttons/Instances/menage/saveScaner/modded.hpp"
 #include "headers/Functions/Buttons/Instances/menage/saveScaner/autoSelector.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/findSpecyficMod.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/recognizer.hpp"

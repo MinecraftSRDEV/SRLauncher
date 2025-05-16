@@ -316,6 +316,14 @@ void mouse_left()
                 }
                 break;
             }
+            case BETTERBUILD_SAVES:
+            {
+                for (const auto& pair : betterbuildsaves_list)
+                {
+                    betterbuildsaves_list[pair.first].update(mouse);
+                }
+                break;
+            }
             case MODS_PAGE:
             {
                 for (const auto& pair : InstanceMods_list)

@@ -62,7 +62,8 @@ enum ModLoaders {
 
 enum BbReaderMode {
     old_loader,
-    new_loader
+    new_loader,
+    vanilla_loader
 };
 
 enum BackupTypes {

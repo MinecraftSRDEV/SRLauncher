@@ -33,7 +33,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
                 
                 checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory, old_loader);
 
-                scanGamesaves(instance_modsave_directory, instance_id, betterbuildsaves_list);
+                scanModSaves(instance_modsave_directory, old_loader, betterbuildsaves_list);
             }
             catch (fs::filesystem_error e) {}
 
@@ -47,7 +47,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
                 instance_modsave_directory = instance_directory / "BetterBuild";
                 scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130);
                 checkBetterBuildInstalled("BetterBuild", instance_directory, new_loader);
-                scanGamesaves(instance_modsave_directory, instance_id, betterbuildsaves_list);
+                scanModSaves(instance_modsave_directory, new_loader, betterbuildsaves_list);
             }
             catch (fs::filesystem_error e) {}
 

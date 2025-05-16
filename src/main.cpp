@@ -27,7 +27,7 @@
 // - fix mods explorer                                       InProgress //
 // - fix Vgamesaves listing                                  InProgress //
 // - fix SIGSVG 22 ERROR                                     InProgress //
-// - fix default debug enabled as default                    InProgress //
+// - fix default debug enabled as default                    Untested   //
 // - fix buttons blocking                                    InProgress //
 // - fix backups list refresh                                Resolved   //
 // - fix backups instance path                               Resolved   //
