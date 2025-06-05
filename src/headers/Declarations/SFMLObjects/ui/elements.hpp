@@ -96,6 +96,8 @@ namespace MainSettingsUI
     sfg::Checkbox mount_only_data_checkbox;
     sf::Text theme_label_text;
     sfg::DropDownList theme_list_ddl;
+    sfg::Textbox SRL_background_img_path_textbox;
+    sfg::Button SRL_background_img_path_getfolder_button;
 }
 
 namespace SteamAccountSettingsUI
@@ -170,6 +172,7 @@ namespace VersionsElements
 
 namespace ManageSubcatListUI
 {
+    sfg::Button manage_informations_button;
     sfg::Button manage_vanilla_saves_button;
     sfg::Button manage_betterbuild_saves_button;
     sfg::Button manage_betterbuild_world_button;

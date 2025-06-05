@@ -48,6 +48,8 @@ void getSettingsValuesAndSave()
     catch (std::exception e) {}
 
     saveConfigWithCurrents();
+
+    srlBackgroundPath = SRL_background_img_path_textbox.getText();
 }
 
 void getProfileSettingsValuesAndSave()

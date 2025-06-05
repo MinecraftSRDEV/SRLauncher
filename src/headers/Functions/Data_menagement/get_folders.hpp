@@ -27,3 +27,14 @@ void getfolder_steamcmddir()
         steamcmd_path_textbox.setText(steamcmd_dir);
     }
 }
+
+void getfolder_background_path()
+{
+    std::string input_path = BrowseFile();
+    if (!input_path.empty())
+    {
+        srlBackgroundPath = input_path;
+        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        reloadLauncherBackground();
+    }
+}

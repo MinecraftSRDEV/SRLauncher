@@ -16,7 +16,7 @@
 // - Old BetterBuild world unlocker                          InProgress //
 // - Instance auto installer                                 InProgress //
 // - Debug options buttons functions                         InProgress //
-// - Launcher background customization                       InProgress //
+// - Launcher background customization                       Finished   //
 // - "informations" page in instance manage (BB lock)        InProgress //
 // - add function to remove BBW gamesave                     Finished   //
 // - add function to unlock BBW gamesave                     InProgress //
@@ -60,6 +60,7 @@
 #include <iomanip>
 #include <memory.h>
 #include <csignal>
+#include <commdlg.h>
 
 #include <curl/curl.h>
 
@@ -118,6 +119,7 @@ int main()
     load_sequence();
 
     devUiView.disable();
+    // devUiView.enable();
 
     while(window.isOpen())
     {

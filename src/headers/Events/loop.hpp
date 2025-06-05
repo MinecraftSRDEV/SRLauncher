@@ -93,6 +93,7 @@ void events_loop()
                 SlimeRancher_steam_path_textbox.handleEvent(event);
                 SlimeRancher_instances_path_textbox.handleEvent(event);
                 steamcmd_path_textbox.handleEvent(event);
+                SRL_background_img_path_textbox.handleEvent(event);
             }
             if (options_ui == SettingsCategories::DEBUGGING_PAGE)
             {

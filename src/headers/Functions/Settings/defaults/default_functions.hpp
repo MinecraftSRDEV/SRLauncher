@@ -119,4 +119,11 @@ namespace settings_defaults
     {
         acceptExceptionLogs = true;
     }
+
+    void background_path_def()
+    {
+        srlBackgroundPath = SRL_BG_DEF_PATH;
+        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        reloadLauncherBackground();
+    }
 }

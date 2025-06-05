@@ -41,7 +41,8 @@
         "-lsfml-system",
         "-lsfml-window",
         "-lcurl",
-        "-lole32"
+        "-lole32",
+        "-lcomdlg32"
       ],
       "group": {
         "kind": "build",

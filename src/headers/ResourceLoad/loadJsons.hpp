@@ -235,6 +235,10 @@ bool load_config_file(std::string path_to_config)
 
         loadConfigKeyBool(json, acceptExceptionLogs, "debug_accept_exception_logs", "", settings_defaults::debug_acc_excp_def);
         DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
+
+        loadConfigKeyStr(json, srlBackgroundPath, "background_path", "backgroundPath: ", settings_defaults::background_path_def);
+        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        reloadLauncherBackground();
     }
     catch (std::runtime_error re)
     {

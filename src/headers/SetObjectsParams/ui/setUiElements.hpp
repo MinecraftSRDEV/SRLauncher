@@ -33,7 +33,9 @@ void setButtons()
     UIElements.createCheckbox(do_not_show_warnings_checkbox, 30, 30, 130, 375, "Enable warning messages", 26, font, true);
     UIElements.createCheckbox(use_secure_ipc_checkbox, 30, 30, 130, 410, "Use secure IPC (experimental)", 26, font, false);
     UIElements.createCheckbox(mount_only_data_checkbox, 30, 30, 130, 445, "Mount only game data", 26, font, false);
-    UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 545, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
+    UIElements.createTextbox(SRL_background_img_path_textbox, 130, 510, 1085, 40, false, false, font, 26, "", false, "SRL background image path");
+    UIElements.createButton(SRL_background_img_path_getfolder_button, 1215, 541, 60, 40, font, "Browse", false);
+    UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 640, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
 
     UIElements.createButton(RestoreSettings_button, 1000, 750, 120, 40, font, "Restore defaults", false);
     UIElements.createButton(SaveConfig_button, 1120, 750, 120, 40, font, "Save config", false);

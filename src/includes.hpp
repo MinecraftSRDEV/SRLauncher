@@ -53,6 +53,8 @@
 #include "headers/Functions/Data_menagement/directory_check.hpp"
 #include "headers/Functions/Data_menagement/rename_slime_rancher_dir.hpp"
 
+#include "headers/ResourceLoad/reloadBackground.hpp"
+
 #include "headers/Functions/Data_menagement/browse_folder_dialogbox.hpp"
 #include "headers/Functions/Data_menagement/get_folders.hpp"
 

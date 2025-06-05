@@ -78,6 +78,8 @@ void setFunctions()
     downloaders_ddl.setFunction(setDownloader);
     theme_list_ddl.setFunction(applyTheme);
 
+    SRL_background_img_path_getfolder_button.setFunction(getfolder_background_path);
+
     SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);
 
     RestoreSettings_button.setFunction(setSettingsDefault);

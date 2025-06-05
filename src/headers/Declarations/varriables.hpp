@@ -40,6 +40,8 @@ bool acceptExceptionLogs = true;
 
 bool mountOnlyData = false;
 
+std::string srlBackgroundPath;
+
 bool instanceDataLoading = false;
 bool instancesListLoading = false;
 
@@ -77,6 +79,8 @@ fs::path UMFmodsFolder_path;
 fs::path SMTFolder_path;
 fs::path SMLFolder_path;
 fs::path SRMLmodsFolder_path;
+
+#define SRL_BG_DEF_PATH "./assets/resources/background.png"
 
 //////////////////////////
 /// Scrollable iterations

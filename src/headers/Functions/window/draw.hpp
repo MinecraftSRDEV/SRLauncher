@@ -319,6 +319,9 @@ void window_draw()
 
             window.draw(theme_label_text);
             theme_list_ddl.render(window);
+
+            SRL_background_img_path_textbox.render(window);
+            SRL_background_img_path_getfolder_button.render(window);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {

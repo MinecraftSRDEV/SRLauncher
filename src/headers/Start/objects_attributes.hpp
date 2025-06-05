@@ -35,7 +35,7 @@ void setRuntimeTexts()
 
     setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 510);
+    setTextAtt(theme_label_text, "Launcher theme", 26, 130, 605);
 
     setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
 

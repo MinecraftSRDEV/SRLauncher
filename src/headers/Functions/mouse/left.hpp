@@ -178,6 +178,9 @@ void mouse_left()
 
             theme_list_ddl.update(mouse);
 
+            SRL_background_img_path_textbox.update(mouse);
+            SRL_background_img_path_getfolder_button.update(mouse);
+
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
                 SlimeRancher_steam_path_textbox.setReadOnlyMode(true);
