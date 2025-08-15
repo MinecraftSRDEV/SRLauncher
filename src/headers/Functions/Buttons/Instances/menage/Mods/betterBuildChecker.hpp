@@ -11,7 +11,7 @@
  * @param instance_mods_directory Pointer to directory for scanner
  * @param loader Pointer to loader for scanner
  */
-void checkBetterBuildInstalled(const std::string& modName, const fs::path& instance_mods_directory, int loader)
+bool checkBetterBuildInstalled(const std::string& modName, const fs::path& instance_mods_directory, int loader)
 {
     if (findModInMap("BetterBuildMod") > 0)
     {
@@ -21,10 +21,12 @@ void checkBetterBuildInstalled(const std::string& modName, const fs::path& insta
         directory_auto(instance_betterbuild_directory);
         
         scanBetterBuildWorlds(instance_betterbuild_directory, loader);
+        return true;
     }
     else
     {
         bbw_tittle_text.setString("BetterBuildMod isn't installed");
         bbw_tittle_text.setPosition(window.getSize().x / 2 - (bbw_tittle_text.getLocalBounds().width / 2) + 130, 380);
     }
+    return false;
 }

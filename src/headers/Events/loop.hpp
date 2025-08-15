@@ -57,31 +57,33 @@ void events_loop()
 
         if (UI_current == UiPages::ManageMenu)
         {
-            switch(manage_ui)
+            if (instanceDataLoading == false)
             {
-                case BETTERBUILD_WORLDS:
+                switch(manage_ui)
                 {
-                    if (instanceDataLoading == false)
+                    case BETTERBUILD_WORLDS:
                     {
                         scrollManageBbw(event, mouse_pos);    
+                        break;
                     }
-                    break;
-                }
-                case VANILLA_SAVES:
-                {
-                    if (instanceDataLoading == false)
+                    case VANILLA_SAVES:
                     {
                         scrollManageVs(event, mouse_pos);    
+                        break;
                     }
-                    break;
-                }
-                case BETTERBUILD_SAVES:
-                {
-                    if (instanceDataLoading == false)
+                    case BETTERBUILD_SAVES:
                     {
                         scrollManageBbw(event, mouse_pos);
+                        break;
                     }
-                    break;
+                    case MODS_PAGE:
+                    {
+                        if (instanceModsMouseWorkingBox.getGlobalBounds().contains(mouse_pos))
+                        scrollInstanceMods(event, mouse_pos);
+
+                        if (launcherModsMouseWorkingBox.getGlobalBounds().contains(mouse_pos))
+                        scrollLauncherMods(event, mouse_pos);
+                    }
                 }
             }
         }

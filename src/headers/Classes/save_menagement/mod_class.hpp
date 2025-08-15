@@ -3,33 +3,33 @@ public:
 
 ModClass () {}
 
-void create(int x, int y, const ModAttribs& modAttribs, sf::Font& font, int color = ColorPalete::Bright)
+bool canBeInstalled = true;
+
+void create(int x, int y, const ModAttribs& modAttribs, sf::Font& font, sf::RenderWindow& window, int color = ColorPalete::Bright)
 {
     attribs = modAttribs;
     colorSet = color;
 
-    background.setPosition(x, y);
-    background.setSize(sf::Vector2f(560, 60));
+    background.setSize(sf::Vector2f(560, 95));
     background.setOutlineThickness(1);
 
     setAttributes();
 
     mod_name.setFont(font);
     mod_name.setCharacterSize(20);
-    mod_name.setPosition(x + 10, y + 10);
     
     mod_type.setFont(font);
     mod_type.setCharacterSize(20);
-    mod_type.setPosition(x + 10, y + 30);
-
+    
     mod_srversion.setFont(font);
     mod_srversion.setCharacterSize(20);
-    mod_srversion.setPosition(x + background.getGlobalBounds().width - (mod_srversion.getLocalBounds().width + 10), y + 10);
 
     compatybile_text.setFont(font);
     compatybile_text.setCharacterSize(20);
-    compatybile_text.setPosition(x + background.getGlobalBounds().width - (compatybile_text.getLocalBounds().width + 10), y + 30);
 
+    move_button.create(0,0, 80, 30, font, "move", false, theme_selected);
+    
+    changePosition(x, y);
     setTheme(color);
 }
 
@@ -46,22 +46,51 @@ void setTheme(int color)
 
 void render(sf::RenderWindow& window)
 {
-    window.draw(background);
-    window.draw(mod_name);
-    window.draw(mod_type);
-    window.draw(mod_srversion);
-    window.draw(compatybile_text);
-    move_button.render(window);
+    if (background.getPosition().y >= -18 and background.getPosition().y <= 800)
+    {
+        window.draw(background);
+        window.draw(mod_name);
+        window.draw(mod_type);
+        window.draw(mod_srversion);
+        window.draw(compatybile_text);
+        move_button.render(window);    
+    }
+    
 }
 
 void update(sf::Vector2f& mouse)
 {
     move_button.update(mouse);
+
+    move_button.setBlockState(!canBeInstalled);
+}
+
+sf::Vector2f getPOsition()
+{
+    return background.getPosition();
+}
+
+sf::FloatRect getHitbox()
+{
+    return background.getGlobalBounds();
 }
 
 ModAttribs getAttribs()
 {
     return attribs;
+}
+
+void changePosition(int x, int y)
+{
+    background.setPosition(x, y);
+
+    mod_name.setPosition(x + 10, y + 10);
+    mod_type.setPosition(x + 10, y + 30);
+
+    mod_srversion.setPosition(x + background.getGlobalBounds().width - (mod_srversion.getLocalBounds().width + 10), y + 10);
+    compatybile_text.setPosition(x + background.getGlobalBounds().width - (compatybile_text.getLocalBounds().width + 10), y + 30);
+
+    move_button.changePosition(x + background.getGlobalBounds().width - 90, y + 55);
 }
 
 private:

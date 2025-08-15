@@ -97,6 +97,10 @@ bool load_versions_list()
             output.executable_hash = versionObject.getObject().at("SH").getString();
             output.assembly_hash = versionObject.getObject().at("AH").getString();
 
+            output.savegame_info.readable_version = versionObject.getObject().at("gamesaves").getObject().at("readable_version").getBool();
+            output.savegame_info.format = versionObject.getObject().at("gamesaves").getObject().at("format").getNumber();
+            output.savegame_info.single_file = versionObject.getObject().at("gamesaves").getObject().at("single_file").getBool();
+
             loadVersionPachnotes(name, output.itr);
             create_mods_directories(output);
             versionsData_map[output.version_name] = output;

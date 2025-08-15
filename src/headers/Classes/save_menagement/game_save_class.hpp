@@ -102,6 +102,13 @@ void changePosition(int x, int y)
     reposition();
 }
 
+void changeDisplayedName(std::string newName)
+{
+    data.name = newName;
+    applyData();
+    reposition();
+}
+
 enum BUTTON_ID {
     REMOVE,
     MAKE_BACKUP,

@@ -22,6 +22,7 @@ void setButtons()
     UIElements.createButton(Subcat_settings_credits_button, 0, 760, 120, 40, font, "Credits", false);
 
     UIElements.createTransparrentBg(subcat_separator, 125, 43, 0, 754, true);
+    UIElements.createTransparrentBg(save_config_separator, 125, 745, 1280, 0, true);
 
     UIElements.createTextbox(SlimeRancher_steam_path_textbox, 130, 100, 1085, 40, false, false, font, 26, "", false, "Steam games directory path");
     UIElements.createButton(SlimeRancher_steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
@@ -98,6 +99,11 @@ void setButtons()
     UIElements.createButton(manage_backups_button, 0, 120, 120, 40, font, "Backups manager", false);
     UIElements.createButton(manage_mods_button, 0, 160, 120, 40, font, "Mods", false);
     UIElements.createButton(manage_main_back_button, 0, 760, 120, 40, font, "Back", false);
+
+    UIElements.createMenagementButton(MNG_Instance_saves_text, 135, 70, font, instance_icons_textures["pink_slime"], "", false);
+    UIElements.createMenagementButton(MNG_instance_installed_mods_text, 135, (70 + 91), font, instance_icons_textures["pink_slime"], "", false);
+    UIElements.createMenagementButton(MNG_instance_mods_saves_text, 135, (70 + (91 + 91)), font, instance_icons_textures["pink_slime"], "", false);
+    UIElements.createMenagementButton(MNG_instance_mods_launcher_text, 135, (70 + (91 + (91 + 91))), font, instance_icons_textures["pink_slime"], "", false);
     
     UIElements.createTransparrentBg(manage_cats_separator, 125, 3, 0, 794, true);
 

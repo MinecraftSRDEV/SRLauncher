@@ -72,13 +72,11 @@ void setRuntimeTexts()
 
     setTextAtt(MNG_Instance_name_text, "Instance name: ", 26, 0, 0);
 
-    setTextAtt(MNG_Instance_saves_text, "Game saves count: ", 26, 0, 0);
+    setTextAtt(MNG_betterBuild_status, "", 26, 130, 520);
 
-    setTextAtt(MNG_instance_mods_own_text, "Installed mods: ", 26, 0, 0);
+    setTextAtt(MNG_betterBuild_UID, "", 26, 130, 550);
 
-    setTextAtt(MNG_instance_mods_launcher_text, "Launcher mods: ", 26, 0, 0);
-
-    setTextAtt(tldr_text, "TLDR. This things are hard to do. If some thing don't work correctly please be patient, will be added\nin future. I don't have access to every informations, old mod files and more... so its hard to make\nuniversal tool without that. If some versions informations in launcher database are incorrect, please\ntell me about that.", 26, 130, 600, sf::Color::Red);
+    setTextAtt(tldr_text, "TLDR. This things are hard to do. If some thing don't work correctly please be patient, will be added\nin future. I don't have access to every informations, old mod files and more... so its hard to make\nuniversal tool without that. If some versions informations in launcher database are incorrect, please\ntell me about that.", 26, 130, 630, sf::Color::Red);
 
     setTextAtt(bbw_tittle_text, "", 26, 0, 0);
 
@@ -114,6 +112,14 @@ void setShapesAttributes()
     debugWorking.setSize(sf::Vector2f(10, 10));
     debugWorking.setPosition(sf::Vector2f(10, 670));
     debugWorking.setFillColor(sf::Color::Red);
+
+    instanceModsMouseWorkingBox.setSize(sf::Vector2f(565, 790));
+    instanceModsMouseWorkingBox.setPosition(sf::Vector2f(126, 5));
+    instanceModsMouseWorkingBox.setFillColor(sf::Color::Transparent);
+
+    launcherModsMouseWorkingBox.setSize(sf::Vector2f(565, 790));
+    launcherModsMouseWorkingBox.setPosition(sf::Vector2f(695, 5));
+    launcherModsMouseWorkingBox.setFillColor(sf::Color::Transparent);
 
     downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 

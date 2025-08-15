@@ -6,18 +6,37 @@
  * @param m4 Installed mods count
  * @param m5 Launcher mods count
  */
-void setAndPositionMngMainTexts(const std::string& m2, const std::string& m3, const std::string& m4, const std::string& m5)
+void setAndPositionMngMainTexts(ManageResult results)
 {
-    MNG_Instance_name_text.setString("Instance name: " + m2);
-    MNG_Instance_saves_text.setString("Vanilla saves count: " + m3);
-    MNG_instance_mods_own_text.setString("Instance installed mods: " + m4);
-    MNG_instance_mods_launcher_text.setString("Launcher mods: " + m5);
+    MNG_Instance_name_text.setString("Instance name: " + results.name);
 
-    MNG_Instance_name_text.setPosition(130 + (575 - MNG_Instance_name_text.getLocalBounds().width / 2), 100);
-    MNG_Instance_saves_text.setPosition(130 + (575 - MNG_Instance_saves_text.getLocalBounds().width / 2), 150);
-    MNG_instance_mods_own_text.setPosition(130 + (575 - MNG_instance_mods_own_text.getLocalBounds().width / 2), 200);
-    MNG_instance_mods_launcher_text.setPosition(130 + (575 - MNG_instance_mods_launcher_text.getLocalBounds().width / 2), 250);
+    MNG_Instance_saves_text.setText("Vanilla saves count: " + results.vSavesCount);
+    MNG_instance_installed_mods_text.setText("Instance installed mods: " + results.installedModsCount);
+    MNG_instance_mods_saves_text.setText("Mods saves count: " + results.modSavesCount);
+    MNG_instance_mods_launcher_text.setText("Launcher mods: " + results.launcherModsCount);
+
+    if (results.bb_status == true)
+    {
+        MNG_betterBuild_status.setString("BetterBuild status: installed");
+        MNG_instance_mods_saves_text.setBlockState(false);
+    }
+    else
+    {
+        MNG_betterBuild_status.setString("BetterBuild status: not installed");
+        MNG_instance_mods_saves_text.setBlockState(true);
+    }
+
+    if (results.bb_uid.empty())
+    MNG_betterBuild_UID.setString("BetterBuild UID: Unknown");
+    else
+    MNG_betterBuild_UID.setString("BetterBuild UID: " + results.bb_uid);
+
+    MNG_instance_icon.setTexture(results.iconTx);
+
+    MNG_Instance_name_text.setPosition(130 + (575 - MNG_Instance_name_text.getLocalBounds().width / 2), 5);
     bbw_tittle_text.setPosition(130 + (575 - bbw_tittle_text.getLocalBounds().width / 2), 300);
+
+    MNG_instance_icon.setPosition(140, 5); 
 }
 
 /**
@@ -26,7 +45,8 @@ void setAndPositionMngMainTexts(const std::string& m2, const std::string& m3, co
 void eraseMngMainTexts()
 {
     MNG_Instance_name_text.setString("");
-    MNG_Instance_saves_text.setString("");
-    MNG_instance_mods_own_text.setString("");
-    MNG_instance_mods_launcher_text.setString("");
+    MNG_Instance_saves_text.setText("");
+    MNG_instance_installed_mods_text.setText("");
+    MNG_instance_mods_saves_text.setText("");
+    MNG_instance_mods_launcher_text.setText("");
 }

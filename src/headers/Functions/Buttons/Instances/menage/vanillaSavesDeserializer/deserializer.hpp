@@ -1,16 +1,23 @@
-SavegameData deserializeGameData(const fs::path& filepath)
+SavegameData deserializeGameData(const fs::path& filepath, const SRGamesaveInfo& info)
 {
     SavegameData data;
 
     data.name = filepath.filename().replace_extension().string();
 
-    try
+    if (info.format == 2 or info.format == 3)
     {
-        data.last_played = convertTmToString(convertStringToDate(data.name.substr(0, 15)));
-        data.name = data.name.substr(15);
+        try
+        {
+            data.last_played = convertTmToString(convertStringToDate(data.name.substr(0, 15)));
+            data.name = data.name.substr(15);
+        }
+        catch (std::exception e) {
+            data.last_played = UNKNOWN;
+        }    
     }
-    catch (std::exception e) {
-        data.last_played = UNKNOWN;
+    else
+    {
+        data.last_played = "No data";
     }
 
     std::vector <std::string> fileContains;
@@ -25,24 +32,28 @@ SavegameData deserializeGameData(const fs::path& filepath)
     }
     file.close();
 
-    for (const auto& pair : versionsData_map)
+    if (info.readable_version == true)
     {
-        for (const auto& filecon : fileContains)
+        for (const auto& pair : versionsData_map)
         {
-            size_t position = filecon.find(pair.second.version_name);
-            if (position != std::string::npos)
+            for (const auto& filecon : fileContains)
             {
-                try
+                size_t position = filecon.find(pair.second.version_name);
+                if (position != std::string::npos)
                 {
-                    data.version = filecon.substr(position, pair.second.version_name.length());
-                }
-                catch (std::out_of_range e)
-                {
-                    data.version = UNKNOWN;
+                    try
+                    {
+                        data.version = filecon.substr(position, pair.second.version_name.length());
+                    }
+                    catch (std::out_of_range e)
+                    {
+                        data.version = UNKNOWN;
+                    }
                 }
             }
-        }
+        }    
     }
+    
 
     if (data.version.empty())
     {

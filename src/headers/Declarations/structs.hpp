@@ -1,3 +1,9 @@
+struct SRGamesaveInfo {
+    bool readable_version;
+    int format;
+    bool single_file;
+};
+
 struct SRVersion {
     std::string version_name;
     bool mod_support;
@@ -7,6 +13,7 @@ struct SRVersion {
     int itr;
     std::string executable_hash;
     std::string assembly_hash;
+    SRGamesaveInfo savegame_info;
 };
 
 struct InstanceModAttributes {
@@ -30,11 +37,14 @@ struct WorldData {
 
 struct SavegameData {
     std::string name;
+    std::string displayedText;
     std::string version;
     std::string last_played;
     int currency;
     int day;
     int slimepedia;
+
+    int skip;
 };
 
 struct BackupData {
@@ -67,4 +77,15 @@ struct SessionData {
     bool debuggingEnabled = false;
 
     bool loaded = false;
+};
+
+struct ManageResult {
+    std::string name;
+    sf::Texture& iconTx;
+    std::string installedModsCount;
+    std::string vSavesCount;
+    std::string modSavesCount;
+    std::string launcherModsCount;
+    bool bb_status;
+    std::string bb_uid;
 };

@@ -94,6 +94,11 @@ void setFunctions()
     manage_mods_button.setFunction(changeCategory_mng_mods);
     manage_backups_button.setFunction(changeCategory_mng_backups);
 
+    MNG_Instance_saves_text.setFunction(changeCategory_mng_vanilla);
+    MNG_instance_installed_mods_text.setFunction(changeCategory_mng_mods);
+    MNG_instance_mods_saves_text.setFunction(changeCategory_mng_bbworls);
+    MNG_instance_mods_launcher_text.setFunction(changeCategory_mng_mods);
+
     version_back_button.setFunction(changeCategory_versions);
 
     console_clear_button.setFunction(clearConsole);

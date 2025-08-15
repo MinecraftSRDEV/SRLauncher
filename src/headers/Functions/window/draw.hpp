@@ -203,11 +203,18 @@ void window_draw()
         {
             case MNG_MAIN_PAGE:
             {
-                window.draw(MNG_Instance_name_text);
-                window.draw(MNG_installed_mods_text);
-                window.draw(MNG_Instance_saves_text);
-                window.draw(MNG_instance_mods_own_text);
-                window.draw(MNG_instance_mods_launcher_text);
+                if (instanceDataLoading == false)
+                {
+                    window.draw(MNG_instance_icon);
+                    window.draw(MNG_Instance_name_text);
+                    MNG_Instance_saves_text.render(window);
+                    MNG_instance_installed_mods_text.render(window);
+                    MNG_instance_mods_saves_text.render(window);
+                    MNG_instance_mods_launcher_text.render(window);
+                    window.draw(MNG_betterBuild_status);
+                    window.draw(MNG_betterBuild_UID);
+                }
+                
                 window.draw(tldr_text);
                 break;
             }
@@ -242,6 +249,9 @@ void window_draw()
             {
                 if (versionsData_map[instances_list[selected_instance].getVer()].mod_support == true)
                 {
+                    window.draw(instanceModsMouseWorkingBox);
+                    window.draw(launcherModsMouseWorkingBox);
+                    
                     window.draw(list_mods_instance_text);
                     window.draw(list_mods_launcher_text);
                     mods_separator.render(window);
@@ -322,6 +332,8 @@ void window_draw()
 
             SRL_background_img_path_textbox.render(window);
             SRL_background_img_path_getfolder_button.render(window);
+
+            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
@@ -337,6 +349,8 @@ void window_draw()
             window.draw(steam_profile_AccountName_text);
             window.draw(steam_profile_PersonalName_text);
             window.draw(steam_profile_UID_text);
+
+            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
         {
@@ -348,6 +362,8 @@ void window_draw()
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
+
+            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
@@ -357,6 +373,8 @@ void window_draw()
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
+
+            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::DEBUGGING_PAGE)
         {
@@ -376,6 +394,8 @@ void window_draw()
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
+
+            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::CREDITS_PAGE)
         {

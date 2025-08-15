@@ -13,24 +13,27 @@
 //////////////////////////////////////////////////////////////////////////
 // Features planned in 0.12                                             //
 // - Mounting instances without mounting game                InProgress //
-// - Old BetterBuild world unlocker                          InProgress //
+// - Old BetterBuild world resigner                          InProgress //
 // - Instance auto installer                                 InProgress //
 // - Debug options buttons functions                         InProgress //
 // - Launcher background customization                       Finished   //
-// - "informations" page in instance manage (BB lock)        InProgress //
+// - "informations" page in instance manage (BB lock)        Finished   //
 // - add function to remove BBW gamesave                     Finished   //
-// - add function to unlock BBW gamesave                     InProgress //
 // - add function to BBW gamesaves slots                     InProgress //
 // - add function to backups manager buttons                 InProgress //
 // - add function to mods explorer                           InProgress //
 // - add edit function by creating specyfic folder           InProgress //
+// - add BetterBuild UID reader                              Finished   //
+// - improved manage main page                               Finished   //
 // - fix mods explorer                                       InProgress //
-// - fix Vgamesaves listing                                  InProgress //
+// - fix Vgamesaves listing                                  Resolved   //
 // - fix SIGSVG 22 ERROR                                     InProgress //
 // - fix default debug enabled as default                    Untested   //
-// - fix buttons blocking                                    InProgress //
+// - fix buttons blocking                                    Resolved   //
 // - fix backups list refresh                                Resolved   //
 // - fix backups instance path                               Resolved   //
+// - fix vanilla saves recognizer                            Resolved   //
+// - fix BetterBuild saves list clearing                     Resolved   // 
 //                                                                      //
 // Features maybe added                                                 //
 // - More languages                                                     //
@@ -82,6 +85,8 @@ void load_sequence()
     ///// Load required resources /////
     loadElements();
 
+    window.setMouseCursor(waitCursor);
+
     ///// Set SFML text attributes onetime /////
     setRuntimeTexts();
 
@@ -108,6 +113,8 @@ void load_sequence()
     
     ///// Create DropDownList from all "versionsData_map" contents /////
     createDDListFromVersionsMap();
+
+    window.setMouseCursor(arrowCursor);
 }
 
 int main()

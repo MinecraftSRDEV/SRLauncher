@@ -16,6 +16,8 @@ std::map <int, versionClass> versions_pachnotes_list;
 std::map <int, BackupList> Backups_list;
 std::map <std::string, ModClass> LauncherMods_list;
 std::map <std::string, ModClass> InstanceMods_list;
+std::map <int, std::string> InstanceModsIndexing;
+std::map <int, std::string> LauncherModsIndexing;
 
 std::vector <ModAttribs> mods_folder_data_list;
 std::vector <ModAttribs> instance_mods_folder_list;

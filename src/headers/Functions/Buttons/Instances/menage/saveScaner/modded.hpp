@@ -43,7 +43,7 @@ int scanModSaves(const fs::path& dir, int loader,  std::map <int, VanillaSave>& 
         if (entry.is_regular_file() and entry.path().filename().extension() == ".sav")
         {
             std::string output = entry.path().filename().replace_extension().string();
-            saveData = deserializeGameData(entry.path());
+            saveData = deserializeGameData(entry.path(), {false, 0, true});
             containerPointer[itr].create(130, ir_pos, saveData, font);
             containerPointer[itr].transportFunction(BBSRevealFunction, containerPointer[itr].REVEAL);
             containerPointer[itr].transportFunction(backupBBSaveAsk, containerPointer[itr].MAKE_BACKUP);

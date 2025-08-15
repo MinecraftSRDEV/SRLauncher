@@ -7,6 +7,12 @@ void createButton(sfg::Button& button, int posX, int posY, int sizeX, int sizeY,
     UIButtons.emplace_back(&button);
 }
 
+void createMenagementButton(ManagementButton& button, int posX, int posY, sf::Font& font, sf::Texture& iconTx, std::string input_text, bool block_state = false)
+{
+    button.create(posX, posY, font, iconTx, input_text, block_state, theme_selected);
+    UIMenagementButtons.emplace_back(&button);
+}
+
 void createCheckbox(sfg::Checkbox& checkbox, int sizeX, int sizeY, int posX, int posY, std::string text, int fontsize, sf::Font& font, bool defaultState)
 {
     checkbox.create(sizeX, sizeY, posX, posY, text, fontsize, font, defaultState, theme_selected);
@@ -53,6 +59,10 @@ void setElementsTheme()
     {
         buttonItr->setTheme(theme_selected);
     }
+    for (auto* mngButtonItr : UIMenagementButtons)
+    {
+        mngButtonItr->setTheme(theme_selected);
+    }
     for (auto* checkboxItr : UICheckboxes)
     {
         checkboxItr->setTheme(theme_selected);
@@ -82,6 +92,7 @@ void setElementsTheme()
 
 std::vector <sf::Text*> UITexts;
 std::vector <sfg::Button*> UIButtons;
+std::vector <ManagementButton*> UIMenagementButtons;
 std::vector <sfg::Textbox*> UITextboxes;
 std::vector <sfg::Checkbox*> UICheckboxes;
 std::vector <sfg::DropDownList*> UIDropDownLists;

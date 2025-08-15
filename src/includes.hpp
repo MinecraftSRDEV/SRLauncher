@@ -5,6 +5,8 @@
 #include "headers/Declarations/enums.hpp"
 #include "headers/Declarations/structs.hpp"
 
+#include "headers/Classes/save_menagement/management_main_class.hpp"
+
 #include "headers/Classes/uiElements_class.hpp"
 
 #include "headers/Declarations/maps.hpp"
@@ -132,6 +134,9 @@
 #include "headers/Functions/Buttons/Instances/menage/Mods/scanFolder.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/loadModsFolder.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/betterBuildChecker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/positionCorrection.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/canBeInstalledChecker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/OldBetterBuildUIDReader.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 
 #include "headers/Functions/updates/handleHTML.hpp"
@@ -141,6 +146,7 @@
 #include "headers/Events/scrolling/ScrollInstancesList.hpp"
 #include "headers/Events/scrolling/manage/bbw.hpp"
 #include "headers/Events/scrolling/manage/vanillaSaves.hpp"
+#include "headers/Events/scrolling/manage/modsManager.hpp"
 #include "headers/Events/loop.hpp"
 
 #include "headers/Functions/Buttons/Instances/unmount.hpp"
