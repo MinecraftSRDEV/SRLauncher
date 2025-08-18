@@ -22,7 +22,7 @@
 // - add function to BBW gamesaves slots                     InProgress //
 // - add function to backups manager buttons                 InProgress //
 // - add function to mods explorer                           InProgress //
-// - add edit function by creating specyfic folder           InProgress //
+// - add edit function by creating specyfic folder           Finished   //
 // - add BetterBuild UID reader                              Finished   //
 // - improved manage main page                               Finished   //
 // - fix mods explorer                                       InProgress //

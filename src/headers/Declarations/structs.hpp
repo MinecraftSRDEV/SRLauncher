@@ -17,6 +17,8 @@ struct SRVersion {
 };
 
 struct InstanceModAttributes {
+    bool isModded;
+
     bool StaysModtool_installed;
     bool SatysModLoader_installed;
     bool UMF_installed;

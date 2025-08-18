@@ -32,6 +32,7 @@ void runtime_check()
             directory_auto(cmd_path);
             directory_auto(logs_path);
             directory_auto(mods_path);
+            directory_auto(edited_path);
 
             directory_auto(UMFmodsFolder_path);
             directory_auto(SMTFolder_path);

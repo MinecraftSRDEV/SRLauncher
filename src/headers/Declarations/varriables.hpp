@@ -74,6 +74,7 @@ fs::path downloader_path;
 fs::path logs_path;
 fs::path mods_path;
 fs::path steam_default_path;
+fs::path edited_path;
 
 fs::path UMFmodsFolder_path;
 fs::path SMTFolder_path;
