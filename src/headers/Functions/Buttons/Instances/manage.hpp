@@ -4,7 +4,7 @@
  * @param instance_id name of selected instance
  * @param instance_directory directory of selected instance
  */
-void loadInstanceData(std::string instance_id, fs::path instance_directory)
+void loadInstanceData(std::string instance_id, fs::path instance_directory, int scene)
 {
     window.setMouseCursor(waitCursor);
     InstanceModAttributes attribs = instances_list[instance_id].getModAttributes();
@@ -39,8 +39,19 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
             {
                 scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
                 
-                betterBuildStatus = checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory, old_loader);
-                betterBuildUid = getBetterBuildUID(instance_modsave_directory);
+                betterBuildStatus = checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory);
+                if (betterBuildStatus)
+                {
+                    scanBetterBuildWorlds(instance_modsave_directory, old_loader);
+                    betterBuildUid = getBetterBuildUID(instance_modsave_directory);    
+
+                }
+                else
+                {
+                    betterBuildUid = "Not installed";
+                }
+
+                instance_UID = betterBuildUid;
 
                 scanModSaves(instance_modsave_directory, old_loader, betterbuildsaves_list);
             }
@@ -55,8 +66,16 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
                 instance_mods_directory = instance_directory / "Mods";
                 instance_modsave_directory = instance_directory / "BetterBuild";
                 scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
-                betterBuildStatus = checkBetterBuildInstalled("BetterBuild", instance_directory, new_loader);
-                betterBuildUid = "Not available in this mod version";
+                betterBuildStatus = checkBetterBuildInstalled("BetterBuild", instance_mods_directory);
+                if (betterBuildStatus)
+                {
+                    scanBetterBuildWorlds(instance_modsave_directory, new_loader);
+                    betterBuildUid = "Not available in this mod version";    
+                }
+                else
+                {
+                    betterBuildUid = "Not installed";
+                }
                 scanModSaves(instance_modsave_directory, new_loader, betterbuildsaves_list);
             }
             catch (fs::filesystem_error e) {}
@@ -96,6 +115,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
     setAndPositionMngMainTexts({instance_id, instances_list[instance_id].getIconTexture(), std::to_string(InstanceMods_list.size()), std::to_string(vanillasaves_list.size()), std::to_string(betterbuildsaves_list.size()), std::to_string(LauncherMods_list.size()), betterBuildStatus, betterBuildUid});
 
     instanceDataLoading = false;
+    manage_ui = scene;
     window.setMouseCursor(arrowCursor);
 }
 
@@ -104,7 +124,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory)
  * 
  * @param instance_id clicked instance name
  */
-void instance_manage(std::string instance_id)
+void instance_manage(std::string instance_id, int scene)
 {
     if (mounted_instance == instances_list[instance_id].getID())
     {
@@ -125,7 +145,7 @@ void instance_manage(std::string instance_id)
         dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
         instanceDataLoading = true;
 
-        std::thread loadDataThr(loadInstanceData, instance_id, instance_directory);
+        std::thread loadDataThr(loadInstanceData, instance_id, instance_directory, scene);
         loadDataThr.detach();
     }
 }

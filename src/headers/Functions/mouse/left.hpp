@@ -93,7 +93,7 @@ void mouse_left()
                     if (is_mouse_pressed == false)
                     {
                         is_mouse_pressed = true;
-                        instance_manage(pair.first);
+                        instance_manage(pair.first, ManageCategories::MNG_MAIN_PAGE);
                     }
                 }
                 else

@@ -1,4 +1,4 @@
-void instance_manage(std::string instance_id);
+void instance_manage(std::string instance_id, int scene);
 
 std::string formatDate(int value, int max)
 {
@@ -60,7 +60,7 @@ void backupWorld(const std::string& instance_id, const std::string& world_id, in
         {
             fs::copy_file(source, backups_path / "instances" / fs::path(instance_id) / fs::path(backup_directory) / fs::path(world_id + date + file_extension));
             MessageBoxA(NULL, "Backup created successfully", "Info", MB_ICONINFORMATION | MB_OK);
-            instance_manage(instance_id);
+            instance_manage(instance_id, ManageCategories::BACKUPS);
         }
         catch (fs::filesystem_error e)
         {

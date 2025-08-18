@@ -29,7 +29,7 @@ void removeVanillaWorld(const std::string& instance_id, const std::string& world
         {
             fs::remove(source);
             MessageBoxA(NULL, "World successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
-            instance_manage(instance_id);
+            instance_manage(instance_id, ManageCategories::VANILLA_SAVES);
         }
         catch (fs::filesystem_error e)
         {

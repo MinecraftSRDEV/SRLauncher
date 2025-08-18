@@ -123,6 +123,7 @@
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/binaryReader.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/unlocker.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/BBWremover.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/worldResigner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/scanner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/mainpage/detailsText.hpp"
 #include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/deserializer.hpp"

@@ -10,7 +10,7 @@ void removeBBWorld(const std::string& instance_id, const std::string& world_id)
         {
             fs::remove(source);
             MessageBoxA(NULL, "World successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
-            instance_manage(instance_id);
+            instance_manage(instance_id, ManageCategories::BETTERBUILD_WORLDS);
         }
         catch (fs::filesystem_error e)
         {
@@ -43,7 +43,7 @@ void removeBBSave(const std::string& instance_id, const std::string& world_id)
         {
             fs::remove(source);
             MessageBoxA(NULL, "Save successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
-            instance_manage(instance_id);
+            instance_manage(instance_id, ManageCategories::BETTERBUILD_SAVES);
         }
         catch (fs::filesystem_error e)
         {

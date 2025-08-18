@@ -29,7 +29,7 @@ void backupRemove(const std::string& instance_id, const std::string& backup_id, 
             log_message(source_path.string(), LOG_INFO);
             fs::remove(source_path);
             MessageBoxA(NULL, "Backup successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
-            instance_manage(instance_id);
+            instance_manage(instance_id, ManageCategories::BACKUPS);
         }
         catch (fs::filesystem_error e)
         {

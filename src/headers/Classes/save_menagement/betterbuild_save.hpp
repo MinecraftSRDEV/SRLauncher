@@ -151,8 +151,15 @@ void applyData()
     saveVersionText.setString("Version: " + std::to_string(data.version));
     if (data.levelLocked == true)
     {
-        saveLockPasswordText.setString("World locked by password: " + data.levelPassword);
-        saveLockPasswordText.setFillColor(sf::Color(255,0,0));
+        if (data.levelPassword != instance_UID)
+        {
+            saveLockPasswordText.setFillColor(sf::Color::Red);
+        }
+        else
+        {
+            saveLockPasswordText.setFillColor(sf::Color::Green);
+        }
+        saveLockPasswordText.setString("World signed to UID: " + data.levelPassword);
     }
     else
     {

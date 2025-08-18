@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////////
 // Features planned in 0.12                                             //
 // - Mounting instances without mounting game                InProgress //
-// - Old BetterBuild world resigner                          InProgress //
+// - Old BetterBuild world resigner                          Finished   //
 // - Instance auto installer                                 InProgress //
 // - Debug options buttons functions                         InProgress //
 // - Launcher background customization                       Finished   //
@@ -34,6 +34,7 @@
 // - fix backups instance path                               Resolved   //
 // - fix vanilla saves recognizer                            Resolved   //
 // - fix BetterBuild saves list clearing                     Resolved   // 
+// - fix BetterBuild worlds loader for stable game versions  Resolved   //
 //                                                                      //
 // Features maybe added                                                 //
 // - More languages                                                     //

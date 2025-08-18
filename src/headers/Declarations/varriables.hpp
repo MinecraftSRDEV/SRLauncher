@@ -111,6 +111,8 @@ int downloader_selected = 0;
 
 std::string selected_instance;
 
+std::string instance_UID;
+
 #define UNMOUNTED_INSTANCE "Unmounted"
 #define UNKNOWN "UNKNOWN"
 
