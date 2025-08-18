@@ -2,7 +2,7 @@ class instance_list_class {
 public:
 instance_list_class () {}
 
-void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Texture& clock_texture, sf::Font& font, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count)
+void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Texture& clock_texture, sf::Font& font, sf::RenderWindow& window, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count)
 {
     version_string = version;
     name_string = name;
@@ -165,6 +165,11 @@ void updateStatus(int status)
             break;
         }
     }
+}
+
+sf::Texture& getIconTexture()
+{
+    return icon_spr_tx;
 }
 
 sf::FloatRect getHitbox()

@@ -54,6 +54,12 @@ namespace settings_defaults
         use_secure_ipc_checkbox.setState(use_secure_ipc);
     }
 
+    void mount_only_data_def()
+    {
+        mountOnlyData = false;
+        mount_only_data_checkbox.setState(mountOnlyData);
+    }
+
     void theme_def()
     {
         theme_selected = ColorPalete::Bright;
@@ -112,5 +118,12 @@ namespace settings_defaults
     void debug_acc_excp_def()
     {
         acceptExceptionLogs = true;
+    }
+
+    void background_path_def()
+    {
+        srlBackgroundPath = SRL_BG_DEF_PATH;
+        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        reloadLauncherBackground();
     }
 }

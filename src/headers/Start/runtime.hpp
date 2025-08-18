@@ -32,6 +32,7 @@ void runtime_check()
             directory_auto(cmd_path);
             directory_auto(logs_path);
             directory_auto(mods_path);
+            directory_auto(edited_path);
 
             directory_auto(UMFmodsFolder_path);
             directory_auto(SMTFolder_path);
@@ -97,6 +98,7 @@ void runtime_check()
             automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
             do_not_show_warnings_checkbox.setState(show_warnings);
             use_secure_ipc_checkbox.setState(use_secure_ipc);
+            mount_only_data_checkbox.setState(mountOnlyData);
 
             log_message("Loading versions list", LogTypes::LOG_INFO);
             if (load_versions_list() == true)

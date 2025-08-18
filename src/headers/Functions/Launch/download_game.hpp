@@ -151,19 +151,41 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
 
                 steam_game_dir = SlimeRancher_steam_path_textbox.getText();
                 fs::path steam_dir = steam_game_dir;
+                fs::path alternate_output_dir = fs::path(instances_dir);
                 fs::path outputDir = downloader_path / "output";
                 downloadInitializing = true;
                 if (fs::exists(outputDir) && fs::is_directory(outputDir))
                 {
-                    move_directory(outputDir, steam_dir / "Slime Rancher");
+                    if (mountOnlyData == true)
+                    {
+                        move_directory(outputDir, alternate_output_dir / fs::path(mounted_instance));
+                    }
+                    else 
+                    {
+                        move_directory(outputDir, steam_dir / "Slime Rancher");    
+                    }
                     log_message("Game download success", LogTypes::LOG_INFO);
                     game_downloading = false;
 
-                    createMD5Files(steam_dir);
-
+                    if (mountOnlyData == true)
+                    {
+                       createMD5Files(alternate_output_dir);  
+                    }
+                    else 
+                    {
+                        createMD5Files(steam_dir);    
+                    }
+                    
                     if (autolaunch_instances == true)
                     {
-                        prelaunch_tasks(depot.runpath, fs::path(steam_dir / "Slime Rancher").string());
+                        if (mountOnlyData == true)
+                        {
+                            prelaunch_tasks(depot.runpath, fs::path(alternate_output_dir / fs::path(mounted_instance)).string());  
+                        }
+                        else
+                        {
+                            prelaunch_tasks(depot.runpath, fs::path(steam_dir / "Slime Rancher").string());    
+                        }
                     }
                 }
                 else
@@ -339,6 +361,10 @@ void download_game2(std::string gamerun_path)
         steam_game_dir = SlimeRancher_steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
+        if (mountOnlyData == true)
+        {
+            game_dir = fs::path(instances_dir) / fs::path(mounted_instance);
+        }
 
         game_downloading = true;
         launch_game_button.setText("Downloading");
@@ -397,6 +423,10 @@ void download_game(std::string gamerun_path)
     depotProsp depot;
 
     fs::path destPath = fs::path(steam_game_dir) / "Slime Rancher";
+    if (mountOnlyData == true)
+    {
+        destPath = fs::path(instances_dir) / fs::path(mounted_instance);
+    }
     depot.path = destPath.string();
 
     log_message("Preparing downloading script", LogTypes::LOG_INFO);

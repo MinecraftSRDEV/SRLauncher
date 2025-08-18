@@ -76,6 +76,26 @@ sf::FloatRect getHitbox()
     return background.getGlobalBounds();
 }
 
+sf::FloatRect getRemoveButtonHitbox()
+{
+    return remove_button.hitbox();
+}
+
+sf::FloatRect getRestoreButtonHitbox()
+{
+    return restore_button.hitbox();
+}
+
+sf::FloatRect getRevealButtonHitbox()
+{
+    return reveal_button.hitbox();
+}
+
+BackupData getData()
+{
+    return data;
+}
+
 void changePosition(int x, int y)
 {
     background.setPosition(x, y);

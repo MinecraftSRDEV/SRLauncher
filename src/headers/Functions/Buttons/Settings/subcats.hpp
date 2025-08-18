@@ -37,6 +37,9 @@ void settings_licences_cat()
 
 void settings_credits_cat()
 {
-    credits_programming_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
+    credits_programming_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 150);
+    github_page_link_text.setPosition((window.getSize().x / 2) - (github_page_link_text.getLocalBounds().width / 2), 240);
+    repos_page_link_text.setPosition((window.getSize().x / 2) - (repos_page_link_text.getLocalBounds().width / 2), 360);
+    issules_page_link_text.setPosition((window.getSize().x / 2) - (issules_page_link_text.getLocalBounds().width / 2), 450);
     options_ui = SettingsCategories::CREDITS_PAGE;
 }

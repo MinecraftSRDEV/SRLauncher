@@ -62,5 +62,13 @@ enum ModLoaders {
 
 enum BbReaderMode {
     old_loader,
-    new_loader
+    new_loader,
+    vanilla_loader
+};
+
+enum BackupTypes {
+    BBworld_backup,
+    Vanillaworld_backup,
+    BBsave_backup,
+    fullgame_backup
 };

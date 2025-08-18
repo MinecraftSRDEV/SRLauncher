@@ -91,9 +91,21 @@ sf::FloatRect getMakeBackupButtonHitbox()
     return make_backup_button.hitbox();
 }
 
+SavegameData getData()
+{
+    return data;
+}
+
 void changePosition(int x, int y)
 {
     background.setPosition(x, y);
+    reposition();
+}
+
+void changeDisplayedName(std::string newName)
+{
+    data.name = newName;
+    applyData();
     reposition();
 }
 
@@ -131,11 +143,6 @@ void transportFunction(FunctionType function, int button_id)
             break;
         }
     }
-}
-
-SavegameData getData()
-{
-    return data;
 }
 
 private:

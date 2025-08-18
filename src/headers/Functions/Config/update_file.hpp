@@ -29,6 +29,7 @@ bool update_config_file()
     config.add("debug_accept_warning_logs", new JSONEncoder::JSONBool(acceptWarningLogs));
     config.add("debug_accept_error_logs", new JSONEncoder::JSONBool(acceptErrorLogs));
     config.add("debug_accept_exception_logs", new JSONEncoder::JSONBool(acceptExceptionLogs));
+    config.add("background_path", new JSONEncoder::JSONString(srlBackgroundPath));
     
     std::string jsonConfig =  config.stringify();
 

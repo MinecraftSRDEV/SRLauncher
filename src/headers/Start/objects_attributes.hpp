@@ -35,13 +35,16 @@ void setRuntimeTexts()
 
     setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(theme_label_text, "Launcher theme (experimental)", 26, 130, 450);
+    setTextAtt(theme_label_text, "Launcher theme", 26, 130, 605);
 
     setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
 
     setTextAtt(DebugSettingsUI::debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
 
-    setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 380);
+    setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 150);
+    setTextAtt(github_page_link_text, "                 GitHub project page\nhttps://github.com/MinecraftSRDEV/SRLauncher", 32, 60, 240, sf::Color::Blue);
+    setTextAtt(repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
+    setTextAtt(issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
 
     setTextAtt(dataLoading_text, "", 32, 130, 380);
 
@@ -69,13 +72,11 @@ void setRuntimeTexts()
 
     setTextAtt(MNG_Instance_name_text, "Instance name: ", 26, 0, 0);
 
-    setTextAtt(MNG_Instance_saves_text, "Game saves count: ", 26, 0, 0);
+    setTextAtt(MNG_betterBuild_status, "", 26, 130, 520);
 
-    setTextAtt(MNG_instance_mods_own_text, "Installed mods: ", 26, 0, 0);
+    setTextAtt(MNG_betterBuild_UID, "", 26, 130, 550);
 
-    setTextAtt(MNG_instance_mods_launcher_text, "Launcher mods: ", 26, 0, 0);
-
-    setTextAtt(tldr_text, "TLDR. This things are hard to do. If some thing don't work correctly please be patient, will be added\nin future. I don't have access to every informations, old mod files and more... so its hard to make\nuniversal tool without that. If some versions informations in launcher database are incorrect, please\ntell me about that.", 26, 130, 600, sf::Color::Red);
+    setTextAtt(tldr_text, "TLDR. This things are hard to do. If some thing don't work correctly please be patient, will be added\nin future. I don't have access to every informations, old mod files and more... so its hard to make\nuniversal tool without that. If some versions informations in launcher database are incorrect, please\ntell me about that.", 26, 130, 630, sf::Color::Red);
 
     setTextAtt(bbw_tittle_text, "", 26, 0, 0);
 
@@ -111,6 +112,14 @@ void setShapesAttributes()
     debugWorking.setSize(sf::Vector2f(10, 10));
     debugWorking.setPosition(sf::Vector2f(10, 670));
     debugWorking.setFillColor(sf::Color::Red);
+
+    instanceModsMouseWorkingBox.setSize(sf::Vector2f(565, 790));
+    instanceModsMouseWorkingBox.setPosition(sf::Vector2f(126, 5));
+    instanceModsMouseWorkingBox.setFillColor(sf::Color::Transparent);
+
+    launcherModsMouseWorkingBox.setSize(sf::Vector2f(565, 790));
+    launcherModsMouseWorkingBox.setPosition(sf::Vector2f(695, 5));
+    launcherModsMouseWorkingBox.setFillColor(sf::Color::Transparent);
 
     downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 

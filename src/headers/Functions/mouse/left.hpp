@@ -93,7 +93,7 @@ void mouse_left()
                     if (is_mouse_pressed == false)
                     {
                         is_mouse_pressed = true;
-                        instance_manage(pair.first);
+                        instance_manage(pair.first, ManageCategories::MNG_MAIN_PAGE);
                     }
                 }
                 else
@@ -160,6 +160,25 @@ void mouse_left()
 
         if (options_ui == SettingsCategories::MAIN_PAGE)
         {
+            if (mounted_instance != UNMOUNTED_INSTANCE)
+            {
+                SlimeRancher_steam_path_textbox.setReadOnlyMode(true);
+                SlimeRancher_instances_path_textbox.setReadOnlyMode(true);
+                SlimeRancher_steam_path_getfolder_button.setBlockState(true);
+                SlimeRancher_instances_path_getfolder_button.setBlockState(true);
+
+                mount_only_data_checkbox.setBlockState(false);
+            }
+            else
+            {
+                SlimeRancher_steam_path_textbox.setReadOnlyMode(false);
+                SlimeRancher_instances_path_textbox.setReadOnlyMode(false);
+                SlimeRancher_steam_path_getfolder_button.setBlockState(false);
+                SlimeRancher_instances_path_getfolder_button.setBlockState(false);
+
+                mount_only_data_checkbox.setBlockState(true);
+            }
+
             SlimeRancher_steam_path_textbox.update(mouse);
             SlimeRancher_instances_path_textbox.update(mouse);
             SlimeRancher_steam_path_getfolder_button.update(mouse);
@@ -171,26 +190,15 @@ void mouse_left()
 
             do_not_show_warnings_checkbox.update(mouse);
             use_secure_ipc_checkbox.update(mouse);
+            mount_only_data_checkbox.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
 
             theme_list_ddl.update(mouse);
 
-            if (mounted_instance != UNMOUNTED_INSTANCE)
-            {
-                SlimeRancher_steam_path_textbox.setReadOnlyMode(true);
-                SlimeRancher_instances_path_textbox.setReadOnlyMode(true);
-                SlimeRancher_steam_path_getfolder_button.setBlockState(true);
-                SlimeRancher_instances_path_getfolder_button.setBlockState(true);
-            }
-            else
-            {
-                SlimeRancher_steam_path_textbox.setReadOnlyMode(false);
-                SlimeRancher_instances_path_textbox.setReadOnlyMode(false);
-                SlimeRancher_steam_path_getfolder_button.setBlockState(false);
-                SlimeRancher_instances_path_getfolder_button.setBlockState(false);
-            }
+            SRL_background_img_path_textbox.update(mouse);
+            SRL_background_img_path_getfolder_button.update(mouse);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
@@ -200,11 +208,6 @@ void mouse_left()
         }
         if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
         {
-            steamcmd_path_textbox.update(mouse);
-            steamcmd_path_getfolder_button.update(mouse);
-            automatically_run_downloaded_instances_checkbox.update(mouse);
-            downloaders_ddl.update(mouse);
-
             if (downloader_selected == steamcmd)
             {
                 steamcmd_path_textbox.setReadOnlyMode(false);
@@ -215,6 +218,11 @@ void mouse_left()
                 steamcmd_path_textbox.setReadOnlyMode(true);
                 steamcmd_path_getfolder_button.setBlockState(true);
             }
+
+            steamcmd_path_textbox.update(mouse);
+            steamcmd_path_getfolder_button.update(mouse);
+            automatically_run_downloaded_instances_checkbox.update(mouse);
+            downloaders_ddl.update(mouse);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
@@ -293,6 +301,13 @@ void mouse_left()
         {
             case MNG_MAIN_PAGE:
             {
+                if (instanceDataLoading == false)
+                {
+                    MNG_Instance_saves_text.update(mouse);
+                    MNG_instance_installed_mods_text.update(mouse);
+                    MNG_instance_mods_saves_text.update(mouse);
+                    MNG_instance_mods_launcher_text.update(mouse);    
+                }
                 break;
             }
             case VANILLA_SAVES:
@@ -311,11 +326,23 @@ void mouse_left()
                 }
                 break;
             }
+            case BETTERBUILD_SAVES:
+            {
+                for (const auto& pair : betterbuildsaves_list)
+                {
+                    betterbuildsaves_list[pair.first].update(mouse);
+                }
+                break;
+            }
             case MODS_PAGE:
             {
                 for (const auto& pair : InstanceMods_list)
                 {
                     InstanceMods_list[pair.first].update(mouse);
+                }
+                for (const auto& pair : LauncherMods_list)
+                {
+                    LauncherMods_list[pair.first].update(mouse);
                 }
                 break;
             }

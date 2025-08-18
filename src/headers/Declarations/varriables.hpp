@@ -38,6 +38,10 @@ bool acceptWarningLogs = true;
 bool acceptErrorLogs = true;
 bool acceptExceptionLogs = true;
 
+bool mountOnlyData = false;
+
+std::string srlBackgroundPath;
+
 bool instanceDataLoading = false;
 bool instancesListLoading = false;
 
@@ -54,7 +58,7 @@ int screen_refresh_count = 0;
 
 std::string guard_code;
 
-std::string launcher_version = "inDev 0.11";
+std::string launcher_version = "inDev 0.12";
 std::string saved_version;
 
 /// Launcher Paths ////
@@ -70,11 +74,14 @@ fs::path downloader_path;
 fs::path logs_path;
 fs::path mods_path;
 fs::path steam_default_path;
+fs::path edited_path;
 
 fs::path UMFmodsFolder_path;
 fs::path SMTFolder_path;
 fs::path SMLFolder_path;
 fs::path SRMLmodsFolder_path;
+
+#define SRL_BG_DEF_PATH "./assets/resources/background.png"
 
 //////////////////////////
 /// Scrollable iterations
@@ -104,6 +111,8 @@ int theme_selected = ColorPalete::Bright;
 int downloader_selected = 0;
 
 std::string selected_instance;
+
+std::string instance_UID;
 
 #define UNMOUNTED_INSTANCE "Unmounted"
 #define UNKNOWN "UNKNOWN"

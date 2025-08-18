@@ -98,7 +98,7 @@ bool add_instance(fs::path path, int itr)
                 instance_installed_status_placeholder = false;
             }
 
-            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, inst.modsAttribs, itr, inst.playTime);
+            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, window, inst.modsAttribs, itr, inst.playTime);
             last_insnace_entry_y += 85;
             instances_list[inst.name].setInstalledStatus(instance_installed_status_placeholder);
             instances_list[inst.name].setEditedStatus(inst.edited);
@@ -154,6 +154,7 @@ void loadInstancesList(fs::path instances_path)
 
 void prepeareProcess(bool async = false)
 {
+    window.setMouseCursor(waitCursor);
     instances_list.clear();
     instances_list_iterations.clear();
     instance_list_b.erase();
@@ -178,6 +179,7 @@ void prepeareProcess(bool async = false)
     {
         loadInstancesList(instances_path);
     }
+    window.setMouseCursor(arrowCursor);
 }
 
 void refresh_instances_list()

@@ -79,6 +79,7 @@ namespace SettingsSubcatsUI
     sfg::Button Subcat_settings_licences_button;
     sfg::Button Subcat_settings_credits_button;
     sfg::TransparrentBackground subcat_separator;
+    sfg::TransparrentBackground save_config_separator;
 }
 
 namespace MainSettingsUI
@@ -93,8 +94,11 @@ namespace MainSettingsUI
     sfg::Checkbox Colored_logs_checkbox;
     sfg::Checkbox do_not_show_warnings_checkbox;
     sfg::Checkbox use_secure_ipc_checkbox;
+    sfg::Checkbox mount_only_data_checkbox;
     sf::Text theme_label_text;
     sfg::DropDownList theme_list_ddl;
+    sfg::Textbox SRL_background_img_path_textbox;
+    sfg::Button SRL_background_img_path_getfolder_button;
 }
 
 namespace SteamAccountSettingsUI
@@ -149,6 +153,9 @@ namespace DebugSettingsUI
 namespace CreditsUI
 {
     sf::Text credits_programming_text;
+    sf::Text github_page_link_text;
+    sf::Text repos_page_link_text;
+    sf::Text issules_page_link_text;
 }
 
 namespace LicencesUI
@@ -166,6 +173,7 @@ namespace VersionsElements
 
 namespace ManageSubcatListUI
 {
+    sfg::Button manage_informations_button;
     sfg::Button manage_vanilla_saves_button;
     sfg::Button manage_betterbuild_saves_button;
     sfg::Button manage_betterbuild_world_button;
@@ -177,11 +185,16 @@ namespace ManageSubcatListUI
 
 namespace ManageMainUI
 {
+    sf::Sprite MNG_instance_icon;
     sf::Text MNG_Instance_name_text;
-    sf::Text MNG_installed_mods_text;
-    sf::Text MNG_Instance_saves_text;
-    sf::Text MNG_instance_mods_own_text;
-    sf::Text MNG_instance_mods_launcher_text;
+
+    ManagementButton MNG_Instance_saves_text;
+    ManagementButton MNG_instance_installed_mods_text;
+    ManagementButton MNG_instance_mods_saves_text;
+    ManagementButton MNG_instance_mods_launcher_text;
+
+    sf::Text MNG_betterBuild_status;
+    sf::Text MNG_betterBuild_UID;
     sf::Text tldr_text;
 }
 
@@ -190,6 +203,8 @@ namespace ManageModsUI
     sf::Text list_mods_instance_text;
     sf::Text list_mods_launcher_text;
     sfg::TransparrentBackground mods_separator;
+    sf::RectangleShape instanceModsMouseWorkingBox;
+    sf::RectangleShape launcherModsMouseWorkingBox;
 }
 
 namespace ManageOthers

@@ -20,6 +20,7 @@ void construct_paths()
     downloader_path = defaultDir / components_path / "depotDownloader";
     logs_path = defaultDir / "logs";
     mods_path = defaultDir/ "mods";
+    edited_path = defaultDir/ "editedStorage";
     steam_default_path = fs::path(get_steamLocation_default_path());
     
     UMFmodsFolder_path = mods_path / "UMF";

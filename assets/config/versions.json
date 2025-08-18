@@ -7,7 +7,13 @@
         "manifest": "4045174004136343292",
         "iteration": 0,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "7da6ec09a105d1ebbef86013ed5386c5"
+        "AH": "7da6ec09a105d1ebbef86013ed5386c5",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.2.4a":
     {
@@ -17,7 +23,13 @@
         "manifest": "4045174004136343292",
         "iteration": 1,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "7da6ec09a105d1ebbef86013ed5386c5"
+        "AH": "7da6ec09a105d1ebbef86013ed5386c5",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.2.4b":
     {
@@ -27,7 +39,13 @@
         "manifest": "7182296344122123132",
         "iteration": 2,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "c9181641a7aedca43b924713cf51a09e"
+        "AH": "c9181641a7aedca43b924713cf51a09e",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.2.5":
     {
@@ -37,7 +55,13 @@
         "manifest": "6799269289357766840",
         "iteration": 3,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "861e0ad7e35fda34ba96ccb54844f25a"
+        "AH": "861e0ad7e35fda34ba96ccb54844f25a",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.2.6":
     {
@@ -47,7 +71,13 @@
         "manifest": "1033183441576441347",
         "iteration": 4,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "346984a4ee62d8d77e08b019b5132cbe"
+        "AH": "346984a4ee62d8d77e08b019b5132cbe",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.0a":
     {
@@ -57,7 +87,13 @@
         "manifest": "5739960724280512899",
         "iteration": 5,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "8918afc65bf537b3bfab416f36af3f72"
+        "AH": "8918afc65bf537b3bfab416f36af3f72",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.0b":
     {
@@ -67,7 +103,13 @@
         "manifest": "3772336976531939949",
         "iteration": 6,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "b951fd298f621d7928eabb349e311b08"
+        "AH": "b951fd298f621d7928eabb349e311b08",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.0c":
     {
@@ -77,7 +119,13 @@
         "manifest": "4623224924342845759",
         "iteration": 7,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "d5b861d8e7d8864ec13213a54af17c28"
+        "AH": "d5b861d8e7d8864ec13213a54af17c28",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.0d":
     {
@@ -87,7 +135,13 @@
         "manifest": "2972284991921612878",
         "iteration": 8,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "1b51b95f383ac0fb2a70c88b83a62e7a"
+        "AH": "1b51b95f383ac0fb2a70c88b83a62e7a",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.1":
     {
@@ -97,7 +151,13 @@
         "manifest": "5743640177165165681",
         "iteration": 9,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "3facc24b3cfcd67acdac2da46813632d"
+        "AH": "3facc24b3cfcd67acdac2da46813632d",
+        "gamesaves":
+        {
+            "readable_version": false,
+            "format": 0,
+            "single_file": true
+        }
     },
     "0.3.2":
     {
@@ -107,7 +167,13 @@
         "manifest": "2946735614319817428",
         "iteration": 10,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "720d0ac7d5e8ab31b067f64b0ec2ff8a"
+        "AH": "720d0ac7d5e8ab31b067f64b0ec2ff8a",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.3":
     {
@@ -117,7 +183,13 @@
         "manifest": "7738864408631168506",
         "iteration": 11,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "f164922694f070984173388da2b86a44"
+        "AH": "f164922694f070984173388da2b86a44",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.4a":
     {
@@ -127,7 +199,13 @@
         "manifest": "6758041439170534385",
         "iteration": 12,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "45d33ba52cb0c458e8f9b303f99af0f6"
+        "AH": "45d33ba52cb0c458e8f9b303f99af0f6",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.4b":
     {
@@ -137,7 +215,13 @@
         "manifest": "7445301902417763300",
         "iteration": 13,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "ef4aa0de19b6f30736366588781b402c"
+        "AH": "ef4aa0de19b6f30736366588781b402c",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.5a":
     {
@@ -147,7 +231,13 @@
         "manifest": "441665626499515573",
         "iteration": 14,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "ed601e2d4d308694a057a6e531f9b5ad"
+        "AH": "ed601e2d4d308694a057a6e531f9b5ad",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.5b":
     {
@@ -157,7 +247,13 @@
         "manifest": "4160302346993532058",
         "iteration": 15,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "c329a23303f7f0bbe07f9a858af48c8e"
+        "AH": "c329a23303f7f0bbe07f9a858af48c8e",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.5c":
     {
@@ -167,7 +263,13 @@
         "manifest": "7951669086951816288",
         "iteration": 16,
         "SH": "f2c8591d48954169ec26832e28c62cb6",
-        "AH": "0ddf6ffdb84094d0756e8e9fb1e40942"
+        "AH": "0ddf6ffdb84094d0756e8e9fb1e40942",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.6":
     {
@@ -177,7 +279,13 @@
         "manifest": "2275413498306063160",
         "iteration": 17,
         "SH": "cb0ae170566268ebe64680827786928f",
-        "AH": "e346f233bb1685db8164bbcac6a89309"
+        "AH": "e346f233bb1685db8164bbcac6a89309",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.3.7":
     {
@@ -187,7 +295,13 @@
         "manifest": "9095519627420606792",
         "iteration": 18,
         "SH": "cb0ae170566268ebe64680827786928f",
-        "AH": "776d5d533c3abfc3ef7ea9a960e1b445"
+        "AH": "776d5d533c3abfc3ef7ea9a960e1b445",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.0a":
     {
@@ -197,7 +311,13 @@
         "manifest": "1077313905221894874",
         "iteration": 19,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "4842ed9f1a0784e5c8d927dea77ed065"
+        "AH": "4842ed9f1a0784e5c8d927dea77ed065",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.0b":
     {
@@ -207,7 +327,13 @@
         "manifest": "7584701036356484349",
         "iteration": 20,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "3b8de0ed0d8ff3a9e8e854c322a489b9"
+        "AH": "3b8de0ed0d8ff3a9e8e854c322a489b9",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.0c":
     {
@@ -217,7 +343,13 @@
         "manifest": "6870286703332284824",
         "iteration": 21,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "c5cf98d684e6eca316e024c689d07d80"
+        "AH": "c5cf98d684e6eca316e024c689d07d80",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.1":
     {
@@ -227,7 +359,13 @@
         "manifest": "8303185920772797051",
         "iteration": 22,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "6cf3d6cee5c5b2c83ca3786c8075ae9f"
+        "AH": "6cf3d6cee5c5b2c83ca3786c8075ae9f",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.2a":
     {
@@ -237,7 +375,13 @@
         "manifest": "1694335367612045422",
         "iteration": 23,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "70cfc9a469291fe446735771a2ef7803"
+        "AH": "70cfc9a469291fe446735771a2ef7803",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.2b":
     {
@@ -247,7 +391,13 @@
         "manifest": "5897923490926635963",
         "iteration": 24,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "29b94717d547fcf6bfe9c89b96eed3d1"
+        "AH": "29b94717d547fcf6bfe9c89b96eed3d1",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.2c":
     {
@@ -257,7 +407,13 @@
         "manifest": "4530001700882359796",
         "iteration": 25,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "fb692f27152476a5172f7e5a855fa2d2"
+        "AH": "fb692f27152476a5172f7e5a855fa2d2",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.2d":
     {
@@ -267,7 +423,13 @@
         "manifest": "4191601468284027157",
         "iteration": 26,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "4e067b4294b573ee28e6a90ee8b2b7e8"
+        "AH": "4e067b4294b573ee28e6a90ee8b2b7e8",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 1,
+            "single_file": true
+        }
     },
     "0.4.3a":
     {
@@ -277,7 +439,13 @@
         "manifest": "7833287157571905798",
         "iteration": 27,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "3bd0ba0818e80c5943e17584b7dc4110"
+        "AH": "3bd0ba0818e80c5943e17584b7dc4110",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.4.3b":
     {
@@ -287,7 +455,13 @@
         "manifest": "283920316031094754",
         "iteration": 28,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "c92e1e4ce4f26ff291e231ac33226574"
+        "AH": "c92e1e4ce4f26ff291e231ac33226574",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.4.3c":
     {
@@ -297,7 +471,13 @@
         "manifest": "4043740644288891779",
         "iteration": 29,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "9dbc229968c82b8dbd0d783c35df4724"
+        "AH": "9dbc229968c82b8dbd0d783c35df4724",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.5.0a":
     {
@@ -307,7 +487,13 @@
         "manifest": "8187804633390722888",
         "iteration": 30,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "e2cdc0615bbd5a1b832c2ecdf7a33d54"
+        "AH": "e2cdc0615bbd5a1b832c2ecdf7a33d54",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.5.0b":
     {
@@ -317,7 +503,13 @@
         "manifest": "3327198351526229552",
         "iteration": 31,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "7a9e7197ff2b9e939d9c90f3f9c7e5e9"
+        "AH": "7a9e7197ff2b9e939d9c90f3f9c7e5e9",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.5.1a":
     {
@@ -327,7 +519,13 @@
         "manifest": "2766321578005003158",
         "iteration": 32,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "b9b9039ac3bb866888f09c49936b184b"
+        "AH": "b9b9039ac3bb866888f09c49936b184b",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.5.1b":
     {
@@ -337,7 +535,13 @@
         "manifest": "1463473742245212406",
         "iteration": 33,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "a759fa606bb9a0ffe0eb69e08cfdc09e"
+        "AH": "a759fa606bb9a0ffe0eb69e08cfdc09e",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.5.1c":
     {
@@ -347,7 +551,13 @@
         "manifest": "8728768945717888662",
         "iteration": 34,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "42c86aa3c6da9b388ddc5ce360017949"
+        "AH": "42c86aa3c6da9b388ddc5ce360017949",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.6.0a":
     {
@@ -357,7 +567,13 @@
         "manifest": "3005166342762747575",
         "iteration": 35,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "75c2115872e997694e3db43a12c655d6"
+        "AH": "75c2115872e997694e3db43a12c655d6",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.6.0b":
     {
@@ -367,7 +583,13 @@
         "manifest": "5726208285649647890",
         "iteration": 36,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "0e8b01549c749dcd4355c2a03e2830a3"
+        "AH": "0e8b01549c749dcd4355c2a03e2830a3",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.6.0c":
     {
@@ -377,7 +599,13 @@
         "manifest": "5417110692020453501",
         "iteration": 37,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "6f13d190f0ee12de318030af9ecf2ec8"
+        "AH": "6f13d190f0ee12de318030af9ecf2ec8",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "0.6.0d":
     {
@@ -387,7 +615,13 @@
         "manifest": "2082346440087920581",
         "iteration": 38,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "95e41df7c99c32e5f1ff92b5f087ec2a"
+        "AH": "95e41df7c99c32e5f1ff92b5f087ec2a",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.0":
     {
@@ -397,7 +631,13 @@
         "manifest": "5135774656716118593",
         "iteration": 39,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "90fd2e134dbf8aa111e0c75a37b177d8"
+        "AH": "90fd2e134dbf8aa111e0c75a37b177d8",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.1a":
     {
@@ -407,7 +647,13 @@
         "manifest": "4851587196133886854",
         "iteration": 40,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "f2925fedbdc1c93b6572ef6e9129be8b"
+        "AH": "f2925fedbdc1c93b6572ef6e9129be8b",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.1b":
     {
@@ -417,7 +663,13 @@
         "manifest": "4324966178055253335",
         "iteration": 41,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "85b2fff4dcd3dd9effa85135dffa5121"
+        "AH": "85b2fff4dcd3dd9effa85135dffa5121",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.1c":
     {
@@ -427,7 +679,13 @@
         "manifest": "422152276091152701",
         "iteration": 42,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "a7ac5808fc1113912df08359c7ae2882"
+        "AH": "a7ac5808fc1113912df08359c7ae2882",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.1d":
     {
@@ -437,7 +695,13 @@
         "manifest": "247273116485453688",
         "iteration": 43,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "3ceec40325efc9b54ebb2ed989661b9d"
+        "AH": "3ceec40325efc9b54ebb2ed989661b9d",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.0.1e":
     {
@@ -447,7 +711,13 @@
         "manifest": "8423504983419915811",
         "iteration": 44,
         "SH": "a5ed54a409d9b417344f37e9e5b22ac5",
-        "AH": "defaca5da715df9b7b591c38ec84768b"
+        "AH": "defaca5da715df9b7b591c38ec84768b",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.0a":
     {
@@ -457,7 +727,13 @@
         "manifest": "5897958052374083277",
         "iteration": 45,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "8f9ac1fa2456a7075efd8af52edd6d17"
+        "AH": "8f9ac1fa2456a7075efd8af52edd6d17",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.0b":
     {
@@ -467,7 +743,13 @@
         "manifest": "1919820526115725711",
         "iteration": 46,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "3d55ecbd311680d2b5efa01ed912d188"
+        "AH": "3d55ecbd311680d2b5efa01ed912d188",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.0c":
     {
@@ -477,7 +759,13 @@
         "manifest": "4845007903748570401",
         "iteration": 47,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "d740480e7cd6b3f245f657080dfd31f9"
+        "AH": "d740480e7cd6b3f245f657080dfd31f9",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.0d":
     {
@@ -487,7 +775,13 @@
         "manifest": "2079501695052122794",
         "iteration": 48,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "d740480e7cd6b3f245f657080dfd31f9"
+        "AH": "d740480e7cd6b3f245f657080dfd31f9",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.0e":
     {
@@ -497,7 +791,13 @@
         "manifest": "3036455992843227148",
         "iteration": 49,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "55c3c8d5e9f41370a0ef89e8ecfcd592"
+        "AH": "55c3c8d5e9f41370a0ef89e8ecfcd592",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": true
+        }
     },
     "1.1.1":
     {
@@ -507,7 +807,13 @@
         "manifest": "1637502931535337305",
         "iteration": 50,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "f8bd02210ac68c89864e6687b1b05cdd"
+        "AH": "f8bd02210ac68c89864e6687b1b05cdd",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.1.2":
     {
@@ -517,7 +823,13 @@
         "manifest": "5474736100245866216",
         "iteration": 51,
         "SH": "ad6958ee0bfce2836457f94ce8fa4d15",
-        "AH": "c82dd91d61fe85e70d775a39087df8e4"
+        "AH": "c82dd91d61fe85e70d775a39087df8e4",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.2.0a":
     {
@@ -527,7 +839,13 @@
         "manifest": "5711025897832057767",
         "iteration": 52,
         "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
-        "AH": "f33c4a4124b2d90e3287721a4aadab2d"
+        "AH": "f33c4a4124b2d90e3287721a4aadab2d",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.2.0b":
     {
@@ -537,7 +855,13 @@
         "manifest": "7382698957251043649",
         "iteration": 53,
         "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
-        "AH": "eaba02f70d1446536e6b03d03ae79438"
+        "AH": "eaba02f70d1446536e6b03d03ae79438",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.2.1a":
     {
@@ -547,7 +871,13 @@
         "manifest": "4303510215236835719",
         "iteration": 54,
         "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
-        "AH": "b96f1286b13636e6f1fab53374c237a3"
+        "AH": "b96f1286b13636e6f1fab53374c237a3",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.2.1b":
     {
@@ -557,7 +887,13 @@
         "manifest": "4113156500573990230",
         "iteration": 55,
         "SH": "71abd3ae5b1f4dcb137d06074a28c3b4",
-        "AH": "aa806358b0056b2eec5ba79661e49b87"
+        "AH": "aa806358b0056b2eec5ba79661e49b87",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.2.2":
     {
@@ -567,7 +903,13 @@
         "manifest": "6567583593680649790",
         "iteration": 56,
         "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
-        "AH": "89f727b0587b9b1a7ebcff2844a994b5"
+        "AH": "89f727b0587b9b1a7ebcff2844a994b5",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.0a":
     {
@@ -577,7 +919,13 @@
         "manifest": "2157716521240164266",
         "iteration": 57,
         "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
-        "AH": "c2ba28137d24f613532812259dfafaae"
+        "AH": "c2ba28137d24f613532812259dfafaae",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.0b":
     {
@@ -587,7 +935,13 @@
         "manifest": "1403677244604722355",
         "iteration": 58,
         "SH": "f6eeb7a301d5a85e4e581f1d22fd3468",
-        "AH": "eb092cde86c14acfc459ff9048127bb1"
+        "AH": "eb092cde86c14acfc459ff9048127bb1",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.1a":
     {
@@ -597,7 +951,13 @@
         "manifest": "7026817123929157660",
         "iteration": 59,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "eea0f0762283e4d1c0cabab06ee6bb2f"
+        "AH": "eea0f0762283e4d1c0cabab06ee6bb2f",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.1b":
     {
@@ -607,7 +967,13 @@
         "manifest": "8949870417267410650",
         "iteration": 60,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "900fae90f0898149b2d21b8245ba07cc"
+        "AH": "900fae90f0898149b2d21b8245ba07cc",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.1c":
     {
@@ -617,7 +983,13 @@
         "manifest": "9139465071697603267",
         "iteration": 61,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "7fbdce29d9c627fbecd4687c82da2ba7"
+        "AH": "7fbdce29d9c627fbecd4687c82da2ba7",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.2a":
     {
@@ -627,7 +999,13 @@
         "manifest": "5058231856610850876",
         "iteration": 62,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "e23f88545e3e127966c0fe7b62bf63be"
+        "AH": "e23f88545e3e127966c0fe7b62bf63be",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.2b":
     {
@@ -637,7 +1015,13 @@
         "manifest": "7164530134796481521",
         "iteration": 63,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "25464f19afd219064d017d5aa906ddff"
+        "AH": "25464f19afd219064d017d5aa906ddff",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.3.2c":
     {
@@ -647,7 +1031,13 @@
         "manifest": "5431269293947431949",
         "iteration": 64,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "0795194955c929671f93b3f24f92add5"
+        "AH": "0795194955c929671f93b3f24f92add5",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.0a":
     {
@@ -657,7 +1047,13 @@
         "manifest": "7506286600836917564",
         "iteration": 65,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "770f29b39c54c36d9446b36556e65435"
+        "AH": "770f29b39c54c36d9446b36556e65435",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.0b":
     {
@@ -667,7 +1063,13 @@
         "manifest": "6519949657988813973",
         "iteration": 66,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "d4ad494a3dac5e5fc0a5bd157461e39e"
+        "AH": "d4ad494a3dac5e5fc0a5bd157461e39e",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.0c":
     {
@@ -677,7 +1079,13 @@
         "manifest": "8175446157514313384",
         "iteration": 67,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "cdd28d6e71fa59952a90659ade697da2"
+        "AH": "cdd28d6e71fa59952a90659ade697da2",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.0d":
     {
@@ -687,7 +1095,13 @@
         "manifest": "5031921718320326634",
         "iteration": 68,
         "SH": "e6c1145efaaa1cc187a3dcf26fc5927b",
-        "AH": "b1202fe5e11da41e7926ff2016e20a5f"
+        "AH": "b1202fe5e11da41e7926ff2016e20a5f",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.1a":
     {
@@ -697,7 +1111,13 @@
         "manifest": "7606486939041161388",
         "iteration": 69,
         "SH": "6f4022591acdb4fe7817dc1b7f8c333a",
-        "AH": ""
+        "AH": "",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.1b":
     {
@@ -707,7 +1127,13 @@
         "manifest": "5794995706320684390",
         "iteration": 70,
         "SH": "95dedfdd3eed4693d1a373435c21120a",
-        "AH": "8bbc83ec0b3a5b5b7b74b33ff08e44ba"
+        "AH": "8bbc83ec0b3a5b5b7b74b33ff08e44ba",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.1c":
     {
@@ -717,7 +1143,13 @@
         "manifest": "3625841615104358190",
         "iteration": 71,
         "SH": "95dedfdd3eed4693d1a373435c21120a",
-        "AH": "ece061262d38705645bc77b007bdab9a"
+        "AH": "ece061262d38705645bc77b007bdab9a",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.2":
     {
@@ -727,7 +1159,13 @@
         "manifest": "4980735195179703363",
         "iteration": 72,
         "SH": "e51a945e2bd473d7ea1251de509bdeae",
-        "AH": "41716f1a072f860d3f6cc54ac3900349"
+        "AH": "41716f1a072f860d3f6cc54ac3900349",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.3":
     {
@@ -737,7 +1175,13 @@
         "manifest": "5877768838748196408",
         "iteration": 73,
         "SH": "2d7ee3cb650efda9f6a7da0e50d1b513",
-        "AH": "4460efbe6b51a56f9b2a352e2f4cf601"
+        "AH": "4460efbe6b51a56f9b2a352e2f4cf601",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     },
     "1.4.4":
     {
@@ -747,6 +1191,12 @@
         "manifest": "4496584778521264766",
         "iteration": 74,
         "SH": "99b478ad77272adb82f19f082060b639",
-        "AH": "ed14065a68e80ab3ddc317b32cbb89bb"
+        "AH": "ed14065a68e80ab3ddc317b32cbb89bb",
+        "gamesaves":
+        {
+            "readable_version": true,
+            "format": 2,
+            "single_file": false
+        }
     }
 }

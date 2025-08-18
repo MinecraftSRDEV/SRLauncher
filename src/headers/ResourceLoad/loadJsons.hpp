@@ -97,6 +97,10 @@ bool load_versions_list()
             output.executable_hash = versionObject.getObject().at("SH").getString();
             output.assembly_hash = versionObject.getObject().at("AH").getString();
 
+            output.savegame_info.readable_version = versionObject.getObject().at("gamesaves").getObject().at("readable_version").getBool();
+            output.savegame_info.format = versionObject.getObject().at("gamesaves").getObject().at("format").getNumber();
+            output.savegame_info.single_file = versionObject.getObject().at("gamesaves").getObject().at("single_file").getBool();
+
             loadVersionPachnotes(name, output.itr);
             create_mods_directories(output);
             versionsData_map[output.version_name] = output;
@@ -202,6 +206,9 @@ bool load_config_file(std::string path_to_config)
         loadConfigKeyBool(json, use_secure_ipc, "use_secure_ipc", "secure ipc: ", settings_defaults::use_secure_ipc_def);
         use_secure_ipc_checkbox.setState(use_secure_ipc);
 
+        loadConfigKeyBool(json, mountOnlyData, "mount_only_data", "only data: ", settings_defaults::mount_only_data_def);
+        mount_only_data_checkbox.setState(mountOnlyData);
+
         loadConfigKeyInt(json, theme_selected, "theme", "theme: ", settings_defaults::theme_def);
 
         loadConfigKeyInt(json, downloader_selected, "downloader", "downloader: ", settings_defaults::downloader_def);
@@ -232,6 +239,10 @@ bool load_config_file(std::string path_to_config)
 
         loadConfigKeyBool(json, acceptExceptionLogs, "debug_accept_exception_logs", "", settings_defaults::debug_acc_excp_def);
         DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
+
+        loadConfigKeyStr(json, srlBackgroundPath, "background_path", "backgroundPath: ", settings_defaults::background_path_def);
+        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        reloadLauncherBackground();
     }
     catch (std::runtime_error re)
     {

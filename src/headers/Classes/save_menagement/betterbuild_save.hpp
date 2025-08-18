@@ -31,7 +31,7 @@ void create(int x, int y, WorldData& inputData, sf::Font& font)
     saveLockPasswordText.setCharacterSize(26);
     saveLockPasswordText.setFont(font);
 
-    remove_lock_button.create(0,0, 80, 30, font, "remove lock", false, theme_selected);
+    resign_world_button.create(0,0, 80, 30, font, "resign", false, theme_selected);
     remove_button.create(0,0, 80, 30, font, "remove", false, theme_selected);
     gamesaves_slots_button.create(0,0, 100, 30, font, "gamesaves slots", false, theme_selected);
     make_backup_button.create(0,0, 80, 30, font, "make backup", false, theme_selected);
@@ -54,12 +54,12 @@ void update(sf::Vector2f& mouse)
 {
     if (background.getPosition().y >= 5 and background.getPosition().y <= 800)
     {
-        remove_lock_button.update(mouse);
+        resign_world_button.update(mouse);
         remove_button.update(mouse);
         gamesaves_slots_button.update(mouse);
         make_backup_button.update(mouse);
 
-        remove_lock_button.setBlockState(!data.levelLocked);
+        resign_world_button.setBlockState(!data.levelLocked);
     }
 }
 
@@ -74,7 +74,7 @@ void render(sf::RenderWindow& window)
         window.draw(saveVersionText);
         window.draw(saveLockPasswordText);
 
-        remove_lock_button.render(window);
+        resign_world_button.render(window);
         remove_button.render(window);
         gamesaves_slots_button.render(window);
         make_backup_button.render(window);
@@ -96,6 +96,21 @@ sf::FloatRect getBackupButtonHitbox()
     return make_backup_button.hitbox();
 }
 
+sf::FloatRect getRemoveButtonHitbox()
+{
+    return remove_button.hitbox();
+}
+
+sf::FloatRect getUnlockButtonHitbox()
+{
+    return resign_world_button.hitbox();
+}
+
+sf::FloatRect getSaveslotsButtonHitbox()
+{
+    return gamesaves_slots_button.hitbox();
+}
+
 WorldData getData()
 {
     return data;
@@ -113,14 +128,16 @@ void event(sf::Event& event)
 }
 typedef void (*FunctionType)();
 
-void transportFunction(FunctionType function, FunctionType backup)
+void transportFunctions(FunctionType backup, FunctionType remove, FunctionType unlock, FunctionType saveslots)
 {
-    cachedFunction = function;
     backupFunction = backup;
+    removeFunction = remove;
+    unlockFunction = unlock;
+    saveslotsFunction = saveslots;
 
-    remove_lock_button.setFunction(cachedFunction);     //placeholder
-    remove_button.setFunction(cachedFunction);      //placeholder
-    gamesaves_slots_button.setFunction(cachedFunction);     //placeholder
+    resign_world_button.setFunction(unlockFunction);
+    remove_button.setFunction(removeFunction);
+    gamesaves_slots_button.setFunction(saveslotsFunction);
     make_backup_button.setFunction(backupFunction);
 }
 
@@ -134,8 +151,15 @@ void applyData()
     saveVersionText.setString("Version: " + std::to_string(data.version));
     if (data.levelLocked == true)
     {
-        saveLockPasswordText.setString("World locked by password: " + data.levelPassword);
-        saveLockPasswordText.setFillColor(sf::Color(255,0,0));
+        if (data.levelPassword != instance_UID)
+        {
+            saveLockPasswordText.setFillColor(sf::Color::Red);
+        }
+        else
+        {
+            saveLockPasswordText.setFillColor(sf::Color::Green);
+        }
+        saveLockPasswordText.setString("World signed to UID: " + data.levelPassword);
     }
     else
     {
@@ -155,8 +179,8 @@ void reposition()
 
     make_backup_button.changePosition(background.getPosition().x + (background.getGlobalBounds().width - (make_backup_button.hitbox().width + 10)), background.getPosition().y + (background.getGlobalBounds().height - (make_backup_button.hitbox().height + 10)));
     remove_button.changePosition(make_backup_button.getPosition().x - (remove_button.hitbox().width + 10), make_backup_button.getPosition().y);
-    remove_lock_button.changePosition(remove_button.getPosition().x - (remove_lock_button.hitbox().width + 10), make_backup_button.getPosition().y);
-    gamesaves_slots_button.changePosition(remove_lock_button.getPosition().x - (gamesaves_slots_button.hitbox().width + 10), make_backup_button.getPosition().y);
+    resign_world_button.changePosition(remove_button.getPosition().x - (resign_world_button.hitbox().width + 10), make_backup_button.getPosition().y);
+    gamesaves_slots_button.changePosition(resign_world_button.getPosition().x - (gamesaves_slots_button.hitbox().width + 10), make_backup_button.getPosition().y);
 }
 WorldData data;
 
@@ -170,11 +194,13 @@ sf::Text saveLockPasswordText;
 int size_x_global = 1140;
 int size_y_global = 120;
 
-sfg::Button remove_lock_button;
+sfg::Button resign_world_button;
 sfg::Button remove_button;
 sfg::Button gamesaves_slots_button;
 sfg::Button make_backup_button;
 
-FunctionType cachedFunction = nullptr;
 FunctionType backupFunction = nullptr;
+FunctionType removeFunction = nullptr;
+FunctionType unlockFunction = nullptr;
+FunctionType saveslotsFunction = nullptr;
 };

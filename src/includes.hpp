@@ -5,6 +5,8 @@
 #include "headers/Declarations/enums.hpp"
 #include "headers/Declarations/structs.hpp"
 
+#include "headers/Classes/save_menagement/management_main_class.hpp"
+
 #include "headers/Classes/uiElements_class.hpp"
 
 #include "headers/Declarations/maps.hpp"
@@ -52,6 +54,8 @@
 #include "headers/Functions/Data_menagement/move_directory.hpp"
 #include "headers/Functions/Data_menagement/directory_check.hpp"
 #include "headers/Functions/Data_menagement/rename_slime_rancher_dir.hpp"
+
+#include "headers/ResourceLoad/reloadBackground.hpp"
 
 #include "headers/Functions/Data_menagement/browse_folder_dialogbox.hpp"
 #include "headers/Functions/Data_menagement/get_folders.hpp"
@@ -112,19 +116,28 @@
 
 #include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/dateFromat.hpp"
 #include "headers/Functions/Buttons/Instances/menage/backups/makeBackupAsk.hpp"
+#include "headers/Functions/Buttons/Instances/menage/backups/backupRemove.hpp"
+#include "headers/Functions/Buttons/Instances/menage/backups/backupRestore.hpp"
+#include "headers/Functions/Buttons/Instances/menage/backups/backupReveal.hpp"
 #include "headers/Functions/Buttons/Instances/menage/backups/bcScanner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/binaryReader.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/unlocker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/BBWremover.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/worldResigner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/scanner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/mainpage/detailsText.hpp"
 #include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/deserializer.hpp"
 #include "headers/Functions/Buttons/Instances/menage/saveScaner/vanilla.hpp"
+#include "headers/Functions/Buttons/Instances/menage/saveScaner/modded.hpp"
 #include "headers/Functions/Buttons/Instances/menage/saveScaner/autoSelector.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/findSpecyficMod.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/recognizer.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/scanFolder.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/loadModsFolder.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/betterBuildChecker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/positionCorrection.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/canBeInstalledChecker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/OldBetterBuildUIDReader.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 
 #include "headers/Functions/updates/handleHTML.hpp"
@@ -134,6 +147,7 @@
 #include "headers/Events/scrolling/ScrollInstancesList.hpp"
 #include "headers/Events/scrolling/manage/bbw.hpp"
 #include "headers/Events/scrolling/manage/vanillaSaves.hpp"
+#include "headers/Events/scrolling/manage/modsManager.hpp"
 #include "headers/Events/loop.hpp"
 
 #include "headers/Functions/Buttons/Instances/unmount.hpp"
@@ -148,6 +162,7 @@
 
 #include "headers/Functions/mouse/left.hpp"
 
+#include "headers/Functions/Launch/installAll.hpp"
 #include "headers/Functions/Launch/debugBridge.hpp"
 #include "headers/Functions/Launch/download_game.hpp"
 #include "headers/Functions/Launch/run_game.hpp"

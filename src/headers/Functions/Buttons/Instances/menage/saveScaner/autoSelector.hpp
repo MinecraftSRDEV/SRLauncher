@@ -2,11 +2,11 @@ void scanGamesaves(const fs::path& dir, const std::string& id, std::map <int, Va
 {
     if (versionsData_map[instances_list[id].getVer()].version_type == "pre-release")
     {
-        scanVanillaSaves(dir, old_loader, containerPointer);
+        scanVanillaSaves(dir, versionsData_map[instances_list[id].getVer()].savegame_info, containerPointer);
     }
     else
     {
-        scanVanillaSaves(dir, new_loader, containerPointer); /// placeholder
+        scanVanillaSaves(dir, versionsData_map[instances_list[id].getVer()].savegame_info, containerPointer); /// placeholder
     }
 
     if (vanillasaves_list.size() > 0)

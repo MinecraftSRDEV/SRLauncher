@@ -369,6 +369,10 @@ void prepareInstance(std::string instance_id)
         steam_game_dir = SlimeRancher_steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
+        if (mountOnlyData == true)
+        {
+            game_dir = fs::path(instances_dir) / fs::path(instance_id);
+        }
 
         std::ifstream executableCheck;
         std::string gamepath = game_dir.string();

@@ -1,3 +1,48 @@
+///////////////////////////////////////////////////////////
+// Open-source launcher for Slime Rancher                //
+//                                                       //
+// Copyright 2025 MinecraftSRDEV                         //
+//                                                       //
+// This software is released under GPL 3.0 license on    //
+// https://github.com/MinecraftSRDEV/SRLauncher          //
+// You can use it for free without any limitations       //
+//                                                       //
+// Software in development You using it on your own risk!//
+///////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// Features planned in 0.12                                             //
+// - Mounting instances without mounting game                InProgress //
+// - Old BetterBuild world resigner                          Finished   //
+// - Instance auto installer                                 InProgress //
+// - Debug options buttons functions                         InProgress //
+// - Launcher background customization                       Finished   //
+// - "informations" page in instance manage (BB lock)        Finished   //
+// - add function to remove BBW gamesave                     Finished   //
+// - add function to BBW gamesaves slots                     InProgress //
+// - add function to backups manager buttons                 InProgress //
+// - add function to mods explorer                           InProgress //
+// - add edit function by creating specyfic folder           Finished   //
+// - add BetterBuild UID reader                              Finished   //
+// - improved manage main page                               Finished   //
+// - fix mods explorer                                       InProgress //
+// - fix Vgamesaves listing                                  Resolved   //
+// - fix SIGSVG 22 ERROR                                     InProgress //
+// - fix default debug enabled as default                    Untested   //
+// - fix buttons blocking                                    Resolved   //
+// - fix backups list refresh                                Resolved   //
+// - fix backups instance path                               Resolved   //
+// - fix vanilla saves recognizer                            Resolved   //
+// - fix BetterBuild saves list clearing                     Resolved   // 
+// - fix BetterBuild worlds loader for stable game versions  Resolved   //
+//                                                                      //
+// Features maybe added                                                 //
+// - More languages                                                     //
+// - HEX saves viewer                                                   //
+//                                                                      //
+//  Job started 12.05.25                                                //
+//////////////////////////////////////////////////////////////////////////
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -19,6 +64,7 @@
 #include <iomanip>
 #include <memory.h>
 #include <csignal>
+#include <commdlg.h>
 
 #include <curl/curl.h>
 
@@ -27,27 +73,6 @@ namespace fs = std::filesystem;
 #include <SFMLGUI/Gui.hpp>
 
 #include "includes.hpp"
-
-void install_all_instances()
-{
-    
-}
-
-std::map <int, std::string> scan_all_instances()    
-{
-    std::map <int, std::string> queue;
-    int itr = 1;
-
-    for (const auto& pair : instances_list)
-    {
-        if (instances_list[pair.first].getInstalledStatus() == false)
-        {
-            queue[itr] = instances_list[pair.first].getID(); 
-            itr++;
-        }
-    }
-    return queue;
-}
 
 /* Main load sequence function. Contains a list of functions responsible for loading the launcher */
 void load_sequence() 
@@ -60,6 +85,8 @@ void load_sequence()
 
     ///// Load required resources /////
     loadElements();
+
+    window.setMouseCursor(waitCursor);
 
     ///// Set SFML text attributes onetime /////
     setRuntimeTexts();
@@ -87,6 +114,8 @@ void load_sequence()
     
     ///// Create DropDownList from all "versionsData_map" contents /////
     createDDListFromVersionsMap();
+
+    window.setMouseCursor(arrowCursor);
 }
 
 int main()
@@ -98,6 +127,7 @@ int main()
     load_sequence();
 
     devUiView.disable();
+    // devUiView.enable();
 
     while(window.isOpen())
     {

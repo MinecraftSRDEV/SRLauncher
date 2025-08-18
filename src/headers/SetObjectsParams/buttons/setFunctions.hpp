@@ -78,6 +78,8 @@ void setFunctions()
     downloaders_ddl.setFunction(setDownloader);
     theme_list_ddl.setFunction(applyTheme);
 
+    SRL_background_img_path_getfolder_button.setFunction(getfolder_background_path);
+
     SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);
 
     RestoreSettings_button.setFunction(setSettingsDefault);
@@ -91,6 +93,11 @@ void setFunctions()
     manage_betterbuild_saves_button.setFunction(changeCategory_mng_bbsaves);
     manage_mods_button.setFunction(changeCategory_mng_mods);
     manage_backups_button.setFunction(changeCategory_mng_backups);
+
+    MNG_Instance_saves_text.setFunction(changeCategory_mng_vanilla);
+    MNG_instance_installed_mods_text.setFunction(changeCategory_mng_mods);
+    MNG_instance_mods_saves_text.setFunction(changeCategory_mng_bbworls);
+    MNG_instance_mods_launcher_text.setFunction(changeCategory_mng_mods);
 
     version_back_button.setFunction(changeCategory_versions);
 

@@ -1,14 +1,34 @@
-void scanBbwBackups(const fs::path& dirEntry, int& itr, int& lasty)
+void scanBackups(const fs::path& dirEntry, int& itr, int& lasty, int datatype)
 {
     BackupData data;
 
-    data.type = betterbuild_save_backup;
+    fs::path filesAt;
 
-    for (const auto& entry : fs::directory_iterator(dirEntry / "BBW"))
+    switch (datatype)
+    {
+        case BackupTypes::BBworld_backup:
+        {
+            filesAt = dirEntry / "BBW";
+            break;
+        }
+        case BackupTypes::BBsave_backup:
+        {
+            filesAt = dirEntry / "BBS";
+            break;
+        }
+        case BackupTypes::Vanillaworld_backup:
+        {
+            filesAt = dirEntry / "VANILLA";
+            break;
+        }
+    }
+
+    for (const auto& entry : fs::directory_iterator(filesAt))
     {
         std::string filename = entry.path().filename().replace_extension().string();
 
         data.source = dirEntry.filename().string();
+        data.type = datatype;
 
         size_t datePositionBegin = filename.find("(");
         size_t datePositionEnd = filename.find(")");
@@ -19,36 +39,37 @@ void scanBbwBackups(const fs::path& dirEntry, int& itr, int& lasty)
                 data.name = filename.substr(0, datePositionBegin);
                 data.date = filename.substr(datePositionBegin + 1);
                 data.date = convertTmToString(convertStringToDate(data.date));
+                data.filename = filename;
             }
             catch (std::out_of_range e)
             {
                 data.name = filename;
+                data.filename = filename;
                 data.date = UNKNOWN;
             }
         }
 
         Backups_list[itr].create(130, lasty, data, font);
+        Backups_list[itr].transportFunction(backupRemoveAsk, Backups_list[itr].REMOVE);
+        // Backups_list[itr].transportFunction(noFunction, Backups_list[itr].RESTORE);
+        Backups_list[itr].transportFunction(backupRevealAsk, Backups_list[itr].REVEAL);
         lasty += 120;
         itr++;
     }
 }
 
-void scanBackups()
+void scanBackups(const std::string& instance_id)
 {
     int iteration = 0;
     int posY = 10;
 
     fs::path directory = backups_path / "instances";
 
-    try
-    {
-        for (const auto& entry : fs::directory_iterator(directory))
-        {
-            scanBbwBackups(entry.path(), iteration, posY);
-        }
-    }
-    catch (fs::filesystem_error e)
-    {
-        log_message("Backups loading error: " + std::string(e.what()), LogTypes::LOG_ERROR);
-    }
+    Backups_list.clear();
+    try {scanBackups(directory / fs::path(instance_id), iteration, posY, BackupTypes::BBworld_backup);}
+    catch (fs::filesystem_error e) {log_message("Backups BBW loading error: " + std::string(e.what()), LogTypes::LOG_ERROR);}
+    try {scanBackups(directory / fs::path(instance_id), iteration, posY, BackupTypes::BBsave_backup);}
+    catch (fs::filesystem_error e) {log_message("Backups BBS loading error: " + std::string(e.what()), LogTypes::LOG_ERROR);}
+    try {scanBackups(directory / fs::path(instance_id), iteration, posY, BackupTypes::Vanillaworld_backup);}
+    catch (fs::filesystem_error e) {log_message("Backups VANILLA loading error: " + std::string(e.what()), LogTypes::LOG_ERROR);}
 }

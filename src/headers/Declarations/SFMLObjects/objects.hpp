@@ -13,6 +13,12 @@ sf::RectangleShape progress_moveing;
 sf::RectangleShape debugWorking;
 sf::Text debugIpcElapsedText;
 
+sf::Cursor arrowCursor;
+sf::Cursor handCursor;
+sf::Cursor waitCursor;
+sf::Cursor notAllowedCursor;
+sf::Cursor crossCursor;
+
 ProgressBar downloadingProgress;
 
 std::map <std::string, sf::Texture> instance_icons_textures;

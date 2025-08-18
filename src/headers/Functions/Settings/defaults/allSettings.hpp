@@ -7,6 +7,7 @@ void setAllSettingsAsDefault()
     settings_defaults::show_warns_def();
     settings_defaults::autocheck_updates_def();
     settings_defaults::use_secure_ipc_def();
+    settings_defaults::mount_only_data_def();
     
     unlock_profile_textboxes();
 
@@ -27,4 +28,5 @@ void setAllSettingsAsDefault()
     settings_defaults::steam_gamedir_def();
     settings_defaults::instances_dir_def();
     settings_defaults::steamcmd_dir_def();
+    settings_defaults::background_path_def();
 }

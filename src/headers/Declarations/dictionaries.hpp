@@ -12,3 +12,8 @@ namespace settmaindi
     const std::string CMDPATH_TEXT = "SteamCMD location path";
     const std::string CMDPATH_DISABLED = CMDPATH_TEXT + " (Choose SteamCMD downloader to change)";
 }
+
+namespace reloadbgdi
+{
+    const std::string ERROR_TEXT = "ERROR while loading custom background image: ";
+}
