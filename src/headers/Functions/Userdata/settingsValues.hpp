@@ -12,8 +12,8 @@ void saveConfigWithCurrents()
 
 void getSettingsValuesAndSave()
 {
-    steam_game_dir = SlimeRancher_steam_path_textbox.getText();
-    instances_dir = SlimeRancher_instances_path_textbox.getText();
+    steam_game_dir = steam_path_textbox.getText();
+    instances_dir = instances_path_textbox.getText();
     steamcmd_dir = steamcmd_path_textbox.getText();
 
     save_log_files = Save_logs_files_checkbox.getState();

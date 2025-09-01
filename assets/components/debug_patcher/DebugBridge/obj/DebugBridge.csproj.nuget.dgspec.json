@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\MinecraftSR\\Documents\\GitHub\\SRLauncher\\assets\\components\\debug_patcher\\DebugBridge\\DebugBridge.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\MinecraftSR\\Documents\\GitHub\\SRLauncher\\assets\\components\\debug_patcher\\DebugBridge\\DebugBridge.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MinecraftSR\\Documents\\GitHub\\SRLauncher\\assets\\components\\debug_patcher\\DebugBridge\\DebugBridge.csproj",
+        "projectName": "DebugBridge",
+        "projectPath": "C:\\Users\\MinecraftSR\\Documents\\GitHub\\SRLauncher\\assets\\components\\debug_patcher\\DebugBridge\\DebugBridge.csproj",
+        "packagesPath": "C:\\Users\\MinecraftSR\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MinecraftSR\\Documents\\GitHub\\SRLauncher\\assets\\components\\debug_patcher\\DebugBridge\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MinecraftSR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net40"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\MinecraftSR\\Downloads": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net40": {
+            "targetAlias": "net40",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net40": {
+          "targetAlias": "net40",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

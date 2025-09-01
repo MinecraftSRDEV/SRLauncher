@@ -155,13 +155,11 @@ void updateStatus(int status)
         case status::Unmounted:
         {
             Play_button.setText("Mount");
-            // Play_button.setFunction(mount_function);
             break;
         }
         case status::Mounted:
         {
             Play_button.setText("Unmount");
-            // Play_button.setFunction(unmount_funtcion);
             break;
         }
     }
@@ -232,6 +230,10 @@ void scan_mod_loaders()
     {
         modloaders_list = "Saty's mod loader";
     }
+    if (mods_attributes.isBetterBuild04x_installed == true)
+    {
+        modloaders_list = "NewBetterBuildMod";
+    }
     if (mods_attributes.UMF_installed == true)
     {
         if (!modloaders_list.empty())
@@ -239,6 +241,14 @@ void scan_mod_loaders()
             modloaders_list += " | ";
         }
         modloaders_list += "UMF";
+    }
+    if (mods_attributes.SRML_installed == true)
+    {
+        if (!modloaders_list.empty())
+        {
+            modloaders_list += " | ";
+        }
+        modloaders_list += "SRML";
     }
 
     if (!modloaders_list.empty())

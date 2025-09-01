@@ -119,7 +119,7 @@ void mount_function(std::string instance_id)
     {
         unmount_funtcion();
 
-        steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+        steam_game_dir = steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
 
         if (ifInstanceIsEdited(instances_dir + "/Slime Rancher_" + instances_list[instance_id].getID(), instance_id) == true)

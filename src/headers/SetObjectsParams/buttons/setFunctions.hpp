@@ -61,18 +61,18 @@ void setFunctions()
 
     check_for_update_button.setFunction(checkUpdate);
 
-    Subcat_settings_main_button.setFunction(settings_main_cat);
-    Subcat_settings_progile_button.setFunction(settings_profile_cat);
-    Subcat_settings_downloading_button.setFunction(settings_downloading_cat);
-    Subcat_settings_updates_button.setFunction(settings_updates_cat);
-    Subcat_settings_debugging_button.setFunction(settings_debugging_cat);
-    Subcat_settings_licences_button.setFunction(settings_licences_cat);
-    Subcat_settings_credits_button.setFunction(settings_credits_cat);
+    settingsGeneralCat_button.setFunction(settings_main_cat);
+    settingsProfileCat_button.setFunction(settings_profile_cat);
+    settingsDownloadingCat_button.setFunction(settings_downloading_cat);
+    settingsUpdatesCat_button.setFunction(settings_updates_cat);
+    settingsDebuggingCat_button.setFunction(settings_debugging_cat);
+    settingsLicencesCat_button.setFunction(settings_licences_cat);
+    settingsCreditsCat_button.setFunction(settings_credits_cat);
 
     Show_prereleases_checkbox.setFunction(updateShowPrereleaseState);
 
-    SlimeRancher_steam_path_getfolder_button.setFunction(getfolder_steamdir);
-    SlimeRancher_instances_path_getfolder_button.setFunction(getfolder_instancesdir);
+    steam_path_getfolder_button.setFunction(getfolder_steamdir);
+    instances_path_getfolder_button.setFunction(getfolder_instancesdir);
     steamcmd_path_getfolder_button.setFunction(getfolder_steamcmddir);
 
     downloaders_ddl.setFunction(setDownloader);
@@ -86,6 +86,11 @@ void setFunctions()
     SaveConfig_button.setFunction(getSettingsValuesAndSave);
 
     save_profile_button.setFunction(getProfileSettingsValuesAndSave);
+
+    DebugSettingsUI::forcePipeCloseButton.setFunction(DebugBridge::forceClose);
+    DebugSettingsUI::killInstanceButton.setFunction(DebugBridge::killInstance);
+    DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setFunction(DebugBridge::saveLogs);
+    DebugSettingsUI::enableDebuggingOnInstance.setFunction(DebugBridge::applyDebugPathToInstance);
 
     manage_main_back_button.setFunction(exit_manage_function);
     manage_betterbuild_world_button.setFunction(changeCategory_mng_bbworls);

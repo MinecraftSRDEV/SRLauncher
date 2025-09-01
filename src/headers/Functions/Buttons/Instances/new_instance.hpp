@@ -22,7 +22,7 @@ void updateInstanceInfo()
     if (!id.empty())
     {
         CreateInstanceUI::instance_ver_info_text.setString
-        ("Instance info\n\nVersion: " + data.version_name + "\n\nType: " + data.version_type + "\n\nManifest:\n" + data.manifest + "\n\nHash:\n" + data.assembly_hash + "\n\nMod support: " + std::to_string(data.mod_support) + "\n\nRelease date:\n" + data.release_date);    
+        ("Instance info\n\nVersion: " + data.version_name + "\n\nType: " + data.version_type + "\n\nManifest:\n" + data.manifest + "\n\nHash:\n" + data.assembly_hash + "\n\nRelease date:\n" + data.release_date);    
     }
     else
     {

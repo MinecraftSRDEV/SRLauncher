@@ -62,12 +62,6 @@ void run_game(std::string path, std::string gamepath)
     if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
     {
         ShowWindow(launcherWindow, SW_MINIMIZE);
-        window.setFramerateLimit(5);
-    }
-    else
-    {
-        window.setFramerateLimit(60);
-        log_message("Launcher window refresh rate was changed to: 60", LOG_INFO);
     }
     game_running = true;
     
@@ -336,6 +330,17 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     if (launch_game == true)
     {
         createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
+
+        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+        {
+            window.setFramerateLimit(5);
+        }
+        else
+        {
+            window.setFramerateLimit(60);
+            log_message("Launcher window refresh rate was changed to: 60", LOG_INFO);
+        }
+        
         std::thread gameThread(run_game, game_runpath, gamepath);
         gameThread.detach();
 
@@ -366,7 +371,7 @@ void prepareInstance(std::string instance_id)
     if (game_downloading == false)
     {
         // fs::path game_dir = defaultDir / "instances" / instance_id;
-        steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+        steam_game_dir = steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
         if (mountOnlyData == true)

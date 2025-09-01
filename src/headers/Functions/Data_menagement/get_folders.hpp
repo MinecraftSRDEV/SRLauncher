@@ -4,7 +4,7 @@ void getfolder_steamdir()
     if (!input_path.empty())
     {
         steam_game_dir = input_path;
-        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
+        steam_path_textbox.setText(steam_game_dir);
     }
 }
 
@@ -14,7 +14,7 @@ void getfolder_instancesdir()
     if (!input_path.empty())
     {
         instances_dir = input_path;
-        SlimeRancher_instances_path_textbox.setText(instances_dir);    
+        instances_path_textbox.setText(instances_dir);    
     }
 }
 

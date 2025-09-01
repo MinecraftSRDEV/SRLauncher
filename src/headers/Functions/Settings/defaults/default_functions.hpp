@@ -5,12 +5,12 @@ namespace settings_defaults
     void steam_gamedir_def()
     {
         steam_game_dir = get_steam_default_path();
-        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
+        steam_path_textbox.setText(steam_game_dir);
     }
     void instances_dir_def()
     {
         instances_dir = instances_path.string();
-        SlimeRancher_instances_path_textbox.setText(instances_dir);
+        instances_path_textbox.setText(instances_dir);
     }
     void steamcmd_dir_def()
     {
@@ -73,7 +73,7 @@ namespace settings_defaults
     void debugging_enable_def()
     {
         enableDebugging = false;
-        DebugSettingsUI::debuggingEnabledCheckbox.setState(debugging_enable_def);
+        DebugSettingsUI::debuggingEnabledCheckbox.setState(enableDebugging);
     }
 
     void debug_savelogs_def()

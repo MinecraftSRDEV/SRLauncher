@@ -19,7 +19,7 @@ void backup_orginal_game(fs::path gamedir)
 
 void rename_orginal_dir()
 {
-    steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+    steam_game_dir = steam_path_textbox.getText();
     fs::path steam_dir = steam_game_dir;
     fs::path orginal_game_dir = steam_dir / "Slime Rancher";
     fs::path renamed_game_dir = steam_dir / "Slime Rancher_orginal";

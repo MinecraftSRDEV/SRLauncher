@@ -1,5 +1,16 @@
 void checkUpdate();
 
+fs::path getRuntimePath()
+{
+    char buffer[MAX_PATH];
+    GetModuleFileNameA(NULL, buffer, MAX_PATH);
+
+    fs::path exePath = buffer;
+    fs::path exeDir = exePath.parent_path();
+
+    return exeDir;
+}
+
 /**
  * This function check if Main Launcher directory exists.
  * 
@@ -38,6 +49,8 @@ void runtime_check()
             directory_auto(SMTFolder_path);
             directory_auto(SMLFolder_path);
             directory_auto(SRMLmodsFolder_path);
+
+            runtime_directory = getRuntimePath();
 
             if (fs::is_empty(downloader_path))
             {
@@ -85,8 +98,8 @@ void runtime_check()
                 checkUpdate();
             }
 
-            SlimeRancher_steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
-            SlimeRancher_instances_path_textbox.setText(reduceBackslashes(instances_dir));
+            steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
+            instances_path_textbox.setText(reduceBackslashes(instances_dir));
             steamcmd_path_textbox.setText(reduceBackslashes(steamcmd_dir));
 
             SteamProfile_name_textbox.setText(decryptor(steam_profile_name));

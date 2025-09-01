@@ -1,0 +1,10 @@
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\bin\Release\net40\DebugBridge.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\bin\Release\net40\DebugBridge.pdb
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.csproj.AssemblyReference.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.AssemblyInfoInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.AssemblyInfo.cs
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.csproj.CoreCompileInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.sourcelink.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\obj\Release\net40\DebugBridge.pdb

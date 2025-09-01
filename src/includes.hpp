@@ -160,6 +160,8 @@
 #include "headers/Start/runtime.hpp"
 #include "headers/Start/post_start_tasks.hpp"
 
+#include "headers/Functions/Buttons/Launcher_pages/UpdateBlockingState.hpp"
+
 #include "headers/Functions/mouse/left.hpp"
 
 #include "headers/Functions/Launch/installAll.hpp"

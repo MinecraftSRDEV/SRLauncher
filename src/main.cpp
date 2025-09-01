@@ -11,36 +11,32 @@
 ///////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
-// Features planned in 0.12                                             //
-// - Mounting instances without mounting game                InProgress //
-// - Old BetterBuild world resigner                          Finished   //
-// - Instance auto installer                                 InProgress //
-// - Debug options buttons functions                         InProgress //
-// - Launcher background customization                       Finished   //
-// - "informations" page in instance manage (BB lock)        Finished   //
-// - add function to remove BBW gamesave                     Finished   //
+// Features planned in 0.13                                             //
+//                                                                      //
+// - add support to BetterBuildMod for 0.4.x                 Finished   //
+// - improve support for SRML                                Finished   //
+// - Debug options buttons functions                         Finished   //
 // - add function to BBW gamesaves slots                     InProgress //
 // - add function to backups manager buttons                 InProgress //
 // - add function to mods explorer                           InProgress //
-// - add edit function by creating specyfic folder           Finished   //
-// - add BetterBuild UID reader                              Finished   //
-// - improved manage main page                               Finished   //
-// - fix mods explorer                                       InProgress //
-// - fix Vgamesaves listing                                  Resolved   //
-// - fix SIGSVG 22 ERROR                                     InProgress //
-// - fix default debug enabled as default                    Untested   //
-// - fix buttons blocking                                    Resolved   //
-// - fix backups list refresh                                Resolved   //
-// - fix backups instance path                               Resolved   //
-// - fix vanilla saves recognizer                            Resolved   //
-// - fix BetterBuild saves list clearing                     Resolved   // 
-// - fix BetterBuild worlds loader for stable game versions  Resolved   //
+// - mounting process mapping                                InProgress //
+// - add game patcher in C# to load debug bridge to any ver  Finished   //
+// - add buttons hilight when category is selected           Finished   //
+//                                                                      //
+// - fix mods explorer                                       BUG        //
+// - fix SIGSVG 22 ERROR                                     Resolved   //
+// - fix Error after mount edited instance                   BUG        //
+// - fix default debug enabled as default                    Resolved   //
 //                                                                      //
 // Features maybe added                                                 //
 // - More languages                                                     //
 // - HEX saves viewer                                                   //
+// - Mounting instances without mounting game                           //
+// - Instance auto installer                                            //
+// - support for plugin loader Slime Rancher 0.3.x                      //
+// - Customizable main page (console disable)                           //
 //                                                                      //
-//  Job started 12.05.25                                                //
+//  Job started 31.08.25                                                //
 //////////////////////////////////////////////////////////////////////////
 
 #include <SFML/Graphics.hpp>
@@ -135,6 +131,8 @@ int main()
         if (window.hasFocus())
         {	
             mouse_left();
+
+            updateButtonsBlockingState();
 
             postStartTasks();   
         }

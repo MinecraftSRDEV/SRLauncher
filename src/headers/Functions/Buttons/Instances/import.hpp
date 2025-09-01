@@ -40,7 +40,7 @@ void import_instance()
     std::string version_selected = versions_list_ddl.getResult();
     if (!instance_name.empty())
     {
-        std::string instances_dir = SlimeRancher_instances_path_textbox.getText();
+        std::string instances_dir = instances_path_textbox.getText();
         fs::path steam_dir = instances_dir;
         fs::path new_instance_path = steam_dir / ("Slime Rancher_" + instance_name);
         if (check_directory_exists(new_instance_path) == true)

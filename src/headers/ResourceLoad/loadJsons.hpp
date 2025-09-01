@@ -1,77 +1,74 @@
 void create_mods_directories(const SRVersion& prsp)
 {
-    if (prsp.mod_support == true)
+    if (prsp.version_type == "pre-release")
     {
-        if (prsp.version_type == "pre-release")
+        directory_auto(SMTFolder_path.string() + "/" + prsp.version_name);
+        if (prsp.version_name == "0.2.6")
         {
-            directory_auto(SMTFolder_path.string() + "/" + prsp.version_name);
-            if (prsp.version_name == "0.2.6")
+            try
             {
-                try
+                if (!fs::exists(SMTFolder_path / "0.2.6/SRMultimod.dll"))
                 {
-                    if (!fs::exists(SMTFolder_path / "0.2.6/SRMultimod.dll"))
+                    fs::copy_file(fs::path("./assets/components/mods/SRMultimod.dll"), SMTFolder_path / "0.2.6/SRMultimod.dll");
+                }
+                else
+                {
+                    MD5 ModHash;
+                    std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRMultimod.dll").string());
+                    std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRMultimod.dll");
+
+                    if (installedMD5 != includedMD5)
                     {
+                        fs::remove(SMTFolder_path / "0.2.6/SRMultimod.dll");
                         fs::copy_file(fs::path("./assets/components/mods/SRMultimod.dll"), SMTFolder_path / "0.2.6/SRMultimod.dll");
+                        log_message("Included MultiMod MD5 wrong", LogTypes::LOG_WARN);
                     }
-                    else
-                    {
-                        MD5 ModHash;
-                        std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRMultimod.dll").string());
-                        std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRMultimod.dll");
-
-                        if (installedMD5 != includedMD5)
-                        {
-                            fs::remove(SMTFolder_path / "0.2.6/SRMultimod.dll");
-                            fs::copy_file(fs::path("./assets/components/mods/SRMultimod.dll"), SMTFolder_path / "0.2.6/SRMultimod.dll");
-                            log_message("Included MultiMod MD5 wrong", LogTypes::LOG_WARN);
-                        }
-                    }
-                }
-                catch (fs::filesystem_error e)
-                {
-                    return;
-                }
-                catch (std::runtime_error e)
-                {
-
-                }
-
-                try
-                {
-                    if (!fs::exists(SMTFolder_path / "0.2.6/SRDebugBridge.dll"))
-                    {
-                        fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
-                    }
-                    else
-                    {
-                        MD5 ModHash;
-                        std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRDebugBridge.dll").string());
-                        std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRDebugBridge.dll");
-
-                        if (installedMD5 != includedMD5)
-                        {
-                            fs::remove(SMTFolder_path / "0.2.6/SRDebugBridge.dll");
-                            fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
-                            log_message("Included SRDebugBridge MD5 wrong", LogTypes::LOG_WARN);
-                        }
-                    }
-                }
-                catch (fs::filesystem_error e)
-                {
-                    return;
-                }
-                catch (std::runtime_error e)
-                {
-
                 }
             }
+            catch (fs::filesystem_error e)
+            {
+                return;
+            }
+            catch (std::runtime_error e)
+            {
+
+            }
+
+            try
+            {
+                if (!fs::exists(SMTFolder_path / "0.2.6/SRDebugBridge.dll"))
+                {
+                    fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                }
+                else
+                {
+                    MD5 ModHash;
+                    std::string installedMD5 = ModHash.calculateFromFile(fs::path(SMTFolder_path / "0.2.6/SRDebugBridge.dll").string());
+                    std::string includedMD5 = ModHash.calculateFromFile("./assets/components/mods/SRDebugBridge.dll");
+
+                    if (installedMD5 != includedMD5)
+                    {
+                        fs::remove(SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                        fs::copy_file(fs::path("./assets/components/mods/SRDebugBridge.dll"), SMTFolder_path / "0.2.6/SRDebugBridge.dll");
+                        log_message("Included SRDebugBridge MD5 wrong", LogTypes::LOG_WARN);
+                    }
+                }
+            }
+            catch (fs::filesystem_error e)
+            {
+                return;
+            }
+            catch (std::runtime_error e)
+            {
+
+            }
         }
-        else
-        {
-            directory_auto(UMFmodsFolder_path.string() + "/" + prsp.version_name);
-            directory_auto(SRMLmodsFolder_path.string() + "/" + prsp.version_name);
-            directory_auto(SMLFolder_path.string() + "/" + prsp.version_name);
-        }
+    }
+    else
+    {
+        directory_auto(UMFmodsFolder_path.string() + "/" + prsp.version_name);
+        directory_auto(SRMLmodsFolder_path.string() + "/" + prsp.version_name);
+        directory_auto(SMLFolder_path.string() + "/" + prsp.version_name);
     }
 }
 
@@ -90,7 +87,6 @@ bool load_versions_list()
 
             output.version_name = name;
             output.version_type = versionObject.getObject().at("type").getString();
-            output.mod_support = versionObject.getObject().at("mod_support").getBool();
             output.release_date = versionObject.getObject().at("date").getString();
             output.manifest = versionObject.getObject().at("manifest").getString();
             output.itr = versionObject.getObject().at("iteration").getNumber();
@@ -100,6 +96,8 @@ bool load_versions_list()
             output.savegame_info.readable_version = versionObject.getObject().at("gamesaves").getObject().at("readable_version").getBool();
             output.savegame_info.format = versionObject.getObject().at("gamesaves").getObject().at("format").getNumber();
             output.savegame_info.single_file = versionObject.getObject().at("gamesaves").getObject().at("single_file").getBool();
+
+            output.debugCompatybile = versionObject.getObject().at("debugCompatybile").getString();
 
             loadVersionPachnotes(name, output.itr);
             create_mods_directories(output);
@@ -171,12 +169,12 @@ bool load_config_file(std::string path_to_config)
         JSON json = JSON::parseFromFile(path_to_config);
 
         loadConfigKeyStr(json, steam_game_dir, "steam_game_dir", "Steam game dir: ", settings_defaults::steam_gamedir_def);
-        SlimeRancher_steam_path_textbox.setText(steam_game_dir);
+        steam_path_textbox.setText(steam_game_dir);
 
         loadConfigKeyStr(json, mounted_instance, "mounted_instance", "Mounted instance: ", nullptr);
 
         loadConfigKeyStr(json, instances_dir, "instances_dir", "Instances dir: ", settings_defaults::instances_dir_def);
-        SlimeRancher_instances_path_textbox.setText(instances_dir);
+        instances_path_textbox.setText(instances_dir);
 
         loadConfigKeyStr(json, steamcmd_dir, "steamcmd_dir", "SteamCMD dir: ", settings_defaults::steamcmd_dir_def);
         steamcmd_path_textbox.setText(steamcmd_dir);

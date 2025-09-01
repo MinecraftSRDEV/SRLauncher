@@ -58,7 +58,7 @@ int screen_refresh_count = 0;
 
 std::string guard_code;
 
-std::string launcher_version = "inDev 0.12";
+std::string launcher_version = "inDev 0.13";
 std::string saved_version;
 
 /// Launcher Paths ////
@@ -82,6 +82,13 @@ fs::path SMLFolder_path;
 fs::path SRMLmodsFolder_path;
 
 #define SRL_BG_DEF_PATH "./assets/resources/background.png"
+
+fs::path SRL_DP_DEF_PATH;
+fs::path SRL_DB40_DEF_PATH;
+fs::path SRL_DB48_DEF_PATH;
+
+fs::path runtime_directory;
+
 
 //////////////////////////
 /// Scrollable iterations
