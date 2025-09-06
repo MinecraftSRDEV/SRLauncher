@@ -1,0 +1,15 @@
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\bin\Release\net8.0\SRLmodsRecognizer.exe
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\bin\Release\net8.0\SRLmodsRecognizer.deps.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\bin\Release\net8.0\SRLmodsRecognizer.runtimeconfig.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\bin\Release\net8.0\SRLmodsRecognizer.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\bin\Release\net8.0\SRLmodsRecognizer.pdb
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.AssemblyInfoInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.AssemblyInfo.cs
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.csproj.CoreCompileInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.sourcelink.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\refint\SRLmodsRecognizer.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.pdb
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\SRLmodsRecognizer.genruntimeconfig.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\mods_recognizer\SRLmodsRecognizer\obj\Release\net8.0\ref\SRLmodsRecognizer.dll

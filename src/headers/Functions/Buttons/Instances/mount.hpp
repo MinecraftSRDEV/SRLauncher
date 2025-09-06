@@ -38,7 +38,7 @@ bool ifInstanceIsEdited(fs::path instnace_dir, std::string instance_id)
                 {
                     if (!instanceEditedDir.empty())
                     {
-                        int result = MessageBoxA(NULL, "This instance has files from this version", "Info", MB_ICONINFORMATION | MB_YESNO);
+                        int result = MessageBoxA(NULL, "This instance has files from this version, and need to be reinstalled", "Info", MB_ICONINFORMATION | MB_YESNO);
 
                         if (result == IDYES)
                         {
@@ -124,7 +124,7 @@ void mount_function(std::string instance_id)
 
         if (ifInstanceIsEdited(instances_dir + "/Slime Rancher_" + instances_list[instance_id].getID(), instance_id) == true)
         {
-            sync_refresh_instances_list();
+            MessageBoxA(NULL, "Instance version change completed. Refresh list to see effects.", "Info", MB_ICONINFORMATION | MB_OK);
             return;
         }
 

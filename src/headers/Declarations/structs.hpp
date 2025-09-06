@@ -100,3 +100,9 @@ struct SaveSlotsData {
     std::string nameB;
     std::string nameC;
 };
+
+struct modMeta {
+    bool hasOnLoad;
+    bool hasOnUnload;
+    bool conSRML;
+};

@@ -119,7 +119,7 @@ void setButtons()
     UIElements.createTransparrentBg(ver_desc_bg, 0, 0, 1280, 800, true);
     UIElements.createButton(version_back_button, 465, 750, 350, 40, font, "Back", false);
 
-    UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for update", false);
+    UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
     UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
 
     UIElements.createButton(console_clear_button, 1160, 651, 100, 30, font, "Clear console", false);

@@ -15,11 +15,14 @@ Started in 31.08.25
 - mounting process mapping                                                             InProgress 
 - add game patcher in C# to load debug bridge to any version                           Finished
 - add buttons hilight when category is selected                                        Finished
+- add mod metadata reader                                                              Finished
                         
-- fix mods explorer                                                                    BUG
+- fix mods explorer                                                                    Resolved
 - fix SIGSVG 22 ERROR                                                                  Resolved
-- fix Error after mount edited instance                                                BUG
+- fix Error after mount edited instance                                                Resolved
 - fix default debug enabled as default                                                 Resolved
+- fix theme dropdown list displaing under separation line                              Resolved
+- fix overlapping interface elements                                                   Resolved
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
