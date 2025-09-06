@@ -101,6 +101,10 @@ void setButtons()
     UIElements.createButton(manage_mods_button, 0, 168, 120, 40, font, "Mods", false);
     UIElements.createButton(manage_main_back_button, 0, 760, 120, 40, font, "Back", false);
 
+    UIElements.createButton(BBGamesavesSlots::A, 130, 400, 120, 120, font, "Slot A", false);
+    UIElements.createButton(BBGamesavesSlots::B, 260, 400, 120, 120, font, "Slot B", false);
+    UIElements.createButton(BBGamesavesSlots::C, 380, 400, 120, 120, font, "Slot C", false);
+
     UIElements.createMenagementButton(MNG_Instance_saves_text, 135, 70, font, instance_icons_textures["pink_slime"], "", false);
     UIElements.createMenagementButton(MNG_instance_installed_mods_text, 135, (70 + 91), font, instance_icons_textures["pink_slime"], "", false);
     UIElements.createMenagementButton(MNG_instance_mods_saves_text, 135, (70 + (91 + 91)), font, instance_icons_textures["pink_slime"], "", false);

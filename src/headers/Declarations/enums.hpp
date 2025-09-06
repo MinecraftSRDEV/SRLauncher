@@ -26,7 +26,8 @@ enum ManageCategories {
     BETTERBUILD_SAVES,
     BETTERBUILD_WORLDS,
     BACKUPS,
-    MODS_PAGE
+    MODS_PAGE,
+    BETTERBUILDWORLDS_SAVESLOTS,
 };
 
 enum LogTypes {

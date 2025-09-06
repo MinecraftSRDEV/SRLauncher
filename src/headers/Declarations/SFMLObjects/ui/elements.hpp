@@ -225,6 +225,17 @@ namespace DebuggerMainmenuLayout
     sf::Text messageDuplicatedText;
 }
 
+namespace BBGamesavesSlots
+{
+    sfg::Button A;
+    sfg::Button B;
+    sfg::Button C;
+    sfg::Button back_button;
+    sf::Text slotAText;
+    sf::Text slotBText;
+    sf::Text slotCText;
+}
+
 sfg::DropDownList versions_list_ddl;
 
 sf::Text dataLoading_text;

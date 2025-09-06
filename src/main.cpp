@@ -10,35 +10,6 @@
 // Software in development You using it on your own risk!//
 ///////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////
-// Features planned in 0.13                                             //
-//                                                                      //
-// - add support to BetterBuildMod for 0.4.x                 Finished   //
-// - improve support for SRML                                Finished   //
-// - Debug options buttons functions                         Finished   //
-// - add function to BBW gamesaves slots                     InProgress //
-// - add function to backups manager buttons                 InProgress //
-// - add function to mods explorer                           InProgress //
-// - mounting process mapping                                InProgress //
-// - add game patcher in C# to load debug bridge to any ver  Finished   //
-// - add buttons hilight when category is selected           Finished   //
-//                                                                      //
-// - fix mods explorer                                       BUG        //
-// - fix SIGSVG 22 ERROR                                     Resolved   //
-// - fix Error after mount edited instance                   BUG        //
-// - fix default debug enabled as default                    Resolved   //
-//                                                                      //
-// Features maybe added                                                 //
-// - More languages                                                     //
-// - HEX saves viewer                                                   //
-// - Mounting instances without mounting game                           //
-// - Instance auto installer                                            //
-// - support for plugin loader Slime Rancher 0.3.x                      //
-// - Customizable main page (console disable)                           //
-//                                                                      //
-//  Job started 31.08.25                                                //
-//////////////////////////////////////////////////////////////////////////
-
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>

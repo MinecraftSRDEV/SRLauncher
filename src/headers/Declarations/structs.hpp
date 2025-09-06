@@ -94,3 +94,9 @@ struct ManageResult {
     bool bb_status;
     std::string bb_uid;
 };
+
+struct SaveSlotsData {
+    std::string nameA;
+    std::string nameB;
+    std::string nameC;
+};

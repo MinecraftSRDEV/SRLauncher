@@ -137,6 +137,7 @@
 #include "headers/Functions/Buttons/Instances/menage/Mods/betterBuildChecker.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/positionCorrection.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/canBeInstalledChecker.hpp"
+#include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/gamesavesSlots/gamesavesSlots.hpp"
 #include "headers/Functions/Buttons/Instances/menage/Mods/OldBetterBuildUIDReader.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 

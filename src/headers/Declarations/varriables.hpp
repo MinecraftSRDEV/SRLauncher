@@ -106,6 +106,8 @@ fs::path prf_file_path;
 std::map <int, std::string> logs;
 std::vector <fs::path> external_instances;
 
+std::map <int, std::string> fileMovementMap;
+
 int run_YEAR;
 int run_MONTH;
 int run_DAY;
