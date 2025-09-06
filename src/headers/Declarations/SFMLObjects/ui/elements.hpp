@@ -71,13 +71,13 @@ namespace SettingsElemets
 
 namespace SettingsSubcatsUI
 {
-    sfg::Button Subcat_settings_main_button;
-    sfg::Button Subcat_settings_progile_button;
-    sfg::Button Subcat_settings_updates_button;
-    sfg::Button Subcat_settings_downloading_button;
-    sfg::Button Subcat_settings_debugging_button;
-    sfg::Button Subcat_settings_licences_button;
-    sfg::Button Subcat_settings_credits_button;
+    sfg::Button settingsGeneralCat_button;
+    sfg::Button settingsProfileCat_button;
+    sfg::Button settingsUpdatesCat_button;
+    sfg::Button settingsDownloadingCat_button;
+    sfg::Button settingsDebuggingCat_button;
+    sfg::Button settingsLicencesCat_button;
+    sfg::Button settingsCreditsCat_button;
     sfg::TransparrentBackground subcat_separator;
     sfg::TransparrentBackground save_config_separator;
 }
@@ -85,10 +85,10 @@ namespace SettingsSubcatsUI
 namespace MainSettingsUI
 {
     sf::Text blockedPaths_text;
-    sfg::Textbox SlimeRancher_steam_path_textbox;
-    sfg::Button SlimeRancher_steam_path_getfolder_button;
-    sfg::Textbox SlimeRancher_instances_path_textbox;
-    sfg::Button SlimeRancher_instances_path_getfolder_button;
+    sfg::Textbox steam_path_textbox;
+    sfg::Button steam_path_getfolder_button;
+    sfg::Textbox instances_path_textbox;
+    sfg::Button instances_path_getfolder_button;
     sfg::Checkbox Show_prereleases_checkbox;
     sfg::Checkbox Save_logs_files_checkbox;
     sfg::Checkbox Colored_logs_checkbox;
@@ -148,6 +148,7 @@ namespace DebugSettingsUI
     sfg::Checkbox acceptWarningCheckbox;
     sfg::Checkbox acceptErrorCheckbox;
     sfg::Checkbox acceptExceptionCheckbox;
+    sfg::Button enableDebuggingOnInstance;
 }
 
 namespace CreditsUI
@@ -222,6 +223,17 @@ namespace DebuggerMainmenuLayout
     sfg::Checkbox acceptErrorCheckbox;
     sfg::Checkbox acceptExceptionCheckbox;
     sf::Text messageDuplicatedText;
+}
+
+namespace BBGamesavesSlots
+{
+    sfg::Button A;
+    sfg::Button B;
+    sfg::Button C;
+    sfg::Button back_button;
+    sf::Text slotAText;
+    sf::Text slotBText;
+    sf::Text slotCText;
 }
 
 sfg::DropDownList versions_list_ddl;

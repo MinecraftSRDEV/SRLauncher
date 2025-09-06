@@ -13,37 +13,37 @@ void setButtons()
 
     UIElements.createTransparrentBg(settings_bg, 0, 40, 1280, 800, true);
 
-    UIElements.createButton(Subcat_settings_main_button, 0, 45, 120, 40, font, "Main", false);
-    UIElements.createButton(Subcat_settings_progile_button, 0, 85, 120, 40, font, "Profile", false);
-    UIElements.createButton(Subcat_settings_downloading_button, 0, 125, 120, 40, font, "Downloading", false);
-    UIElements.createButton(Subcat_settings_updates_button, 0, 165, 120, 40, font, "Updates", false);
-    UIElements.createButton(Subcat_settings_debugging_button, 0, 205, 120, 40, font, "Debug options", false);
-    UIElements.createButton(Subcat_settings_licences_button, 0, 720, 120, 40, font, "Licenses", false);
-    UIElements.createButton(Subcat_settings_credits_button, 0, 760, 120, 40, font, "Credits", false);
+    UIElements.createButton(settingsGeneralCat_button, 0, 45, 120, 40, font, "General", false);
+    UIElements.createButton(settingsProfileCat_button, 0, 87, 120, 40, font, "Steam profile", false);
+    UIElements.createButton(settingsDownloadingCat_button, 0, 129, 120, 40, font, "Downloading", false);
+    UIElements.createButton(settingsUpdatesCat_button, 0, 171, 120, 40, font, "Launcher updates", false);
+    UIElements.createButton(settingsDebuggingCat_button, 0, 213, 120, 40, font, "Debug options", false);
+    UIElements.createButton(settingsLicencesCat_button, 0, 718, 120, 40, font, "Licenses", false);
+    UIElements.createButton(settingsCreditsCat_button, 0, 760, 120, 40, font, "Credits", false);
 
     UIElements.createTransparrentBg(subcat_separator, 125, 43, 0, 754, true);
     UIElements.createTransparrentBg(save_config_separator, 125, 745, 1280, 0, true);
 
-    UIElements.createTextbox(SlimeRancher_steam_path_textbox, 130, 100, 1085, 40, false, false, font, 26, "", false, "Steam games directory path");
-    UIElements.createButton(SlimeRancher_steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
-    UIElements.createTextbox(SlimeRancher_instances_path_textbox, 130, 175, 1085, 40, false, false, font, 26, "", false, "Insrances location path");
-    UIElements.createButton(SlimeRancher_instances_path_getfolder_button, 1215, 206, 60, 40, font, "Browse", false);
+    UIElements.createTextbox(steam_path_textbox, 130, 100, 1085, 40, false, false, font, 26, "", false, "Steam games directory path");
+    UIElements.createButton(steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
+    UIElements.createTextbox(instances_path_textbox, 130, 175, 1085, 40, false, false, font, 26, "", false, "Insrances location path");
+    UIElements.createButton(instances_path_getfolder_button, 1215, 206, 60, 40, font, "Browse", false);
     UIElements.createCheckbox(Show_prereleases_checkbox, 30, 30, 130, 270, "Show pre-release game versions", 26, font, true);
     UIElements.createCheckbox(Save_logs_files_checkbox, 30, 30, 130, 305, "Autosave log files", 26, font, true);
     UIElements.createCheckbox(Colored_logs_checkbox, 30, 30, 130, 340, "Enable colored logs", 26, font, true);
     UIElements.createCheckbox(do_not_show_warnings_checkbox, 30, 30, 130, 375, "Enable warning messages", 26, font, true);
     UIElements.createCheckbox(use_secure_ipc_checkbox, 30, 30, 130, 410, "Use secure IPC (experimental)", 26, font, false);
-    UIElements.createCheckbox(mount_only_data_checkbox, 30, 30, 130, 445, "Mount only game data", 26, font, false);
+    UIElements.createCheckbox(mount_only_data_checkbox, 30, 30, 130, 445, "Mount only game data (W.I.P.)", 26, font, false);
     UIElements.createTextbox(SRL_background_img_path_textbox, 130, 510, 1085, 40, false, false, font, 26, "", false, "SRL background image path");
     UIElements.createButton(SRL_background_img_path_getfolder_button, 1215, 541, 60, 40, font, "Browse", false);
     UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 640, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
 
     UIElements.createButton(RestoreSettings_button, 1000, 750, 120, 40, font, "Restore defaults", false);
-    UIElements.createButton(SaveConfig_button, 1120, 750, 120, 40, font, "Save config", false);
+    UIElements.createButton(SaveConfig_button, 1122, 750, 120, 40, font, "Save config", false);
 
     UIElements.createTextbox(SteamProfile_name_textbox, 130, 100, 400, 40, false, false, font, 26, "", false, "Steam profile name");
     UIElements.createPasswordbox(SteamProfile_password_textbox, 130, 175, 400, 40, false, false, font, 26, "", false, "Steam profile password");
-    UIElements.createButton(save_profile_button, 1120, 750, 120, 40, font, "Save profile", false);
+    UIElements.createButton(save_profile_button, 1122, 750, 120, 40, font, "Save profile", false);
 
     UIElements.createTextbox(steamcmd_path_textbox, 130, 200, 1085, 40, false, false, font, 26, "", false, settmaindi::CMDPATH_TEXT);
     UIElements.createButton(steamcmd_path_getfolder_button, 1215, 231, 60, 40, font, "Browse", false);
@@ -62,11 +62,12 @@ void setButtons()
     UIElements.createButton(DebugSettingsUI::forcePipeCloseButton, 130, 440 + 105, 100, 40, font, "Force Pipe close", false);
     UIElements.createButton(DebugSettingsUI::killInstanceButton, 232, 440 + 105, 100, 40, font, "Kill instance", false);
     UIElements.createButton(DebugSettingsUI::saveLogFileButton, 334, 440 + 105, 100, 40, font, "Save log file", false);
+    UIElements.createButton(DebugSettingsUI::enableDebuggingOnInstance, 130, 480 + 150, 240, 40, font, "Apply debuger patch to current instance", false);
 
     UIElements.createTransparrentBg(instances_bg, 0, 40, 1280, 800, true);
 
     UIElements.createButton(new_instance_button, 90, 45, 550, 35, font, "New instance", false);
-    UIElements.createButton(import_instnace_button, 641, 45, 550, 35, font, "Import instance", false);
+    UIElements.createButton(import_instnace_button, 642, 45, 550, 35, font, "Import instance", false);
     
     UIElements.createDropDownList(versions_list_ddl, 350, 40, 620, 60, {{"select version","none"}}, "select version", font);
 
@@ -94,11 +95,15 @@ void setButtons()
     UIElements.createTransparrentBg(versions_bg, 0, 40, 1280, 800, true);
 
     UIElements.createButton(manage_vanilla_saves_button, 0, 0, 120, 40, font, "Vanilla saves", false);
-    UIElements.createButton(manage_betterbuild_saves_button, 0, 40, 120, 40, font, "Mods saves", false);
-    UIElements.createButton(manage_betterbuild_world_button, 0, 80, 120, 40, font, "BetterBuild worlds", false);
-    UIElements.createButton(manage_backups_button, 0, 120, 120, 40, font, "Backups manager", false);
-    UIElements.createButton(manage_mods_button, 0, 160, 120, 40, font, "Mods", false);
+    UIElements.createButton(manage_betterbuild_saves_button, 0, 42, 120, 40, font, "Mods saves", false);
+    UIElements.createButton(manage_betterbuild_world_button, 0, 84, 120, 40, font, "BetterBuild worlds", false);
+    UIElements.createButton(manage_backups_button, 0, 126, 120, 40, font, "Backups manager", false);
+    UIElements.createButton(manage_mods_button, 0, 168, 120, 40, font, "Mods", false);
     UIElements.createButton(manage_main_back_button, 0, 760, 120, 40, font, "Back", false);
+
+    UIElements.createButton(BBGamesavesSlots::A, 130, 400, 120, 120, font, "Slot A", false);
+    UIElements.createButton(BBGamesavesSlots::B, 260, 400, 120, 120, font, "Slot B", false);
+    UIElements.createButton(BBGamesavesSlots::C, 380, 400, 120, 120, font, "Slot C", false);
 
     UIElements.createMenagementButton(MNG_Instance_saves_text, 135, 70, font, instance_icons_textures["pink_slime"], "", false);
     UIElements.createMenagementButton(MNG_instance_installed_mods_text, 135, (70 + 91), font, instance_icons_textures["pink_slime"], "", false);
@@ -114,7 +119,7 @@ void setButtons()
     UIElements.createTransparrentBg(ver_desc_bg, 0, 0, 1280, 800, true);
     UIElements.createButton(version_back_button, 465, 750, 350, 40, font, "Back", false);
 
-    UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for update", false);
+    UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
     UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
 
     UIElements.createButton(console_clear_button, 1160, 651, 100, 30, font, "Clear console", false);

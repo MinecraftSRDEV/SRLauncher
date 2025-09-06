@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = DebugBridge
+build_property.ProjectDir = C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\debug_patcher\DebugBridge\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -6,7 +6,6 @@ struct SRGamesaveInfo {
 
 struct SRVersion {
     std::string version_name;
-    bool mod_support;
     std::string release_date;
     std::string manifest;
     std::string version_type;
@@ -14,6 +13,7 @@ struct SRVersion {
     std::string executable_hash;
     std::string assembly_hash;
     SRGamesaveInfo savegame_info;
+    std::string debugCompatybile;
 };
 
 struct InstanceModAttributes {
@@ -21,11 +21,14 @@ struct InstanceModAttributes {
 
     bool StaysModtool_installed;
     bool SatysModLoader_installed;
+    bool isBetterBuild04x_installed;
+    bool SRML_installed;
     bool UMF_installed;
 
     std::vector <fs::directory_iterator> StaysModtool_mods_list;
     std::vector <fs::directory_iterator> SatysModLoader_mods_list;
     std::vector <fs::directory_iterator> UMF_mods_list;
+    std::vector <fs::directory_iterator> SRML_mods_list;
 };
 
 struct WorldData {
@@ -90,4 +93,16 @@ struct ManageResult {
     std::string launcherModsCount;
     bool bb_status;
     std::string bb_uid;
+};
+
+struct SaveSlotsData {
+    std::string nameA;
+    std::string nameB;
+    std::string nameC;
+};
+
+struct modMeta {
+    bool hasOnLoad;
+    bool hasOnUnload;
+    bool conSRML;
 };

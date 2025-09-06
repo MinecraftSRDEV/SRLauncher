@@ -1,12 +1,21 @@
 {
     "SRMultimod":
     {
-        "srversion": "0.2.6",
-        "loader": 0
+        "srversions":
+        [
+            "0.2.6"
+        ],
+        "loader": "SMT"
     },
     "SRDebugBridge":
     {
-        "srversion": "0.2.6",
-        "loader": 0
+        "srversions":
+        [
+            "0.2.4a",
+            "0.2.4b",
+            "0.2.5",
+            "0.2.6"
+        ],
+        "loader": "SMT"
     }
 }

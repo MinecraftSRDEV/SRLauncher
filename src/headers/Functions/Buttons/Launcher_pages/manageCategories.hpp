@@ -1,31 +1,35 @@
-void exit_manage_function()
+namespace manageCategories
 {
-    UI_current = UiPages::InstancesMenu;
-    selected_instance.erase();
-    refresh_instances_list();
+    void exit_function()
+    {
+        UI_current = UiPages::InstancesMenu;
+        selected_instance.erase();
+        refresh_instances_list();
+    }
+
+    void bbworls()
+    {
+        manage_ui = BETTERBUILD_WORLDS;
+    }
+
+    void vanilla()
+    {
+        manage_ui = VANILLA_SAVES;
+    }
+
+    void bbsaves()
+    {
+        manage_ui = BETTERBUILD_SAVES;
+    }
+
+    void mods()
+    {
+        manage_ui = MODS_PAGE;
+    }
+
+    void backups()
+    {
+        manage_ui = BACKUPS;
+    }
 }
 
-void changeCategory_mng_bbworls()
-{
-    manage_ui = BETTERBUILD_WORLDS;
-}
-
-void changeCategory_mng_vanilla()
-{
-    manage_ui = VANILLA_SAVES;
-}
-
-void changeCategory_mng_bbsaves()
-{
-    manage_ui = BETTERBUILD_SAVES;
-}
-
-void changeCategory_mng_mods()
-{
-    manage_ui = MODS_PAGE;
-}
-
-void changeCategory_mng_backups()
-{
-    manage_ui = BACKUPS;
-}

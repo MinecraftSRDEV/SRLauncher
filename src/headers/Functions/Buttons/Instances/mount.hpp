@@ -38,7 +38,7 @@ bool ifInstanceIsEdited(fs::path instnace_dir, std::string instance_id)
                 {
                     if (!instanceEditedDir.empty())
                     {
-                        int result = MessageBoxA(NULL, "This instance has files from this version", "Info", MB_ICONINFORMATION | MB_YESNO);
+                        int result = MessageBoxA(NULL, "This instance has files from this version, and need to be reinstalled", "Info", MB_ICONINFORMATION | MB_YESNO);
 
                         if (result == IDYES)
                         {
@@ -119,12 +119,12 @@ void mount_function(std::string instance_id)
     {
         unmount_funtcion();
 
-        steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+        steam_game_dir = steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
 
         if (ifInstanceIsEdited(instances_dir + "/Slime Rancher_" + instances_list[instance_id].getID(), instance_id) == true)
         {
-            sync_refresh_instances_list();
+            MessageBoxA(NULL, "Instance version change completed. Refresh list to see effects.", "Info", MB_ICONINFORMATION | MB_OK);
             return;
         }
 
@@ -136,57 +136,89 @@ void mount_function(std::string instance_id)
         Mounted_instance_info_text.setString(mounted_instance);
         mounted_instance_version.setString("v." + instances_list[instance_id].getVer());
 
+        // std::ofstream mapFile;
+        // mapFile.open(runtime_directory.string() + "/mountMap.map");
+
         try
         {
             if (check_directory_exists(local_save_path))
             {
                 if (fs::is_empty(local_save_path))
                 {
-                    if (fs::exists(instnace_dir / "data" / "gamedata" / "options_and_achivements.prf"))
+                    fs::path pathToPrf = fs::path(instnace_dir) / "data" / "gamedata" / "options_and_achivements.prf";
+                    // mapFile << "checkOptionsFile";
+                    if (fs::exists(pathToPrf))
                     {
-                        if (move_file(instnace_dir / "data" / "gamedata" / "options_and_achivements.prf", local_save_path / "slimerancher.prf") != true)
+                        // mapFile << "OK";
+                        // mapFile << "mountOptionsFile";
+                        if (move_file(pathToPrf, local_save_path / "slimerancher.prf") != true)
                         {
+                            // mapFile << "FAIL";
                             return;
-                        }    
+                        }
+                        // mapFile << "OK";
+                    }
+                    else
+                    {
+                        // mapFile << "FAIL";
                     }
                     
-                    if (fs::exists(instnace_dir / "data" / "gamedata" / "slimerancher.cfg"))
+                    fs::path pathToCfg = fs::path(instnace_dir) / "data" / "gamedata" / "slimerancher.cfg";
+                    // mapFile << "checkCfgFile";
+                    if (fs::exists(pathToCfg))
                     {
-                        if (move_file(instnace_dir / "data" / "gamedata" / "slimerancher.cfg", local_save_path / "slimerancher.cfg") != true)
+                        // mapFile << "OK";
+                        // mapFile << "mountCfgFile";
+                        if (move_file(pathToCfg, local_save_path / "slimerancher.cfg") != true)
                         {
+                            // mapFile << "FAIL";
                             return;
                         }    
+                        // mapFile << "OK";
+                    }
+                    else
+                    {
+                        // mapFile << "FAIL";
                     }
                     
-                    
+
+                    // mapFile << "mountSavegamesFiles";
                     move_directory(instnace_dir / "data" / "saves", local_save_path);    
+                    // mapFile << "OK";
                 }    
             }
         }
         catch (fs::filesystem_error& e)
         {
+            // mapFile << "FAIL";
             log_message(std::string(e.what()), LogTypes::LOG_ERROR);
             MessageBoxA(NULL, "Cannot overwrite savedata files", "Error", MB_ICONERROR | MB_OK);
             return;
         }
         catch (std::exception& e)
         {
+            // mapFile << "FAIL";
             log_message(std::string(e.what()), LogTypes::LOG_ERROR);
             return;
         }
 
+        // mapFile << "checkIfDestynationIsEmpty";
         if (fs::exists(steam_dir / "Slime Rancher") && fs::is_directory(steam_dir / "Slime Rancher"))
         {
+            // mapFile << "FAIL";
             log_message("Cannot overwrite current instance", LogTypes::LOG_ERROR);
             return;
         }
         else
         {
+            // mapFile << "OK";
             try
             {
                 if (mountOnlyData == false)
                 {
+                    // mapFile << "mountGameFiles";
                     fs::rename(instnace_dir, steam_dir / "Slime Rancher");    
+                    // mapFile << "OK";
                 }
                 log_message("Mounted instance: " + instances_list[instance_id].getID() + " Version: " + instances_list[instance_id].getVer(), LogTypes::LOG_INFO);
                 update_config_file();
@@ -195,9 +227,11 @@ void mount_function(std::string instance_id)
             }
             catch (fs::filesystem_error& e)
             {
+                // mapFile << "FAIL";
                 log_message("Cannot mount instance: " + std::string(e.what()), LogTypes::LOG_ERROR);
                 return;
             }
-        }    
+        }
+        // mapFile.close();
     }
 }

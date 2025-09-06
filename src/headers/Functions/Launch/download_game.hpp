@@ -149,7 +149,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 log_message(msg, type);
                 recieved.erase();
 
-                steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+                steam_game_dir = steam_path_textbox.getText();
                 fs::path steam_dir = steam_game_dir;
                 fs::path alternate_output_dir = fs::path(instances_dir);
                 fs::path outputDir = downloader_path / "output";
@@ -358,7 +358,7 @@ void download_game2(std::string gamerun_path)
 {
     if (SteamCMDCheck() == true)
     {
-        steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+        steam_game_dir = steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
         if (mountOnlyData == true)

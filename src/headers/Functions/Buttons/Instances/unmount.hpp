@@ -13,7 +13,7 @@ bool unmount_funtcion()
     {
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            steam_game_dir = SlimeRancher_steam_path_textbox.getText();
+            steam_game_dir = steam_path_textbox.getText();
             fs::path steam_dir = steam_game_dir;
             try
             {

@@ -29,79 +29,73 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
     int last_mod_ir_pos = 20;
     int last_mod_index = 0;
 
-    if (versionsData_map[instances_list[instance_id].getVer()].mod_support == true)
+
+    if (versionsData_map[instances_list[instance_id].getVer()].version_type == "pre-release")
     {
-        if (versionsData_map[instances_list[instance_id].getVer()].version_type == "pre-release")
+        instance_mods_directory = instance_directory / "mods";
+        instance_modsave_directory = instance_mods_directory / "BetterBuild";
+        try
         {
-            instance_mods_directory = instance_directory / "mods";
-            instance_modsave_directory = instance_mods_directory / "BetterBuild";
-            try
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            
+            betterBuildStatus = checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory);
+            if (betterBuildStatus)
             {
-                scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
-                
-                betterBuildStatus = checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory);
-                if (betterBuildStatus)
-                {
-                    scanBetterBuildWorlds(instance_modsave_directory, old_loader);
-                    betterBuildUid = getBetterBuildUID(instance_modsave_directory);    
+                scanBetterBuildWorlds(instance_modsave_directory, old_loader);
+                betterBuildUid = getBetterBuildUID(instance_modsave_directory);    
 
-                }
-                else
-                {
-                    betterBuildUid = "Not installed";
-                }
-
-                instance_UID = betterBuildUid;
-
-                scanModSaves(instance_modsave_directory, old_loader, betterbuildsaves_list);
             }
-            catch (fs::filesystem_error e) {}
+            else
+            {
+                betterBuildUid = "Not installed";
+            }
 
-            loadLauncherMods(instance_id);
+            instance_UID = betterBuildUid;
+
+            scanModSaves(instance_modsave_directory, old_loader, betterbuildsaves_list);
         }
-        else
-        {
-            try
-            {
-                instance_mods_directory = instance_directory / "Mods";
-                instance_modsave_directory = instance_directory / "BetterBuild";
-                scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
-                betterBuildStatus = checkBetterBuildInstalled("BetterBuild", instance_mods_directory);
-                if (betterBuildStatus)
-                {
-                    scanBetterBuildWorlds(instance_modsave_directory, new_loader);
-                    betterBuildUid = "Not available in this mod version";    
-                }
-                else
-                {
-                    betterBuildUid = "Not installed";
-                }
-                scanModSaves(instance_modsave_directory, new_loader, betterbuildsaves_list);
-            }
-            catch (fs::filesystem_error e) {}
+        catch (fs::filesystem_error e) {}
 
-            try
-            {
-                instance_mods_directory = instance_directory / "SRML" / "Mods";
-                scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, UNKNOWN_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
-            }
-            catch (fs::filesystem_error e) {}
-
-            try
-            {
-                instance_mods_directory = instance_directory / "uModFramework" / "Mods";
-                scanModsFolder(instance_mods_directory, ".umfmod", last_mod_ir_pos, instance_id, UMF_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
-            }
-            catch (fs::filesystem_error e) {}
-
-            loadLauncherMods(instance_id);
-        }
+        loadLauncherMods(instance_id);
     }
     else
     {
-        bbw_tittle_text.setString("This instance doesn't support mods");
-        bbw_tittle_text.setPosition(window.getSize().x / 2 - (bbw_tittle_text.getLocalBounds().width / 2) + 130, 380);
+        try
+        {
+            instance_mods_directory = instance_directory / "Mods";
+            instance_modsave_directory = instance_directory / "BetterBuild";
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            betterBuildStatus = checkBetterBuildInstalled("BetterBuild", instance_mods_directory);
+            if (betterBuildStatus)
+            {
+                scanBetterBuildWorlds(instance_modsave_directory, new_loader);
+                betterBuildUid = "Not available in this mod version";    
+            }
+            else
+            {
+                betterBuildUid = "Not installed";
+            }
+            scanModSaves(instance_modsave_directory, new_loader, betterbuildsaves_list);
+        }
+        catch (fs::filesystem_error e) {}
+
+        try
+        {
+            instance_mods_directory = instance_directory / "SRML" / "Mods";
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+        }
+        catch (fs::filesystem_error e) {}
+
+        try
+        {
+            instance_mods_directory = instance_directory / "uModFramework" / "Mods";
+            scanModsFolder(instance_mods_directory, ".umfmod", last_mod_ir_pos, instance_id, UMF_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+        }
+        catch (fs::filesystem_error e) {}
+
+        loadLauncherMods(instance_id);
     }
+    
 
     correctModsIndexesPosition(LauncherMods_list, LauncherModsIndexing);
     correctModsIndexesPosition(InstanceMods_list, InstanceModsIndexing);

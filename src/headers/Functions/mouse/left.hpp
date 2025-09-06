@@ -8,13 +8,13 @@ void executeCategories(sf::Vector2f mouse)
 
 void executeSubcategories(sf::Vector2f mouse)
 {
-    Subcat_settings_main_button.update(mouse);
-    Subcat_settings_progile_button.update(mouse);
-    Subcat_settings_downloading_button.update(mouse);
-    Subcat_settings_updates_button.update(mouse);
-    Subcat_settings_debugging_button.update(mouse);
-    Subcat_settings_credits_button.update(mouse);
-    Subcat_settings_licences_button.update(mouse);
+    settingsGeneralCat_button.update(mouse);
+    settingsProfileCat_button.update(mouse);
+    settingsDownloadingCat_button.update(mouse);
+    settingsUpdatesCat_button.update(mouse);
+    settingsDebuggingCat_button.update(mouse);
+    settingsCreditsCat_button.update(mouse);
+    settingsLicencesCat_button.update(mouse);
 }
 
 void mouse_left()
@@ -162,27 +162,27 @@ void mouse_left()
         {
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
-                SlimeRancher_steam_path_textbox.setReadOnlyMode(true);
-                SlimeRancher_instances_path_textbox.setReadOnlyMode(true);
-                SlimeRancher_steam_path_getfolder_button.setBlockState(true);
-                SlimeRancher_instances_path_getfolder_button.setBlockState(true);
+                steam_path_textbox.setReadOnlyMode(true);
+                instances_path_textbox.setReadOnlyMode(true);
+                steam_path_getfolder_button.setBlockState(true);
+                instances_path_getfolder_button.setBlockState(true);
 
-                mount_only_data_checkbox.setBlockState(false);
+                // mount_only_data_checkbox.setBlockState(false);
             }
             else
             {
-                SlimeRancher_steam_path_textbox.setReadOnlyMode(false);
-                SlimeRancher_instances_path_textbox.setReadOnlyMode(false);
-                SlimeRancher_steam_path_getfolder_button.setBlockState(false);
-                SlimeRancher_instances_path_getfolder_button.setBlockState(false);
+                steam_path_textbox.setReadOnlyMode(false);
+                instances_path_textbox.setReadOnlyMode(false);
+                steam_path_getfolder_button.setBlockState(false);
+                instances_path_getfolder_button.setBlockState(false);
 
-                mount_only_data_checkbox.setBlockState(true);
+                // mount_only_data_checkbox.setBlockState(true);
             }
 
-            SlimeRancher_steam_path_textbox.update(mouse);
-            SlimeRancher_instances_path_textbox.update(mouse);
-            SlimeRancher_steam_path_getfolder_button.update(mouse);
-            SlimeRancher_instances_path_getfolder_button.update(mouse);
+            steam_path_textbox.update(mouse);
+            instances_path_textbox.update(mouse);
+            steam_path_getfolder_button.update(mouse);
+            instances_path_getfolder_button.update(mouse);
 
             Show_prereleases_checkbox.update(mouse);
             Save_logs_files_checkbox.update(mouse);
@@ -191,6 +191,8 @@ void mouse_left()
             do_not_show_warnings_checkbox.update(mouse);
             use_secure_ipc_checkbox.update(mouse);
             mount_only_data_checkbox.update(mouse);
+
+            mount_only_data_checkbox.setBlockState(true);
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
@@ -282,6 +284,17 @@ void mouse_left()
             DebugSettingsUI::acceptWarningCheckbox.update(mouse);
             DebugSettingsUI::acceptErrorCheckbox.update(mouse);
             DebugSettingsUI::acceptExceptionCheckbox.update(mouse);
+
+            DebugSettingsUI::enableDebuggingOnInstance.update(mouse);
+
+            if (mounted_instance != UNMOUNTED_INSTANCE)
+            {
+                DebugSettingsUI::enableDebuggingOnInstance.setBlockState(false);
+            }
+            else
+            {
+                DebugSettingsUI::enableDebuggingOnInstance.setBlockState(true);
+            }
 
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);

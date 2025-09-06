@@ -1,24 +1,27 @@
 void refresh_instances_list();
 
-void changeCategory_main()
+namespace launcherCategories
 {
-    UI_current = UiPages::MainMenu;
-}
+    void main()
+    {
+        UI_current = UiPages::MainMenu;
+    }
 
-void changeCategory_instances()
-{
-    UI_current = UiPages::InstancesMenu;
-    refresh_instances_list();
-}
+    void instances()
+    {
+        UI_current = UiPages::InstancesMenu;
+        refresh_instances_list();
+    }
 
-void changeCategory_settings()
-{
-    UI_current = UiPages::SettingsMenu;
-    options_ui = SettingsCategories::MAIN_PAGE;
-}
+    void settings()
+    {
+        UI_current = UiPages::SettingsMenu;
+        options_ui = SettingsCategories::MAIN_PAGE;
+    }
 
-void changeCategory_versions()
-{
-    UI_current = UiPages::VersionsList;
-    positionListElements();
+    void versions()
+    {
+        UI_current = UiPages::VersionsList;
+        positionListElements();
+    }
 }

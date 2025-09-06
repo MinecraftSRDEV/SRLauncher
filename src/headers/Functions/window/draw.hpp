@@ -247,28 +247,21 @@ void window_draw()
             }
             case MODS_PAGE:
             {
-                if (versionsData_map[instances_list[selected_instance].getVer()].mod_support == true)
-                {
-                    window.draw(instanceModsMouseWorkingBox);
-                    window.draw(launcherModsMouseWorkingBox);
-                    
-                    window.draw(list_mods_instance_text);
-                    window.draw(list_mods_launcher_text);
-                    mods_separator.render(window);
+                window.draw(instanceModsMouseWorkingBox);
+                window.draw(launcherModsMouseWorkingBox);
+                
+                window.draw(list_mods_instance_text);
+                window.draw(list_mods_launcher_text);
+                mods_separator.render(window);
 
-                    for (const auto& pair : InstanceMods_list)
-                    {
-                        InstanceMods_list[pair.first].render(window);
-                    }
-                    for (const auto& pair : LauncherMods_list)
-                    {
-                        LauncherMods_list[pair.first].render(window);
-                    }    
-                }
-                else
+                for (const auto& pair : InstanceMods_list)
                 {
-                    window.draw(bbw_tittle_text);
+                    InstanceMods_list[pair.first].render(window);
                 }
+                for (const auto& pair : LauncherMods_list)
+                {
+                    LauncherMods_list[pair.first].render(window);
+                }    
                 break;
             }
             case BACKUPS:
@@ -294,13 +287,13 @@ void window_draw()
         renderCategories();
         
         settings_bg.render(window);
-        Subcat_settings_main_button.render(window);
-        Subcat_settings_progile_button.render(window);
-        Subcat_settings_downloading_button.render(window);
-        Subcat_settings_updates_button.render(window);
-        Subcat_settings_debugging_button.render(window);
-        Subcat_settings_credits_button.render(window);
-        Subcat_settings_licences_button.render(window);
+        settingsGeneralCat_button.render(window);
+        settingsProfileCat_button.render(window);
+        settingsDownloadingCat_button.render(window);
+        settingsUpdatesCat_button.render(window);
+        settingsDebuggingCat_button.render(window);
+        settingsCreditsCat_button.render(window);
+        settingsLicencesCat_button.render(window);
 
         subcat_separator.render(window);
 
@@ -311,10 +304,10 @@ void window_draw()
                 window.draw(blockedPaths_text);
             }
 
-            SlimeRancher_steam_path_textbox.render(window);
-            SlimeRancher_instances_path_textbox.render(window);
-            SlimeRancher_steam_path_getfolder_button.render(window);
-            SlimeRancher_instances_path_getfolder_button.render(window);
+            steam_path_textbox.render(window);
+            instances_path_textbox.render(window);
+            steam_path_getfolder_button.render(window);
+            instances_path_getfolder_button.render(window);
 
             Show_prereleases_checkbox.render(window);
             Save_logs_files_checkbox.render(window);
@@ -327,13 +320,13 @@ void window_draw()
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
 
+            save_config_separator.render(window);
+
             window.draw(theme_label_text);
             theme_list_ddl.render(window);
 
             SRL_background_img_path_textbox.render(window);
             SRL_background_img_path_getfolder_button.render(window);
-
-            save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
@@ -391,6 +384,7 @@ void window_draw()
             DebugSettingsUI::acceptWarningCheckbox.render(window);
             DebugSettingsUI::acceptErrorCheckbox.render(window);
             DebugSettingsUI::acceptExceptionCheckbox.render(window);
+            DebugSettingsUI::enableDebuggingOnInstance.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
