@@ -2,13 +2,13 @@ int UI_current = 0;
 int options_ui = 0;
 int manage_ui = 0;
 
-std::string steam_game_dir;
-std::string mounted_instance;
-std::string instances_dir;
-std::string steamcmd_dir;
+std::string steam_game_dir = "";
+std::string mounted_instance = "";
+std::string instances_dir = "";
+std::string steamcmd_dir = "";
 
-std::string steam_profile_name;
-std::string steam_profile_passwd;
+std::string steam_profile_name = "";
+std::string steam_profile_passwd = "";
 
 bool save_log_files = true;
 bool display_log_colors = true;
@@ -16,7 +16,7 @@ bool show_prerelease_version = true;
 bool autolaunch_instances = true;
 bool show_warnings = true;
 
-std::string temp_mount;
+std::string temp_mount = "";
 bool is_mouse_pressed = false;
 bool is_mouse_rels = false;
 
@@ -40,10 +40,10 @@ bool acceptExceptionLogs = true;
 
 bool mountOnlyData = false;
 
-std::string srlBackgroundPath;
+std::string srlBackgroundPath = "";
 
-bool instanceDataLoading = false;
-bool instancesListLoading = false;
+std::atomic <bool> instanceDataLoading = false;
+std::atomic <bool> instancesListLoading = true;
 
 bool display_download_progress = false;
 
@@ -56,10 +56,10 @@ int user_offline_mode = 2;
 
 int screen_refresh_count = 0;
 
-std::string guard_code;
+std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.13";
-std::string saved_version;
+std::string launcher_version = "inDev 0.14";
+std::string saved_version = "";
 
 /// Launcher Paths ////
 
@@ -93,8 +93,8 @@ fs::path runtime_directory;
 //////////////////////////
 /// Scrollable iterations
 
-std::string instance_list_b;
-std::string instance_list_l;
+std::string instance_list_b = "";
+std::string instance_list_l = "";
 
 //////////////////////////
 
@@ -119,9 +119,9 @@ int theme_selected = ColorPalete::Bright;
 
 int downloader_selected = 0;
 
-std::string selected_instance;
+std::string selected_instance = "";
 
-std::string instance_UID;
+std::string instance_UID = "";
 
 #define UNMOUNTED_INSTANCE "Unmounted"
 #define UNKNOWN "UNKNOWN"

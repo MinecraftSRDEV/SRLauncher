@@ -219,42 +219,70 @@ std::string name_string;
 
 private:
 
+std::string combineFromStrings(const std::map <int, std::string>& input)
+{
+    std::string output;
+    size_t size = input.size();
+    int index = 0;
+
+    while (index <= size)
+    {
+        try
+        {
+            output += input.at(index);
+            if ((index + 1) < size)
+            {
+                output += " | ";
+            }
+            else
+            {
+                break;
+            }
+        }
+        catch(std::exception e) {}
+        index++;
+    }
+
+    return output;
+}
+
 void scan_mod_loaders()
 {
-    std::string modloaders_list;
+    std::map <int, std::string> loaders;
+    int index = 0;
+
     if (mods_attributes.StaysModtool_installed == true)
     {
-        modloaders_list = "Saty's mod tool";
+        loaders[index] = "Saty's mod tool";
+        index++;
     }
     if (mods_attributes.SatysModLoader_installed == true)
     {
-        modloaders_list = "Saty's mod loader";
+        loaders[index] = "Saty's mod loader";
+        index++;
     }
     if (mods_attributes.isBetterBuild04x_installed == true)
     {
-        modloaders_list = "NewBetterBuildMod";
+        loaders[index] = "NewBetterBuildMod";
+        index++;
     }
     if (mods_attributes.UMF_installed == true)
     {
-        if (!modloaders_list.empty())
-        {
-            modloaders_list += " | ";
-        }
-        modloaders_list += "UMF";
+        loaders[index] = "UMF";
+        index++;
     }
     if (mods_attributes.SRML_installed == true)
     {
-        if (!modloaders_list.empty())
-        {
-            modloaders_list += " | ";
-        }
-        modloaders_list += "SRML";
+        loaders[index] = "SRML";
+        index++;
     }
 
-    if (!modloaders_list.empty())
+    if (loaders.empty())
     {
-        modLoaders_text.setString(modloaders_list);    
+        loaders[index] = "Vanilla";
     }
+
+    modLoaders_text.setString(combineFromStrings(loaders));
 }
 
 void reposition()

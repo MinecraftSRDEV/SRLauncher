@@ -3,13 +3,13 @@ void reset_play_button_text();
 
 struct depotProsp
 {
-    std::string appid;
-    std::string depotid;
-    std::string manifestid;
-    std::string username;
-    std::string password;
-    std::string path;
-    std::string runpath;
+    std::string appid  = "";
+    std::string depotid  = "";
+    std::string manifestid  = "";
+    std::string username  = "";
+    std::string password  = "";
+    std::string path  = "";
+    std::string runpath  = "";
 };
 
 void runDownloader(const depotProsp& depot)
