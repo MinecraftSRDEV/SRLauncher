@@ -32,6 +32,7 @@
 #include <memory.h>
 #include <csignal>
 #include <commdlg.h>
+#include <atomic>
 
 #include <curl/curl.h>
 

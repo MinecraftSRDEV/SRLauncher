@@ -16,13 +16,13 @@ void instances_stat_refresh()
 int last_insnace_entry_y = 85;
 
 struct instanceAttribs {
-    std::string name;
-    std::string version;
-    std::string edited;
-    std::string iconId;
-    std::string importPath;
-    std::string path_str;
-    std::string playTime;
+    std::string name = "";
+    std::string version = "";
+    std::string edited = "";
+    std::string iconId = "";
+    std::string importPath = "";
+    std::string path_str = "";
+    std::string playTime = "";
 
     fs::path directory_path;
     InstanceModAttributes modsAttribs;
@@ -67,6 +67,9 @@ bool add_instance(fs::path path, int itr)
                 inst.playTime = "0";
             }
 
+            // log_message("working dir: " + fs::current_path().string(), LOG_INFO);
+            // Sleep(10);
+
             if (fs::exists(inst.path_str + "/SlimeRancher.exe") == true)
             {
                 instance_installed_status_placeholder = true;
@@ -102,6 +105,8 @@ bool add_instance(fs::path path, int itr)
             {
                 instance_installed_status_placeholder = false;
             }
+
+            // log_message(inst.path_str, LOG_INFO);
 
             instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, window, inst.modsAttribs, itr, inst.playTime);
             last_insnace_entry_y += 85;

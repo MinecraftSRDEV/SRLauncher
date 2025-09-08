@@ -1,29 +1,29 @@
 struct SRGamesaveInfo {
-    bool readable_version;
-    int format;
-    bool single_file;
+    bool readable_version = false;
+    int format = 0;
+    bool single_file = false;
 };
 
 struct SRVersion {
-    std::string version_name;
-    std::string release_date;
-    std::string manifest;
-    std::string version_type;
-    int itr;
-    std::string executable_hash;
-    std::string assembly_hash;
+    std::string version_name = "";
+    std::string release_date = "";
+    std::string manifest = "";
+    std::string version_type = "";
+    int itr = 0;
+    std::string executable_hash = "";
+    std::string assembly_hash = "";
     SRGamesaveInfo savegame_info;
-    std::string debugCompatybile;
+    std::string debugCompatybile = "";
 };
 
 struct InstanceModAttributes {
-    bool isModded;
+    bool isModded = false;
 
-    bool StaysModtool_installed;
-    bool SatysModLoader_installed;
-    bool isBetterBuild04x_installed;
-    bool SRML_installed;
-    bool UMF_installed;
+    bool StaysModtool_installed = false;
+    bool SatysModLoader_installed = false;
+    bool isBetterBuild04x_installed = false;
+    bool SRML_installed = false;
+    bool UMF_installed = false;
 
     std::vector <fs::directory_iterator> StaysModtool_mods_list;
     std::vector <fs::directory_iterator> SatysModLoader_mods_list;
@@ -41,37 +41,37 @@ struct WorldData {
 };
 
 struct SavegameData {
-    std::string name;
-    std::string displayedText;
-    std::string version;
-    std::string last_played;
-    int currency;
-    int day;
-    int slimepedia;
+    std::string name = "";
+    std::string displayedText = "";
+    std::string version = "";
+    std::string last_played = "";
+    int currency = 0;
+    int day = 0;
+    int slimepedia = 0;
 
-    int skip;
+    int skip = 0;
 };
 
 struct BackupData {
-    std::string name;
-    std::string date;
-    std::string source;
-    std::string filename;
-    int type;
+    std::string name = "";
+    std::string date = "";
+    std::string source = "";
+    std::string filename = "";
+    int type = 0;
 };
 
 struct ModAttribs {
-    std::string SRmodVersion;
-    std::string modName;
-    bool compatybile;
-    std::string modType;
+    std::string SRmodVersion = "";
+    std::string modName = "";
+    bool compatybile = false;
+    std::string modType = "";
 };
 
 struct UserData {
-    std::string uid;
-    std::string accountName;
-    std::string personalName;
-    bool offlinemode;
+    std::string uid = "";
+    std::string accountName = "";
+    std::string personalName = "";
+    bool offlinemode = false;
 };
 
 struct SessionData {
