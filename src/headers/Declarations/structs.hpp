@@ -63,8 +63,10 @@ struct BackupData {
 struct ModAttribs {
     std::string SRmodVersion = "";
     std::string modName = "";
+    std::string spoofedName = "";
     bool compatybile = false;
     std::string modType = "";
+    int modListType = 0;
 };
 
 struct UserData {
