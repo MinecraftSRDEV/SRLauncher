@@ -22,3 +22,5 @@ sf::Cursor crossCursor;
 ProgressBar downloadingProgress;
 
 std::map <std::string, sf::Texture> instance_icons_textures;
+
+sf::Sprite loading_icon;

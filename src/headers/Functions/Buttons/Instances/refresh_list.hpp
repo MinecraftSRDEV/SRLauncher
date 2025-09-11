@@ -158,6 +158,7 @@ void loadInstancesList(fs::path instances_path)
     }
 
     instancesListLoading = false;
+    loadingAnimationDisplay = false;
 
     setUiProtection(false);
 }
@@ -179,6 +180,8 @@ void prepeareProcess(bool async = false)
     dataLoading_text.setString("Loading instances...");
     dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
     instancesListLoading = true;
+    loadingAnimationDisplay = true;
+    loadingAnimation::setupLoadingAnimation(dataLoading_text.getPosition(), "pink");
 
     if (async)
     {

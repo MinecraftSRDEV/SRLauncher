@@ -36,7 +36,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
         instance_modsave_directory = instance_mods_directory / "BetterBuild";
         try
         {
-            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index, 1);
             
             betterBuildStatus = checkBetterBuildInstalled("BetterBuildMod", instance_mods_directory);
             if (betterBuildStatus)
@@ -64,7 +64,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
         {
             instance_mods_directory = instance_directory / "Mods";
             instance_modsave_directory = instance_directory / "BetterBuild";
-            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index, 1);
             betterBuildStatus = checkBetterBuildInstalled("BetterBuild", instance_mods_directory);
             if (betterBuildStatus)
             {
@@ -82,14 +82,14 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
         try
         {
             instance_mods_directory = instance_directory / "SRML" / "Mods";
-            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            scanModsFolder(instance_mods_directory, ".dll", last_mod_ir_pos, instance_id, 5, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index, 1);
         }
         catch (fs::filesystem_error e) {}
 
         try
         {
             instance_mods_directory = instance_directory / "uModFramework" / "Mods";
-            scanModsFolder(instance_mods_directory, ".umfmod", last_mod_ir_pos, instance_id, UMF_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index);
+            scanModsFolder(instance_mods_directory, ".umfmod", last_mod_ir_pos, instance_id, UMF_ld, InstanceMods_list, instance_mods_folder_list, 130, InstanceModsIndexing, last_mod_index, 1);
         }
         catch (fs::filesystem_error e) {}
 
@@ -109,6 +109,8 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
     setAndPositionMngMainTexts({instance_id, instances_list[instance_id].getIconTexture(), std::to_string(InstanceMods_list.size()), std::to_string(vanillasaves_list.size()), std::to_string(betterbuildsaves_list.size()), std::to_string(LauncherMods_list.size()), betterBuildStatus, betterBuildUid});
 
     instanceDataLoading = false;
+    loadingAnimationDisplay = false;
+    
     manage_ui = scene;
     window.setMouseCursor(arrowCursor);
 }
@@ -138,6 +140,8 @@ void instance_manage(std::string instance_id, int scene)
         dataLoading_text.setString("Loading instance data...");
         dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
         instanceDataLoading = true;
+        loadingAnimationDisplay = true;
+        loadingAnimation::setupLoadingAnimation(dataLoading_text.getPosition(), "pink");
 
         std::thread loadDataThr(loadInstanceData, instance_id, instance_directory, scene);
         loadDataThr.detach();

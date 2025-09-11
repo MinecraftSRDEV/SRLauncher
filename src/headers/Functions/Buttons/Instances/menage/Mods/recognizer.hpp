@@ -30,7 +30,7 @@ modMeta readModMeta(std::string path)
     return meta;
 }
 
-int add_mod_to_list(int last_mod_ir_pos, const auto& entry, const fs::path& folderName, int loaderType, const std::string& instanceID, std::map <std::string, ModClass>& mods_list, std::vector <ModAttribs>& attribs, int Xposition, std::map <int, std::string>& modsIndex, int& index)
+int add_mod_to_list(int last_mod_ir_pos, const auto& entry, const fs::path& folderName, int loaderType, const std::string& instanceID, std::map <std::string, ModClass>& mods_list, std::vector <ModAttribs>& attribs, int Xposition, std::map <int, std::string>& modsIndex, int& index, int listType)
 {
     ModAttribs mod;
     modMeta meta;
@@ -49,6 +49,7 @@ int add_mod_to_list(int last_mod_ir_pos, const auto& entry, const fs::path& fold
         catch (std::exception e) {}
 
         mod.compatybile = false;
+        mod.modListType = listType;
         
         switch (loaderType)
         {
@@ -117,9 +118,24 @@ int add_mod_to_list(int last_mod_ir_pos, const auto& entry, const fs::path& fold
                 break;
             }
         }
-        
-        mods_list[output].create(Xposition, last_mod_ir_pos, mod, font, window, theme_selected);
-        modsIndex[index] = mod.modName;
+
+        mod.spoofedName = mod.modName;
+        if (mods_list.count(mod.modName) != 0)
+        {
+            mod.spoofedName = mod.modName + "(" + std::to_string(mods_list.count(mod.modName) + 1) + (")");
+        }
+
+        mods_list[mod.spoofedName].create(Xposition, last_mod_ir_pos, mod, font, window, theme_selected);
+        mods_list[mod.spoofedName].setFunction(modsManager::moveFunction);
+        mods_list[mod.spoofedName].changeButtonType(listType);
+
+        modsIndex[index] = mod.spoofedName;
+
+        // std::string indexpos = std::to_string(index);
+
+        // log_message("mod.modName: " + mod.modName, LOG_INFO);
+        // log_message("mod.index: " + indexpos, LOG_INFO);
+
         index++;
 
         attribs.emplace_back(mod);

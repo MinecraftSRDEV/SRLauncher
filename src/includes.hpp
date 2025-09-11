@@ -62,6 +62,8 @@
 
 #include "headers/Functions/window/create.hpp"
 
+#include "headers/Functions/Animations/loadingAnimation.hpp"
+
 #include "headers/Functions/Animations/downloading.hpp"
 
 #include "headers/Functions/Userdata/slash_remover.hpp"
@@ -120,6 +122,7 @@
 #include "headers/Functions/Buttons/Instances/menage/backups/backupRestore.hpp"
 #include "headers/Functions/Buttons/Instances/menage/backups/backupReveal.hpp"
 #include "headers/Functions/Buttons/Instances/menage/backups/bcScanner.hpp"
+#include "headers/Functions/Buttons/Instances/menage/Mods/moveModFunction.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/binaryReader.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/unlocker.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/BBWremover.hpp"

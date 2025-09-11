@@ -26,6 +26,7 @@ namespace InstanceslistElements
     sfg::TransparrentBackground instances_bg;
     sf::Text no_instances_text;
     sf::Text instances_vanish_tooltip_text;
+    sf::RectangleShape instancesScrollingArea;
 }
 
 namespace CreateInstanceUI

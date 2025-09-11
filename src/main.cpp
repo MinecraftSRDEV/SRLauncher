@@ -26,6 +26,7 @@
 #include <filesystem>
 #include <cstdlib>
 #include <cstdint>
+#include <cmath>
 #include <windows.h>
 #include <shlobj.h>
 #include <iomanip>
@@ -68,6 +69,8 @@ void load_sequence()
     ///// Set SFML-GUI Buttons attributes onetime /////
     setButtons();
 
+    loadingAnimation::setupLoadingAnimation(sf::Vector2f(0, 0), "pink");
+
     console.unlockQueue();
     log_message("Console ready", LogTypes::LOG_INFO);
 
@@ -107,6 +110,8 @@ int main()
             updateButtonsBlockingState();
 
             postStartTasks();   
+
+            loadingAnimation::loadingAnimation();
         }
         window_draw();
         display_window();

@@ -56,9 +56,11 @@ int user_offline_mode = 2;
 
 int screen_refresh_count = 0;
 
+std::atomic <bool> loadingAnimationDisplay = false;
+
 std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.14";
+std::string launcher_version = "inDev 0.15";
 std::string saved_version = "";
 
 /// Launcher Paths ////

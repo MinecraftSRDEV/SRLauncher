@@ -9,7 +9,7 @@
  * @param mods_list pointer to all mods list
  * @param attribs pointer to mods counter
  */
-void scanModsFolder(const fs::path& folder_path, const std::string& mod_file_ex, int& mod_list_itr, const std::string& selected_instance_id, int mod_loader, std::map <std::string, ModClass>& mods_list, std::vector <ModAttribs>& attribs, int Xposition, std::map <int, std::string>& modsIndex, int& index)
+void scanModsFolder(const fs::path& folder_path, const std::string& mod_file_ex, int& mod_list_itr, const std::string& selected_instance_id, int mod_loader, std::map <std::string, ModClass>& mods_list, std::vector <ModAttribs>& attribs, int Xposition, std::map <int, std::string>& modsIndex, int& index, int listType)
 {
     for (const auto& entry : fs::directory_iterator(folder_path))
     {
@@ -20,13 +20,13 @@ void scanModsFolder(const fs::path& folder_path, const std::string& mod_file_ex,
             {
                 if (modEntry.is_regular_file() and modEntry.path().filename().extension() == mod_file_ex)
                 {
-                    mod_list_itr += add_mod_to_list(mod_list_itr, modEntry, folderPath, mod_loader, selected_instance_id, mods_list, attribs, Xposition, modsIndex, index);
+                    mod_list_itr += add_mod_to_list(mod_list_itr, modEntry, folderPath, mod_loader, selected_instance_id, mods_list, attribs, Xposition, modsIndex, index, listType);
                 }
             }
         }
         else if (entry.is_regular_file() and entry.path().filename().extension() == mod_file_ex)
         {
-            mod_list_itr += add_mod_to_list(mod_list_itr, entry, folderPath, mod_loader, selected_instance_id, mods_list, attribs, Xposition, modsIndex, index);
+            mod_list_itr += add_mod_to_list(mod_list_itr, entry, folderPath, mod_loader, selected_instance_id, mods_list, attribs, Xposition, modsIndex, index, listType);
         }
     }
 }

@@ -65,6 +65,22 @@ void update(sf::Vector2f& mouse)
     move_button.setBlockState(!canBeInstalled);
 }
 
+typedef void (*FunctionType)();
+
+void setFunction(FunctionType function)
+{
+    cachedFunction = function;
+    move_button.setFunction(cachedFunction);
+}
+
+void changeButtonType(int type)
+{
+    if (type == 0)
+    move_button.setText("Install");
+    else
+    move_button.setText("Remove");
+}
+
 sf::Vector2f getPOsition()
 {
     return background.getPosition();
@@ -73,6 +89,11 @@ sf::Vector2f getPOsition()
 sf::FloatRect getHitbox()
 {
     return background.getGlobalBounds();
+}
+
+sf::FloatRect getMoveButtonHitbox()
+{
+    return move_button.hitbox();
 }
 
 ModAttribs getAttribs()
@@ -145,4 +166,6 @@ sf::Text mod_srversion;
 sf::Text compatybile_text;
 
 sfg::Button move_button;
+
+FunctionType cachedFunction = nullptr;
 };

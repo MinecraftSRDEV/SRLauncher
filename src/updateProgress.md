@@ -1,3 +1,16 @@
+Planned in 0.15
+
+Started in 09.09.25
+             
+\\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
+
+- add scrolling area to instances list                                                 Finished
+- add animation while loading                                                          Finished
+- add function to mods explorer                                                        Finished 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Planned in 0.14
 
 Started in 08.09.25
@@ -66,6 +79,12 @@ Started 12.05.25
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Temporarily postponed:
+
+- add function to BBW gamesaves slots
+- add function to backups manager buttons 
+- mounting process mapping
+
 Features may will be added in future:
 
 - More languages
@@ -80,5 +99,4 @@ Ideas:
 
 - Migration to SFML 3
 - SRML mods manager
-- Animation while loading (Slime from game loading screen)
 - Support for versions unavailable on Steam servers

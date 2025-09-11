@@ -416,4 +416,9 @@ void window_draw()
     }
 
     devUiView.render(window);
+
+    if (loadingAnimationDisplay)
+    {
+        window.draw(loading_icon);    
+    }
 }
