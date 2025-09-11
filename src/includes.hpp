@@ -62,6 +62,8 @@
 
 #include "headers/Functions/window/create.hpp"
 
+#include "headers/Functions/Animations/loadingAnimation.hpp"
+
 #include "headers/Functions/Animations/downloading.hpp"
 
 #include "headers/Functions/Userdata/slash_remover.hpp"

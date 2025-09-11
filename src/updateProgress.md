@@ -4,8 +4,8 @@ Started in 09.09.25
              
 \\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
 
-- add scrolling area to instances list                                                 InProgress
-- add animation while loading                                                          InProgress
+- add scrolling area to instances list                                                 Finished
+- add animation while loading                                                          Finished
 - add function to mods explorer                                                        Finished 
 
 

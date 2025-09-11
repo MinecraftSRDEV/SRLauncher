@@ -41,6 +41,7 @@ void events_loop()
         {
             if (instancesListLoading == false)
             {
+                if (instancesScrollingArea.getGlobalBounds().contains(mouse_pos))
                 scrollInstancesList(event, mouse_pos);
             }
         }

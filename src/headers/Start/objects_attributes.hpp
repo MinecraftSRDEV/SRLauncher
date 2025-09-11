@@ -121,6 +121,10 @@ void setShapesAttributes()
     launcherModsMouseWorkingBox.setPosition(sf::Vector2f(695, 5));
     launcherModsMouseWorkingBox.setFillColor(sf::Color::Transparent);
 
+    instancesScrollingArea.setSize(sf::Vector2f(1280, 629));
+    instancesScrollingArea.setPosition(sf::Vector2f(0, 84));
+    instancesScrollingArea.setFillColor(sf::Color::Transparent);
+
     downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 
     InstanceIconBar::selectedBG.setSize(sf::Vector2f(80, 80));

@@ -109,6 +109,8 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
     setAndPositionMngMainTexts({instance_id, instances_list[instance_id].getIconTexture(), std::to_string(InstanceMods_list.size()), std::to_string(vanillasaves_list.size()), std::to_string(betterbuildsaves_list.size()), std::to_string(LauncherMods_list.size()), betterBuildStatus, betterBuildUid});
 
     instanceDataLoading = false;
+    loadingAnimationDisplay = false;
+    
     manage_ui = scene;
     window.setMouseCursor(arrowCursor);
 }
@@ -138,6 +140,8 @@ void instance_manage(std::string instance_id, int scene)
         dataLoading_text.setString("Loading instance data...");
         dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
         instanceDataLoading = true;
+        loadingAnimationDisplay = true;
+        loadingAnimation::setupLoadingAnimation(dataLoading_text.getPosition(), "pink");
 
         std::thread loadDataThr(loadInstanceData, instance_id, instance_directory, scene);
         loadDataThr.detach();
