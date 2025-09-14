@@ -44,6 +44,123 @@ bool restoreSteam()
     return false;
 }
 
+void updateLastPlayedList()
+{
+    fs::path pathToFile = fs::path(defaultDir / "instances.json");
+
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+
+    size_t indexes_count = 0;
+
+    if (fs::exists(pathToFile))
+    {
+        try
+        {
+            std::map <int, miniInstanceList::details> preloadData;
+            try
+            {
+                const auto json = JSON::parseFromFile(pathToFile.string());    
+                
+                for (size_t i = 1; i < 6; i++)
+                {
+                    miniInstanceList::details newDet = miniInstanceList::getDetails(json, i);
+                    
+                    if (!newDet.name.empty())
+                    {
+                        preloadData[i] = newDet;
+                        indexes_count++;
+                    }
+                }    
+            }
+            catch (std::exception e) {}
+
+            
+
+            std::map <int, miniInstanceList::details> newData;
+
+            newData[1].index = 1;
+            newData[1].lastPlayed = convertTmToString(*now);
+            newData[1].name = mounted_instance;
+
+            bool skip = false;
+
+            for (const auto& pair : preloadData)
+            {
+                if (preloadData[pair.first].name == mounted_instance)
+                {
+                    skip = true;
+                    break;
+                }
+            }
+
+            size_t newPosition = 2;
+
+            for (const auto& itr : preloadData)
+            {
+                if (skip)
+                {
+                    if (itr.second.name == mounted_instance)
+                    {
+                        newPosition--;
+                    }
+                    else
+                    {
+                        newData[newPosition].index = newPosition;
+                        newData[newPosition].lastPlayed = itr.second.lastPlayed;
+                        newData[newPosition].name = itr.second.name;
+                        newPosition++; 
+                    }
+                }
+                else
+                {
+                    newData[newPosition].index = newPosition;
+                    newData[newPosition].lastPlayed = itr.second.lastPlayed;
+                    newData[newPosition].name = itr.second.name;
+                    newPosition++;    
+                }
+                
+
+                if (newPosition == 6)
+                {
+                    break;
+                }
+            }
+
+            JSONEncoder::JSONObject output;
+
+            std::string outputJson;
+
+            for (const auto& saveItr : newData)
+            {
+                JSONEncoder::JSONObject *indexObject = new JSONEncoder::JSONObject;
+                indexObject->add("last", new JSONEncoder::JSONString(saveItr.second.lastPlayed));
+                indexObject->add("name", new JSONEncoder::JSONString(saveItr.second.name));
+
+                output.add("index" + std::to_string(saveItr.second.index), indexObject);
+            }
+            outputJson = JSONEncoder::formatJson(output.stringify());
+
+            std::ofstream saveFile;
+            saveFile.open(pathToFile.string());
+            saveFile << outputJson;
+            saveFile.close();
+            return;
+        }
+        catch(const std::exception& e)
+        {
+            
+        }    
+    }
+    else
+    {
+        std::ofstream genFile;
+        genFile.open(pathToFile.string());
+        genFile.close();
+        updateLastPlayedList();
+    }
+}
+
 /**
  * Launches the game executable.
  * 
@@ -78,10 +195,12 @@ void run_game(std::string path, std::string gamepath)
 
     log_message("Session play time: " + std::to_string(time.hours) + " H " + std::to_string(time.minutes) + " M " + std::to_string(time.seconds) + " S", LogTypes::LOG_INFO);
     updatePlayTime(mounted_instance, gamepath, session);
+
     reset_play_button_text();
 
     restoreSteam();
     clearSessionFile();
+    miniInstanceList::prepare();
 }
 
 /**
@@ -253,7 +372,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         versionType = versionsData_map[instances_list[mounted_instance].getVer()].version_type;
         versionName = versionsData_map[instances_list[mounted_instance].getVer()].version_name;
 
-        if (instancesListLoading == false)
+        if (instancesLoader::instancesListLoading == false)
         {
             break;
         }
@@ -330,6 +449,8 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     if (launch_game == true)
     {
         createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
+
+        updateLastPlayedList();
 
         if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
         {

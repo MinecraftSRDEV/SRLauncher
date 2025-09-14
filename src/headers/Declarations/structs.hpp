@@ -31,6 +31,29 @@ struct InstanceModAttributes {
     std::vector <fs::directory_iterator> SRML_mods_list;
 };
 
+namespace miniInstanceList
+{
+    struct attributes{
+        sf::Texture& icon_texture;
+        sf::Texture& clock_texture;
+
+        sf::Font& font;
+        sf::RenderWindow& window;
+
+        int x;
+        int y;
+        int size_x;
+        int size_y;
+        int it_number;
+
+        std::string lastPlayed;
+        std::string name;
+        std::string version;
+        InstanceModAttributes modsAtrb;
+        std::string playtime_count;
+    };
+};
+
 struct WorldData {
     int16_t version;
     bool levelLocked;

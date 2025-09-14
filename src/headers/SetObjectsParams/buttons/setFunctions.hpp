@@ -4,7 +4,7 @@ void save_profiles();
 
 void clearConsole()
 {
-    console.clearText();
+    ConsoleElements::console.clearText();
     log_message("Console ready", LogTypes::LOG_INFO);
 }
 
@@ -92,12 +92,14 @@ void setFunctions()
     DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setFunction(DebugBridge::saveLogs);
     DebugSettingsUI::enableDebuggingOnInstance.setFunction(DebugBridge::applyDebugPathToInstance);
 
-    manage_main_back_button.setFunction(manageCategories::exit_function);
-    manage_betterbuild_world_button.setFunction(manageCategories::bbworls);
-    manage_vanilla_saves_button.setFunction(manageCategories::vanilla);
-    manage_betterbuild_saves_button.setFunction(manageCategories::bbsaves);
-    manage_mods_button.setFunction(manageCategories::mods);
-    manage_backups_button.setFunction(manageCategories::backups);
+    ManageSubcatListUI::informations_button.setFunction(manageCategories::details);
+    ManageSubcatListUI::main_back_button.setFunction(manageCategories::exit_function);
+    ManageSubcatListUI::betterbuild_world_button.setFunction(manageCategories::bbworls);
+    ManageSubcatListUI::vanilla_saves_button.setFunction(manageCategories::vanilla);
+    ManageSubcatListUI::betterbuild_saves_button.setFunction(manageCategories::bbsaves);
+    ManageSubcatListUI::mods_button.setFunction(manageCategories::mods);
+    ManageSubcatListUI::backups_button.setFunction(manageCategories::backups);
+    ManageSubcatListUI::debug_button.setFunction(manageCategories::debug);
 
     MNG_Instance_saves_text.setFunction(manageCategories::vanilla);
     MNG_instance_installed_mods_text.setFunction(manageCategories::mods);
@@ -106,5 +108,5 @@ void setFunctions()
 
     version_back_button.setFunction(launcherCategories::versions);
 
-    console_clear_button.setFunction(clearConsole);
+    ConsoleElements::console_clear_button.setFunction(clearConsole);
 }

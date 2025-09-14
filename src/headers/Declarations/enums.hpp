@@ -27,6 +27,7 @@ enum ManageCategories {
     BETTERBUILD_WORLDS,
     BACKUPS,
     MODS_PAGE,
+    DEBUG_PAGE,
     BETTERBUILDWORLDS_SAVESLOTS,
 };
 

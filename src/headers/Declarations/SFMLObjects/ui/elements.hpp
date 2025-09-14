@@ -16,7 +16,25 @@ namespace MainpageElements
     sf::Text Launcher_version_text;
     sf::Text downloading_progress_text;
     SteamGuardAuthClass GuardBox;
+
+    sfg::TransparrentBackground main_page_last_played_bg;
+    sf::RectangleShape lastPlayedMouseBox;
+    sf::Text loadingMiniInstancesText;
+    sf::Text noLastPlayedInstancesText;
+
+    sfg::TransparrentBackground main_page_details_bg;
+    sf::Text lastPlayedText;
+    sf::Text totalPlayTimeInstanceText;
+    sf::Text debugWarnText;
+
+    sf::Text totalLauncherPlaytimeText;
+}
+
+namespace ConsoleElements
+{
+    sf::RectangleShape consoleMouseBox;
     sfg::Button console_clear_button;
+    sfg::Checkbox disable;
 }
 
 namespace InstanceslistElements
@@ -175,14 +193,15 @@ namespace VersionsElements
 
 namespace ManageSubcatListUI
 {
-    sfg::Button manage_informations_button;
-    sfg::Button manage_vanilla_saves_button;
-    sfg::Button manage_betterbuild_saves_button;
-    sfg::Button manage_betterbuild_world_button;
-    sfg::Button manage_backups_button;
-    sfg::Button manage_mods_button;
-    sfg::Button manage_main_back_button;
-    sfg::TransparrentBackground manage_cats_separator;
+    sfg::Button informations_button;
+    sfg::Button vanilla_saves_button;
+    sfg::Button betterbuild_saves_button;
+    sfg::Button betterbuild_world_button;
+    sfg::Button backups_button;
+    sfg::Button mods_button;
+    sfg::Button debug_button;
+    sfg::Button main_back_button;
+    sfg::TransparrentBackground cats_separator;
 }
 
 namespace ManageMainUI
@@ -207,6 +226,15 @@ namespace ManageModsUI
     sfg::TransparrentBackground mods_separator;
     sf::RectangleShape instanceModsMouseWorkingBox;
     sf::RectangleShape launcherModsMouseWorkingBox;
+}
+
+
+namespace ManageDebug
+{
+    sf::Text assemblyDataText;
+    sfg::TransparrentBackground assemblyInfoBg;
+    sfg::Button debugPatchButton;
+    sf::Text debugPatchStatusText;
 }
 
 namespace ManageOthers

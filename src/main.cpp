@@ -34,6 +34,7 @@
 #include <csignal>
 #include <commdlg.h>
 #include <atomic>
+#include <mutex>
 
 #include <curl/curl.h>
 
@@ -71,7 +72,7 @@ void load_sequence()
 
     loadingAnimation::setupLoadingAnimation(sf::Vector2f(0, 0), "pink");
 
-    console.unlockQueue();
+    ConsoleElements::console.unlockQueue();
     log_message("Console ready", LogTypes::LOG_INFO);
 
     ///// Set functions to buttons from SFML-GUI onetime /////
@@ -107,11 +108,15 @@ int main()
         {	
             mouse_left();
 
+            mouseContains();
+
             updateButtonsBlockingState();
 
             postStartTasks();   
 
             loadingAnimation::loadingAnimation();
+
+            miniInstanceList::ifProcessFinished();
         }
         window_draw();
         display_window();

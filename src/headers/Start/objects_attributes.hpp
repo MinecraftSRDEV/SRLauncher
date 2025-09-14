@@ -46,9 +46,17 @@ void setRuntimeTexts()
     setTextAtt(repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
     setTextAtt(issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
 
+    setTextAtt(lastPlayedText, "", 26, 730, 70);
+    setTextAtt(noLastPlayedInstancesText, "No instances have been played recently", 26, 120, 140);
+    setTextAtt(totalPlayTimeInstanceText, "", 26, 730, 120);
+    setTextAtt(totalLauncherPlaytimeText, "", 26, 730, 70);
+    setTextAtt(debugWarnText, "Debugging is enabled!", 26, 730, 400, sf::Color::Red);
+
     setTextAtt(dataLoading_text, "", 32, 130, 380);
 
     setTextAtt(downloading_progress_text, "", 20, 130, 380);
+
+    setTextAtt(loadingMiniInstancesText, "", 20, 120, 140);
 
     setTextAtt(version_description_text, "", 26, 10, 10);
 
@@ -77,6 +85,8 @@ void setRuntimeTexts()
     setTextAtt(MNG_betterBuild_UID, "", 26, 130, 550);
 
     setTextAtt(tldr_text, "TLDR. This things are hard to do. If some thing don't work correctly please be patient, will be added\nin future. I don't have access to every informations, old mod files and more... so its hard to make\nuniversal tool without that. If some versions informations in launcher database are incorrect, please\ntell me about that.", 26, 130, 630, sf::Color::Red);
+
+    setTextAtt(ManageDebug::assemblyDataText, "", 18, 840, 15);
 
     setTextAtt(bbw_tittle_text, "", 26, 0, 0);
 
@@ -124,6 +134,14 @@ void setShapesAttributes()
     instancesScrollingArea.setSize(sf::Vector2f(1280, 629));
     instancesScrollingArea.setPosition(sf::Vector2f(0, 84));
     instancesScrollingArea.setFillColor(sf::Color::Transparent);
+
+    lastPlayedMouseBox.setSize(sf::Vector2f(680, 400));
+    lastPlayedMouseBox.setPosition(sf::Vector2f(20, 45));
+    lastPlayedMouseBox.setFillColor(sf::Color::Transparent);
+
+    ConsoleElements::consoleMouseBox.setSize(sf::Vector2f(1240, 240));
+    ConsoleElements::consoleMouseBox.setPosition(sf::Vector2f(20, 450));
+    ConsoleElements::consoleMouseBox.setFillColor(sf::Color::Transparent);
 
     downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 

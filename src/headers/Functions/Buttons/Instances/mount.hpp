@@ -114,6 +114,7 @@ void mount_function(std::string instance_id)
     {
         unmount_funtcion();
         instances_stat_refresh();
+        miniInstanceList::statRefresh();
     }
     else
     {
@@ -223,6 +224,7 @@ void mount_function(std::string instance_id)
                 log_message("Mounted instance: " + instances_list[instance_id].getID() + " Version: " + instances_list[instance_id].getVer(), LogTypes::LOG_INFO);
                 update_config_file();
                 instances_stat_refresh();
+                miniInstanceList::statRefresh();
                 
             }
             catch (fs::filesystem_error& e)

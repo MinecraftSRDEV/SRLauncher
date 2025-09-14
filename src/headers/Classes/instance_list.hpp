@@ -217,6 +217,11 @@ std::string getPlaytime()
 
 std::string name_string;
 
+Playtime getTime()
+{
+    return time;
+}
+
 private:
 
 std::string combineFromStrings(const std::map <int, std::string>& input)
@@ -341,7 +346,7 @@ std::string buildPlaytimeString()
     }
     catch (std::exception e) {};
 
-    Playtime time = calcPlaytime(value);
+    time = calcPlaytime(value);
 
     if (time.miliseconds < sf::Int64(1))
     {
@@ -377,6 +382,8 @@ int number_on_list = 0;
 std::string playtime = "0";
 
 bool installed;
+
+Playtime time;
 
 sf::RectangleShape backgorund;
 sf::Text instance_name_text;

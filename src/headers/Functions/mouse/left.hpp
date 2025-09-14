@@ -35,11 +35,38 @@ void mouse_left()
             Mounted_instance_info_text.setPosition(sf::Vector2f((1280 / 2) - (Mounted_instance_info_text.getLocalBounds().width / 2), 725));
         }
 
-        console_clear_button.update(mouse);
+        ConsoleElements::console_clear_button.update(mouse);
 
         if (display_guard_window == true)
         {
             GuardBox.update(mouse);
+        }
+
+        if (!miniInstanceList::dataLoading)
+        {
+            if (miniInstancesListMap.size() > 0)
+            {
+                for (const auto& itr : miniInstancesListMap)
+                {
+                    miniInstancesListMap[itr.first].update(mouse);
+
+                    if (miniInstancesListMap[itr.first].getMountButtonHitbox().contains(mouse))
+                    {
+                        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                        {
+                            if (is_mouse_pressed == false)
+                            {
+                                is_mouse_pressed = true;
+                                mount_function(miniInstancesListMap[itr.first].getID());
+                            }
+                        }
+                        else
+                        {
+                            is_mouse_pressed = false;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -299,22 +326,72 @@ void mouse_left()
             RestoreSettings_button.update(mouse);
             SaveConfig_button.update(mouse);
         }
+        if (options_ui == SettingsCategories::CREDITS_PAGE)
+        {
+            if (github_page_link_text.getGlobalBounds().contains(mouse))
+            {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(github_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
+            }
+            if (repos_page_link_text.getGlobalBounds().contains(mouse))
+            {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(repos_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
+            }
+            if (issules_page_link_text.getGlobalBounds().contains(mouse))
+            {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(issules_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
+            }
+        }
     }
 
     if (UI_current == UiPages::ManageMenu)
     {
-        manage_vanilla_saves_button.update(mouse);
-        manage_betterbuild_saves_button.update(mouse);
-        manage_betterbuild_world_button.update(mouse);
-        manage_backups_button.update(mouse);
-        manage_mods_button.update(mouse);
-        manage_main_back_button.update(mouse);
+        ManageSubcatListUI::informations_button.update(mouse);
+        ManageSubcatListUI::vanilla_saves_button.update(mouse);
+        ManageSubcatListUI::betterbuild_saves_button.update(mouse);
+        ManageSubcatListUI::betterbuild_world_button.update(mouse);
+        ManageSubcatListUI::backups_button.update(mouse);
+        ManageSubcatListUI::mods_button.update(mouse);
+        ManageSubcatListUI::main_back_button.update(mouse);
+        ManageSubcatListUI::debug_button.update(mouse);
 
         switch(manage_ui)
         {
             case MNG_MAIN_PAGE:
             {
-                if (instanceDataLoading == false)
+                if (instancesLoader::instanceDataLoading == false)
                 {
                     MNG_Instance_saves_text.update(mouse);
                     MNG_instance_installed_mods_text.update(mouse);

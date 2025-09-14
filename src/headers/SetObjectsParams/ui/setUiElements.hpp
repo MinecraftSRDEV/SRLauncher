@@ -1,15 +1,17 @@
 void setButtons()
 {
     UIElements.createButton(launch_game_button, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, true);
-    UIElements.createTransparrentBg(main_page_playbar_bg, 0, 700, 1280, 100, true);
+    UIElements.createTransparrentBg(MainpageElements::main_page_playbar_bg, 0, 700, 1280, 100, true);
+    UIElements.createTransparrentBg(MainpageElements::main_page_last_played_bg, 20, 45, 680, 400, false);
+    UIElements.createTransparrentBg(MainpageElements::main_page_details_bg, 710, 45, 550, 400, false);
 
     UIElements.createCheckbox(DebuggerMainmenuLayout::acceptInfoCheckbox, 30, 30, 130, 85, "Info", 12, font, false);
 
     UIElements.createTransparrentBg(categories_bg, 0, 0, 1280, 40, true);
     UIElements.createButton(MainCategory_button, -2, 0, 320, 35, font, "Main", true);
-    UIElements.createButton(InstancesCategory_button, 320, 0, 320, 35, font, "Instances", true);
-    UIElements.createButton(SettingsCategory_button, 642, 0, 320, 35, font, "Settings", true);
-    UIElements.createButton(VersionsCategory_button, 964, 0, 320, 35, font, "Slime Rancher Versions", true);
+    UIElements.createButton(InstancesCategory_button, (0 + 320), 0, 320, 35, font, "Instances", true);
+    UIElements.createButton(SettingsCategory_button, (0 + 320 + 2 + 320), 0, 320, 35, font, "Settings", true);
+    UIElements.createButton(VersionsCategory_button, (0 + 320 + 2 + 320 + 2 + 320), 0, 320, 35, font, "Slime Rancher Versions", true);
 
     UIElements.createTransparrentBg(settings_bg, 0, 40, 1280, 800, true);
 
@@ -94,12 +96,18 @@ void setButtons()
 
     UIElements.createTransparrentBg(versions_bg, 0, 40, 1280, 800, true);
 
-    UIElements.createButton(manage_vanilla_saves_button, 0, 0, 120, 40, font, "Vanilla saves", false);
-    UIElements.createButton(manage_betterbuild_saves_button, 0, 42, 120, 40, font, "Mods saves", false);
-    UIElements.createButton(manage_betterbuild_world_button, 0, 84, 120, 40, font, "BetterBuild worlds", false);
-    UIElements.createButton(manage_backups_button, 0, 126, 120, 40, font, "Backups manager", false);
-    UIElements.createButton(manage_mods_button, 0, 168, 120, 40, font, "Mods", false);
-    UIElements.createButton(manage_main_back_button, 0, 760, 120, 40, font, "Back", false);
+    UIElements.createButton(ManageSubcatListUI::informations_button, 0, 0, 120, 40, font, "Details", false);
+    UIElements.createButton(ManageSubcatListUI::vanilla_saves_button, 0, (0 + 42), 120, 40, font, "Vanilla saves", false);
+    UIElements.createButton(ManageSubcatListUI::betterbuild_saves_button, 0, (0 + 42 + 42), 120, 40, font, "Mods saves", false);
+    UIElements.createButton(ManageSubcatListUI::betterbuild_world_button, 0, (0 + 42 + 42 + 42), 120, 40, font, "BetterBuild worlds", false);
+    UIElements.createButton(ManageSubcatListUI::backups_button, 0, (0 + 42 + 42 + 42 + 42), 120, 40, font, "Backups manager", false);
+    UIElements.createButton(ManageSubcatListUI::mods_button, 0, (0 + 42 + 42 + 42 + 42 + 42), 120, 40, font, "Mods", false);
+    UIElements.createButton(ManageSubcatListUI::debug_button, 0, (0 + 42 + 42 + 42 + 42 + 42 + 42), 120, 40, font, "Debug", false);
+    UIElements.createButton(ManageSubcatListUI::main_back_button, 0, 760, 120, 40, font, "Back", false);
+
+    UIElements.createTransparrentBg(ManageDebug::assemblyInfoBg, 830, 0, 450, 800, true);
+
+    UIElements.createTransparrentBg(ManageSubcatListUI::cats_separator, 125, 3, 0, 794, true);
 
     UIElements.createButton(BBGamesavesSlots::A, 130, 400, 120, 120, font, "Slot A", false);
     UIElements.createButton(BBGamesavesSlots::B, 260, 400, 120, 120, font, "Slot B", false);
@@ -110,8 +118,6 @@ void setButtons()
     UIElements.createMenagementButton(MNG_instance_mods_saves_text, 135, (70 + (91 + 91)), font, instance_icons_textures["pink_slime"], "", false);
     UIElements.createMenagementButton(MNG_instance_mods_launcher_text, 135, (70 + (91 + (91 + 91))), font, instance_icons_textures["pink_slime"], "", false);
     
-    UIElements.createTransparrentBg(manage_cats_separator, 125, 3, 0, 794, true);
-
     UIElements.createTransparrentBg(mods_separator, 130 + 560 + 5, 3, 0, 794, true);
 
     UIElements.createTransparrentBg(manage_bg, 0, 0, 1280, 800, true);
@@ -122,8 +128,9 @@ void setButtons()
     UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
     UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
 
-    UIElements.createButton(console_clear_button, 1160, 651, 100, 30, font, "Clear console", false);
-    UIElements.createTextfield(console, 20, 50, 1240, 600, font);
+    UIElements.createButton(ConsoleElements::console_clear_button, 1160, 450, 100, 30, font, "Clear console", false);
+    UIElements.createCheckbox(ConsoleElements::disable, 30, 30, 10, 700, "Disable console", 26, font, false);
+    UIElements.createTextfield(ConsoleElements::console, 20, 450, 1240, 240, font);
 
     UIElements.createTextfield(LicencesUI::licenseField, 130, 60, 1140, 720, font);
 

@@ -40,10 +40,26 @@ bool acceptExceptionLogs = true;
 
 bool mountOnlyData = false;
 
+namespace ConsoleElements
+{
+    bool consoleWorking = true;
+}
+
+namespace miniInstanceList
+{
+    std::atomic <bool> dataLoading = false;
+    std::atomic <bool> dataFetched = true;
+
+    bool instanceHilighted = false;
+}
+
 std::string srlBackgroundPath = "";
 
-std::atomic <bool> instanceDataLoading = false;
-std::atomic <bool> instancesListLoading = true;
+namespace instancesLoader
+{
+    std::atomic <bool> instanceDataLoading = false;
+    std::atomic <bool> instancesListLoading = true;    
+}
 
 bool display_download_progress = false;
 
@@ -60,7 +76,7 @@ std::atomic <bool> loadingAnimationDisplay = false;
 
 std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.15";
+std::string launcher_version = "inDev 0.16";
 std::string saved_version = "";
 
 /// Launcher Paths ////

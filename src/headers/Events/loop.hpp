@@ -39,7 +39,7 @@ void events_loop()
 
         if (UI_current == UiPages::InstancesMenu)
         {
-            if (instancesListLoading == false)
+            if (instancesLoader::instancesListLoading == false)
             {
                 if (instancesScrollingArea.getGlobalBounds().contains(mouse_pos))
                 scrollInstancesList(event, mouse_pos);
@@ -48,7 +48,8 @@ void events_loop()
 
         if (UI_current == UiPages::MainMenu)
         {
-            console.handleEvent(event);
+            if (ConsoleElements::consoleMouseBox.getGlobalBounds().contains(mouse_pos))
+            ConsoleElements::console.handleEvent(event);
 
             if (display_guard_window == true)
             {
@@ -58,7 +59,7 @@ void events_loop()
 
         if (UI_current == UiPages::ManageMenu)
         {
-            if (instanceDataLoading == false)
+            if (instancesLoader::instanceDataLoading == false)
             {
                 switch(manage_ui)
                 {

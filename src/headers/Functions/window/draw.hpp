@@ -27,10 +27,39 @@ void window_draw()
     {
         renderCategories();
 
-        console.render(window);
-        console_clear_button.render(window);
+        MainpageElements::main_page_playbar_bg.render(window);
+        MainpageElements::main_page_last_played_bg.render(window);
+        MainpageElements::main_page_details_bg.render(window);
 
-        main_page_playbar_bg.render(window);
+        if (miniInstanceList::dataLoading)
+        {
+            window.draw(loadingMiniInstancesText);
+        }
+        else
+        {
+            if (miniInstancesListMap.size() > 0)
+            {
+                for (const auto& pair : miniInstancesListMap)
+                {
+                    miniInstancesListMap[pair.first].render(window);
+                }     
+            }  
+            else
+            {
+                window.draw(noLastPlayedInstancesText);
+            }    
+        }
+
+        if (miniInstanceList::instanceHilighted)
+        {
+            window.draw(lastPlayedText);
+            window.draw(totalPlayTimeInstanceText);
+        }
+        else
+        {
+            window.draw(totalLauncherPlaytimeText);
+        }
+
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
             launch_game_button.render(window);    
@@ -74,6 +103,14 @@ void window_draw()
                 window.draw(debugIpcElapsedText);
             }
         }
+
+        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+        {
+            window.draw(debugWarnText);
+        }
+
+        ConsoleElements::console.render(window);
+        ConsoleElements::console_clear_button.render(window);
     }
 
     if (UI_current == UiPages::InstancesMenu)
@@ -82,7 +119,7 @@ void window_draw()
 
         instances_bg.render(window);
         
-        if (instancesListLoading == false)
+        if (instancesLoader::instancesListLoading == false)
         {
             new_instance_button.render(window);
             import_instnace_button.render(window);  
@@ -185,25 +222,27 @@ void window_draw()
     {
         manage_bg.render(window);
 
-        manage_vanilla_saves_button.render(window);
-        manage_betterbuild_saves_button.render(window);
-        manage_betterbuild_world_button.render(window);
-        manage_backups_button.render(window);
-        manage_mods_button.render(window);
-        manage_main_back_button.render(window);
+        ManageSubcatListUI::vanilla_saves_button.render(window);
+        ManageSubcatListUI::betterbuild_saves_button.render(window);
+        ManageSubcatListUI::betterbuild_world_button.render(window);
+        ManageSubcatListUI::backups_button.render(window);
+        ManageSubcatListUI::mods_button.render(window);
+        ManageSubcatListUI::main_back_button.render(window);
+        ManageSubcatListUI::informations_button.render(window);
+        ManageSubcatListUI::debug_button.render(window);
 
-        manage_cats_separator.render(window);
+        ManageSubcatListUI::cats_separator.render(window);
 
-        if (instanceDataLoading == true)
+        if (instancesLoader::instanceDataLoading == true)
         {
             window.draw(dataLoading_text);
         }
 
         switch(manage_ui)
         {
-            case MNG_MAIN_PAGE:
+            case ManageCategories::MNG_MAIN_PAGE:
             {
-                if (instanceDataLoading == false)
+                if (instancesLoader::instanceDataLoading == false)
                 {
                     window.draw(MNG_instance_icon);
                     window.draw(MNG_Instance_name_text);
@@ -218,7 +257,7 @@ void window_draw()
                 window.draw(tldr_text);
                 break;
             }
-            case BETTERBUILD_WORLDS:
+            case ManageCategories::BETTERBUILD_WORLDS:
             {
                 for (const auto& pair : betterbuildworlds_list)
                 {
@@ -227,7 +266,7 @@ void window_draw()
                 window.draw(bbw_tittle_text);
                 break;
             }
-            case VANILLA_SAVES:
+            case ManageCategories::VANILLA_SAVES:
             {
                 window.draw(vsc_text);
                 for (const auto& pair : vanillasaves_list)
@@ -236,7 +275,7 @@ void window_draw()
                 }
                 break;
             }
-            case BETTERBUILD_SAVES:
+            case ManageCategories::BETTERBUILD_SAVES:
             {
                 window.draw(msc_text);
                 for (const auto& pair : betterbuildsaves_list)
@@ -245,7 +284,7 @@ void window_draw()
                 }
                 break;
             }
-            case MODS_PAGE:
+            case ManageCategories::MODS_PAGE:
             {
                 window.draw(instanceModsMouseWorkingBox);
                 window.draw(launcherModsMouseWorkingBox);
@@ -264,12 +303,18 @@ void window_draw()
                 }    
                 break;
             }
-            case BACKUPS:
+            case ManageCategories::BACKUPS:
             {
                 for (const auto& pair : Backups_list)
                 {
                     Backups_list[pair.first].render(window);
                 }
+                break;
+            }
+            case ManageCategories::DEBUG_PAGE:
+            {
+                ManageDebug::assemblyInfoBg.render(window);
+                window.draw(ManageDebug::assemblyDataText);
                 break;
             }
         }

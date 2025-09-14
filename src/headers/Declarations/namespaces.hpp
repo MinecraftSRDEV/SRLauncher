@@ -11,7 +11,6 @@ using namespace SteamAccountSettingsUI;
 using namespace UpdatesSettingsUI;
 using namespace CreditsUI;
 using namespace VersionsElements;
-using namespace ManageSubcatListUI;
 using namespace ManageMainUI;
 using namespace ManageModsUI;
 using namespace ManageOthers;

@@ -26,6 +26,7 @@
 #include "headers/Classes/dev_ui_viewer.hpp"
 
 #include "headers/Classes/instance_list.hpp"
+#include "headers/Classes/miniInstance.hpp"
 #include "headers/Classes/version_class.hpp"
 #include "headers/Classes/instance_icon_bar_options.hpp"
 #include "headers/Classes/save_menagement/betterbuild_save.hpp"
@@ -59,6 +60,8 @@
 
 #include "headers/Functions/Data_menagement/browse_folder_dialogbox.hpp"
 #include "headers/Functions/Data_menagement/get_folders.hpp"
+
+#include "headers/Functions/links/openInBrowser.hpp"
 
 #include "headers/Functions/window/create.hpp"
 
@@ -113,6 +116,7 @@
 #include "headers/Functions/Buttons/Launcher_pages/manageCategories.hpp"
 #include "headers/Functions/Buttons/Instances/import.hpp"
 #include "headers/Functions/Buttons/Instances/new_instance.hpp"
+#include "headers/Functions/Buttons/Instances/miniInstanceLoader.hpp"
 #include "headers/Functions/Buttons/Instances/refresh_list.hpp"
 #include "headers/Functions/Buttons/Instances/create.hpp"
 
@@ -128,6 +132,7 @@
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/BBWremover.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/worldResigner.hpp"
 #include "headers/Functions/Buttons/Instances/menage/BetterBuildWorldReader/scanner.hpp"
+#include "headers/Functions/Buttons/Instances/menage/mainpage/assemblyReader.hpp"
 #include "headers/Functions/Buttons/Instances/menage/mainpage/detailsText.hpp"
 #include "headers/Functions/Buttons/Instances/menage/vanillaSavesDeserializer/deserializer.hpp"
 #include "headers/Functions/Buttons/Instances/menage/saveScaner/vanilla.hpp"
@@ -166,6 +171,7 @@
 
 #include "headers/Functions/Buttons/Launcher_pages/UpdateBlockingState.hpp"
 
+#include "headers/Functions/mouse/contains.hpp"
 #include "headers/Functions/mouse/left.hpp"
 
 #include "headers/Functions/Launch/installAll.hpp"

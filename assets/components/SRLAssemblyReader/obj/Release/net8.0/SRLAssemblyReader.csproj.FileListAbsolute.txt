@@ -1,0 +1,15 @@
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\bin\Release\net8.0\SRLAssemblyReader.exe
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\bin\Release\net8.0\SRLAssemblyReader.deps.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\bin\Release\net8.0\SRLAssemblyReader.runtimeconfig.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\bin\Release\net8.0\SRLAssemblyReader.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\bin\Release\net8.0\SRLAssemblyReader.pdb
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.AssemblyInfoInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.AssemblyInfo.cs
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.csproj.CoreCompileInputs.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.sourcelink.json
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\refint\SRLAssemblyReader.dll
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.pdb
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\SRLAssemblyReader.genruntimeconfig.cache
+C:\Users\MinecraftSR\Documents\GitHub\SRLauncher\assets\components\SRLAssemblyReader\obj\Release\net8.0\ref\SRLAssemblyReader.dll
