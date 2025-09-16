@@ -4,7 +4,7 @@ void save_profiles();
 
 void clearConsole()
 {
-    ConsoleElements::console.clearText();
+    MainpageElements::console::console.clearText();
     log_message("Console ready", LogTypes::LOG_INFO);
 }
 
@@ -57,7 +57,7 @@ void setFunctions()
     import_instance_confirm_button.setFunction(import_instance);
     import_instance_cancel_button.setFunction(cancel_instance_import);
 
-    launch_game_button.setFunction(runGameInitial);
+    MainpageElements::playbar::launchGameButton.setFunction(runGameInitial);
 
     check_for_update_button.setFunction(checkUpdate);
 
@@ -108,5 +108,5 @@ void setFunctions()
 
     version_back_button.setFunction(launcherCategories::versions);
 
-    ConsoleElements::console_clear_button.setFunction(clearConsole);
+    MainpageElements::console::clearButton.setFunction(clearConsole);
 }

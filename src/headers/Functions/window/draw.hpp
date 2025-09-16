@@ -27,13 +27,13 @@ void window_draw()
     {
         renderCategories();
 
-        MainpageElements::main_page_playbar_bg.render(window);
-        MainpageElements::main_page_last_played_bg.render(window);
-        MainpageElements::main_page_details_bg.render(window);
+        MainpageElements::playbar::background.render(window);
+        MainpageElements::lastPlayed::background.render(window);
+        MainpageElements::details::background.render(window);
 
         if (miniInstanceList::dataLoading)
         {
-            window.draw(loadingMiniInstancesText);
+            window.draw(MainpageElements::lastPlayed::loadingMiniInstancesText);
         }
         else
         {
@@ -46,71 +46,71 @@ void window_draw()
             }  
             else
             {
-                window.draw(noLastPlayedInstancesText);
+                window.draw(MainpageElements::lastPlayed::noLastPlayedInstancesText);
             }    
         }
 
         if (miniInstanceList::instanceHilighted)
         {
-            window.draw(lastPlayedText);
-            window.draw(totalPlayTimeInstanceText);
+            window.draw(MainpageElements::details::lastPlayedDateText);
+            window.draw(MainpageElements::details::totalPlayTimeInstanceText);
         }
         else
         {
-            window.draw(totalLauncherPlaytimeText);
+            window.draw(MainpageElements::details::totalLauncherPlaytimeText);
         }
 
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            launch_game_button.render(window);    
+            MainpageElements::playbar::launchGameButton.render(window);    
         }
 
         if (game_downloading == true)
         {
             if (downloadInitializing == true)
             {
-                window.draw(progress_bg);
-                window.draw(progress_moveing);    
+                window.draw(MainpageElements::playbar::progress_bg);
+                window.draw(MainpageElements::playbar::progress_moveing);    
             }
             else
             {
-                downloadingProgress.render(window);
+                MainpageElements::playbar::downloadingProgress.render(window);
             }
         }
 
-        window.draw(Mounted_instance_info_text);
-        window.draw(Launcher_version_text);
-        if (mounted_instance_version.getString() != "")
+        window.draw(MainpageElements::playbar::infoText);
+        window.draw(MainpageElements::playbar::LauncherVersionText);
+        if (MainpageElements::playbar::versionText.getString() != "")
         {
-            window.draw(mounted_instance_version);
+            window.draw(MainpageElements::playbar::versionText);
         }
 
         if (display_download_progress == true)
         {
-            window.draw(downloading_progress_text);
+            window.draw(MainpageElements::playbar::downloadingProgressText);
         }
 
         if (display_guard_window == true)
         {
-            GuardBox.render(window);
+            MainpageElements::GuardBox.render(window);
         }
 
         if (game_running == true)
         {
             if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
             {
-                window.draw(debugWorking);
-                window.draw(debugIpcElapsedText);
+                window.draw(MainpageElements::debuger::working);
+                window.draw(MainpageElements::debuger::ipcElapsedText);
             }
         }
 
         if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
         {
-            window.draw(debugWarnText);
+            window.draw(MainpageElements::details::debugWarnText);
         }
 
-        ConsoleElements::console.render(window);
-        ConsoleElements::console_clear_button.render(window);
+        MainpageElements::console::console.render(window);
+        MainpageElements::console::clearButton.render(window);
     }
 
     if (UI_current == UiPages::InstancesMenu)

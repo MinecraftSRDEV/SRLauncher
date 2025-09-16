@@ -166,11 +166,11 @@ namespace miniInstanceList
 
     void prepare()
     {
-        loadingMiniInstancesText.setString("Loading instances...");
-        loadingMiniInstancesText.setPosition((lastPlayedMouseBox.getSize().x / 2) - (loadingMiniInstancesText.getLocalBounds().width / 2), 180);
+        MainpageElements::lastPlayed::loadingMiniInstancesText.setString("Loading instances...");
+        MainpageElements::lastPlayed::loadingMiniInstancesText.setPosition((MainpageElements::lastPlayed::mouseBox.getSize().x / 2) - (MainpageElements::lastPlayed::loadingMiniInstancesText.getLocalBounds().width / 2), 180);
 
         loadingAnimationDisplay = true;
-        loadingAnimation::setupLoadingAnimation(loadingMiniInstancesText.getPosition(), "pink");
+        loadingAnimation::setupLoadingAnimation(MainpageElements::lastPlayed::loadingMiniInstancesText.getPosition(), "pink");
 
         std::lock_guard<std::mutex> lock(miniInstanceList::loaderMutex);
         miniInstanceList::lastEntryY = 55;

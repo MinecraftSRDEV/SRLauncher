@@ -73,13 +73,13 @@ namespace DebugBridge {
             {
                 case 0:
                 {
-                    debugWorking.setFillColor(sf::Color::Red);
+                    MainpageElements::debuger::working.setFillColor(sf::Color::Red);
                     ind_state = 1;
                     break;
                 }
                 case 1:
                 {
-                    debugWorking.setFillColor(sf::Color::Green);
+                    MainpageElements::debuger::working.setFillColor(sf::Color::Green);
                     ind_state = 0;
                     break;
                 }
@@ -123,7 +123,7 @@ namespace DebugBridge {
                 logs.clear();
             }
 
-            debugIpcElapsedText.setString("IPC delayed: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
+            MainpageElements::debuger::ipcElapsedText.setString("IPC delayed: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
             sf::sleep(sf::milliseconds(communicationDelay));
         }
 

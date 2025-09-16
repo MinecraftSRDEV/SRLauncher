@@ -134,8 +134,8 @@ void mount_function(std::string instance_id)
         fs::path game_dir = steam_dir / ("Slime Rancher_" + mounted_instance);
         fs::path instnace_dir = fs::path(instances_dir) / ("Slime Rancher_" + mounted_instance);
 
-        Mounted_instance_info_text.setString(mounted_instance);
-        mounted_instance_version.setString("v." + instances_list[instance_id].getVer());
+        MainpageElements::playbar::infoText.setString(mounted_instance);
+        MainpageElements::playbar::versionText.setString("v." + instances_list[instance_id].getVer());
 
         // std::ofstream mapFile;
         // mapFile.open(runtime_directory.string() + "/mountMap.map");

@@ -161,7 +161,7 @@ void loadInstancesList(fs::path instances_path)
 
     if (mounted_instance != UNMOUNTED_INSTANCE)
     {
-        mounted_instance_version.setString("v." + instances_list[mounted_instance].getVer());
+        MainpageElements::playbar::versionText.setString("v." + instances_list[mounted_instance].getVer());
     }
 
     instancesLoader::instanceDataLoading = false;

@@ -49,8 +49,8 @@ bool unmount_funtcion()
                 fs::create_directory(local_save_path);
                 
                 mounted_instance = UNMOUNTED_INSTANCE;
-                Mounted_instance_info_text.setString("No instance mounted");
-                mounted_instance_version.setString("");
+                MainpageElements::playbar::infoText.setString("No instance mounted");
+                MainpageElements::playbar::versionText.setString("");
                 update_config_file();
                 log_message("Instance unmounted", LogTypes::LOG_INFO);
                 return true;

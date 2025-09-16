@@ -5,7 +5,7 @@ bool renamedSteam = false;
  */
 void reset_play_button_text()
 {
-    launch_game_button.setText(PLAY_BUTTON_DEF);
+    MainpageElements::playbar::launchGameButton.setText(PLAY_BUTTON_DEF);
 }
 
 /**
@@ -174,7 +174,7 @@ void updateLastPlayedList()
 void run_game(std::string path, std::string gamepath)
 {
     HWND launcherWindow = window.getSystemHandle();
-    launch_game_button.setText("Running");
+    MainpageElements::playbar::launchGameButton.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
     if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
     {
@@ -391,7 +391,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     }
 
     bool launch_game = true;
-    launch_game_button.setText("Launching game");
+    MainpageElements::playbar::launchGameButton.setText("Launching game");
 
     if (steamCheckResult == STC_SUCCESS or steamCheckResult == STC_NOTINSTALLED)
     {

@@ -1,10 +1,22 @@
 void setButtons()
 {
-    UIElements.createButton(launch_game_button, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, true);
-    UIElements.createTransparrentBg(MainpageElements::main_page_playbar_bg, 0, 700, 1280, 100, true);
-    UIElements.createTransparrentBg(MainpageElements::main_page_last_played_bg, 20, 45, 680, 400, false);
-    UIElements.createTransparrentBg(MainpageElements::main_page_details_bg, 710, 45, 550, 400, false);
+    {
+        using namespace MainpageElements;
 
+        MainpageElements::GuardBox.create(420, 240, font);
+
+        UIElements.createButton(playbar::launchGameButton, 465, 710, 350, 80, font, PLAY_BUTTON_DEF, true);
+        UIElements.createTransparrentBg(playbar::background, 0, 700, 1280, 100, true);
+
+        UIElements.createTransparrentBg(lastPlayed::background, 20, 45, 680, 400, false);
+        UIElements.createTransparrentBg(details::background, 710, 45, 550, 400, false);    
+
+        UIElements.createButton(console::clearButton, 1160, 450, 100, 30, font, "Clear console", false);
+        UIElements.createCheckbox(console::disableCheckbox, 30, 30, 10, 700, "Disable console", 26, font, false);
+        
+        UIElements.createTextfield(console::console, 20, 450, 1240, 240, font);    
+    }
+    
     UIElements.createCheckbox(DebuggerMainmenuLayout::acceptInfoCheckbox, 30, 30, 130, 85, "Info", 12, font, false);
 
     UIElements.createTransparrentBg(categories_bg, 0, 0, 1280, 40, true);
@@ -128,11 +140,5 @@ void setButtons()
     UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
     UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
 
-    UIElements.createButton(ConsoleElements::console_clear_button, 1160, 450, 100, 30, font, "Clear console", false);
-    UIElements.createCheckbox(ConsoleElements::disable, 30, 30, 10, 700, "Disable console", 26, font, false);
-    UIElements.createTextfield(ConsoleElements::console, 20, 450, 1240, 240, font);
-
     UIElements.createTextfield(LicencesUI::licenseField, 130, 60, 1140, 720, font);
-
-    GuardBox.create(420, 240, font);
 }

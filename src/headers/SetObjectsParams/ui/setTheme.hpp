@@ -2,9 +2,9 @@ void setTheme()
 {
     UIElements.setElementsTheme();
 
-    GuardBox.setTheme(theme_selected);
+    MainpageElements::GuardBox.setTheme(theme_selected);
 
-    downloadingProgress.setTheme(theme_selected);
+    MainpageElements::playbar::downloadingProgress.setTheme(theme_selected);
 
     for (const auto& pair : InstanceIconBar::IconBarMap)
     {

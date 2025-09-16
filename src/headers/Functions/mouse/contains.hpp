@@ -2,8 +2,8 @@ void updateDetailsTexts(std::string lastPlayed, Playtime playtime)
 {
     try
     {
-        lastPlayedText.setString("Last played date: " + lastPlayed);
-        totalPlayTimeInstanceText.setString("Total playtime\n" + std::to_string(playtime.hours) + "H " + std::to_string(playtime.minutes) + "M " + std::to_string(playtime.seconds) + "S " + std::to_string(playtime.miliseconds) + "Ms"); 
+        MainpageElements::details::lastPlayedDateText.setString("Last played date: " + lastPlayed);
+        MainpageElements::details::totalPlayTimeInstanceText.setString("Total playtime\n" + std::to_string(playtime.hours) + "H " + std::to_string(playtime.minutes) + "M " + std::to_string(playtime.seconds) + "S " + std::to_string(playtime.miliseconds) + "Ms"); 
     }
     catch(std::exception e) {}
 }
@@ -29,7 +29,7 @@ void totalPlayTimeCalc()
 
     totalTime = calcPlaytime(timeCalc);
 
-    totalLauncherPlaytimeText.setString("Total playtime\n" + std::to_string(totalTime.hours) + "H " + std::to_string(totalTime.minutes) + "M " + std::to_string(totalTime.seconds) + "S " + std::to_string(totalTime.miliseconds) + "Ms");     
+    MainpageElements::details::totalLauncherPlaytimeText.setString("Total playtime\n" + std::to_string(totalTime.hours) + "H " + std::to_string(totalTime.minutes) + "M " + std::to_string(totalTime.seconds) + "S " + std::to_string(totalTime.miliseconds) + "Ms");     
 }
 
 void mouseContains()

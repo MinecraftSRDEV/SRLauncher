@@ -27,19 +27,19 @@ void mouse_left()
 
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            launch_game_button.update(mouse);
-            Mounted_instance_info_text.setPosition(sf::Vector2f(10, 725));
+            MainpageElements::playbar::launchGameButton.update(mouse);
+            MainpageElements::playbar::infoText.setPosition(sf::Vector2f(10, 725));
         }
         else
         {
-            Mounted_instance_info_text.setPosition(sf::Vector2f((1280 / 2) - (Mounted_instance_info_text.getLocalBounds().width / 2), 725));
+            MainpageElements::playbar::infoText.setPosition(sf::Vector2f((1280 / 2) - (MainpageElements::playbar::infoText.getLocalBounds().width / 2), 725));
         }
 
-        ConsoleElements::console_clear_button.update(mouse);
+        MainpageElements::console::clearButton.update(mouse);
 
         if (display_guard_window == true)
         {
-            GuardBox.update(mouse);
+            MainpageElements::GuardBox.update(mouse);
         }
 
         if (!miniInstanceList::dataLoading)

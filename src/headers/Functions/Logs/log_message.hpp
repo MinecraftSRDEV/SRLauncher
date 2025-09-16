@@ -1,6 +1,9 @@
-namespace ConsoleElements
+namespace MainpageElements
 {
-    sfg::Textfield console;
+    namespace console
+    {
+        sfg::Textfield console;    
+    }
 }
 
 void log_message(std::string message, int type)
@@ -67,7 +70,7 @@ void log_message(std::string message, int type)
 
     log_output += std::to_string(cur_H) + ":" + std::to_string(cur_M) + ":" + std::to_string(cur_S) + " " + message;
 
-    ConsoleElements::console.addText(log_output);
+    MainpageElements::console::console.addText(log_output);
 
     std::cout << log_output;
     if (display_log_colors == true)

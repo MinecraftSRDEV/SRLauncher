@@ -119,10 +119,10 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 int type = json.getObject().at("logType").getNumber();
 
                 int progress = std::stoi(msg);
-                downloading_progress_text.setString(std::to_string(progress) + " %");
-                downloading_progress_text.setPosition(640 - (downloading_progress_text.getLocalBounds().width / 2), progress_bg.getPosition().y);
+                MainpageElements::playbar::downloadingProgressText.setString(std::to_string(progress) + " %");
+                MainpageElements::playbar::downloadingProgressText.setPosition(640 - (MainpageElements::playbar::downloadingProgressText.getLocalBounds().width / 2), MainpageElements::playbar::progress_bg.getPosition().y);
                 float progressbar = progress;
-                downloadingProgress.setProgress(progressbar / 100.0f);
+                MainpageElements::playbar::downloadingProgress.setProgress(progressbar / 100.0f);
  
                 if (progress == 100)
                 {
@@ -345,7 +345,7 @@ void downloaderPipe(depotProsp& depot)
     }
 
     log_message("DepotDownloader connected", LogTypes::LOG_INFO);
-    launch_game_button.setText("Downloading");
+    MainpageElements::playbar::launchGameButton.setText("Downloading");
 
     comunicate = true;
 
@@ -367,7 +367,7 @@ void download_game2(std::string gamerun_path)
         }
 
         game_downloading = true;
-        launch_game_button.setText("Downloading");
+        MainpageElements::playbar::launchGameButton.setText("Downloading");
         std::thread animThread(downloading_animation);
         animThread.detach();
         fs::path cmdpath = fs::path(steamcmd_dir);

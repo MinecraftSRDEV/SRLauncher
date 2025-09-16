@@ -1,5 +1,4 @@
 using namespace CategoriesUI;
-using namespace MainpageElements;
 using namespace InstanceslistElements;
 using namespace CreateInstanceUI;
 using namespace ImportInstanceUI;

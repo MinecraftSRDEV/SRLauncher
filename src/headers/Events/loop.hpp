@@ -48,12 +48,12 @@ void events_loop()
 
         if (UI_current == UiPages::MainMenu)
         {
-            if (ConsoleElements::consoleMouseBox.getGlobalBounds().contains(mouse_pos))
-            ConsoleElements::console.handleEvent(event);
+            if (MainpageElements::console::mouseBox.getGlobalBounds().contains(mouse_pos))
+            MainpageElements::console::console.handleEvent(event);
 
             if (display_guard_window == true)
             {
-                GuardBox.event(event);
+                MainpageElements::GuardBox.event(event);
             }
         }
 

@@ -72,7 +72,7 @@ void load_sequence()
 
     loadingAnimation::setupLoadingAnimation(sf::Vector2f(0, 0), "pink");
 
-    ConsoleElements::console.unlockQueue();
+    MainpageElements::console::console.unlockQueue();
     log_message("Console ready", LogTypes::LOG_INFO);
 
     ///// Set functions to buttons from SFML-GUI onetime /////

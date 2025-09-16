@@ -18,12 +18,12 @@ void setTextAtt(sf::Text& text, const std::string& str, int fontSize, int x, int
 
 void setRuntimeTexts()
 {
-    setTextAtt(Mounted_instance_info_text, "", 36, 10, 725);
+    setTextAtt(MainpageElements::playbar::infoText, "", 36, 10, 725);
 
-    setTextAtt(mounted_instance_version, "", 16, 10, 765);
+    setTextAtt(MainpageElements::playbar::versionText, "", 16, 10, 765);
 
-    setTextAtt(Launcher_version_text, "    SRL\nv." + launcher_version, 16, 0, 0);
-    Launcher_version_text.setPosition((window.getSize().x - 10) - Launcher_version_text.getLocalBounds().width, 755);
+    setTextAtt(MainpageElements::playbar::LauncherVersionText, "    SRL\nv." + launcher_version, 16, 0, 0);
+    MainpageElements::playbar::LauncherVersionText.setPosition((window.getSize().x - 10) - MainpageElements::playbar::LauncherVersionText.getLocalBounds().width, 755);
 
     setTextAtt(no_instances_text, "No game instances were found. Create them or import currently existing.", 30, 0, 0);
 
@@ -46,17 +46,17 @@ void setRuntimeTexts()
     setTextAtt(repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
     setTextAtt(issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
 
-    setTextAtt(lastPlayedText, "", 26, 730, 70);
-    setTextAtt(noLastPlayedInstancesText, "No instances have been played recently", 26, 120, 140);
-    setTextAtt(totalPlayTimeInstanceText, "", 26, 730, 120);
-    setTextAtt(totalLauncherPlaytimeText, "", 26, 730, 70);
-    setTextAtt(debugWarnText, "Debugging is enabled!", 26, 730, 400, sf::Color::Red);
+    setTextAtt(MainpageElements::details::lastPlayedDateText, "", 26, 730, 70);
+    setTextAtt(MainpageElements::lastPlayed::noLastPlayedInstancesText, "No instances have been played recently", 26, 120, 140);
+    setTextAtt(MainpageElements::details::totalPlayTimeInstanceText, "", 26, 730, 120);
+    setTextAtt(MainpageElements::details::totalLauncherPlaytimeText, "", 26, 730, 70);
+    setTextAtt(MainpageElements::details::debugWarnText, "Debugging is enabled!", 26, 730, 400, sf::Color::Red);
 
     setTextAtt(dataLoading_text, "", 32, 130, 380);
 
-    setTextAtt(downloading_progress_text, "", 20, 130, 380);
+    setTextAtt(MainpageElements::playbar::downloadingProgressText, "", 20, 130, 380);
 
-    setTextAtt(loadingMiniInstancesText, "", 20, 120, 140);
+    setTextAtt(MainpageElements::lastPlayed::loadingMiniInstancesText, "", 20, 120, 140);
 
     setTextAtt(version_description_text, "", 26, 10, 10);
 
@@ -104,24 +104,24 @@ void setRuntimeTexts()
     
     setTextAtt(InstanceIconBar::icon_bar_text, "Select icon", 26, 10, 300);
 
-    setTextAtt(debugIpcElapsedText, "", 12, 30, 670);
+    setTextAtt(MainpageElements::debuger::ipcElapsedText, "", 12, 30, 670);
 }
 
 void setShapesAttributes()
 {
     steam_profile_icon.setPosition(sf::Vector2f(130, 410));
 
-    progress_bg.setSize(sf::Vector2f(1280, 20));
-    progress_bg.setPosition(sf::Vector2f(0, 780));
-    progress_bg.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::inactive]);
+    MainpageElements::playbar::progress_bg.setSize(sf::Vector2f(1280, 20));
+    MainpageElements::playbar::progress_bg.setPosition(sf::Vector2f(0, 780));
+    MainpageElements::playbar::progress_bg.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::inactive]);
 
-    progress_moveing.setSize(sf::Vector2f(70, 20));
-    progress_moveing.setPosition(sf::Vector2f(-70, 780));
-    progress_moveing.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::checkbox_inactive]);
+    MainpageElements::playbar::progress_moveing.setSize(sf::Vector2f(70, 20));
+    MainpageElements::playbar::progress_moveing.setPosition(sf::Vector2f(-70, 780));
+    MainpageElements::playbar::progress_moveing.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::checkbox_inactive]);
 
-    debugWorking.setSize(sf::Vector2f(10, 10));
-    debugWorking.setPosition(sf::Vector2f(10, 670));
-    debugWorking.setFillColor(sf::Color::Red);
+    MainpageElements::debuger::working.setSize(sf::Vector2f(10, 10));
+    MainpageElements::debuger::working.setPosition(sf::Vector2f(10, 670));
+    MainpageElements::debuger::working.setFillColor(sf::Color::Red);
 
     instanceModsMouseWorkingBox.setSize(sf::Vector2f(565, 790));
     instanceModsMouseWorkingBox.setPosition(sf::Vector2f(126, 5));
@@ -135,15 +135,15 @@ void setShapesAttributes()
     instancesScrollingArea.setPosition(sf::Vector2f(0, 84));
     instancesScrollingArea.setFillColor(sf::Color::Transparent);
 
-    lastPlayedMouseBox.setSize(sf::Vector2f(680, 400));
-    lastPlayedMouseBox.setPosition(sf::Vector2f(20, 45));
-    lastPlayedMouseBox.setFillColor(sf::Color::Transparent);
+    MainpageElements::lastPlayed::mouseBox.setSize(sf::Vector2f(680, 400));
+    MainpageElements::lastPlayed::mouseBox.setPosition(sf::Vector2f(20, 45));
+    MainpageElements::lastPlayed::mouseBox.setFillColor(sf::Color::Transparent);
 
-    ConsoleElements::consoleMouseBox.setSize(sf::Vector2f(1240, 240));
-    ConsoleElements::consoleMouseBox.setPosition(sf::Vector2f(20, 450));
-    ConsoleElements::consoleMouseBox.setFillColor(sf::Color::Transparent);
+    MainpageElements::console::mouseBox.setSize(sf::Vector2f(1240, 240));
+    MainpageElements::console::mouseBox.setPosition(sf::Vector2f(20, 450));
+    MainpageElements::console::mouseBox.setFillColor(sf::Color::Transparent);
 
-    downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
+    MainpageElements::playbar::downloadingProgress.create(0, 780, sf::Vector2f(1280, 20), ProgressBar::Mode::Static, 100.0f);
 
     InstanceIconBar::selectedBG.setSize(sf::Vector2f(80, 80));
     InstanceIconBar::selectedBG.setPosition(sf::Vector2f(50, 330));

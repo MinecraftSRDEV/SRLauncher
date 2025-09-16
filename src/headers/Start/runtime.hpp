@@ -129,20 +129,20 @@ void runtime_check()
                 rename_orginal_dir();
                 log_message("No instance mounted", LogTypes::LOG_INFO);
                 mounted_instance = UNMOUNTED_INSTANCE;
-                Mounted_instance_info_text.setString("No instance mounted");
-                mounted_instance_version.setString("");
+                MainpageElements::playbar::infoText.setString("No instance mounted");
+                MainpageElements::playbar::versionText.setString("");
             }
             else
             {
                 if (mounted_instance == UNMOUNTED_INSTANCE)
                 {
                     displayNonEmptyDataAlert();
-                    Mounted_instance_info_text.setString("No instance mounted");
-                    mounted_instance_version.setString("");
+                    MainpageElements::playbar::infoText.setString("No instance mounted");
+                    MainpageElements::playbar::versionText.setString("");
                 }
                 else
                 {
-                    Mounted_instance_info_text.setString(mounted_instance);
+                    MainpageElements::playbar::infoText.setString(mounted_instance);
                 }
                 log_message("Mounted instance: " + mounted_instance, LogTypes::LOG_INFO);
             }

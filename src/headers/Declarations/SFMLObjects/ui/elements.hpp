@@ -9,32 +9,50 @@ namespace CategoriesUI
 
 namespace MainpageElements
 {
-    sfg::TransparrentBackground main_page_playbar_bg;
-    sfg::Button launch_game_button;
-    sf::Text mounted_instance_version;
-    sf::Text Mounted_instance_info_text;
-    sf::Text Launcher_version_text;
-    sf::Text downloading_progress_text;
     SteamGuardAuthClass GuardBox;
 
-    sfg::TransparrentBackground main_page_last_played_bg;
-    sf::RectangleShape lastPlayedMouseBox;
-    sf::Text loadingMiniInstancesText;
-    sf::Text noLastPlayedInstancesText;
+    namespace playbar
+    {
+        sfg::TransparrentBackground background;
+        sfg::Button launchGameButton;
+        sf::Text versionText;
+        sf::Text infoText;
+        sf::Text LauncherVersionText;
+        sf::Text downloadingProgressText;
+        sf::RectangleShape progress_bg;
+        sf::RectangleShape progress_moveing;
+        ProgressBar downloadingProgress;
+    }
+    
+    namespace lastPlayed
+    {
+        sfg::TransparrentBackground background;
+        sf::RectangleShape mouseBox;
+        sf::Text loadingMiniInstancesText;
+        sf::Text noLastPlayedInstancesText;    
+    }
 
-    sfg::TransparrentBackground main_page_details_bg;
-    sf::Text lastPlayedText;
-    sf::Text totalPlayTimeInstanceText;
-    sf::Text debugWarnText;
+    namespace details
+    {
+        sfg::TransparrentBackground background;
+        sf::Text lastPlayedDateText;
+        sf::Text totalPlayTimeInstanceText;
+        sf::Text debugWarnText;
+        sf::Text totalLauncherPlaytimeText;    
+    }
 
-    sf::Text totalLauncherPlaytimeText;
-}
+    namespace console
+    {
+        sf::RectangleShape mouseBox;
+        sfg::Button clearButton;
+        sfg::Checkbox disableCheckbox;
+    }    
 
-namespace ConsoleElements
-{
-    sf::RectangleShape consoleMouseBox;
-    sfg::Button console_clear_button;
-    sfg::Checkbox disable;
+    namespace debuger
+    {
+        sf::RectangleShape working;
+        sf::Text ipcElapsedText;
+    }
 }
 
 namespace InstanceslistElements
