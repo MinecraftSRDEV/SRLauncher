@@ -8,7 +8,10 @@ Started in 12.09.25
 - add instance details on main page when instance is on mouse                          Finished
 - make links clickable                                                                 Finished
 - add assembly reference checker                                                       Finished
-- add debug unpatcher                                                                  InProgress
+- add debug unpatcher                                                                  Finished
+
+- fix debug patcher success messagebox                                                 Resolved
+- fix steamCMD location textbox scroll event                                           Resolved
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

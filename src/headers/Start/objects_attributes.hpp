@@ -31,20 +31,20 @@ void setRuntimeTexts()
 
     setTextAtt(bbw_tittle_text, "", 26, 0, 0);
 
-    setTextAtt(update_status_text, "No update data", 26, 130, 380);
+    setTextAtt(SettingsElemets::subcats::updates::update_status_text, "No update data", 26, 130, 380);
 
-    setTextAtt(blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
+    setTextAtt(SettingsElemets::subcats::general::blockedPaths_text, "To change paths you must unmount current instance", 26, 160, 65, sf::Color::Red);
 
-    setTextAtt(theme_label_text, "Launcher theme", 26, 130, 605);
+    setTextAtt(SettingsElemets::subcats::general::theme_label_text, "Launcher theme", 26, 130, 605);
 
-    setTextAtt(downloaders_list_text, "Selected depot downloader", 26, 130, 40);
+    setTextAtt(SettingsElemets::subcats::downloading::downloaders_list_text, "Selected depot downloader", 26, 130, 40);
 
-    setTextAtt(DebugSettingsUI::debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
+    setTextAtt(SettingsElemets::subcats::debug::debug_info_text, "Debug options are only for mod developers! Do not enable that if you just want to play.", 26, 130, 55, sf::Color::Red);
 
-    setTextAtt(credits_programming_text, "Programming: MCSR", 32, 130, 150);
-    setTextAtt(github_page_link_text, "                 GitHub project page\nhttps://github.com/MinecraftSRDEV/SRLauncher", 32, 60, 240, sf::Color::Blue);
-    setTextAtt(repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
-    setTextAtt(issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
+    setTextAtt(SettingsElemets::subcats::credits::credits_programming_text, "Programming: MCSR", 32, 130, 150);
+    setTextAtt(SettingsElemets::subcats::credits::github_page_link_text, "                 GitHub project page\nhttps://github.com/MinecraftSRDEV/SRLauncher", 32, 60, 240, sf::Color::Blue);
+    setTextAtt(SettingsElemets::subcats::credits::repos_page_link_text, "       Other My projects you can find at\nhttps://github.com/MinecraftSRDEV", 32, 60, 360, sf::Color::Blue);
+    setTextAtt(SettingsElemets::subcats::credits::issules_page_link_text, "            Found a BUG? Report it here\nhttps://github.com/MinecraftSRDEV/SRLauncher/issues", 32, 60, 450, sf::Color::Blue);
 
     setTextAtt(MainpageElements::details::lastPlayedDateText, "", 26, 730, 70);
     setTextAtt(MainpageElements::lastPlayed::noLastPlayedInstancesText, "No instances have been played recently", 26, 120, 140);
@@ -60,17 +60,17 @@ void setRuntimeTexts()
 
     setTextAtt(version_description_text, "", 26, 10, 10);
 
-    setTextAtt(Profile_warning_text, "", 26, 130, 600);
+    setTextAtt(SettingsElemets::subcats::steamAccount::Profile_warning_text, "", 26, 130, 600);
 
-    setTextAtt(steam_profile_offline_status_text, "", 26, 320, 420);
+    setTextAtt(SettingsElemets::subcats::steamAccount::profileOffline_status_text, "", 26, 320, 420);
 
-    setTextAtt(steam_profile_AccountName_text, "", 26, 320, 450);
+    setTextAtt(SettingsElemets::subcats::steamAccount::profileAccountName_text, "", 26, 320, 450);
 
-    setTextAtt(steam_profile_PersonalName_text, "", 26, 320, 480);
+    setTextAtt(SettingsElemets::subcats::steamAccount::profilePersonalName_text, "", 26, 320, 480);
 
-    setTextAtt(steam_profile_UID_text, "", 26, 320, 510);
+    setTextAtt(SettingsElemets::subcats::steamAccount::profileUID_text, "", 26, 320, 510);
 
-    setTextAtt(profile_presonal_data_warning_text, "This data is only needed to download the game using the downloader of your choice.\nYou can use the launcher without this if you already have the game files downloaded.\nI DON'T NEED YOUR LOGIN DETAILS, I DON'T COLLECT THEM IN ANY WAY,\nYOU CAN SAFELY ENTER THEM WITHOUT WORRYING ABOUT THEM LEAKING.", 26, 135, 270, sf::Color::Red);
+    setTextAtt(SettingsElemets::subcats::steamAccount::profilePresonal_data_warning_text, "This data is only needed to download the game using the downloader of your choice.\nYou can use the launcher without this if you already have the game files downloaded.\nI DON'T NEED YOUR LOGIN DETAILS, I DON'T COLLECT THEM IN ANY WAY,\nYOU CAN SAFELY ENTER THEM WITHOUT WORRYING ABOUT THEM LEAKING.", 26, 135, 270, sf::Color::Red);
 
     setTextAtt(list_mods_instance_text, "Installed mods", 19, 0, 0);
     list_mods_instance_text.setPosition(130 + (280 - (list_mods_instance_text.getLocalBounds().width / 2)), 0);
@@ -105,11 +105,13 @@ void setRuntimeTexts()
     setTextAtt(InstanceIconBar::icon_bar_text, "Select icon", 26, 10, 300);
 
     setTextAtt(MainpageElements::debuger::ipcElapsedText, "", 12, 30, 670);
+
+    setTextAtt(ManageDebug::debugPatchStatusText, "", 26, 130, 55);
 }
 
 void setShapesAttributes()
 {
-    steam_profile_icon.setPosition(sf::Vector2f(130, 410));
+    SettingsElemets::subcats::steamAccount::profileIcon.setPosition(sf::Vector2f(130, 410));
 
     MainpageElements::playbar::progress_bg.setSize(sf::Vector2f(1280, 20));
     MainpageElements::playbar::progress_bg.setPosition(sf::Vector2f(0, 780));

@@ -14,7 +14,7 @@ void setButtons()
         UIElements.createButton(console::clearButton, 1160, 450, 100, 30, font, "Clear console", false);
         UIElements.createCheckbox(console::disableCheckbox, 30, 30, 10, 700, "Disable console", 26, font, false);
         
-        UIElements.createTextfield(console::console, 20, 450, 1240, 240, font);    
+        UIElements.createTextfield(console::console, 20, 450, 1240, 210, font);    
     }
     
     UIElements.createCheckbox(DebuggerMainmenuLayout::acceptInfoCheckbox, 30, 30, 130, 85, "Info", 12, font, false);
@@ -25,58 +25,57 @@ void setButtons()
     UIElements.createButton(SettingsCategory_button, (0 + 320 + 2 + 320), 0, 320, 35, font, "Settings", true);
     UIElements.createButton(VersionsCategory_button, (0 + 320 + 2 + 320 + 2 + 320), 0, 320, 35, font, "Slime Rancher Versions", true);
 
-    UIElements.createTransparrentBg(settings_bg, 0, 40, 1280, 800, true);
+    UIElements.createTransparrentBg(SettingsElemets::settings_bg, 0, 40, 1280, 800, true);
 
-    UIElements.createButton(settingsGeneralCat_button, 0, 45, 120, 40, font, "General", false);
-    UIElements.createButton(settingsProfileCat_button, 0, 87, 120, 40, font, "Steam profile", false);
-    UIElements.createButton(settingsDownloadingCat_button, 0, 129, 120, 40, font, "Downloading", false);
-    UIElements.createButton(settingsUpdatesCat_button, 0, 171, 120, 40, font, "Launcher updates", false);
-    UIElements.createButton(settingsDebuggingCat_button, 0, 213, 120, 40, font, "Debug options", false);
-    UIElements.createButton(settingsLicencesCat_button, 0, 718, 120, 40, font, "Licenses", false);
-    UIElements.createButton(settingsCreditsCat_button, 0, 760, 120, 40, font, "Credits", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::generalCat_button, 0, 45, 120, 40, font, "General", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::profileCat_button, 0, 87, 120, 40, font, "Steam profile", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::downloadingCat_button, 0, 129, 120, 40, font, "Downloading", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::updatesCat_button, 0, 171, 120, 40, font, "Launcher updates", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::debuggingCat_button, 0, 213, 120, 40, font, "Debug options", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::licencesCat_button, 0, 718, 120, 40, font, "Licenses", false);
+    UIElements.createButton(SettingsElemets::subcatsBar::creditsCat_button, 0, 760, 120, 40, font, "Credits", false);
 
-    UIElements.createTransparrentBg(subcat_separator, 125, 43, 0, 754, true);
-    UIElements.createTransparrentBg(save_config_separator, 125, 745, 1280, 0, true);
+    UIElements.createTransparrentBg(SettingsElemets::subcatsBar::subcat_separator, 125, 43, 0, 754, true);
+    UIElements.createTransparrentBg(SettingsElemets::bottomBar::save_config_separator, 125, 745, 1280, 0, true);
 
-    UIElements.createTextbox(steam_path_textbox, 130, 100, 1085, 40, false, false, font, 26, "", false, "Steam games directory path");
-    UIElements.createButton(steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
-    UIElements.createTextbox(instances_path_textbox, 130, 175, 1085, 40, false, false, font, 26, "", false, "Insrances location path");
-    UIElements.createButton(instances_path_getfolder_button, 1215, 206, 60, 40, font, "Browse", false);
-    UIElements.createCheckbox(Show_prereleases_checkbox, 30, 30, 130, 270, "Show pre-release game versions", 26, font, true);
-    UIElements.createCheckbox(Save_logs_files_checkbox, 30, 30, 130, 305, "Autosave log files", 26, font, true);
-    UIElements.createCheckbox(Colored_logs_checkbox, 30, 30, 130, 340, "Enable colored logs", 26, font, true);
-    UIElements.createCheckbox(do_not_show_warnings_checkbox, 30, 30, 130, 375, "Enable warning messages", 26, font, true);
-    UIElements.createCheckbox(use_secure_ipc_checkbox, 30, 30, 130, 410, "Use secure IPC (experimental)", 26, font, false);
-    UIElements.createCheckbox(mount_only_data_checkbox, 30, 30, 130, 445, "Mount only game data (W.I.P.)", 26, font, false);
-    UIElements.createTextbox(SRL_background_img_path_textbox, 130, 510, 1085, 40, false, false, font, 26, "", false, "SRL background image path");
-    UIElements.createButton(SRL_background_img_path_getfolder_button, 1215, 541, 60, 40, font, "Browse", false);
-    UIElements.createDropDownList(theme_list_ddl, 120, 40, 130, 640, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
+    UIElements.createTextbox(SettingsElemets::subcats::general::steam_path_textbox, 130, 100, 1085, 40, false, false, font, 26, "", false, "Steam games directory path");
+    UIElements.createButton(SettingsElemets::subcats::general::steam_path_getfolder_button, 1215, 131, 60, 40, font, "Browse", false);
+    UIElements.createTextbox(SettingsElemets::subcats::general::instances_path_textbox, 130, 175, 1085, 40, false, false, font, 26, "", false, "Insrances location path");
+    UIElements.createButton(SettingsElemets::subcats::general::instances_path_getfolder_button, 1215, 206, 60, 40, font, "Browse", false);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::Show_prereleases_checkbox, 30, 30, 130, 270, "Show pre-release game versions", 26, font, true);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::Save_logs_files_checkbox, 30, 30, 130, 305, "Autosave log files", 26, font, true);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::Colored_logs_checkbox, 30, 30, 130, 340, "Enable colored logs", 26, font, true);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::do_not_show_warnings_checkbox, 30, 30, 130, 375, "Enable warning messages", 26, font, true);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::use_secure_ipc_checkbox, 30, 30, 130, 410, "Use secure IPC (experimental)", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::general::mount_only_data_checkbox, 30, 30, 130, 445, "Mount only game data (W.I.P.)", 26, font, false);
+    UIElements.createTextbox(SettingsElemets::subcats::general::SRL_background_img_path_textbox, 130, 510, 1085, 40, false, false, font, 26, "", false, "SRL background image path");
+    UIElements.createButton(SettingsElemets::subcats::general::SRL_background_img_path_getfolder_button, 1215, 541, 60, 40, font, "Browse", false);
+    UIElements.createDropDownList(SettingsElemets::subcats::general::theme_list_ddl, 120, 40, 130, 640, {{{"Bright"},{std::to_string(ColorPalete::Bright)}},{{"Dark"},{std::to_string(ColorPalete::Dark)}},{{"High contrast"},{std::to_string(ColorPalete::HighContrast)}}}, "Bright", font, false);
 
-    UIElements.createButton(RestoreSettings_button, 1000, 750, 120, 40, font, "Restore defaults", false);
-    UIElements.createButton(SaveConfig_button, 1122, 750, 120, 40, font, "Save config", false);
+    UIElements.createButton(SettingsElemets::bottomBar::RestoreSettings_button, 1000, 750, 120, 40, font, "Restore defaults", false);
+    UIElements.createButton(SettingsElemets::bottomBar::SaveConfig_button, 1122, 750, 120, 40, font, "Save config", false);
 
-    UIElements.createTextbox(SteamProfile_name_textbox, 130, 100, 400, 40, false, false, font, 26, "", false, "Steam profile name");
-    UIElements.createPasswordbox(SteamProfile_password_textbox, 130, 175, 400, 40, false, false, font, 26, "", false, "Steam profile password");
-    UIElements.createButton(save_profile_button, 1122, 750, 120, 40, font, "Save profile", false);
+    UIElements.createTextbox(SettingsElemets::subcats::steamAccount::profileName_textbox, 130, 100, 400, 40, false, false, font, 26, "", false, "Steam profile name");
+    UIElements.createPasswordbox(SettingsElemets::subcats::steamAccount::profilePassword_textbox, 130, 175, 400, 40, false, false, font, 26, "", false, "Steam profile password");
+    UIElements.createButton(SettingsElemets::subcats::steamAccount::save_profile_button, 1122, 750, 120, 40, font, "Save profile", false);
 
-    UIElements.createTextbox(steamcmd_path_textbox, 130, 200, 1085, 40, false, false, font, 26, "", false, settmaindi::CMDPATH_TEXT);
-    UIElements.createButton(steamcmd_path_getfolder_button, 1215, 231, 60, 40, font, "Browse", false);
-    UIElements.createCheckbox(automatically_run_downloaded_instances_checkbox, 30, 30, 130, 280, "Run downloaded instances automatically", 26, font, true);
-    UIElements.createDropDownList(downloaders_ddl, 350, 40, 130, 75, {{{"DepotDownloader (recomended)"},{std::to_string(depotdownloader)}},{{"Legacy SteamCMD (slower)"},{std::to_string(steamcmd)}}}, "DepotDownloader (recomended)", font, false);
+    UIElements.createTextbox(SettingsElemets::subcats::downloading::steamcmd_path_textbox, 130, 200, 1085, 40, false, false, font, 26, "", false, settmaindi::CMDPATH_TEXT);
+    UIElements.createButton(SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button, 1215, 231, 60, 40, font, "Browse", false);
+    UIElements.createCheckbox(SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox, 30, 30, 130, 280, "Run downloaded instances automatically", 26, font, true);
+    UIElements.createDropDownList(SettingsElemets::subcats::downloading::downloaders_ddl, 350, 40, 130, 75, {{{"DepotDownloader (recomended)"},{std::to_string(depotdownloader)}},{{"Legacy SteamCMD (slower)"},{std::to_string(steamcmd)}}}, "DepotDownloader (recomended)", font, false);
 
-    UIElements.createCheckbox(DebugSettingsUI::debuggingEnabledCheckbox, 30, 30, 130, 85, "Enable debugging", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::saveDebugLogsToOtherFileCheckbox, 30, 30, 130, 135, "Save logs to other file", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::printDebugLogsCheckbox, 30, 30, 130, 175, "Print debug logs", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::acceptInfoCheckbox, 30, 30, 180, 205, "Info", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::acceptWarningCheckbox, 30, 30, 180, 245, "Warning", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::acceptErrorCheckbox, 30, 30, 180, 285, "Error", 26, font, false);
-    UIElements.createCheckbox(DebugSettingsUI::acceptExceptionCheckbox, 30, 30, 180, 325, "Exception", 26, font, false);
-    UIElements.createTextbox(DebugSettingsUI::comunicationDelayTextbox, 130, 375, 400, 40, false, false, font, 26, "", false, "Pipe check delay (MS)");
-    UIElements.createTextbox(DebugSettingsUI::comunicationPipeBufferSizeTextbox, 130, 375 + 80, 400, 40, false, false, font, 26, "", false, "Pipe buffer size (bytes)");
-    UIElements.createButton(DebugSettingsUI::forcePipeCloseButton, 130, 440 + 105, 100, 40, font, "Force Pipe close", false);
-    UIElements.createButton(DebugSettingsUI::killInstanceButton, 232, 440 + 105, 100, 40, font, "Kill instance", false);
-    UIElements.createButton(DebugSettingsUI::saveLogFileButton, 334, 440 + 105, 100, 40, font, "Save log file", false);
-    UIElements.createButton(DebugSettingsUI::enableDebuggingOnInstance, 130, 480 + 150, 240, 40, font, "Apply debuger patch to current instance", false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::debuggingEnabledCheckbox, 30, 30, 130, 85, "Enable debugging", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox, 30, 30, 130, 135, "Save logs to other file", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::printDebugLogsCheckbox, 30, 30, 130, 175, "Print debug logs", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::acceptInfoCheckbox, 30, 30, 180, 205, "Info", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::acceptWarningCheckbox, 30, 30, 180, 245, "Warning", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::acceptErrorCheckbox, 30, 30, 180, 285, "Error", 26, font, false);
+    UIElements.createCheckbox(SettingsElemets::subcats::debug::acceptExceptionCheckbox, 30, 30, 180, 325, "Exception", 26, font, false);
+    UIElements.createTextbox(SettingsElemets::subcats::debug::comunicationDelayTextbox, 130, 375, 400, 40, false, false, font, 26, "", false, "Pipe check delay (MS)");
+    UIElements.createTextbox(SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox, 130, 375 + 80, 400, 40, false, false, font, 26, "", false, "Pipe buffer size (bytes)");
+    UIElements.createButton(SettingsElemets::subcats::debug::forcePipeCloseButton, 130, 440 + 105, 100, 40, font, "Force Pipe close", false);
+    UIElements.createButton(SettingsElemets::subcats::debug::killInstanceButton, 232, 440 + 105, 100, 40, font, "Kill instance", false);
+    UIElements.createButton(SettingsElemets::subcats::debug::saveLogFileButton, 334, 440 + 105, 100, 40, font, "Save log file", false);
 
     UIElements.createTransparrentBg(instances_bg, 0, 40, 1280, 800, true);
 
@@ -118,6 +117,7 @@ void setButtons()
     UIElements.createButton(ManageSubcatListUI::main_back_button, 0, 760, 120, 40, font, "Back", false);
 
     UIElements.createTransparrentBg(ManageDebug::assemblyInfoBg, 830, 0, 450, 800, true);
+    UIElements.createButton(ManageDebug::debugPatchButton, 130, 95, 120, 40, font, "");
 
     UIElements.createTransparrentBg(ManageSubcatListUI::cats_separator, 125, 3, 0, 794, true);
 
@@ -137,8 +137,8 @@ void setButtons()
     UIElements.createTransparrentBg(ver_desc_bg, 0, 0, 1280, 800, true);
     UIElements.createButton(version_back_button, 465, 750, 350, 40, font, "Back", false);
 
-    UIElements.createButton(check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
-    UIElements.createCheckbox(autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
+    UIElements.createButton(SettingsElemets::subcats::updates::check_for_update_button, 130, 100, 120, 40, font, "Check for updates", false);
+    UIElements.createCheckbox(SettingsElemets::subcats::updates::autocheck_for_update_checkbox, 30, 30, 130, 150, "Check for update when launcher started", 26, font, true);
 
-    UIElements.createTextfield(LicencesUI::licenseField, 130, 60, 1140, 720, font);
+    UIElements.createTextfield(SettingsElemets::subcats::licences::licenseField, 130, 60, 1140, 720, font);
 }

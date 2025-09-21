@@ -102,103 +102,111 @@ namespace ImportInstanceUI
 namespace SettingsElemets
 {
     sfg::TransparrentBackground settings_bg;
-    sfg::Button RestoreSettings_button;
-    sfg::Button SaveConfig_button;
-}
+    
+    namespace bottomBar
+    {
+        sfg::Button RestoreSettings_button;
+        sfg::Button SaveConfig_button;
 
-namespace SettingsSubcatsUI
-{
-    sfg::Button settingsGeneralCat_button;
-    sfg::Button settingsProfileCat_button;
-    sfg::Button settingsUpdatesCat_button;
-    sfg::Button settingsDownloadingCat_button;
-    sfg::Button settingsDebuggingCat_button;
-    sfg::Button settingsLicencesCat_button;
-    sfg::Button settingsCreditsCat_button;
-    sfg::TransparrentBackground subcat_separator;
-    sfg::TransparrentBackground save_config_separator;
-}
+        sfg::TransparrentBackground save_config_separator;
+    }
 
-namespace MainSettingsUI
-{
-    sf::Text blockedPaths_text;
-    sfg::Textbox steam_path_textbox;
-    sfg::Button steam_path_getfolder_button;
-    sfg::Textbox instances_path_textbox;
-    sfg::Button instances_path_getfolder_button;
-    sfg::Checkbox Show_prereleases_checkbox;
-    sfg::Checkbox Save_logs_files_checkbox;
-    sfg::Checkbox Colored_logs_checkbox;
-    sfg::Checkbox do_not_show_warnings_checkbox;
-    sfg::Checkbox use_secure_ipc_checkbox;
-    sfg::Checkbox mount_only_data_checkbox;
-    sf::Text theme_label_text;
-    sfg::DropDownList theme_list_ddl;
-    sfg::Textbox SRL_background_img_path_textbox;
-    sfg::Button SRL_background_img_path_getfolder_button;
-}
+    namespace subcatsBar
+    {
+        sfg::Button generalCat_button;
+        sfg::Button profileCat_button;
+        sfg::Button updatesCat_button;
+        sfg::Button downloadingCat_button;
+        sfg::Button debuggingCat_button;
+        sfg::Button licencesCat_button;
+        sfg::Button creditsCat_button;
 
-namespace SteamAccountSettingsUI
-{
-    sfg::Textbox SteamProfile_name_textbox;
-    sfg::Passwordbox SteamProfile_password_textbox;
-    sfg::Button save_profile_button;
-    sf::Text Profile_warning_text;
-    sf::Sprite steam_profile_icon;
-    sf::Texture profile_icon_tx;
-    sf::Texture userAvatar_tx;
-    sf::Text steam_profile_offline_status_text;
-    sf::Text steam_profile_AccountName_text;
-    sf::Text steam_profile_PersonalName_text;
-    sf::Text steam_profile_UID_text;
-    sf::Text profile_presonal_data_warning_text;
-}
+        sfg::TransparrentBackground subcat_separator;
+    }
 
-namespace UpdatesSettingsUI
-{
-    sf::Text update_status_text;
-    sfg::Button check_for_update_button;
-    sfg::Checkbox autocheck_for_update_checkbox;    
-}
+    namespace subcats
+    {
+        namespace general
+        {
+            sf::Text blockedPaths_text;
+            sfg::Textbox steam_path_textbox;
+            sfg::Button steam_path_getfolder_button;
+            sfg::Textbox instances_path_textbox;
+            sfg::Button instances_path_getfolder_button;
+            sfg::Checkbox Show_prereleases_checkbox;
+            sfg::Checkbox Save_logs_files_checkbox;
+            sfg::Checkbox Colored_logs_checkbox;
+            sfg::Checkbox do_not_show_warnings_checkbox;
+            sfg::Checkbox use_secure_ipc_checkbox;
+            sfg::Checkbox mount_only_data_checkbox;
+            sf::Text theme_label_text;
+            sfg::DropDownList theme_list_ddl;
+            sfg::Textbox SRL_background_img_path_textbox;
+            sfg::Button SRL_background_img_path_getfolder_button;
+        }
 
-namespace DownloadingSettingsUI
-{
-    sfg::Textbox steamcmd_path_textbox;
-    sfg::Button steamcmd_path_getfolder_button;
-    sfg::Checkbox automatically_run_downloaded_instances_checkbox;
-    sf::Text downloaders_list_text;
-    sfg::DropDownList downloaders_ddl;
-}
+        namespace steamAccount
+        {
+            sfg::Textbox profileName_textbox;
+            sfg::Passwordbox profilePassword_textbox;
+            sfg::Button save_profile_button;
+            sf::Text Profile_warning_text;
+            sf::Sprite profileIcon;
+            sf::Texture profile_icon_tx;
+            sf::Texture userAvatar_tx;
+            sf::Text profileOffline_status_text;
+            sf::Text profileAccountName_text;
+            sf::Text profilePersonalName_text;
+            sf::Text profileUID_text;
+            sf::Text profilePresonal_data_warning_text;        
+        }
 
-namespace DebugSettingsUI
-{
-    sf::Text debug_info_text;
-    sfg::Checkbox debuggingEnabledCheckbox;
-    sfg::Checkbox saveDebugLogsToOtherFileCheckbox;
-    sfg::Checkbox printDebugLogsCheckbox;
-    sfg::Textbox comunicationDelayTextbox;
-    sfg::Textbox comunicationPipeBufferSizeTextbox;
-    sfg::Button forcePipeCloseButton;
-    sfg::Button killInstanceButton;
-    sfg::Button saveLogFileButton;
-    sfg::Checkbox acceptInfoCheckbox;
-    sfg::Checkbox acceptWarningCheckbox;
-    sfg::Checkbox acceptErrorCheckbox;
-    sfg::Checkbox acceptExceptionCheckbox;
-    sfg::Button enableDebuggingOnInstance;
-}
+        namespace downloading
+        {
+            sfg::Textbox steamcmd_path_textbox;
+            sfg::Button steamcmd_path_getfolder_button;
+            sfg::Checkbox automatically_run_downloaded_instances_checkbox;
+            sf::Text downloaders_list_text;
+            sfg::DropDownList downloaders_ddl;
+        }
 
-namespace CreditsUI
-{
-    sf::Text credits_programming_text;
-    sf::Text github_page_link_text;
-    sf::Text repos_page_link_text;
-    sf::Text issules_page_link_text;
-}
+        namespace updates
+        {
+            sf::Text update_status_text;
+            sfg::Button check_for_update_button;
+            sfg::Checkbox autocheck_for_update_checkbox;    
+        }
 
-namespace LicencesUI
-{
-    sfg::Textfield licenseField;
+        namespace debug
+        {
+            sf::Text debug_info_text;
+            sfg::Checkbox debuggingEnabledCheckbox;
+            sfg::Checkbox saveDebugLogsToOtherFileCheckbox;
+            sfg::Checkbox printDebugLogsCheckbox;
+            sfg::Textbox comunicationDelayTextbox;
+            sfg::Textbox comunicationPipeBufferSizeTextbox;
+            sfg::Button forcePipeCloseButton;
+            sfg::Button killInstanceButton;
+            sfg::Button saveLogFileButton;
+            sfg::Checkbox acceptInfoCheckbox;
+            sfg::Checkbox acceptWarningCheckbox;
+            sfg::Checkbox acceptErrorCheckbox;
+            sfg::Checkbox acceptExceptionCheckbox;
+        }
+
+        namespace credits
+        {
+            sf::Text credits_programming_text;
+            sf::Text github_page_link_text;
+            sf::Text repos_page_link_text;
+            sf::Text issules_page_link_text;
+        }     
+        
+        namespace licences
+        {
+            sfg::Textfield licenseField;
+        }        
+    }
 }
 
 namespace VersionsElements

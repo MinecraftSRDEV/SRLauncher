@@ -20,12 +20,12 @@ void checkUpdate()
                     if (launcher_version != launcherVersion)
                     {
                         std::string text = "New Launcher version is available: " + launcherVersion + "\n\nYou have: " + launcher_version;
-                        update_status_text.setString(text);
+                        SettingsElemets::subcats::updates::update_status_text.setString(text);
                         MessageBoxA(NULL, text.c_str(), "Update Available", MB_ICONINFORMATION | MB_OK);
                     }
                     else
                     {
-                        update_status_text.setString("You have latest version");
+                        SettingsElemets::subcats::updates::update_status_text.setString("You have latest version");
                     }
                 }
             }
@@ -33,11 +33,11 @@ void checkUpdate()
         catch (std::out_of_range e)
         {
             std::string err = e.what();
-            update_status_text.setString("Cannot check for updates: \n" + err);
+            SettingsElemets::subcats::updates::update_status_text.setString("Cannot check for updates: \n" + err);
         }
     }
     else
     {
-        update_status_text.setString("Cannot check for updates");
+        SettingsElemets::subcats::updates::update_status_text.setString("Cannot check for updates");
     }    
 }

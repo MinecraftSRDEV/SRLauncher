@@ -176,7 +176,7 @@ void run_game(std::string path, std::string gamepath)
     HWND launcherWindow = window.getSystemHandle();
     MainpageElements::playbar::launchGameButton.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
-    if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+    if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == false)
     {
         ShowWindow(launcherWindow, SW_MINIMIZE);
     }
@@ -452,7 +452,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
 
         updateLastPlayedList();
 
-        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+        if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == false)
         {
             window.setFramerateLimit(5);
         }
@@ -465,7 +465,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         std::thread gameThread(run_game, game_runpath, gamepath);
         gameThread.detach();
 
-        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+        if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == true)
         {
             std::thread debugThread(DebugBridge::TryToConnect);
             debugThread.detach();    
@@ -492,7 +492,7 @@ void prepareInstance(std::string instance_id)
     if (game_downloading == false)
     {
         // fs::path game_dir = defaultDir / "instances" / instance_id;
-        steam_game_dir = steam_path_textbox.getText();
+        steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
         if (mountOnlyData == true)

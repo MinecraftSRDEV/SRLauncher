@@ -5,59 +5,59 @@ namespace settings_defaults
     void steam_gamedir_def()
     {
         steam_game_dir = get_steam_default_path();
-        steam_path_textbox.setText(steam_game_dir);
+        SettingsElemets::subcats::general::steam_path_textbox.setText(steam_game_dir);
     }
     void instances_dir_def()
     {
         instances_dir = instances_path.string();
-        instances_path_textbox.setText(instances_dir);
+        SettingsElemets::subcats::general::instances_path_textbox.setText(instances_dir);
     }
     void steamcmd_dir_def()
     {
         steamcmd_dir = cmd_path.string();
-        steamcmd_path_textbox.setText(steamcmd_dir);
+        SettingsElemets::subcats::downloading::steamcmd_path_textbox.setText(steamcmd_dir);
     }
     void show_prerelease_def()
     {
         show_prerelease_version = true;
-        Show_prereleases_checkbox.setState(show_prerelease_version);
+        SettingsElemets::subcats::general::Show_prereleases_checkbox.setState(show_prerelease_version);
     }
     void save_logs_def()
     {
         save_log_files = true;
-        Save_logs_files_checkbox.setState(save_log_files);
+        SettingsElemets::subcats::general::Save_logs_files_checkbox.setState(save_log_files);
     }
     void logs_color_def()
     {
         display_log_colors = true;
-        Colored_logs_checkbox.setState(display_log_colors);
+        SettingsElemets::subcats::general::Colored_logs_checkbox.setState(display_log_colors);
     }
     void autolaunch_instances_def()
     {
         autolaunch_instances = true;
-        automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
+        SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
     }
     void show_warns_def()
     {
         show_warnings = true;
-        do_not_show_warnings_checkbox.setState(show_warnings);
+        SettingsElemets::subcats::general::do_not_show_warnings_checkbox.setState(show_warnings);
     }
     void autocheck_updates_def()
     {
         check_updates_when_start = true;
-        autocheck_for_update_checkbox.setState(check_updates_when_start);
+        SettingsElemets::subcats::updates::autocheck_for_update_checkbox.setState(check_updates_when_start);
     }
 
     void use_secure_ipc_def()
     {
         use_secure_ipc = false;
-        use_secure_ipc_checkbox.setState(use_secure_ipc);
+        SettingsElemets::subcats::general::use_secure_ipc_checkbox.setState(use_secure_ipc);
     }
 
     void mount_only_data_def()
     {
         mountOnlyData = false;
-        mount_only_data_checkbox.setState(mountOnlyData);
+        SettingsElemets::subcats::general::mount_only_data_checkbox.setState(mountOnlyData);
     }
 
     void theme_def()
@@ -73,31 +73,31 @@ namespace settings_defaults
     void debugging_enable_def()
     {
         enableDebugging = false;
-        DebugSettingsUI::debuggingEnabledCheckbox.setState(enableDebugging);
+        SettingsElemets::subcats::debug::debuggingEnabledCheckbox.setState(enableDebugging);
     }
 
     void debug_savelogs_def()
     {
         saveDebugLogsToOtherFile = false;
-        DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
+        SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.setState(saveDebugLogsToOtherFile);
     }
 
     void debug_print_all_def()
     {
         printDebugLogs = true;
-        DebugSettingsUI::printDebugLogsCheckbox.setState(printDebugLogs);
+        SettingsElemets::subcats::debug::printDebugLogsCheckbox.setState(printDebugLogs);
     }
 
     void debug_com_delay_def()
     {
         communicationDelay = 10;
-        DebugSettingsUI::comunicationDelayTextbox.setText(std::to_string(communicationDelay));
+        SettingsElemets::subcats::debug::comunicationDelayTextbox.setText(std::to_string(communicationDelay));
     }
 
     void debug_com_buffersize_def()
     {
         comunicationPipeBufferSize = 1024;
-        DebugSettingsUI::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
+        SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.setText(std::to_string(comunicationPipeBufferSize));
     }
 
     void debug_acc_info_def()
@@ -123,7 +123,7 @@ namespace settings_defaults
     void background_path_def()
     {
         srlBackgroundPath = SRL_BG_DEF_PATH;
-        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        SettingsElemets::subcats::general::SRL_background_img_path_textbox.setText(srlBackgroundPath);
         reloadLauncherBackground();
     }
 }

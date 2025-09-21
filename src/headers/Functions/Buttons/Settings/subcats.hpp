@@ -25,24 +25,24 @@ namespace settingsCategories
     {
         options_ui = SettingsCategories::DEBUGGING_PAGE;
 
-        DebugSettingsUI::acceptInfoCheckbox.setState(acceptInfoLogs);
-        DebugSettingsUI::acceptWarningCheckbox.setState(acceptWarningLogs);
-        DebugSettingsUI::acceptErrorCheckbox.setState(acceptErrorLogs);
-        DebugSettingsUI::acceptExceptionCheckbox.setState(acceptExceptionLogs);
+        SettingsElemets::subcats::debug::acceptInfoCheckbox.setState(acceptInfoLogs);
+        SettingsElemets::subcats::debug::acceptWarningCheckbox.setState(acceptWarningLogs);
+        SettingsElemets::subcats::debug::acceptErrorCheckbox.setState(acceptErrorLogs);
+        SettingsElemets::subcats::debug::acceptExceptionCheckbox.setState(acceptExceptionLogs);
     }
 
     void licences_cat()
     {
         options_ui = SettingsCategories::LICENCES_PAGE;
-        LicencesUI::licenseField.toUp();
+        SettingsElemets::subcats::licences::licenseField.toUp();
     }
 
     void credits_cat()
     {
-        credits_programming_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 150);
-        github_page_link_text.setPosition((window.getSize().x / 2) - (github_page_link_text.getLocalBounds().width / 2), 240);
-        repos_page_link_text.setPosition((window.getSize().x / 2) - (repos_page_link_text.getLocalBounds().width / 2), 360);
-        issules_page_link_text.setPosition((window.getSize().x / 2) - (issules_page_link_text.getLocalBounds().width / 2), 450);
+        SettingsElemets::subcats::credits::credits_programming_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::credits_programming_text.getLocalBounds().width / 2), 150);
+        SettingsElemets::subcats::credits::github_page_link_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::github_page_link_text.getLocalBounds().width / 2), 240);
+        SettingsElemets::subcats::credits::repos_page_link_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::repos_page_link_text.getLocalBounds().width / 2), 360);
+        SettingsElemets::subcats::credits::issules_page_link_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::issules_page_link_text.getLocalBounds().width / 2), 450);
         options_ui = SettingsCategories::CREDITS_PAGE;
     }
 }

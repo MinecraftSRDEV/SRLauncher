@@ -12,49 +12,49 @@ void saveConfigWithCurrents()
 
 void getSettingsValuesAndSave()
 {
-    steam_game_dir = steam_path_textbox.getText();
-    instances_dir = instances_path_textbox.getText();
-    steamcmd_dir = steamcmd_path_textbox.getText();
+    steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
+    instances_dir = SettingsElemets::subcats::general::instances_path_textbox.getText();
+    steamcmd_dir = SettingsElemets::subcats::downloading::steamcmd_path_textbox.getText();
 
-    save_log_files = Save_logs_files_checkbox.getState();
-    display_log_colors = Colored_logs_checkbox.getState();
-    autolaunch_instances = automatically_run_downloaded_instances_checkbox.getState();
-    show_warnings = do_not_show_warnings_checkbox.getState();
-    show_prerelease_version = Show_prereleases_checkbox.getState();
-    use_secure_ipc = use_secure_ipc_checkbox.getState();
-    mountOnlyData = mount_only_data_checkbox.getState();
+    save_log_files = SettingsElemets::subcats::general::Save_logs_files_checkbox.getState();
+    display_log_colors = SettingsElemets::subcats::general::Colored_logs_checkbox.getState();
+    autolaunch_instances = SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox.getState();
+    show_warnings = SettingsElemets::subcats::general::do_not_show_warnings_checkbox.getState();
+    show_prerelease_version = SettingsElemets::subcats::general::Show_prereleases_checkbox.getState();
+    use_secure_ipc = SettingsElemets::subcats::general::use_secure_ipc_checkbox.getState();
+    mountOnlyData = SettingsElemets::subcats::general::mount_only_data_checkbox.getState();
 
-    check_updates_when_start = autocheck_for_update_checkbox.getState();
+    check_updates_when_start = SettingsElemets::subcats::updates::autocheck_for_update_checkbox.getState();
 
-    std::string result = theme_list_ddl.getRResult();
+    std::string result = SettingsElemets::subcats::general::theme_list_ddl.getRResult();
     theme_selected = std::stoi(result);
 
-    result = downloaders_ddl.getRResult();
+    result = SettingsElemets::subcats::downloading::downloaders_ddl.getRResult();
     downloader_selected = std::stoi(result);
 
-    enableDebugging = DebugSettingsUI::debuggingEnabledCheckbox.getState();
-    saveDebugLogsToOtherFile = DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.getState();
-    printDebugLogs = DebugSettingsUI::printDebugLogsCheckbox.getState();
+    enableDebugging = SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState();
+    saveDebugLogsToOtherFile = SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.getState();
+    printDebugLogs = SettingsElemets::subcats::debug::printDebugLogsCheckbox.getState();
 
     try
     {
-        communicationDelay = std::stoi(DebugSettingsUI::comunicationDelayTextbox.getText());    
+        communicationDelay = std::stoi(SettingsElemets::subcats::debug::comunicationDelayTextbox.getText());    
     }
     catch (std::exception e) {}
     try
     {
-        comunicationPipeBufferSize = std::stoi(DebugSettingsUI::comunicationPipeBufferSizeTextbox.getText());
+        comunicationPipeBufferSize = std::stoi(SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.getText());
     }
     catch (std::exception e) {}
 
     saveConfigWithCurrents();
 
-    srlBackgroundPath = SRL_background_img_path_textbox.getText();
+    srlBackgroundPath = SettingsElemets::subcats::general::SRL_background_img_path_textbox.getText();
 }
 
 void getProfileSettingsValuesAndSave()
 {
-    steam_profile_name = encryptor(SteamProfile_name_textbox.getText());
-    steam_profile_passwd = encryptor(SteamProfile_password_textbox.getText());
+    steam_profile_name = encryptor(SettingsElemets::subcats::steamAccount::profileName_textbox.getText());
+    steam_profile_passwd = encryptor(SettingsElemets::subcats::steamAccount::profilePassword_textbox.getText());
     saveConfigWithCurrents();
 }

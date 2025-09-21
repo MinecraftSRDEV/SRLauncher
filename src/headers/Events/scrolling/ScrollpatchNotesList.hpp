@@ -10,7 +10,7 @@ void scrollPatchNotes(sf::Event& event, sf::Vector2f& mouse_pos)
             int first = versions_pachnotes_list.begin()->first;
             int last = versions_pachnotes_list.size();
 
-            if (Show_prereleases_checkbox.getState() == false)
+            if (SettingsElemets::subcats::general::Show_prereleases_checkbox.getState() == false)
             {
                 for (const auto& pair : versions_pachnotes_list)
                 {

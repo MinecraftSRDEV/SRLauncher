@@ -16,13 +16,13 @@ void updateButtonsBlockingState()
     {
         if (UI_current == UiPages::SettingsMenu)
         {
-            ButtonUIHilight(settingsGeneralCat_button, options_ui, SettingsCategories::MAIN_PAGE);
-            ButtonUIHilight(settingsProfileCat_button, options_ui, SettingsCategories::PROFILE_PAGE);
-            ButtonUIHilight(settingsDownloadingCat_button, options_ui, SettingsCategories::DOWNLOADING_PAGE);
-            ButtonUIHilight(settingsUpdatesCat_button, options_ui, SettingsCategories::UPDATES_PAGE);
-            ButtonUIHilight(settingsDebuggingCat_button, options_ui, SettingsCategories::DEBUGGING_PAGE);
-            ButtonUIHilight(settingsCreditsCat_button, options_ui, SettingsCategories::CREDITS_PAGE);
-            ButtonUIHilight(settingsLicencesCat_button, options_ui, SettingsCategories::LICENCES_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::generalCat_button, options_ui, SettingsCategories::MAIN_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::profileCat_button, options_ui, SettingsCategories::PROFILE_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::downloadingCat_button, options_ui, SettingsCategories::DOWNLOADING_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::updatesCat_button, options_ui, SettingsCategories::UPDATES_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::debuggingCat_button, options_ui, SettingsCategories::DEBUGGING_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::creditsCat_button, options_ui, SettingsCategories::CREDITS_PAGE);
+            ButtonUIHilight(SettingsElemets::subcatsBar::licencesCat_button, options_ui, SettingsCategories::LICENCES_PAGE);
         }
 
         if (UI_current == UiPages::ManageMenu)

@@ -6,7 +6,7 @@ void create_instance(const std::string& instance_name, const std::string& versio
         if (!instance_name.empty())
         {
             // fs::path new_instance_path = defaultDir / "instances" / instance_name;
-            std::string instances_dir = instances_path_textbox.getText();
+            std::string instances_dir = SettingsElemets::subcats::general::instances_path_textbox.getText();
             // fs::path steam_dir = steam_game_dir;
             fs::path steam_dir = instances_dir;
             fs::path new_instance_path = steam_dir / ("Slime Rancher_" + instance_name);

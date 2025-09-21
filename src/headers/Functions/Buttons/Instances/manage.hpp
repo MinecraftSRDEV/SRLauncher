@@ -1,3 +1,9 @@
+namespace DebugBridge
+{
+    void installDebugPath();
+    void uninstallDebugPath();
+}
+
 /**
  * Async main function responsible for all loaders
  * 
@@ -103,7 +109,20 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
     correctModsIndexesPosition(LauncherMods_list, LauncherModsIndexing);
     correctModsIndexesPosition(InstanceMods_list, InstanceModsIndexing);
 
+    ManageDebug::debugPatchStatusText.setString("Patch status: Not installed");
+    ManageDebug::debugPatchButton.setText("Apply patch");
+    ManageDebug::debugPatchButton.setFunction(DebugBridge::installDebugPath);
     ManageDebug::assemblyDataText.setString(runAssemblyReader(instance_managed_directory.string() + "/Assembly-CSharp.dll"));
+    try
+    {
+        size_t count = ManageDebug::assemblyDataText.getString().find("DebugBridge");
+        if (count != std::string::npos)
+        {
+            ManageDebug::debugPatchStatusText.setString("Patch status: Installed");
+            ManageDebug::debugPatchButton.setText("Uninstall patch");
+            ManageDebug::debugPatchButton.setFunction(DebugBridge::uninstallDebugPath);
+        }
+    } catch(std::exception e) {}
 
     updateModsList();
 
@@ -143,7 +162,7 @@ void instance_manage(std::string instance_id, int scene)
         fs::path instance_directory = instances_dir / fs::path("Slime Rancher_" + instances_list[instance_id].getID());
 
         dataLoading_text.setString("Loading instance data...");
-        dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
+        dataLoading_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::credits_programming_text.getLocalBounds().width / 2), 320);
         instancesLoader::instanceDataLoading = true;
         loadingAnimationDisplay = true;
         loadingAnimation::setupLoadingAnimation(dataLoading_text.getPosition(), "pink");

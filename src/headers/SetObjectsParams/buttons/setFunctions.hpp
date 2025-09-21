@@ -10,28 +10,28 @@ void clearConsole()
 
 void updateShowPrereleaseState()
 {
-    show_prerelease_version = Show_prereleases_checkbox.getState();
+    show_prerelease_version = SettingsElemets::subcats::general::Show_prereleases_checkbox.getState();
 }
 
 void applyTheme()
 {
-    std::string result = theme_list_ddl.getRResult();
+    std::string result = SettingsElemets::subcats::general::theme_list_ddl.getRResult();
     theme_selected = std::stoi(result);
     setTheme();
 }
 
 void setDownloader()
 {
-    std::string result = downloaders_ddl.getRResult();
+    std::string result = SettingsElemets::subcats::downloading::downloaders_ddl.getRResult();
     downloader_selected = std::stoi(result);
 
     if (downloader_selected == steamcmd)
     {
-        steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
+        SettingsElemets::subcats::downloading::steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
     }
     else
     {
-        steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
+        SettingsElemets::subcats::downloading::steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
     }
 }
 
@@ -59,38 +59,37 @@ void setFunctions()
 
     MainpageElements::playbar::launchGameButton.setFunction(runGameInitial);
 
-    check_for_update_button.setFunction(checkUpdate);
+    SettingsElemets::subcats::updates::check_for_update_button.setFunction(checkUpdate);
 
-    settingsGeneralCat_button.setFunction(settingsCategories::main_cat);
-    settingsProfileCat_button.setFunction(settingsCategories::profile_cat);
-    settingsDownloadingCat_button.setFunction(settingsCategories::downloading_cat);
-    settingsUpdatesCat_button.setFunction(settingsCategories::updates_cat);
-    settingsDebuggingCat_button.setFunction(settingsCategories::debugging_cat);
-    settingsLicencesCat_button.setFunction(settingsCategories::licences_cat);
-    settingsCreditsCat_button.setFunction(settingsCategories::credits_cat);
+    SettingsElemets::subcatsBar::generalCat_button.setFunction(settingsCategories::main_cat);
+    SettingsElemets::subcatsBar::profileCat_button.setFunction(settingsCategories::profile_cat);
+    SettingsElemets::subcatsBar::downloadingCat_button.setFunction(settingsCategories::downloading_cat);
+    SettingsElemets::subcatsBar::updatesCat_button.setFunction(settingsCategories::updates_cat);
+    SettingsElemets::subcatsBar::debuggingCat_button.setFunction(settingsCategories::debugging_cat);
+    SettingsElemets::subcatsBar::licencesCat_button.setFunction(settingsCategories::licences_cat);
+    SettingsElemets::subcatsBar::creditsCat_button.setFunction(settingsCategories::credits_cat);
 
-    Show_prereleases_checkbox.setFunction(updateShowPrereleaseState);
+    SettingsElemets::subcats::general::Show_prereleases_checkbox.setFunction(updateShowPrereleaseState);
 
-    steam_path_getfolder_button.setFunction(getfolder_steamdir);
-    instances_path_getfolder_button.setFunction(getfolder_instancesdir);
-    steamcmd_path_getfolder_button.setFunction(getfolder_steamcmddir);
+    SettingsElemets::subcats::general::steam_path_getfolder_button.setFunction(getfolder_steamdir);
+    SettingsElemets::subcats::general::instances_path_getfolder_button.setFunction(getfolder_instancesdir);
+    SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button.setFunction(getfolder_steamcmddir);
 
-    downloaders_ddl.setFunction(setDownloader);
-    theme_list_ddl.setFunction(applyTheme);
+    SettingsElemets::subcats::downloading::downloaders_ddl.setFunction(setDownloader);
+    SettingsElemets::subcats::general::theme_list_ddl.setFunction(applyTheme);
 
-    SRL_background_img_path_getfolder_button.setFunction(getfolder_background_path);
+    SettingsElemets::subcats::general::SRL_background_img_path_getfolder_button.setFunction(getfolder_background_path);
 
-    SteamProfile_name_textbox.setOnChangeFunction(getSteamAccountStats);
+    SettingsElemets::subcats::steamAccount::profileName_textbox.setOnChangeFunction(getSteamAccountStats);
 
-    RestoreSettings_button.setFunction(setSettingsDefault);
-    SaveConfig_button.setFunction(getSettingsValuesAndSave);
+    SettingsElemets::bottomBar::RestoreSettings_button.setFunction(setSettingsDefault);
+    SettingsElemets::bottomBar::SaveConfig_button.setFunction(getSettingsValuesAndSave);
 
-    save_profile_button.setFunction(getProfileSettingsValuesAndSave);
+    SettingsElemets::subcats::steamAccount::save_profile_button.setFunction(getProfileSettingsValuesAndSave);
 
-    DebugSettingsUI::forcePipeCloseButton.setFunction(DebugBridge::forceClose);
-    DebugSettingsUI::killInstanceButton.setFunction(DebugBridge::killInstance);
-    DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setFunction(DebugBridge::saveLogs);
-    DebugSettingsUI::enableDebuggingOnInstance.setFunction(DebugBridge::applyDebugPathToInstance);
+    SettingsElemets::subcats::debug::forcePipeCloseButton.setFunction(DebugBridge::forceClose);
+    SettingsElemets::subcats::debug::killInstanceButton.setFunction(DebugBridge::killInstance);
+    SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.setFunction(DebugBridge::saveLogs);
 
     ManageSubcatListUI::informations_button.setFunction(manageCategories::details);
     ManageSubcatListUI::main_back_button.setFunction(manageCategories::exit_function);

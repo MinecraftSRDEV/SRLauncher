@@ -1,5 +1,5 @@
 void setTextures()
 {
     background.setTexture(bg_texture);
-    steam_profile_icon.setTexture(profile_icon_tx);
+    SettingsElemets::subcats::steamAccount::profileIcon.setTexture(SettingsElemets::subcats::steamAccount::profile_icon_tx);
 }
