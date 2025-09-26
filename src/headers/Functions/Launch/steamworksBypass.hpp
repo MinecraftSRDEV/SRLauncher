@@ -71,8 +71,7 @@ void checkSession()
     {
         if (thisData.steamRenamed)
         {
-            int result = MessageBoxA(NULL, "It appears that the session on the older version of the game has been started, but has not ended properly, which has caused the Steam client to be blocked in order to launch this version of the game.\n\nDo you want to unlock Steam client now? (recommended)", 
-            "Info", MB_ICONQUESTION | MB_YESNO);
+            int result = MessageBoxA(NULL, tr("IDS_MSG_SB_SESSIONNOTCLOSED").c_str(), "Info", MB_ICONQUESTION | MB_YESNO);
 
             switch (result)
             {
@@ -87,7 +86,7 @@ void checkSession()
                 }
                 case IDNO:
                 {
-                    MessageBoxA(NULL, "Remember: To manualy unlock Steam client go to your Steam instalation folder and rename \"_Steam.exe\" to \"Steam.exe\"", "Info", MB_ICONINFORMATION | MB_OK);
+                    MessageBoxA(NULL, std::string(tr("IDS_MSG_SB_UNLOCK_NO") + "\"_Steam.exe\" to \"Steam.exe\"").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
                     break;
                 }
             }

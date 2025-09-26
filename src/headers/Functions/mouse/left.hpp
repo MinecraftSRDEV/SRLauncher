@@ -228,6 +228,7 @@ void mouse_left()
             SettingsElemets::bottomBar::SaveConfig_button.update(mouse);
 
             general::theme_list_ddl.update(mouse);
+            general::languages_list_ddl.update(mouse);
 
             general::SRL_background_img_path_textbox.update(mouse);
             general::SRL_background_img_path_getfolder_button.update(mouse);

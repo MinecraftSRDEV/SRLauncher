@@ -1,11 +1,14 @@
 #include "headers/Functions/CriticalErrorsDetection/errorDetection.hpp"
 
 #include "headers/Declarations/varriables.hpp"
-#include "headers/Declarations/dictionaries.hpp"
 #include "headers/Declarations/enums.hpp"
 #include "headers/Declarations/structs.hpp"
 
 #include "headers/Classes/save_menagement/management_main_class.hpp"
+
+#include "headers/Functions/Windows/getSysTheme.hpp"
+#include "headers/Functions/Windows/getSysVersion.hpp"
+#include "headers/Functions/Windows/getSysLanguage.hpp"
 
 #include "headers/Classes/uiElements_class.hpp"
 
@@ -20,6 +23,9 @@
 #include "headers/Functions/crypt/md5calc.hpp"
 
 #include "headers/Functions/Logs/log_message.hpp"
+
+#include "headers/ResourceLoad/loadLangpacks.hpp"
+#include "headers/Declarations/dictionaries.hpp"
 
 #include "headers/Functions/Buttons/Instances/playtimeCalculator.hpp"
 
@@ -40,6 +46,8 @@
 #include "headers/Declarations/SFMLObjects/ui/elements.hpp"
 
 #include "headers/Declarations/namespaces.hpp"
+
+#include "headers/Start/createLanguageDdl.hpp"
 
 #include "headers/Start/create_versions_list.hpp"
 #include "headers/Start/objects_attributes.hpp"
@@ -90,6 +98,7 @@
 
 #include "headers/SetObjectsParams/textures/setTextures.hpp"
 #include "headers/SetObjectsParams/ui/setUiElements.hpp"
+#include "headers/SetObjectsParams/ui/setLanguage.hpp"
 #include "headers/SetObjectsParams/ui/setTheme.hpp"
 
 #include "headers/Functions/Userdata/get_userdata_path.hpp"

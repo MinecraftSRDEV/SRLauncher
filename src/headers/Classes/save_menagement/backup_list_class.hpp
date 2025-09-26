@@ -23,9 +23,9 @@ void create(int x, int y, BackupData& inputData, sf::Font& font)
     sourceText.setCharacterSize(16);
     sourceText.setFont(font);
 
-    remove_button.create(0,0, 80, 30, font, "remove", false, theme_selected);
-    restore_button.create(0,0, 80, 30, font, "restore", false, theme_selected);
-    reveal_button.create(0,0, 120, 30, font, "reveal in explorer", false, theme_selected);
+    remove_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_BACKUP_REMOVE"), false, theme_selected);
+    restore_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_BACKUP_RESTORE"), false, theme_selected);
+    reveal_button.create(0,0, 120, 30, font, tr("IDS_BUTTON_BACKUP_REVEAL"), false, theme_selected);
 
     applyData();
     reposition();
@@ -143,8 +143,8 @@ private:
 void applyData()
 {
     nameText.setString(data.name);
-    dateText.setString("Creted date: " + data.date);
-    sourceText.setString("Created in: " + data.source);
+    dateText.setString(tr("IDS_TEXT_BACKUP_CRDATE") + data.date);
+    sourceText.setString(tr("IDS_TEXT_BACKUP_CRIN") + data.source);
 }
 
 void reposition()

@@ -2,11 +2,11 @@ void saveConfigWithCurrents()
 {
     if (update_config_file() == true)
     {
-        MessageBoxA(NULL, "Saved successfully", "Info", MB_ICONINFORMATION | MB_OK);
+        MessageBoxA(NULL, tr("IDS_MSG_SAVECONFIG_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
     }
     else
     {
-        MessageBoxA(NULL, "Something went wrong!", "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, tr("IDS_SOMETHINGWENTWRONG").c_str(), "Error", MB_ICONERROR | MB_OK);
     }
 }
 

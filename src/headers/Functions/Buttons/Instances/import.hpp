@@ -33,7 +33,7 @@ bool getfolder_import_instance()
 
 void import_instance()
 {
-    const std::string FAIL_TEXT = "Cannot import instance: ";
+    const std::string FAIL_TEXT = tr("IDS_MSG_IMPORTINST_FAIL");
 
     std::string instance_name = import_instance_name_textbox.getText();
     fs::path source_path = import_instance_path_textbox.getText();
@@ -95,7 +95,7 @@ void import_instance()
                         else
                         {
                             log_message("Cannot create instance directory", LogTypes::LOG_ERROR);
-                            MessageBoxA(NULL, "Cannot create instance directory", "Error", MB_ICONERROR | MB_OK);
+                            MessageBoxA(NULL, tr("IDS_MSG_IMPORTINST_FAILDIR").c_str(), "Error", MB_ICONERROR | MB_OK);
                         }
                         break;
                     }

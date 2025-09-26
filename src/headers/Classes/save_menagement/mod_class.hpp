@@ -27,7 +27,7 @@ void create(int x, int y, const ModAttribs& modAttribs, sf::Font& font, sf::Rend
     compatybile_text.setFont(font);
     compatybile_text.setCharacterSize(20);
 
-    move_button.create(0,0, 80, 30, font, "move", false, theme_selected);
+    move_button.create(0,0, 80, 30, font, "", false, theme_selected);
     
     changePosition(x, y);
     setTheme(color);
@@ -76,9 +76,9 @@ void setFunction(FunctionType function)
 void changeButtonType(int type)
 {
     if (type == 0)
-    move_button.setText("Install");
+    move_button.setText(tr("IDS_BUTTON_MOD_INSTALL"));
     else
-    move_button.setText("Remove");
+    move_button.setText(tr("IDS_BUTTON_MOD_REMOVE"));
 }
 
 sf::Vector2f getPOsition()
@@ -124,7 +124,7 @@ void setAttributes()
     }
     else
     {
-        mod_name.setString("Unknown name");
+        mod_name.setString(tr("IDS_TEXT_MOD_UNKNNAME"));
     }
 
     if (!attribs.modType.empty())
@@ -133,7 +133,7 @@ void setAttributes()
     }
     else
     {
-        mod_type.setString("Unknown type");
+        mod_type.setString(tr("IDS_TEXT_MOD_UNKNTYPE"));
     }
 
     if (!attribs.SRmodVersion.empty())
@@ -142,16 +142,16 @@ void setAttributes()
     }
     else
     {
-        mod_srversion.setString("Unknown Slime Rancher version");
+        mod_srversion.setString(tr("IDS_TEXT_MOD_UNKNSRVER"));
     }
 
     if (attribs.compatybile == true)
     {
-        compatybile_text.setString("Compatybile");
+        compatybile_text.setString(tr("IDS_TEXT_MOD_COMPATYBILE"));
     }
     else
     {
-        compatybile_text.setString("Incompatybile/unknown");
+        compatybile_text.setString(tr("IDS_TEXT_MOD_INCOMPATYBILE"));
     }
 }
 

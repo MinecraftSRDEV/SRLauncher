@@ -50,8 +50,21 @@ void load_sequence()
     ///// Get run time date and s6ave to local varriabless /////
     rundate_get();
 
+    windowsInfo = getWindowsVersion();
+
+    GetSystemLanguageA();
+
+    windowsInfo.sysTheme = IsAppLightTheme();
+
+    isWindows10 = isOnWindows10();
+
     ///// Construct all "Launcher" paths /////
     construct_paths();
+
+    loadLangpacks();
+
+    settmaindi::CMDPATH_TEXT = tr("IDS_DICT_SETTMAIN_CMDPATH_TEXT");
+    settmaindi::CMDPATH_DISABLED = settmaindi::CMDPATH_TEXT + tr("IDS_DICT_SETTMAIN_CMDPATH_DISABLED");
 
     ///// Load required resources /////
     loadElements();
@@ -80,6 +93,8 @@ void load_sequence()
 
     ///// Check run functions /////
     runtime_check();
+
+    UIElements.setElementsLanguage();
 
     ///// set theme to objects /////
     setTheme();

@@ -77,6 +77,7 @@ void setFunctions()
 
     SettingsElemets::subcats::downloading::downloaders_ddl.setFunction(setDownloader);
     SettingsElemets::subcats::general::theme_list_ddl.setFunction(applyTheme);
+    SettingsElemets::subcats::general::languages_list_ddl.setFunction(changeLanguage);
 
     SettingsElemets::subcats::general::SRL_background_img_path_getfolder_button.setFunction(getfolder_background_path);
 

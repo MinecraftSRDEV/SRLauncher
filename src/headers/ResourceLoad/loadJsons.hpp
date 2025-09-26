@@ -168,6 +168,8 @@ bool load_config_file(std::string path_to_config)
     {
         JSON json = JSON::parseFromFile(path_to_config);
 
+        loadConfigKeyStr(json, launcher_language, "launcher_language", "SRL language: ", settings_defaults::language_def);
+
         loadConfigKeyStr(json, steam_game_dir, "steam_game_dir", "Steam game dir: ", settings_defaults::steam_gamedir_def);
         SettingsElemets::subcats::general::steam_path_textbox.setText(steam_game_dir);
 

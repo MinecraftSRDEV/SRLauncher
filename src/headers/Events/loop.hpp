@@ -97,6 +97,11 @@ void events_loop()
                 SettingsElemets::subcats::general::steam_path_textbox.handleEvent(event);
                 SettingsElemets::subcats::general::instances_path_textbox.handleEvent(event);
                 SettingsElemets::subcats::general::SRL_background_img_path_textbox.handleEvent(event);
+
+                if (SettingsElemets::subcats::general::languages_list_ddl.getState() == true)
+                {
+                    SettingsElemets::subcats::general::languages_list_ddl.scrollEvent(event);
+                }
             }
             if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
             {

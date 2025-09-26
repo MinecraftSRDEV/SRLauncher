@@ -38,7 +38,7 @@ bool ifInstanceIsEdited(fs::path instnace_dir, std::string instance_id)
                 {
                     if (!instanceEditedDir.empty())
                     {
-                        int result = MessageBoxA(NULL, "This instance has files from this version, and need to be reinstalled", "Info", MB_ICONINFORMATION | MB_YESNO);
+                        int result = MessageBoxA(NULL, tr("IDS_MSG_HASFILESFROMDIFFRENT").c_str(), "Info", MB_ICONINFORMATION | MB_YESNO);
 
                         if (result == IDYES)
                         {
@@ -65,7 +65,7 @@ bool ifInstanceIsEdited(fs::path instnace_dir, std::string instance_id)
 
                             editJsonFile(instnace_dir.string() + "/info.json", content);
 
-                            MessageBoxA(NULL, "Instance is ready to reinstall", "Info", MB_ICONINFORMATION | MB_OK);
+                            MessageBoxA(NULL, tr("IDS_MSG_REINSTALLREADY").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
                         }
                     }    
                 }
@@ -96,7 +96,7 @@ bool ifInstanceIsEdited(fs::path instnace_dir, std::string instance_id)
 
                         editJsonFile(instnace_dir.string() + "/info.json", content);
 
-                        MessageBoxA(NULL, "Instance is ready to install", "Info", MB_ICONINFORMATION | MB_OK);
+                        MessageBoxA(NULL, tr("IDS_MSG_REINSTALLREADY").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
                     }
                     catch (std::exception e) {}
                 }
@@ -125,7 +125,7 @@ void mount_function(std::string instance_id)
 
         if (ifInstanceIsEdited(instances_dir + "/Slime Rancher_" + instances_list[instance_id].getID(), instance_id) == true)
         {
-            MessageBoxA(NULL, "Instance version change completed. Refresh list to see effects.", "Info", MB_ICONINFORMATION | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_VERSIONCHANGEOK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             return;
         }
 
@@ -193,7 +193,7 @@ void mount_function(std::string instance_id)
         {
             // mapFile << "FAIL";
             log_message(std::string(e.what()), LogTypes::LOG_ERROR);
-            MessageBoxA(NULL, "Cannot overwrite savedata files", "Error", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_MOUNT_FAILOVSAVEDATA").c_str(), "Error", MB_ICONERROR | MB_OK);
             return;
         }
         catch (std::exception& e)
@@ -208,6 +208,7 @@ void mount_function(std::string instance_id)
         {
             // mapFile << "FAIL";
             log_message("Cannot overwrite current instance", LogTypes::LOG_ERROR);
+            MessageBoxA(NULL, tr("IDS_MSG_MOUNT_FAILOVINSTANCE").c_str(), "Error", MB_ICONERROR | MB_OK);
             return;
         }
         else
@@ -231,6 +232,7 @@ void mount_function(std::string instance_id)
             {
                 // mapFile << "FAIL";
                 log_message("Cannot mount instance: " + std::string(e.what()), LogTypes::LOG_ERROR);
+                MessageBoxA(NULL, std::string(tr("IDS_MSG_MOUNT_FAIL") + std::string(e.what())).c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
         }

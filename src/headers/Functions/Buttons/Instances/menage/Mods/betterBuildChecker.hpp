@@ -23,7 +23,7 @@ bool checkBetterBuildInstalled(const std::string& modName, const fs::path& insta
     }
     else
     {
-        bbw_tittle_text.setString("BetterBuildMod isn't installed");
+        bbw_tittle_text.setString(tr("IDS_TEXT_BBCHECKER_NOTINSTALLED"));
         bbw_tittle_text.setPosition(window.getSize().x / 2 - (bbw_tittle_text.getLocalBounds().width / 2) + 130, 380);
     }
     return false;

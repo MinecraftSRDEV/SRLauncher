@@ -1,3 +1,12 @@
+struct WindowsInfo
+{
+    DWORD MajorVersion;
+    DWORD MinorVersion;
+    DWORD BuildNumber;
+    std::string sysLang = "en";
+    bool sysTheme = true;
+};
+
 struct SRGamesaveInfo {
     bool readable_version = false;
     int format = 0;

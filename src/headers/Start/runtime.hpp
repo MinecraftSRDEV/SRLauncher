@@ -129,7 +129,7 @@ void runtime_check()
                 rename_orginal_dir();
                 log_message("No instance mounted", LogTypes::LOG_INFO);
                 mounted_instance = UNMOUNTED_INSTANCE;
-                MainpageElements::playbar::infoText.setString("No instance mounted");
+                MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
                 MainpageElements::playbar::versionText.setString("");
             }
             else
@@ -137,7 +137,7 @@ void runtime_check()
                 if (mounted_instance == UNMOUNTED_INSTANCE)
                 {
                     displayNonEmptyDataAlert();
-                    MainpageElements::playbar::infoText.setString("No instance mounted");
+                    MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
                     MainpageElements::playbar::versionText.setString("");
                 }
                 else
@@ -161,8 +161,11 @@ void runtime_check()
                 SettingsElemets::subcats::downloading::steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
             }
 
+            createLanguageDdl();
+
             SettingsElemets::subcats::general::theme_list_ddl.setFromResult(std::to_string(theme_selected));
             SettingsElemets::subcats::downloading::downloaders_ddl.setFromResult(std::to_string(downloader_selected));
+            SettingsElemets::subcats::general::languages_list_ddl.setFromResult(launcher_language);
 
             loadLicences();
 

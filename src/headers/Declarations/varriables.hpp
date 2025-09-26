@@ -2,6 +2,10 @@ int UI_current = 0;
 int options_ui = 0;
 int manage_ui = 0;
 
+bool isWindows10 = false;
+
+std::string launcher_language = "en";
+
 std::string steam_game_dir = "";
 std::string mounted_instance = "";
 std::string instances_dir = "";

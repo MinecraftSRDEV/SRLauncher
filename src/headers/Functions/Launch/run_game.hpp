@@ -260,7 +260,7 @@ int closeSteamPrompt()
 {
     if (IsSteamRunning() == true)
     {
-        int result = MessageBoxA(NULL, "Steam allready running\nIf you continue will be automatically closed!", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+        int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_STEAMRUNNINGASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
         switch(result)
         {
             case IDYES:
@@ -268,7 +268,7 @@ int closeSteamPrompt()
                 system("taskkill /f /im Steam.exe");    
                 if (IsSteamRunning() == true)
                 {
-                    int result2 = MessageBoxA(NULL, "Steam can't be closed!\n\nYou can try to run game without it, but its not recommended!", "Error", MB_ICONERROR | MB_YESNO);
+                    int result2 = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_STEAMCLOSEFAILASK").c_str(), "Error", MB_ICONERROR | MB_YESNO);
                     switch(result2)
                     {
                         case IDYES:
@@ -391,7 +391,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     }
 
     bool launch_game = true;
-    MainpageElements::playbar::launchGameButton.setText("Launching game");
+    MainpageElements::playbar::launchGameButton.setText(tr("IDS_TEXT_RUNGAME_LAUNCHINGGAME"));
 
     if (steamCheckResult == STC_SUCCESS or steamCheckResult == STC_NOTINSTALLED)
     {
@@ -407,7 +407,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
             {
                 if (user_offline_mode == result_online)
                 {
-                    int result = MessageBoxA(NULL, "To avoid Steam auto update to lastes version change your account to OFFLINE MODE.\n\n Still you want to continue?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+                    int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_NOOFFLINEMODEASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
                     switch (result)
                     {
                         case IDYES:
@@ -423,7 +423,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
                 }
                 else if (user_offline_mode == result_fail)
                 {
-                    int result = MessageBoxA(NULL, "Make sure if you are in OFFLINE MODE on Steam to avoid auto update to lastes version!\n\n Do you want to continue?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+                    int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_UNKOFFLINEMODEASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
                     switch (result)
                     {
                         case IDYES:
@@ -521,7 +521,7 @@ void prepareInstance(std::string instance_id)
     else
     {
         log_message("Game is now downloading", LogTypes::LOG_INFO);
-        MessageBoxA(NULL, "Game is now downloading", "Info", MB_ICONINFORMATION | MB_OK);
+        MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_NOWDOWNLOADING").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
     }
 }
 
@@ -533,8 +533,8 @@ void prepareInstance(std::string instance_id)
  */
 void runGameInitial()
 {
-    const std::string NO_INSTANCE_MOUNTED = "no slime rancher instance mounted";
-    const std::string GAME_RUNNING_ERR = "Game allready running";
+    const std::string NO_INSTANCE_MOUNTED = tr("IDS_MSG_RUNGAME_NOINSTANCEMOUNTED");
+    const std::string GAME_RUNNING_ERR = tr("IDS_MSG_RUNGAME_ALLREADYRUNNING");
 
     if (game_running == false)
     {

@@ -11,10 +11,10 @@ void create(int x, int y, sf::Font& font, int color = ColorPalete::Bright)
     background.setOutlineThickness(1);
     background.setPosition(x, y);
 
-    confirm_button.create(x + 100, y + 280, 300, 40, font, "Confirm", true, color);
+    confirm_button.create(x + 100, y + 280, 300, 40, font, tr("IDS_BUTTON_GUARD_CONFIRM"), true, color);
     confirm_button.setFunction(confirm_function);
 
-    code_textbox.create(x + 100, y + 100, 300, 60, true, true, font, 56, "", false, "Steam Guard code", color);
+    code_textbox.create(x + 100, y + 100, 300, 60, true, true, font, 56, "", false, tr("IDS_TEXT_GUARD_CODE"), color);
 }
 
 void setTheme(int color)

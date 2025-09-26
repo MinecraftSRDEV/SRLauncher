@@ -192,7 +192,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 {
                     game_downloading = false;
                     log_message("Game downloading failed!", LogTypes::LOG_ERROR);
-                    MessageBoxA(NULL, "Game downloading failed!", "Error", MB_ICONERROR | MB_OK);
+                    MessageBoxA(NULL, tr("IDS_MSG_GAMEDOWNLOAD_FAILED").c_str(), "Error", MB_ICONERROR | MB_OK);
                 }
 
                 game_downloading = false;
@@ -249,7 +249,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 log_message(msg, type);
                 recieved.erase();
 
-                MessageBoxA(NULL, "Mobile authentication is required", "Info", MB_ICONINFORMATION | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_GAMEDOWNLOAD_MOBILEAUTHREQ").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             }
             else
             {
@@ -412,7 +412,7 @@ void download_game2(std::string gamerun_path)
     }
     else
     {
-        MessageBoxA(NULL, "Cannot download game: SteamCMD is not installed!", "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, std::string(tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOSTEAMCMD")).c_str(), "Error", MB_ICONERROR | MB_OK);
     }
     
     reset_play_button_text();
@@ -448,14 +448,14 @@ void download_game(std::string gamerun_path)
             }
             else
             {
-                std::string msg = "Cannot download game: No steam password configured!";
+                std::string msg = tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOPASSWORD");
                 log_message(msg, LogTypes::LOG_ERROR);
                 MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
             }
         }
         else
         {
-            std::string msg = "Cannot download game: No steam username configured!";
+            std::string msg = tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOUSERNAME");
             log_message(msg, LogTypes::LOG_ERROR);
             MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
         }

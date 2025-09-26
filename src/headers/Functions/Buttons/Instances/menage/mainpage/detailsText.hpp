@@ -8,28 +8,28 @@
  */
 void setAndPositionMngMainTexts(ManageResult results)
 {
-    MNG_Instance_name_text.setString("Instance name: " + results.name);
+    MNG_Instance_name_text.setString(tr("IDS_MNGMAIN_INSTNAME") + results.name);
 
-    MNG_Instance_saves_text.setText("Vanilla saves count: " + results.vSavesCount);
-    MNG_instance_installed_mods_text.setText("Instance installed mods: " + results.installedModsCount);
-    MNG_instance_mods_saves_text.setText("Mods saves count: " + results.modSavesCount);
-    MNG_instance_mods_launcher_text.setText("Launcher mods: " + results.launcherModsCount);
+    MNG_Instance_saves_text.setText(tr("IDS_MNGMAIN_VSAVESCOUNT") + results.vSavesCount);
+    MNG_instance_installed_mods_text.setText(tr("IDS_MNGMAIN_MODSCOUNT") + results.installedModsCount);
+    MNG_instance_mods_saves_text.setText(tr("IDS_MNGMAIN_MSAVESCOUNT") + results.modSavesCount);
+    MNG_instance_mods_launcher_text.setText(tr("IDS_MNGMAIN_LAUNCHERMODSCOUNT") + results.launcherModsCount);
 
     if (results.bb_status == true)
     {
-        MNG_betterBuild_status.setString("BetterBuild status: installed");
+        MNG_betterBuild_status.setString(tr("IDS_MNGMAIN_BBSTATUS_INST"));
         MNG_instance_mods_saves_text.setBlockState(false);
     }
     else
     {
-        MNG_betterBuild_status.setString("BetterBuild status: not installed");
+        MNG_betterBuild_status.setString(tr("IDS_MNGMAIN_BBSTATUS_NINST"));
         MNG_instance_mods_saves_text.setBlockState(true);
     }
 
     if (results.bb_uid.empty())
-    MNG_betterBuild_UID.setString("BetterBuild UID: Unknown");
+    MNG_betterBuild_UID.setString(tr("IDS_MNGMAIN_BBUID_UNKNOWN"));
     else
-    MNG_betterBuild_UID.setString("BetterBuild UID: " + results.bb_uid);
+    MNG_betterBuild_UID.setString(tr("IDS_MNGMAIN_BBUID") + results.bb_uid);
 
     MNG_instance_icon.setTexture(results.iconTx);
 

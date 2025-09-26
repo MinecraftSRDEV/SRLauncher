@@ -21,7 +21,7 @@ void backupWorld(const std::string& instance_id, const std::string& world_id, in
         case BackupTypes::BBworld_backup:
         {
             source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "mods" / "BetterBuild" / fs::path(std::string(world_id + ".world"));
-            backup_text = "Backup this world?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_MAKE_WORLD_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "BBW";
             file_extension = ".world";
             break;
@@ -29,7 +29,7 @@ void backupWorld(const std::string& instance_id, const std::string& world_id, in
         case BackupTypes::BBsave_backup:
         {
             source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "mods" / "BetterBuild" / fs::path(std::string(world_id + ".sav"));
-            backup_text = "Backup this save file?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_MAKE_SAVE_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "BBS";
             file_extension = ".sav";
             break;
@@ -37,7 +37,7 @@ void backupWorld(const std::string& instance_id, const std::string& world_id, in
         case BackupTypes::Vanillaworld_backup:
         {
             source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "data" / "saves" / fs::path(std::string(world_id + ".sav"));
-            backup_text = "Backup this save file?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_MAKE_SAVE_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "VANILLA";
             file_extension = ".sav";
             break;
@@ -59,12 +59,12 @@ void backupWorld(const std::string& instance_id, const std::string& world_id, in
         try
         {
             fs::copy_file(source, backups_path / "instances" / fs::path(instance_id) / fs::path(backup_directory) / fs::path(world_id + date + file_extension));
-            MessageBoxA(NULL, "Backup created successfully", "Info", MB_ICONINFORMATION | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_BACKUP_MAKE_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             instance_manage(instance_id, ManageCategories::BACKUPS);
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "Backup create FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_BACKUP_MAKE_FAIL").c_str(), "Info", MB_ICONERROR | MB_OK);
         }
     }
 }

@@ -141,6 +141,8 @@ namespace SettingsElemets
             sfg::Checkbox mount_only_data_checkbox;
             sf::Text theme_label_text;
             sfg::DropDownList theme_list_ddl;
+            sf::Text language_labet_text;
+            sfg::DropDownList languages_list_ddl;
             sfg::Textbox SRL_background_img_path_textbox;
             sfg::Button SRL_background_img_path_getfolder_button;
         }

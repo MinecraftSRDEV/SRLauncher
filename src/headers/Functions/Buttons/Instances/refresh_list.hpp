@@ -185,7 +185,7 @@ void prepeareProcess(bool async = false)
 
     fs::path instances_path = instances_dir;
 
-    dataLoading_text.setString("Loading instances...");
+    dataLoading_text.setString(tr("IDS_TEXT_INSTLIST_LOADINGDATA"));
     dataLoading_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::credits_programming_text.getLocalBounds().width / 2), 320);
     instancesLoader::instancesListLoading = true;
     loadingAnimationDisplay = true;

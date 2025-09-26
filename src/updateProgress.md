@@ -9,6 +9,7 @@ Started in 12.09.25
 - make links clickable                                                                 Finished
 - add assembly reference checker                                                       Finished
 - add debug unpatcher                                                                  Finished
+- add more languages                                                                   Finished
 
 - fix debug patcher success messagebox                                                 Resolved
 - fix steamCMD location textbox scroll event                                           Resolved
@@ -106,7 +107,6 @@ Temporarily postponed:
 
 Features may will be added in future:
 
-- More languages
 - HEX saves viewer
 - Mounting instances without mounting game
 - Instance auto installer
@@ -118,3 +118,4 @@ Ideas:
 - Migration to SFML 3
 - SRML mods manager
 - Support for versions unavailable on Steam servers
+- Assembly reference injector (SRL mod loader)

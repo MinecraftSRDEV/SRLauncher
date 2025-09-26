@@ -161,7 +161,7 @@ void instance_manage(std::string instance_id, int scene)
 
         fs::path instance_directory = instances_dir / fs::path("Slime Rancher_" + instances_list[instance_id].getID());
 
-        dataLoading_text.setString("Loading instance data...");
+        dataLoading_text.setString(tr("IDS_TEXT_MNG_LOADINGDATA"));
         dataLoading_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::credits_programming_text.getLocalBounds().width / 2), 320);
         instancesLoader::instanceDataLoading = true;
         loadingAnimationDisplay = true;

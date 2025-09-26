@@ -24,6 +24,9 @@ std::map <int, std::string> LauncherModsIndexing;
 std::vector <ModAttribs> mods_folder_data_list;
 std::vector <ModAttribs> instance_mods_folder_list;
 
+std::map <std::string, std::string> listOfAvailableLanguages;
+std::map <std::string, std::map <std::string, std::string>> UIlangpacks;
+
 uiElements UIElements;
 
 namespace InstanceIconBar

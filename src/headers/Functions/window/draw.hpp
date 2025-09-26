@@ -374,7 +374,9 @@ void window_draw()
             save_config_separator.render(window);
 
             window.draw(general::theme_label_text);
+            window.draw(general::language_labet_text);
             general::theme_list_ddl.render(window);
+            general::languages_list_ddl.render(window);
 
             general::SRL_background_img_path_textbox.render(window);
             general::SRL_background_img_path_getfolder_button.render(window);

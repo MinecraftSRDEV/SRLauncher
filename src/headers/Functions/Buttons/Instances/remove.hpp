@@ -3,12 +3,12 @@ void remove_instnace_function(std::string instnace_id)
     fs::path path;
     if (mounted_instance == instances_list[instnace_id].getID())
     {
-        MessageBoxA(NULL, "Unmount this instance first!", "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, tr("IDS_DICT_INST_UNMOUNT_MSG").c_str(), "Error", MB_ICONERROR | MB_OK);
     }
     else
     {
         path = (instances_dir + "\\Slime Rancher_" + instances_list[instnace_id].getID());
-        int result = MessageBoxA(NULL, "Delete this instance and all files?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+        int result = MessageBoxA(NULL, tr("IDS_MSG_INSTANCE_REMOVE_ASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
 
         switch (result)
         {
@@ -23,14 +23,14 @@ void remove_instnace_function(std::string instnace_id)
                     try
                     {
                         fs::remove_all(path);
-                        log_message("instance deleted", LogTypes::LOG_INFO);
+                        log_message(tr("IDS_MSG_INSTANCE_REMOVE_OK").c_str(), LogTypes::LOG_INFO);
                         refresh_instances_list();
                     }
                     catch (const fs::filesystem_error& e)
                     {
                         std::string errormsg = e.what();
                         log_message("cannot delete instnace: " + errormsg, LogTypes::LOG_ERROR);
-                        MessageBoxA(NULL, "Cannot delete instnace!", "Error", MB_ICONERROR | MB_OK);
+                        MessageBoxA(NULL, tr("IDS_MSG_INSTANCE_REMOVE_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
                     }
                 }
                 else

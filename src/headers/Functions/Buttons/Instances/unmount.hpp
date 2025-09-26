@@ -7,7 +7,7 @@
  */
 bool unmount_funtcion()
 {
-    const std::string FAIL_TEXT = "Cannot unmount instance: ";
+    const std::string FAIL_TEXT = tr("IDS_UNMOUNT_INSTANCE_FAIL");
 
     if (!mounted_instance.empty())
     {
@@ -25,7 +25,7 @@ bool unmount_funtcion()
                 }
                 else
                 {
-                    log_message(FAIL_TEXT + "folder with this name exists", LogTypes::LOG_ERROR);
+                    log_message(FAIL_TEXT + tr("IDS_UNMOUNT_DIREXISTS_FAIL"), LogTypes::LOG_ERROR);
                     return false;
                 }
 
@@ -49,7 +49,7 @@ bool unmount_funtcion()
                 fs::create_directory(local_save_path);
                 
                 mounted_instance = UNMOUNTED_INSTANCE;
-                MainpageElements::playbar::infoText.setString("No instance mounted");
+                MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
                 MainpageElements::playbar::versionText.setString("");
                 update_config_file();
                 log_message("Instance unmounted", LogTypes::LOG_INFO);

@@ -2,6 +2,11 @@ std::string get_steam_default_path();
 
 namespace settings_defaults
 {
+    void language_def()
+    {
+        launcher_language = "en";
+        SettingsElemets::subcats::general::languages_list_ddl.setFromResult(launcher_language);
+    }
     void steam_gamedir_def()
     {
         steam_game_dir = get_steam_default_path();

@@ -123,12 +123,12 @@ void updateStatus(int status)
     {
         case status::Unmounted:
         {
-            Function_button.setText("Mount");
+            Function_button.setText(tr("IDS_BUTTON_INSTANCE_MOUNT"));
             break;
         }
         case status::Mounted:
         {
-            Function_button.setText("Unmount");
+            Function_button.setText(tr("IDS_BUTTON_INSTANCE_UNMOUNT"));
             break;
         }
     }
@@ -222,11 +222,11 @@ std::string buildPlaytimeString()
 
     if (time.miliseconds < sf::Int64(1))
     {
-        output = "Never";
+        output = tr("IDS_TEXT_INSTANCE_PLTNEVER");
     }
     else if (time.minutes < sf::Int64(1))
     {
-        output = "Less than 1 minute";
+        output = tr("IDS_TEXT_INSTANCE_PLTLESS");
     }
     else if (time.hours < sf::Int64(1))
     {

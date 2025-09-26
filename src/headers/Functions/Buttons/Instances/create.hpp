@@ -1,6 +1,6 @@
 void create_instance(const std::string& instance_name, const std::string& version_selected, const std::string& icon_id = "pink", bool aytoc = false)
 {
-    const std::string FAIL_TEXT = "Cannot create instance: ";
+    const std::string FAIL_TEXT = tr("IDS_MSG_CRINST_FAIL");
     try
     {
         if (!instance_name.empty())
@@ -51,7 +51,7 @@ void create_instance(const std::string& instance_name, const std::string& versio
                     else
                     {
                         log_message("Cannot create instance directory", LogTypes::LOG_ERROR);
-                        MessageBoxA(NULL, "Cannot create instance directory", "Error", MB_ICONERROR | MB_OK);
+                        MessageBoxA(NULL, tr("IDS_MSG_CRINST_FAILDIR").c_str(), "Error", MB_ICONERROR | MB_OK);
                     }
                 }
                 else

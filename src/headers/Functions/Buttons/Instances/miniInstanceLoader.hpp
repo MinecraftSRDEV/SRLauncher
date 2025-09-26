@@ -166,7 +166,7 @@ namespace miniInstanceList
 
     void prepare()
     {
-        MainpageElements::lastPlayed::loadingMiniInstancesText.setString("Loading instances...");
+        MainpageElements::lastPlayed::loadingMiniInstancesText.setString(tr("IDS_TEXT_MINIINST_LOADINGDATA"));
         MainpageElements::lastPlayed::loadingMiniInstancesText.setPosition((MainpageElements::lastPlayed::mouseBox.getSize().x / 2) - (MainpageElements::lastPlayed::loadingMiniInstancesText.getLocalBounds().width / 2), 180);
 
         loadingAnimationDisplay = true;
