@@ -23,9 +23,9 @@ void create(int x, int y, SavegameData& inputData, sf::Font& font)
     last_played_text.setCharacterSize(26);
     last_played_text.setFont(font);
 
-    remove_button.create(0,0, 80, 30, font, "remove", false, theme_selected);
-    make_backup_button.create(0,0, 80, 30, font, "make backup", false, theme_selected);
-    reveal_button.create(0,0, 120, 30, font, "reveal in explorer", false, theme_selected);
+    remove_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_SAVE_REMOVE"), false, theme_selected);
+    make_backup_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_SAVE_BACKUP"), false, theme_selected);
+    reveal_button.create(0,0, 120, 30, font, tr("IDS_BUTTON_SAVE_REVEAL"), false, theme_selected);
 
     applyData();
     reposition();
@@ -150,8 +150,8 @@ private:
 void applyData()
 {
     nameText.setString(data.name);
-    saveVersionText.setString("Version: " + data.version);
-    last_played_text.setString("Last played: " + data.last_played);
+    saveVersionText.setString(tr("IDS_TEXT_SAVE_VERSION") + data.version);
+    last_played_text.setString(tr("IDS_TEXT_SAVE_LASTPLAYED") + data.last_played);
 }
 
 void reposition()

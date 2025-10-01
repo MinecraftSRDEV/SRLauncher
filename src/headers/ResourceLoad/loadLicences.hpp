@@ -5,27 +5,27 @@ void readLicenseFile(const std::string& path)
     std::string outLine;
     while(getline(file, outLine))
     {
-        LicencesUI::licenseField.addText(outLine);
+        SettingsElemets::subcats::licences::licenseField.addText(outLine);
     }
     file.close();
 }
 
 void loadLicences()
 {
-    LicencesUI::licenseField.unlockQueue();
+    SettingsElemets::subcats::licences::licenseField.unlockQueue();
 
-    LicencesUI::licenseField.addText("SFML");
+    SettingsElemets::subcats::licences::licenseField.addText("SFML");
     readLicenseFile("./assets/externalLicenses/sfml.txt");
     
-    LicencesUI::licenseField.addText("\n");
-    LicencesUI::licenseField.addText("\n");
+    SettingsElemets::subcats::licences::licenseField.addText("\n");
+    SettingsElemets::subcats::licences::licenseField.addText("\n");
 
-    LicencesUI::licenseField.addText("SFML-GUI");
+    SettingsElemets::subcats::licences::licenseField.addText("SFML-GUI");
     readLicenseFile("./assets/externalLicenses/sfml-gui.txt");
 
-    LicencesUI::licenseField.addText("\n");
-    LicencesUI::licenseField.addText("\n");
+    SettingsElemets::subcats::licences::licenseField.addText("\n");
+    SettingsElemets::subcats::licences::licenseField.addText("\n");
 
-    LicencesUI::licenseField.addText("DepotDownloader");
+    SettingsElemets::subcats::licences::licenseField.addText("DepotDownloader");
     readLicenseFile("./assets/externalLicenses/depot-downloader.txt");
 }

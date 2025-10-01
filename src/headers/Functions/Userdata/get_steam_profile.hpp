@@ -11,7 +11,7 @@ UserData parseProfileData()
         data.uid = pair.first;
         if (data.uid != "users")
         {
-            if (ProfileJson.getObject().at("users").getObject().at(data.uid).getObject().at("AccountName").getString() == SteamProfile_name_textbox.getText())
+            if (ProfileJson.getObject().at("users").getObject().at(data.uid).getObject().at("AccountName").getString() == SettingsElemets::subcats::steamAccount::profileName_textbox.getText())
             {
                 break;
             }
@@ -27,14 +27,14 @@ UserData parseProfileData()
     data.accountName = ProfileJson.getObject().at("users").getObject().at(data.uid).getObject().at("AccountName").getString();
     data.personalName = ProfileJson.getObject().at("users").getObject().at(data.uid).getObject().at("PersonaName").getString();
 
-    steam_profile_AccountName_text.setString("Account name: " + data.accountName);
-    steam_profile_PersonalName_text.setString("Personal name: " + data.personalName);
-    steam_profile_UID_text.setString("Steam UID: " + data.uid);
+    SettingsElemets::subcats::steamAccount::profileAccountName_text.setString(tr("IDS_TEXT_STEAMPROFILE_ACNAME") + data.accountName);
+    SettingsElemets::subcats::steamAccount::profilePersonalName_text.setString(tr("IDS_TEXT_STEAMPROFILE_PERNAME") + data.personalName);
+    SettingsElemets::subcats::steamAccount::profileUID_text.setString(tr("IDS_TEXT_STEAMPROFILE_UID") + data.uid);
 
     if (fs::exists(steam_default_path.string() + "/config/avatarcache/" + data.uid + ".png") && fs::is_regular_file(steam_default_path.string() + "/config/avatarcache/" + data.uid + ".png"))
     {
-        userAvatar_tx.loadFromFile(steam_default_path.string() + "/config/avatarcache/" + data.uid + ".png");
-        steam_profile_icon.setTexture(userAvatar_tx);
+        SettingsElemets::subcats::steamAccount::userAvatar_tx.loadFromFile(steam_default_path.string() + "/config/avatarcache/" + data.uid + ".png");
+        SettingsElemets::subcats::steamAccount::profileIcon.setTexture(SettingsElemets::subcats::steamAccount::userAvatar_tx);
     }
     return data;
 }
@@ -53,7 +53,7 @@ int getUserOfflineMode()
             uid = pair.first;
             if (uid != "users")
             {
-                if (ProfileJson.getObject().at("users").getObject().at(uid).getObject().at("AccountName").getString() == SteamProfile_name_textbox.getText())
+                if (ProfileJson.getObject().at("users").getObject().at(uid).getObject().at("AccountName").getString() == SettingsElemets::subcats::steamAccount::profileName_textbox.getText())
                 {
                     break;
                 }
@@ -66,33 +66,33 @@ int getUserOfflineMode()
 
         if (ProfileJson.getObject().at("users").getObject().at(uid).getObject().at("WantsOfflineMode").getString() == "1")
         {
-            steam_profile_offline_status_text.setString("OFFLINE mode: enabled");
+            SettingsElemets::subcats::steamAccount::profileOffline_status_text.setString(tr("IDS_TEXT_STEAMPROFILE_OFFLINEMODE") + tr("IDS_ENABLED"));
             return result_offline;
         }
         else
         {
-            steam_profile_offline_status_text.setString("OFFLINE mode: disabled");
+            SettingsElemets::subcats::steamAccount::profileOffline_status_text.setString(tr("IDS_TEXT_STEAMPROFILE_OFFLINEMODE") + tr("IDS_DISABLED"));
             return result_online;
         }
     }
     catch (std::runtime_error e)
     {
         log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
-        steam_profile_offline_status_text.setString("OFFLINE mode: unknown");
+        SettingsElemets::subcats::steamAccount::profileOffline_status_text.setString(tr("IDS_TEXT_STEAMPROFILE_OFFLINEMODE") + tr("IDS_UNKNOWN"));
         return result_fail;
     }
 
-    steam_profile_offline_status_text.setString("OFFLINE mode: unknown");
+    SettingsElemets::subcats::steamAccount::profileOffline_status_text.setString(tr("IDS_TEXT_STEAMPROFILE_OFFLINEMODE") + tr("IDS_UNKNOWN"));
     return result_fail;
 }
 
 bool getSteamProfile()
 {
-    SteamAccountSettingsUI::steam_profile_AccountName_text.setString("");
-    SteamAccountSettingsUI::steam_profile_UID_text.setString("");
-    SteamAccountSettingsUI::steam_profile_PersonalName_text.setString("");
-    SteamAccountSettingsUI::steam_profile_offline_status_text.setString("");
-    SteamAccountSettingsUI::steam_profile_icon.setTexture(profile_icon_tx);
+    SettingsElemets::subcats::steamAccount::profileAccountName_text.setString("");
+    SettingsElemets::subcats::steamAccount::profileUID_text.setString("");
+    SettingsElemets::subcats::steamAccount::profilePersonalName_text.setString("");
+    SettingsElemets::subcats::steamAccount::profileOffline_status_text.setString("");
+    SettingsElemets::subcats::steamAccount::profileIcon.setTexture(SettingsElemets::subcats::steamAccount::profile_icon_tx);
     if (fs::exists(steam_default_path) && fs::is_directory(steam_default_path))
     {
         try
@@ -100,7 +100,7 @@ bool getSteamProfile()
             user_offline_mode = getUserOfflineMode();
             if (!parseProfileData().uid.empty())
             {
-                Profile_warning_text.setString("");
+                SettingsElemets::subcats::steamAccount::Profile_warning_text.setString("");
                 return true;
             }
             else
@@ -111,23 +111,23 @@ bool getSteamProfile()
         catch (std::runtime_error e)
         {
             log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
-            Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
+            SettingsElemets::subcats::steamAccount::Profile_warning_text.setString(tr("IDS_TEXT_STEAMPROFILE_GETINFO_FAIL"));
             return false;
         }
         catch (std::out_of_range e)
         {
             log_message("Cannot read Steam userdata: " + std::string(e.what()), LogTypes::LOG_ERROR);
-            Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
+            SettingsElemets::subcats::steamAccount::Profile_warning_text.setString(tr("IDS_TEXT_STEAMPROFILE_GETINFO_FAIL"));
             return false;
         }   
     }
     else
     {
-        Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
+        SettingsElemets::subcats::steamAccount::Profile_warning_text.setString(tr("IDS_TEXT_STEAMPROFILE_GETINFO_FAIL"));
         return false;
     }
     
-    Profile_warning_text.setString("Cannot get informations about steam user with given name.\nIf steam is installed and user logged, check steam directory path.");
+    SettingsElemets::subcats::steamAccount::Profile_warning_text.setString(tr("IDS_TEXT_STEAMPROFILE_GETINFO_FAIL"));
     return false;
 }
 

@@ -119,10 +119,10 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 int type = json.getObject().at("logType").getNumber();
 
                 int progress = std::stoi(msg);
-                downloading_progress_text.setString(std::to_string(progress) + " %");
-                downloading_progress_text.setPosition(640 - (downloading_progress_text.getLocalBounds().width / 2), progress_bg.getPosition().y);
+                MainpageElements::playbar::downloadingProgressText.setString(std::to_string(progress) + " %");
+                MainpageElements::playbar::downloadingProgressText.setPosition(640 - (MainpageElements::playbar::downloadingProgressText.getLocalBounds().width / 2), MainpageElements::playbar::progress_bg.getPosition().y);
                 float progressbar = progress;
-                downloadingProgress.setProgress(progressbar / 100.0f);
+                MainpageElements::playbar::downloadingProgress.setProgress(progressbar / 100.0f);
  
                 if (progress == 100)
                 {
@@ -149,7 +149,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 log_message(msg, type);
                 recieved.erase();
 
-                steam_game_dir = steam_path_textbox.getText();
+                steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
                 fs::path steam_dir = steam_game_dir;
                 fs::path alternate_output_dir = fs::path(instances_dir);
                 fs::path outputDir = downloader_path / "output";
@@ -192,7 +192,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 {
                     game_downloading = false;
                     log_message("Game downloading failed!", LogTypes::LOG_ERROR);
-                    MessageBoxA(NULL, "Game downloading failed!", "Error", MB_ICONERROR | MB_OK);
+                    MessageBoxA(NULL, tr("IDS_MSG_GAMEDOWNLOAD_FAILED").c_str(), "Error", MB_ICONERROR | MB_OK);
                 }
 
                 game_downloading = false;
@@ -249,7 +249,7 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                 log_message(msg, type);
                 recieved.erase();
 
-                MessageBoxA(NULL, "Mobile authentication is required", "Info", MB_ICONINFORMATION | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_GAMEDOWNLOAD_MOBILEAUTHREQ").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             }
             else
             {
@@ -345,7 +345,7 @@ void downloaderPipe(depotProsp& depot)
     }
 
     log_message("DepotDownloader connected", LogTypes::LOG_INFO);
-    launch_game_button.setText("Downloading");
+    MainpageElements::playbar::launchGameButton.setText("Downloading");
 
     comunicate = true;
 
@@ -358,7 +358,7 @@ void download_game2(std::string gamerun_path)
 {
     if (SteamCMDCheck() == true)
     {
-        steam_game_dir = steam_path_textbox.getText();
+        steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
         if (mountOnlyData == true)
@@ -367,7 +367,7 @@ void download_game2(std::string gamerun_path)
         }
 
         game_downloading = true;
-        launch_game_button.setText("Downloading");
+        MainpageElements::playbar::launchGameButton.setText("Downloading");
         std::thread animThread(downloading_animation);
         animThread.detach();
         fs::path cmdpath = fs::path(steamcmd_dir);
@@ -412,7 +412,7 @@ void download_game2(std::string gamerun_path)
     }
     else
     {
-        MessageBoxA(NULL, "Cannot download game: SteamCMD is not installed!", "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, std::string(tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOSTEAMCMD")).c_str(), "Error", MB_ICONERROR | MB_OK);
     }
     
     reset_play_button_text();
@@ -448,14 +448,14 @@ void download_game(std::string gamerun_path)
             }
             else
             {
-                std::string msg = "Cannot download game: No steam password configured!";
+                std::string msg = tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOPASSWORD");
                 log_message(msg, LogTypes::LOG_ERROR);
                 MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
             }
         }
         else
         {
-            std::string msg = "Cannot download game: No steam username configured!";
+            std::string msg = tr("IDS_MSG_GAMEDOWNLOAD_FAIL") + tr("IDS_MSG_GAMEDOWNLOAD_FAILNOUSERNAME");
             log_message(msg, LogTypes::LOG_ERROR);
             MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
         }

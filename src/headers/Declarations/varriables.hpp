@@ -2,6 +2,10 @@ int UI_current = 0;
 int options_ui = 0;
 int manage_ui = 0;
 
+bool isWindows10 = false;
+
+std::string launcher_language = "en";
+
 std::string steam_game_dir = "";
 std::string mounted_instance = "";
 std::string instances_dir = "";
@@ -40,10 +44,26 @@ bool acceptExceptionLogs = true;
 
 bool mountOnlyData = false;
 
+namespace ConsoleElements
+{
+    bool consoleWorking = true;
+}
+
+namespace miniInstanceList
+{
+    std::atomic <bool> dataLoading = false;
+    std::atomic <bool> dataFetched = true;
+
+    bool instanceHilighted = false;
+}
+
 std::string srlBackgroundPath = "";
 
-std::atomic <bool> instanceDataLoading = false;
-std::atomic <bool> instancesListLoading = true;
+namespace instancesLoader
+{
+    std::atomic <bool> instanceDataLoading = false;
+    std::atomic <bool> instancesListLoading = true;    
+}
 
 bool display_download_progress = false;
 
@@ -60,7 +80,7 @@ std::atomic <bool> loadingAnimationDisplay = false;
 
 std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.15";
+std::string launcher_version = "inDev 0.16";
 std::string saved_version = "";
 
 /// Launcher Paths ////
@@ -109,13 +129,6 @@ std::map <int, std::string> logs;
 std::vector <fs::path> external_instances;
 
 std::map <int, std::string> fileMovementMap;
-
-int run_YEAR;
-int run_MONTH;
-int run_DAY;
-int run_H;
-int run_M;
-int run_S;
 
 int theme_selected = ColorPalete::Bright;
 

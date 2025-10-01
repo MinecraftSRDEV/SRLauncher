@@ -4,7 +4,7 @@ void getfolder_steamdir()
     if (!input_path.empty())
     {
         steam_game_dir = input_path;
-        steam_path_textbox.setText(steam_game_dir);
+        SettingsElemets::subcats::general::steam_path_textbox.setText(steam_game_dir);
     }
 }
 
@@ -14,7 +14,7 @@ void getfolder_instancesdir()
     if (!input_path.empty())
     {
         instances_dir = input_path;
-        instances_path_textbox.setText(instances_dir);    
+        SettingsElemets::subcats::general::instances_path_textbox.setText(instances_dir);    
     }
 }
 
@@ -24,7 +24,7 @@ void getfolder_steamcmddir()
     if (!input_path.empty())
     {
         steamcmd_dir = input_path;
-        steamcmd_path_textbox.setText(steamcmd_dir);
+        SettingsElemets::subcats::downloading::steamcmd_path_textbox.setText(steamcmd_dir);
     }
 }
 
@@ -34,7 +34,7 @@ void getfolder_background_path()
     if (!input_path.empty())
     {
         srlBackgroundPath = input_path;
-        SRL_background_img_path_textbox.setText(srlBackgroundPath);
+        SettingsElemets::subcats::general::SRL_background_img_path_textbox.setText(srlBackgroundPath);
         reloadLauncherBackground();
     }
 }

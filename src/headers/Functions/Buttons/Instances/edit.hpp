@@ -42,7 +42,7 @@ void edit_instance_function(std::string instance_id)
 
     if (mounted_instance == instances_list[instance_id].getID())
     {
-        MessageBoxA(NULL, "Unmount this instance first!", "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, tr("IDS_MSG_EDINST_UNMOUNTFIRST").c_str(), "Error", MB_ICONERROR | MB_OK);
     }
     else
     {
@@ -93,5 +93,5 @@ void setEditedInstace()
     }
     catch (std::runtime_error e) {log_message("error code: " + std::string(e.what()), LogTypes::LOG_ERROR);}
     catch (std::out_of_range e) {log_message("error code: " + std::string(e.what()), LogTypes::LOG_ERROR);}
-    MessageBoxA(NULL, "Something went wrong!", "Error", MB_ICONERROR | MB_OK);
+    MessageBoxA(NULL, tr("IDS_MSG_EDINST_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
 }

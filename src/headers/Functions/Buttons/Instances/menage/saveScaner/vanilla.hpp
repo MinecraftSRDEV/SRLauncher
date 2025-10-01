@@ -21,19 +21,19 @@ void removeVanillaWorld(const std::string& instance_id, const std::string& world
 {
     fs::path source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "data" / "saves" / fs::path(std::string(world_id + ".sav"));
 
-    int result = MessageBoxA(NULL, "Delete this world permanently?", "Info", MB_ICONQUESTION | MB_YESNO);
+    int result = MessageBoxA(NULL, tr("IDS_MSG_VSAVE_REMOVE_ASK").c_str(), "Info", MB_ICONQUESTION | MB_YESNO);
 
     if (result == IDYES)
     {
         try
         {
             fs::remove(source);
-            MessageBoxA(NULL, "World successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_VSAVE_REMOVE_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             instance_manage(instance_id, ManageCategories::VANILLA_SAVES);
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "World remove FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_VSAVE_REMOVE_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
         }
     }
 }

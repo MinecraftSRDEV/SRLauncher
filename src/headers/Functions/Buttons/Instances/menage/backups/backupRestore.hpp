@@ -19,7 +19,7 @@ void backupRestore(const std::string& instance_id, const BackupData data)
         case BackupTypes::BBworld_backup:
         {
             source = backups_path / "instances" / instance_id / "mods" / "BetterBuild" / fs::path(std::string(data.filename + ".world"));
-            backup_text = "Restore this world?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_RESTORE_WORLD_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "BBW";
             file_extension = ".world";
             break;
@@ -27,7 +27,7 @@ void backupRestore(const std::string& instance_id, const BackupData data)
         case BackupTypes::BBsave_backup:
         {
             source = backups_path / "instances" / instance_id / "mods" / "BetterBuild" / fs::path(std::string(data.filename + ".sav"));
-            backup_text = "Restore this save file?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_RESTORE_SAVE_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "BBS";
             file_extension = ".sav";
             break;
@@ -35,7 +35,7 @@ void backupRestore(const std::string& instance_id, const BackupData data)
         case BackupTypes::Vanillaworld_backup:
         {
             source = backups_path / "instances" / instance_id/ "data" / "saves" / fs::path(std::string(data.filename + ".sav"));
-            backup_text = "Restore this save file?\nfile size: " + std::to_string(fs::file_size(source)) + " bytes";
+            backup_text = tr("IDS_MSG_BACKUP_RESTORE_SAVE_ASK") + std::to_string(fs::file_size(source)) + " bytes";
             backup_directory = "VANILLA";
             file_extension = ".sav";
             break;
@@ -56,7 +56,7 @@ void backupRestore(const std::string& instance_id, const BackupData data)
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "Backup create FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_BACKUP_RESTORE_FAIL").c_str(), "Info", MB_ICONERROR | MB_OK);
         }
     }
 }

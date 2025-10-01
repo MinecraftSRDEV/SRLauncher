@@ -27,7 +27,7 @@ void resignBBWorld(const std::string& instance_id, const std::string& world_id)
 {
     fs::path source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "mods" / "BetterBuild" / fs::path(std::string(world_id + ".world"));
 
-    int result = MessageBoxA(NULL, "Resign this world to your UID?", "Info", MB_ICONQUESTION | MB_YESNO);
+    int result = MessageBoxA(NULL, tr("IDS_MSG_RESIGN_ASK").c_str(), "Info", MB_ICONQUESTION | MB_YESNO);
 
     if (result == IDYES)
     {
@@ -37,17 +37,17 @@ void resignBBWorld(const std::string& instance_id, const std::string& world_id)
             pathToResigned = pathToResigned.replace_filename(source.filename().replace_extension("").string() + "_resigned");
             if (resignWorld(source.string(), pathToResigned.string() + ".world"))
             {
-                MessageBoxA(NULL, "World resigned successfully\n\n Now you can edit it in game\nTo completly remove lock open world in editor and uncheck \"World locked\" checkbox", "Info", MB_ICONINFORMATION | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_RESIGN_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             }
             else
             {
-                MessageBoxA(NULL, "World resign FAIL", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_RESIGN_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
             }
             instance_manage(instance_id, ManageCategories::BETTERBUILD_WORLDS);
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "World resign FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_RESIGN_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
         }
     }
 }

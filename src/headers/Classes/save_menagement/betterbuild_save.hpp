@@ -31,10 +31,10 @@ void create(int x, int y, WorldData& inputData, sf::Font& font)
     saveLockPasswordText.setCharacterSize(26);
     saveLockPasswordText.setFont(font);
 
-    resign_world_button.create(0,0, 80, 30, font, "resign", false, theme_selected);
-    remove_button.create(0,0, 80, 30, font, "remove", false, theme_selected);
-    gamesaves_slots_button.create(0,0, 100, 30, font, "gamesaves slots", false, theme_selected);
-    make_backup_button.create(0,0, 80, 30, font, "make backup", false, theme_selected);
+    resign_world_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_BBW_RESIGN"), false, theme_selected);
+    remove_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_BBW_REMOVE"), false, theme_selected);
+    gamesaves_slots_button.create(0,0, 100, 30, font, tr("IDS_BUTTON_BBW_GAMESAVESLOTS"), false, theme_selected);
+    make_backup_button.create(0,0, 80, 30, font, tr("IDS_BUTTON_BBW_BACKUP"), false, theme_selected);
 
     applyData();
     reposition();
@@ -145,10 +145,10 @@ private:
 
 void applyData()
 {
-    ObjectsCountText.setString("Placed objects: " + std::to_string(data.objectCount));
-    SpawnersCountText.setString("Spawners count: " + std::to_string(data.spawnerCount));
+    ObjectsCountText.setString(tr("IDS_TEXT_BBW_OBJECTSCOUNT") + std::to_string(data.objectCount));
+    SpawnersCountText.setString(tr("IDS_TEXT_BBW_SPAWNERSCOUNT") + std::to_string(data.spawnerCount));
     nameText.setString(data.levelname);
-    saveVersionText.setString("Version: " + std::to_string(data.version));
+    saveVersionText.setString(tr("IDS_TEXT_BBW_VERSION") + std::to_string(data.version));
     if (data.levelLocked == true)
     {
         if (data.levelPassword != instance_UID)
@@ -159,11 +159,11 @@ void applyData()
         {
             saveLockPasswordText.setFillColor(sf::Color::Green);
         }
-        saveLockPasswordText.setString("World signed to UID: " + data.levelPassword);
+        saveLockPasswordText.setString(tr("IDS_TEXT_BBW_SIGNED") + data.levelPassword);
     }
     else
     {
-        saveLockPasswordText.setString("Unlocked");
+        saveLockPasswordText.setString(tr("IDS_TEXT_BBW_UNLOCKED"));
         saveLockPasswordText.setFillColor(sf::Color(0,255,0));
     }
 }

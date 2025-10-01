@@ -1,3 +1,5 @@
+void totalPlayTimeCalc();
+
 void instances_stat_refresh()
 {
     for(const auto& pair : instances_list)
@@ -15,22 +17,26 @@ void instances_stat_refresh()
 
 int last_insnace_entry_y = 85;
 
-struct instanceAttribs {
-    std::string name = "";
-    std::string version = "";
-    std::string edited = "";
-    std::string iconId = "";
-    std::string importPath = "";
-    std::string path_str = "";
-    std::string playTime = "";
+namespace instancesLoader
+{
+    struct attribs {
+        std::string name = "";
+        std::string version = "";
+        std::string edited = "";
+        std::string iconId = "";
+        std::string importPath = "";
+        std::string path_str = "";
+        std::string playTime = "";
 
-    fs::path directory_path;
-    InstanceModAttributes modsAttribs;
-};
+        fs::path directory_path;
+        InstanceModAttributes modsAttribs;
+    };    
+}
+
 
 bool add_instance(fs::path path, int itr)
 {
-    instanceAttribs inst;
+    instancesLoader::attribs inst;
     
     inst.path_str = path.string();
     inst.directory_path = path;
@@ -151,13 +157,15 @@ void loadInstancesList(fs::path instances_path)
     }
     
     instances_stat_refresh();
+    totalPlayTimeCalc();
 
     if (mounted_instance != UNMOUNTED_INSTANCE)
     {
-        mounted_instance_version.setString("v." + instances_list[mounted_instance].getVer());
+        MainpageElements::playbar::versionText.setString("v." + instances_list[mounted_instance].getVer());
     }
 
-    instancesListLoading = false;
+    instancesLoader::instanceDataLoading = false;
+    instancesLoader::instancesListLoading = false;
     loadingAnimationDisplay = false;
 
     setUiProtection(false);
@@ -177,9 +185,9 @@ void prepeareProcess(bool async = false)
 
     fs::path instances_path = instances_dir;
 
-    dataLoading_text.setString("Loading instances...");
-    dataLoading_text.setPosition((window.getSize().x / 2) - (credits_programming_text.getLocalBounds().width / 2), 320);
-    instancesListLoading = true;
+    dataLoading_text.setString(tr("IDS_TEXT_INSTLIST_LOADINGDATA"));
+    dataLoading_text.setPosition((window.getSize().x / 2) - (SettingsElemets::subcats::credits::credits_programming_text.getLocalBounds().width / 2), 320);
+    instancesLoader::instancesListLoading = true;
     loadingAnimationDisplay = true;
     loadingAnimation::setupLoadingAnimation(dataLoading_text.getPosition(), "pink");
 

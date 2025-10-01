@@ -27,53 +27,90 @@ void window_draw()
     {
         renderCategories();
 
-        console.render(window);
-        console_clear_button.render(window);
+        MainpageElements::playbar::background.render(window);
+        MainpageElements::lastPlayed::background.render(window);
+        MainpageElements::details::background.render(window);
 
-        main_page_playbar_bg.render(window);
+        if (miniInstanceList::dataLoading)
+        {
+            window.draw(MainpageElements::lastPlayed::loadingMiniInstancesText);
+        }
+        else
+        {
+            if (miniInstancesListMap.size() > 0)
+            {
+                for (const auto& pair : miniInstancesListMap)
+                {
+                    miniInstancesListMap[pair.first].render(window);
+                }     
+            }  
+            else
+            {
+                window.draw(MainpageElements::lastPlayed::noLastPlayedInstancesText);
+            }    
+        }
+
+        if (miniInstanceList::instanceHilighted)
+        {
+            window.draw(MainpageElements::details::lastPlayedDateText);
+            window.draw(MainpageElements::details::totalPlayTimeInstanceText);
+        }
+        else
+        {
+            window.draw(MainpageElements::details::totalLauncherPlaytimeText);
+        }
+
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            launch_game_button.render(window);    
+            MainpageElements::playbar::launchGameButton.render(window);    
         }
 
         if (game_downloading == true)
         {
             if (downloadInitializing == true)
             {
-                window.draw(progress_bg);
-                window.draw(progress_moveing);    
+                window.draw(MainpageElements::playbar::progress_bg);
+                window.draw(MainpageElements::playbar::progress_moveing);    
             }
             else
             {
-                downloadingProgress.render(window);
+                MainpageElements::playbar::downloadingProgress.render(window);
             }
         }
 
-        window.draw(Mounted_instance_info_text);
-        window.draw(Launcher_version_text);
-        if (mounted_instance_version.getString() != "")
+        window.draw(MainpageElements::playbar::infoText);
+        window.draw(MainpageElements::playbar::LauncherVersionText);
+        if (MainpageElements::playbar::versionText.getString() != "")
         {
-            window.draw(mounted_instance_version);
+            window.draw(MainpageElements::playbar::versionText);
         }
 
         if (display_download_progress == true)
         {
-            window.draw(downloading_progress_text);
+            window.draw(MainpageElements::playbar::downloadingProgressText);
         }
 
         if (display_guard_window == true)
         {
-            GuardBox.render(window);
+            MainpageElements::GuardBox.render(window);
         }
 
         if (game_running == true)
         {
-            if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+            if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == true)
             {
-                window.draw(debugWorking);
-                window.draw(debugIpcElapsedText);
+                window.draw(MainpageElements::debuger::working);
+                window.draw(MainpageElements::debuger::ipcElapsedText);
             }
         }
+
+        if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == true)
+        {
+            window.draw(MainpageElements::details::debugWarnText);
+        }
+
+        MainpageElements::console::console.render(window);
+        MainpageElements::console::clearButton.render(window);
     }
 
     if (UI_current == UiPages::InstancesMenu)
@@ -82,7 +119,7 @@ void window_draw()
 
         instances_bg.render(window);
         
-        if (instancesListLoading == false)
+        if (instancesLoader::instancesListLoading == false)
         {
             new_instance_button.render(window);
             import_instnace_button.render(window);  
@@ -185,25 +222,27 @@ void window_draw()
     {
         manage_bg.render(window);
 
-        manage_vanilla_saves_button.render(window);
-        manage_betterbuild_saves_button.render(window);
-        manage_betterbuild_world_button.render(window);
-        manage_backups_button.render(window);
-        manage_mods_button.render(window);
-        manage_main_back_button.render(window);
+        ManageSubcatListUI::vanilla_saves_button.render(window);
+        ManageSubcatListUI::betterbuild_saves_button.render(window);
+        ManageSubcatListUI::betterbuild_world_button.render(window);
+        ManageSubcatListUI::backups_button.render(window);
+        ManageSubcatListUI::mods_button.render(window);
+        ManageSubcatListUI::main_back_button.render(window);
+        ManageSubcatListUI::informations_button.render(window);
+        ManageSubcatListUI::debug_button.render(window);
 
-        manage_cats_separator.render(window);
+        ManageSubcatListUI::cats_separator.render(window);
 
-        if (instanceDataLoading == true)
+        if (instancesLoader::instanceDataLoading == true)
         {
             window.draw(dataLoading_text);
         }
 
         switch(manage_ui)
         {
-            case MNG_MAIN_PAGE:
+            case ManageCategories::MNG_MAIN_PAGE:
             {
-                if (instanceDataLoading == false)
+                if (instancesLoader::instanceDataLoading == false)
                 {
                     window.draw(MNG_instance_icon);
                     window.draw(MNG_Instance_name_text);
@@ -218,7 +257,7 @@ void window_draw()
                 window.draw(tldr_text);
                 break;
             }
-            case BETTERBUILD_WORLDS:
+            case ManageCategories::BETTERBUILD_WORLDS:
             {
                 for (const auto& pair : betterbuildworlds_list)
                 {
@@ -227,7 +266,7 @@ void window_draw()
                 window.draw(bbw_tittle_text);
                 break;
             }
-            case VANILLA_SAVES:
+            case ManageCategories::VANILLA_SAVES:
             {
                 window.draw(vsc_text);
                 for (const auto& pair : vanillasaves_list)
@@ -236,7 +275,7 @@ void window_draw()
                 }
                 break;
             }
-            case BETTERBUILD_SAVES:
+            case ManageCategories::BETTERBUILD_SAVES:
             {
                 window.draw(msc_text);
                 for (const auto& pair : betterbuildsaves_list)
@@ -245,7 +284,7 @@ void window_draw()
                 }
                 break;
             }
-            case MODS_PAGE:
+            case ManageCategories::MODS_PAGE:
             {
                 window.draw(instanceModsMouseWorkingBox);
                 window.draw(launcherModsMouseWorkingBox);
@@ -264,12 +303,20 @@ void window_draw()
                 }    
                 break;
             }
-            case BACKUPS:
+            case ManageCategories::BACKUPS:
             {
                 for (const auto& pair : Backups_list)
                 {
                     Backups_list[pair.first].render(window);
                 }
+                break;
+            }
+            case ManageCategories::DEBUG_PAGE:
+            {
+                ManageDebug::assemblyInfoBg.render(window);
+                window.draw(ManageDebug::assemblyDataText);
+                window.draw(ManageDebug::debugPatchStatusText);
+                ManageDebug::debugPatchButton.render(window);
                 break;
             }
         }
@@ -285,73 +332,79 @@ void window_draw()
     if (UI_current == UiPages::SettingsMenu)
     {
         renderCategories();
+        using namespace SettingsElemets;
         
         settings_bg.render(window);
-        settingsGeneralCat_button.render(window);
-        settingsProfileCat_button.render(window);
-        settingsDownloadingCat_button.render(window);
-        settingsUpdatesCat_button.render(window);
-        settingsDebuggingCat_button.render(window);
-        settingsCreditsCat_button.render(window);
-        settingsLicencesCat_button.render(window);
+        subcatsBar::generalCat_button.render(window);
+        subcatsBar::profileCat_button.render(window);
+        subcatsBar::downloadingCat_button.render(window);
+        subcatsBar::updatesCat_button.render(window);
+        subcatsBar::debuggingCat_button.render(window);
+        subcatsBar::creditsCat_button.render(window);
+        subcatsBar::licencesCat_button.render(window);
 
-        subcat_separator.render(window);
+        subcatsBar::subcat_separator.render(window);
+
+        using namespace SettingsElemets::subcats;
+        using namespace SettingsElemets::bottomBar;
 
         if (options_ui == SettingsCategories::MAIN_PAGE)
         {
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
-                window.draw(blockedPaths_text);
+                window.draw(general::blockedPaths_text);
             }
 
-            steam_path_textbox.render(window);
-            instances_path_textbox.render(window);
-            steam_path_getfolder_button.render(window);
-            instances_path_getfolder_button.render(window);
+            general::steam_path_textbox.render(window);
+            general::instances_path_textbox.render(window);
+            general::steam_path_getfolder_button.render(window);
+            general::instances_path_getfolder_button.render(window);
 
-            Show_prereleases_checkbox.render(window);
-            Save_logs_files_checkbox.render(window);
-            Colored_logs_checkbox.render(window);
+            general::Show_prereleases_checkbox.render(window);
+            general::Save_logs_files_checkbox.render(window);
+            general::Colored_logs_checkbox.render(window);
 
-            do_not_show_warnings_checkbox.render(window);
-            use_secure_ipc_checkbox.render(window);
-            mount_only_data_checkbox.render(window);
+            general::do_not_show_warnings_checkbox.render(window);
+            general::use_secure_ipc_checkbox.render(window);
+            general::mount_only_data_checkbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
 
             save_config_separator.render(window);
 
-            window.draw(theme_label_text);
-            theme_list_ddl.render(window);
+            window.draw(general::theme_label_text);
+            window.draw(general::language_labet_text);
+            general::theme_list_ddl.render(window);
+            general::languages_list_ddl.render(window);
 
-            SRL_background_img_path_textbox.render(window);
-            SRL_background_img_path_getfolder_button.render(window);
+            general::SRL_background_img_path_textbox.render(window);
+            general::SRL_background_img_path_getfolder_button.render(window);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
-            SteamProfile_name_textbox.render(window);
-            SteamProfile_password_textbox.render(window);
-            save_profile_button.render(window);
-            window.draw(profile_presonal_data_warning_text);
-            window.draw(steam_profile_icon);
+            steamAccount::profileName_textbox.render(window);
+            steamAccount::profilePassword_textbox.render(window);
+            steamAccount::save_profile_button.render(window);
+            window.draw(steamAccount::profilePresonal_data_warning_text);
+            window.draw(steamAccount::profileIcon);
 
-            window.draw(Profile_warning_text);
+            window.draw(steamAccount::Profile_warning_text);
 
-            window.draw(steam_profile_offline_status_text);
-            window.draw(steam_profile_AccountName_text);
-            window.draw(steam_profile_PersonalName_text);
-            window.draw(steam_profile_UID_text);
+            window.draw(steamAccount::profileOffline_status_text);
+            window.draw(steamAccount::profileAccountName_text);
+            window.draw(steamAccount::profilePersonalName_text);
+            window.draw(steamAccount::profileUID_text);
 
             save_config_separator.render(window);
         }
         if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
         {
-            steamcmd_path_textbox.render(window);
-            steamcmd_path_getfolder_button.render(window);
-            automatically_run_downloaded_instances_checkbox.render(window);
-            window.draw(downloaders_list_text);
-            downloaders_ddl.render(window);
+            SettingsElemets::subcats::downloading::steamcmd_path_textbox.render(window);
+            SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button.render(window);
+            SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox.render(window);
+            window.draw(SettingsElemets::subcats::downloading::downloaders_list_text);
+            SettingsElemets::subcats::downloading::downloaders_ddl.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
@@ -360,9 +413,9 @@ void window_draw()
         }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
-            check_for_update_button.render(window);
-            autocheck_for_update_checkbox.render(window);
-            window.draw(update_status_text);
+            SettingsElemets::subcats::updates::check_for_update_button.render(window);
+            SettingsElemets::subcats::updates::autocheck_for_update_checkbox.render(window);
+            window.draw(SettingsElemets::subcats::updates::update_status_text);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
@@ -371,20 +424,19 @@ void window_draw()
         }
         if (options_ui == SettingsCategories::DEBUGGING_PAGE)
         {
-            window.draw(DebugSettingsUI::debug_info_text);
-            DebugSettingsUI::debuggingEnabledCheckbox.render(window);
-            DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.render(window);
-            DebugSettingsUI::printDebugLogsCheckbox.render(window);
-            DebugSettingsUI::comunicationDelayTextbox.render(window);
-            DebugSettingsUI::comunicationPipeBufferSizeTextbox.render(window);
-            DebugSettingsUI::saveLogFileButton.render(window);
-            DebugSettingsUI::forcePipeCloseButton.render(window);
-            DebugSettingsUI::killInstanceButton.render(window);
-            DebugSettingsUI::acceptInfoCheckbox.render(window);
-            DebugSettingsUI::acceptWarningCheckbox.render(window);
-            DebugSettingsUI::acceptErrorCheckbox.render(window);
-            DebugSettingsUI::acceptExceptionCheckbox.render(window);
-            DebugSettingsUI::enableDebuggingOnInstance.render(window);
+            window.draw(SettingsElemets::subcats::debug::debug_info_text);
+            SettingsElemets::subcats::debug::debuggingEnabledCheckbox.render(window);
+            SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.render(window);
+            SettingsElemets::subcats::debug::printDebugLogsCheckbox.render(window);
+            SettingsElemets::subcats::debug::comunicationDelayTextbox.render(window);
+            SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.render(window);
+            SettingsElemets::subcats::debug::saveLogFileButton.render(window);
+            SettingsElemets::subcats::debug::forcePipeCloseButton.render(window);
+            SettingsElemets::subcats::debug::killInstanceButton.render(window);
+            SettingsElemets::subcats::debug::acceptInfoCheckbox.render(window);
+            SettingsElemets::subcats::debug::acceptWarningCheckbox.render(window);
+            SettingsElemets::subcats::debug::acceptErrorCheckbox.render(window);
+            SettingsElemets::subcats::debug::acceptExceptionCheckbox.render(window);
 
             RestoreSettings_button.render(window);
             SaveConfig_button.render(window);
@@ -393,14 +445,14 @@ void window_draw()
         }
         if (options_ui == SettingsCategories::CREDITS_PAGE)
         {
-            window.draw(credits_programming_text);
-            window.draw(github_page_link_text);
-            window.draw(repos_page_link_text);
-            window.draw(issules_page_link_text);
+            window.draw(SettingsElemets::subcats::credits::credits_programming_text);
+            window.draw(SettingsElemets::subcats::credits::github_page_link_text);
+            window.draw(SettingsElemets::subcats::credits::repos_page_link_text);
+            window.draw(SettingsElemets::subcats::credits::issules_page_link_text);
         }
         if (options_ui == SettingsCategories::LICENCES_PAGE)
         {
-            LicencesUI::licenseField.render(window);
+            SettingsElemets::subcats::licences::licenseField.render(window);
         }
     }
 

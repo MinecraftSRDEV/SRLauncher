@@ -7,13 +7,13 @@
  */
 bool unmount_funtcion()
 {
-    const std::string FAIL_TEXT = "Cannot unmount instance: ";
+    const std::string FAIL_TEXT = tr("IDS_UNMOUNT_INSTANCE_FAIL");
 
     if (!mounted_instance.empty())
     {
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            steam_game_dir = steam_path_textbox.getText();
+            steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
             fs::path steam_dir = steam_game_dir;
             try
             {
@@ -25,7 +25,7 @@ bool unmount_funtcion()
                 }
                 else
                 {
-                    log_message(FAIL_TEXT + "folder with this name exists", LogTypes::LOG_ERROR);
+                    log_message(FAIL_TEXT + tr("IDS_UNMOUNT_DIREXISTS_FAIL"), LogTypes::LOG_ERROR);
                     return false;
                 }
 
@@ -49,8 +49,8 @@ bool unmount_funtcion()
                 fs::create_directory(local_save_path);
                 
                 mounted_instance = UNMOUNTED_INSTANCE;
-                Mounted_instance_info_text.setString("No instance mounted");
-                mounted_instance_version.setString("");
+                MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
+                MainpageElements::playbar::versionText.setString("");
                 update_config_file();
                 log_message("Instance unmounted", LogTypes::LOG_INFO);
                 return true;

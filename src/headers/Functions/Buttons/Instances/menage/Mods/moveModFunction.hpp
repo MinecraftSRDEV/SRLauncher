@@ -35,7 +35,7 @@ namespace modsManager
             }
             else
             {
-                MessageBoxA(NULL, "This mod can't be recognized loader type.", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_MODMNG_MOVE_LOADERNOTRECOGNIZED").c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
 
@@ -45,12 +45,12 @@ namespace modsManager
 
             if (!fs::exists(source))
             {
-                MessageBoxA(NULL, "Source not exists!", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_MODMNG_MOVE_NOSOURCE").c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
             if (!fs::exists(destPath) || !fs::is_directory(destPath))
             {
-                MessageBoxA(NULL, "Destination not exists!", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_MODMNG_MOVE_NODESTYNATION").c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
         }
@@ -84,7 +84,7 @@ namespace modsManager
             }
             else
             {
-                MessageBoxA(NULL, "This mod can't be recognized loader type.", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_MODMNG_MOVE_LOADERNOTRECOGNIZED").c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace modsManager
 
             if (!fs::exists(source))
             {
-                MessageBoxA(NULL, "Source not exists!", "Error", MB_ICONERROR | MB_OK);
+                MessageBoxA(NULL, tr("IDS_MSG_MODMNG_MOVE_NOSOURCE").c_str(), "Error", MB_ICONERROR | MB_OK);
                 return;
             }
         }
@@ -114,7 +114,7 @@ namespace modsManager
         catch(const fs::filesystem_error& e)
         {
             std::string error(e.what());
-            MessageBoxA(NULL, std::string("This mod can't be moved:\n" + error).c_str(), "Error", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, std::string(tr("IDS_MSG_MODMNG_MOVE_FAIL") + error).c_str(), "Error", MB_ICONERROR | MB_OK);
             log_message("This mod can't be moved:" + error, LOG_ERROR);
             return;
         }

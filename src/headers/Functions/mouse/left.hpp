@@ -8,13 +8,14 @@ void executeCategories(sf::Vector2f mouse)
 
 void executeSubcategories(sf::Vector2f mouse)
 {
-    settingsGeneralCat_button.update(mouse);
-    settingsProfileCat_button.update(mouse);
-    settingsDownloadingCat_button.update(mouse);
-    settingsUpdatesCat_button.update(mouse);
-    settingsDebuggingCat_button.update(mouse);
-    settingsCreditsCat_button.update(mouse);
-    settingsLicencesCat_button.update(mouse);
+    using namespace SettingsElemets::subcatsBar;
+    generalCat_button.update(mouse);
+    profileCat_button.update(mouse);
+    downloadingCat_button.update(mouse);
+    updatesCat_button.update(mouse);
+    debuggingCat_button.update(mouse);
+    creditsCat_button.update(mouse);
+    licencesCat_button.update(mouse);
 }
 
 void mouse_left()
@@ -27,19 +28,46 @@ void mouse_left()
 
         if (mounted_instance != UNMOUNTED_INSTANCE)
         {
-            launch_game_button.update(mouse);
-            Mounted_instance_info_text.setPosition(sf::Vector2f(10, 725));
+            MainpageElements::playbar::launchGameButton.update(mouse);
+            MainpageElements::playbar::infoText.setPosition(sf::Vector2f(10, 725));
         }
         else
         {
-            Mounted_instance_info_text.setPosition(sf::Vector2f((1280 / 2) - (Mounted_instance_info_text.getLocalBounds().width / 2), 725));
+            MainpageElements::playbar::infoText.setPosition(sf::Vector2f((1280 / 2) - (MainpageElements::playbar::infoText.getLocalBounds().width / 2), 725));
         }
 
-        console_clear_button.update(mouse);
+        MainpageElements::console::clearButton.update(mouse);
 
         if (display_guard_window == true)
         {
-            GuardBox.update(mouse);
+            MainpageElements::GuardBox.update(mouse);
+        }
+
+        if (!miniInstanceList::dataLoading)
+        {
+            if (miniInstancesListMap.size() > 0)
+            {
+                for (const auto& itr : miniInstancesListMap)
+                {
+                    miniInstancesListMap[itr.first].update(mouse);
+
+                    if (miniInstancesListMap[itr.first].getMountButtonHitbox().contains(mouse))
+                    {
+                        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                        {
+                            if (is_mouse_pressed == false)
+                            {
+                                is_mouse_pressed = true;
+                                mount_function(miniInstancesListMap[itr.first].getID());
+                            }
+                        }
+                        else
+                        {
+                            is_mouse_pressed = false;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -157,164 +185,206 @@ void mouse_left()
     {
         executeCategories(mouse);
         executeSubcategories(mouse);
+        
+        using namespace SettingsElemets::subcats;
 
         if (options_ui == SettingsCategories::MAIN_PAGE)
         {
             if (mounted_instance != UNMOUNTED_INSTANCE)
             {
-                steam_path_textbox.setReadOnlyMode(true);
-                instances_path_textbox.setReadOnlyMode(true);
-                steam_path_getfolder_button.setBlockState(true);
-                instances_path_getfolder_button.setBlockState(true);
+                general::steam_path_textbox.setReadOnlyMode(true);
+                general::instances_path_textbox.setReadOnlyMode(true);
+                general::steam_path_getfolder_button.setBlockState(true);
+                general::instances_path_getfolder_button.setBlockState(true);
 
                 // mount_only_data_checkbox.setBlockState(false);
             }
             else
             {
-                steam_path_textbox.setReadOnlyMode(false);
-                instances_path_textbox.setReadOnlyMode(false);
-                steam_path_getfolder_button.setBlockState(false);
-                instances_path_getfolder_button.setBlockState(false);
+                general::steam_path_textbox.setReadOnlyMode(false);
+                general::instances_path_textbox.setReadOnlyMode(false);
+                general::steam_path_getfolder_button.setBlockState(false);
+                general::instances_path_getfolder_button.setBlockState(false);
 
                 // mount_only_data_checkbox.setBlockState(true);
             }
 
-            steam_path_textbox.update(mouse);
-            instances_path_textbox.update(mouse);
-            steam_path_getfolder_button.update(mouse);
-            instances_path_getfolder_button.update(mouse);
+            general::steam_path_textbox.update(mouse);
+            general::instances_path_textbox.update(mouse);
+            general::steam_path_getfolder_button.update(mouse);
+            general::instances_path_getfolder_button.update(mouse);
 
-            Show_prereleases_checkbox.update(mouse);
-            Save_logs_files_checkbox.update(mouse);
-            Colored_logs_checkbox.update(mouse);
+            general::Show_prereleases_checkbox.update(mouse);
+            general::Save_logs_files_checkbox.update(mouse);
+            general::Colored_logs_checkbox.update(mouse);
 
-            do_not_show_warnings_checkbox.update(mouse);
-            use_secure_ipc_checkbox.update(mouse);
-            mount_only_data_checkbox.update(mouse);
+            general::do_not_show_warnings_checkbox.update(mouse);
+            general::use_secure_ipc_checkbox.update(mouse);
+            general::mount_only_data_checkbox.update(mouse);
 
-            mount_only_data_checkbox.setBlockState(true);
+            general::mount_only_data_checkbox.setBlockState(true);
 
-            RestoreSettings_button.update(mouse);
-            SaveConfig_button.update(mouse);
+            SettingsElemets::bottomBar::RestoreSettings_button.update(mouse);
+            SettingsElemets::bottomBar::SaveConfig_button.update(mouse);
 
-            theme_list_ddl.update(mouse);
+            general::theme_list_ddl.update(mouse);
+            general::languages_list_ddl.update(mouse);
 
-            SRL_background_img_path_textbox.update(mouse);
-            SRL_background_img_path_getfolder_button.update(mouse);
+            general::SRL_background_img_path_textbox.update(mouse);
+            general::SRL_background_img_path_getfolder_button.update(mouse);
         }
         if (options_ui == SettingsCategories::PROFILE_PAGE)
         {
-            SteamProfile_name_textbox.update(mouse);
-            SteamProfile_password_textbox.update(mouse);
-            save_profile_button.update(mouse);
+            steamAccount::profileName_textbox.update(mouse);
+            steamAccount::profilePassword_textbox.update(mouse);
+            steamAccount::save_profile_button.update(mouse);
         }
         if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
         {
             if (downloader_selected == steamcmd)
             {
-                steamcmd_path_textbox.setReadOnlyMode(false);
-                steamcmd_path_getfolder_button.setBlockState(false);
+                SettingsElemets::subcats::downloading::steamcmd_path_textbox.setReadOnlyMode(false);
+                SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button.setBlockState(false);
             }
             else
             {
-                steamcmd_path_textbox.setReadOnlyMode(true);
-                steamcmd_path_getfolder_button.setBlockState(true);
+                SettingsElemets::subcats::downloading::steamcmd_path_textbox.setReadOnlyMode(true);
+                SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button.setBlockState(true);
             }
 
-            steamcmd_path_textbox.update(mouse);
-            steamcmd_path_getfolder_button.update(mouse);
-            automatically_run_downloaded_instances_checkbox.update(mouse);
-            downloaders_ddl.update(mouse);
+            SettingsElemets::subcats::downloading::steamcmd_path_textbox.update(mouse);
+            SettingsElemets::subcats::downloading::steamcmd_path_getfolder_button.update(mouse);
+            SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox.update(mouse);
+            SettingsElemets::subcats::downloading::downloaders_ddl.update(mouse);
 
-            RestoreSettings_button.update(mouse);
-            SaveConfig_button.update(mouse);
+            SettingsElemets::bottomBar::RestoreSettings_button.update(mouse);
+            SettingsElemets::bottomBar::SaveConfig_button.update(mouse);
         }
         if (options_ui == SettingsCategories::UPDATES_PAGE)
         {
-            check_for_update_button.update(mouse);
-            autocheck_for_update_checkbox.update(mouse);
+            SettingsElemets::subcats::updates::check_for_update_button.update(mouse);
+            SettingsElemets::subcats::updates::autocheck_for_update_checkbox.update(mouse);
 
-            RestoreSettings_button.update(mouse);
-            SaveConfig_button.update(mouse);
+            SettingsElemets::bottomBar::RestoreSettings_button.update(mouse);
+            SettingsElemets::bottomBar::SaveConfig_button.update(mouse);
         }
         if (options_ui == SettingsCategories::DEBUGGING_PAGE)
         {
-            DebugSettingsUI::debuggingEnabledCheckbox.update(mouse);
+            SettingsElemets::subcats::debug::debuggingEnabledCheckbox.update(mouse);
 
-            bool state = DebugSettingsUI::debuggingEnabledCheckbox.getState();
+            bool state = SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState();
             state = !state;
 
-            DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.setBlockState(state);
-            DebugSettingsUI::printDebugLogsCheckbox.setBlockState(state);
-            DebugSettingsUI::comunicationDelayTextbox.setReadOnlyMode(state);
-            DebugSettingsUI::comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
-            DebugSettingsUI::forcePipeCloseButton.setBlockState(state);
-            DebugSettingsUI::killInstanceButton.setBlockState(state);
-            DebugSettingsUI::saveLogFileButton.setBlockState(state);
-            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state);
-            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state);
-            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state);
-            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::printDebugLogsCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::comunicationDelayTextbox.setReadOnlyMode(state);
+            SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.setReadOnlyMode(state);
+            SettingsElemets::subcats::debug::forcePipeCloseButton.setBlockState(state);
+            SettingsElemets::subcats::debug::killInstanceButton.setBlockState(state);
+            SettingsElemets::subcats::debug::saveLogFileButton.setBlockState(state);
+            SettingsElemets::subcats::debug::acceptInfoCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::acceptWarningCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::acceptErrorCheckbox.setBlockState(state);
+            SettingsElemets::subcats::debug::acceptExceptionCheckbox.setBlockState(state);
 
-            bool state2 = DebugSettingsUI::printDebugLogsCheckbox.getState();
+            bool state2 = SettingsElemets::subcats::debug::printDebugLogsCheckbox.getState();
             state2 = !state2;
 
-            DebugSettingsUI::acceptInfoCheckbox.setBlockState(state2);
-            DebugSettingsUI::acceptWarningCheckbox.setBlockState(state2);
-            DebugSettingsUI::acceptErrorCheckbox.setBlockState(state2);
-            DebugSettingsUI::acceptExceptionCheckbox.setBlockState(state2);
+            SettingsElemets::subcats::debug::acceptInfoCheckbox.setBlockState(state2);
+            SettingsElemets::subcats::debug::acceptWarningCheckbox.setBlockState(state2);
+            SettingsElemets::subcats::debug::acceptErrorCheckbox.setBlockState(state2);
+            SettingsElemets::subcats::debug::acceptExceptionCheckbox.setBlockState(state2);
 
             if (state == false)
             {
-                DebugSettingsUI::saveDebugLogsToOtherFileCheckbox.update(mouse);
-                DebugSettingsUI::printDebugLogsCheckbox.update(mouse);
-                DebugSettingsUI::comunicationDelayTextbox.update(mouse);
-                DebugSettingsUI::comunicationPipeBufferSizeTextbox.update(mouse);
-                DebugSettingsUI::forcePipeCloseButton.update(mouse);
-                DebugSettingsUI::killInstanceButton.update(mouse);
-                DebugSettingsUI::saveLogFileButton.update(mouse);
+                SettingsElemets::subcats::debug::saveDebugLogsToOtherFileCheckbox.update(mouse);
+                SettingsElemets::subcats::debug::printDebugLogsCheckbox.update(mouse);
+                SettingsElemets::subcats::debug::comunicationDelayTextbox.update(mouse);
+                SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.update(mouse);
+                SettingsElemets::subcats::debug::forcePipeCloseButton.update(mouse);
+                SettingsElemets::subcats::debug::killInstanceButton.update(mouse);
+                SettingsElemets::subcats::debug::saveLogFileButton.update(mouse);
 
-                acceptInfoLogs = DebugSettingsUI::acceptInfoCheckbox.getState();
-                acceptWarningLogs = DebugSettingsUI::acceptWarningCheckbox.getState();
-                acceptErrorLogs = DebugSettingsUI::acceptErrorCheckbox.getState();
-                acceptExceptionLogs = DebugSettingsUI::acceptExceptionCheckbox.getState();
+                acceptInfoLogs = SettingsElemets::subcats::debug::acceptInfoCheckbox.getState();
+                acceptWarningLogs = SettingsElemets::subcats::debug::acceptWarningCheckbox.getState();
+                acceptErrorLogs = SettingsElemets::subcats::debug::acceptErrorCheckbox.getState();
+                acceptExceptionLogs = SettingsElemets::subcats::debug::acceptExceptionCheckbox.getState();
             }
 
-            DebugSettingsUI::acceptInfoCheckbox.update(mouse);
-            DebugSettingsUI::acceptWarningCheckbox.update(mouse);
-            DebugSettingsUI::acceptErrorCheckbox.update(mouse);
-            DebugSettingsUI::acceptExceptionCheckbox.update(mouse);
+            SettingsElemets::subcats::debug::acceptInfoCheckbox.update(mouse);
+            SettingsElemets::subcats::debug::acceptWarningCheckbox.update(mouse);
+            SettingsElemets::subcats::debug::acceptErrorCheckbox.update(mouse);
+            SettingsElemets::subcats::debug::acceptExceptionCheckbox.update(mouse);
 
-            DebugSettingsUI::enableDebuggingOnInstance.update(mouse);
-
-            if (mounted_instance != UNMOUNTED_INSTANCE)
+            SettingsElemets::bottomBar::RestoreSettings_button.update(mouse);
+            SettingsElemets::bottomBar::SaveConfig_button.update(mouse);
+        }
+        if (options_ui == SettingsCategories::CREDITS_PAGE)
+        {
+            if (SettingsElemets::subcats::credits::github_page_link_text.getGlobalBounds().contains(mouse))
             {
-                DebugSettingsUI::enableDebuggingOnInstance.setBlockState(false);
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(SettingsElemets::subcats::credits::github_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
             }
-            else
+            if (SettingsElemets::subcats::credits::repos_page_link_text.getGlobalBounds().contains(mouse))
             {
-                DebugSettingsUI::enableDebuggingOnInstance.setBlockState(true);
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(SettingsElemets::subcats::credits::repos_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
             }
-
-            RestoreSettings_button.update(mouse);
-            SaveConfig_button.update(mouse);
+            if (SettingsElemets::subcats::credits::issules_page_link_text.getGlobalBounds().contains(mouse))
+            {
+                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    if (is_mouse_pressed == false)
+                    {
+                        is_mouse_pressed = true;
+                        openInBrowser(SettingsElemets::subcats::credits::issules_page_link_text.getString());
+                    }
+                }
+                else
+                {
+                    is_mouse_pressed = false;
+                }
+            }
         }
     }
 
     if (UI_current == UiPages::ManageMenu)
     {
-        manage_vanilla_saves_button.update(mouse);
-        manage_betterbuild_saves_button.update(mouse);
-        manage_betterbuild_world_button.update(mouse);
-        manage_backups_button.update(mouse);
-        manage_mods_button.update(mouse);
-        manage_main_back_button.update(mouse);
+        ManageSubcatListUI::informations_button.update(mouse);
+        ManageSubcatListUI::vanilla_saves_button.update(mouse);
+        ManageSubcatListUI::betterbuild_saves_button.update(mouse);
+        ManageSubcatListUI::betterbuild_world_button.update(mouse);
+        ManageSubcatListUI::backups_button.update(mouse);
+        ManageSubcatListUI::mods_button.update(mouse);
+        ManageSubcatListUI::main_back_button.update(mouse);
+        ManageSubcatListUI::debug_button.update(mouse);
 
         switch(manage_ui)
         {
             case MNG_MAIN_PAGE:
             {
-                if (instanceDataLoading == false)
+                if (instancesLoader::instanceDataLoading == false)
                 {
                     MNG_Instance_saves_text.update(mouse);
                     MNG_instance_installed_mods_text.update(mouse);
@@ -365,6 +435,11 @@ void mouse_left()
                 {
                     Backups_list[pair.first].update(mouse);
                 }
+                break;
+            }
+            case ManageCategories::DEBUG_PAGE:
+            {
+                ManageDebug::debugPatchButton.update(mouse);
                 break;
             }
         }

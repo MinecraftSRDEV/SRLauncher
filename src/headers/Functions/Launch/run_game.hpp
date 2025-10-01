@@ -5,7 +5,7 @@ bool renamedSteam = false;
  */
 void reset_play_button_text()
 {
-    launch_game_button.setText(PLAY_BUTTON_DEF);
+    MainpageElements::playbar::launchGameButton.setText(PLAY_BUTTON_DEF);
 }
 
 /**
@@ -44,6 +44,123 @@ bool restoreSteam()
     return false;
 }
 
+void updateLastPlayedList()
+{
+    fs::path pathToFile = fs::path(defaultDir / "instances.json");
+
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+
+    size_t indexes_count = 0;
+
+    if (fs::exists(pathToFile))
+    {
+        try
+        {
+            std::map <int, miniInstanceList::details> preloadData;
+            try
+            {
+                const auto json = JSON::parseFromFile(pathToFile.string());    
+                
+                for (size_t i = 1; i < 6; i++)
+                {
+                    miniInstanceList::details newDet = miniInstanceList::getDetails(json, i);
+                    
+                    if (!newDet.name.empty())
+                    {
+                        preloadData[i] = newDet;
+                        indexes_count++;
+                    }
+                }    
+            }
+            catch (std::exception e) {}
+
+            
+
+            std::map <int, miniInstanceList::details> newData;
+
+            newData[1].index = 1;
+            newData[1].lastPlayed = convertTmToString(*now);
+            newData[1].name = mounted_instance;
+
+            bool skip = false;
+
+            for (const auto& pair : preloadData)
+            {
+                if (preloadData[pair.first].name == mounted_instance)
+                {
+                    skip = true;
+                    break;
+                }
+            }
+
+            size_t newPosition = 2;
+
+            for (const auto& itr : preloadData)
+            {
+                if (skip)
+                {
+                    if (itr.second.name == mounted_instance)
+                    {
+                        newPosition--;
+                    }
+                    else
+                    {
+                        newData[newPosition].index = newPosition;
+                        newData[newPosition].lastPlayed = itr.second.lastPlayed;
+                        newData[newPosition].name = itr.second.name;
+                        newPosition++; 
+                    }
+                }
+                else
+                {
+                    newData[newPosition].index = newPosition;
+                    newData[newPosition].lastPlayed = itr.second.lastPlayed;
+                    newData[newPosition].name = itr.second.name;
+                    newPosition++;    
+                }
+                
+
+                if (newPosition == 6)
+                {
+                    break;
+                }
+            }
+
+            JSONEncoder::JSONObject output;
+
+            std::string outputJson;
+
+            for (const auto& saveItr : newData)
+            {
+                JSONEncoder::JSONObject *indexObject = new JSONEncoder::JSONObject;
+                indexObject->add("last", new JSONEncoder::JSONString(saveItr.second.lastPlayed));
+                indexObject->add("name", new JSONEncoder::JSONString(saveItr.second.name));
+
+                output.add("index" + std::to_string(saveItr.second.index), indexObject);
+            }
+            outputJson = JSONEncoder::formatJson(output.stringify());
+
+            std::ofstream saveFile;
+            saveFile.open(pathToFile.string());
+            saveFile << outputJson;
+            saveFile.close();
+            return;
+        }
+        catch(const std::exception& e)
+        {
+            
+        }    
+    }
+    else
+    {
+        std::ofstream genFile;
+        genFile.open(pathToFile.string());
+        genFile.close();
+        updateLastPlayedList();
+    }
+}
+
 /**
  * Launches the game executable.
  * 
@@ -57,9 +174,9 @@ bool restoreSteam()
 void run_game(std::string path, std::string gamepath)
 {
     HWND launcherWindow = window.getSystemHandle();
-    launch_game_button.setText("Running");
+    MainpageElements::playbar::launchGameButton.setText("Running");
     log_message("Game running", LogTypes::LOG_INFO);
-    if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+    if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == false)
     {
         ShowWindow(launcherWindow, SW_MINIMIZE);
     }
@@ -78,10 +195,12 @@ void run_game(std::string path, std::string gamepath)
 
     log_message("Session play time: " + std::to_string(time.hours) + " H " + std::to_string(time.minutes) + " M " + std::to_string(time.seconds) + " S", LogTypes::LOG_INFO);
     updatePlayTime(mounted_instance, gamepath, session);
+
     reset_play_button_text();
 
     restoreSteam();
     clearSessionFile();
+    miniInstanceList::prepare();
 }
 
 /**
@@ -141,7 +260,7 @@ int closeSteamPrompt()
 {
     if (IsSteamRunning() == true)
     {
-        int result = MessageBoxA(NULL, "Steam allready running\nIf you continue will be automatically closed!", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+        int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_STEAMRUNNINGASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
         switch(result)
         {
             case IDYES:
@@ -149,7 +268,7 @@ int closeSteamPrompt()
                 system("taskkill /f /im Steam.exe");    
                 if (IsSteamRunning() == true)
                 {
-                    int result2 = MessageBoxA(NULL, "Steam can't be closed!\n\nYou can try to run game without it, but its not recommended!", "Error", MB_ICONERROR | MB_YESNO);
+                    int result2 = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_STEAMCLOSEFAILASK").c_str(), "Error", MB_ICONERROR | MB_YESNO);
                     switch(result2)
                     {
                         case IDYES:
@@ -253,7 +372,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         versionType = versionsData_map[instances_list[mounted_instance].getVer()].version_type;
         versionName = versionsData_map[instances_list[mounted_instance].getVer()].version_name;
 
-        if (instancesListLoading == false)
+        if (instancesLoader::instancesListLoading == false)
         {
             break;
         }
@@ -272,7 +391,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     }
 
     bool launch_game = true;
-    launch_game_button.setText("Launching game");
+    MainpageElements::playbar::launchGameButton.setText(tr("IDS_TEXT_RUNGAME_LAUNCHINGGAME"));
 
     if (steamCheckResult == STC_SUCCESS or steamCheckResult == STC_NOTINSTALLED)
     {
@@ -288,7 +407,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
             {
                 if (user_offline_mode == result_online)
                 {
-                    int result = MessageBoxA(NULL, "To avoid Steam auto update to lastes version change your account to OFFLINE MODE.\n\n Still you want to continue?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+                    int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_NOOFFLINEMODEASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
                     switch (result)
                     {
                         case IDYES:
@@ -304,7 +423,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
                 }
                 else if (user_offline_mode == result_fail)
                 {
-                    int result = MessageBoxA(NULL, "Make sure if you are in OFFLINE MODE on Steam to avoid auto update to lastes version!\n\n Do you want to continue?", "Warning", MB_ICONEXCLAMATION | MB_YESNO);
+                    int result = MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_UNKOFFLINEMODEASK").c_str(), "Warning", MB_ICONEXCLAMATION | MB_YESNO);
                     switch (result)
                     {
                         case IDYES:
@@ -331,7 +450,9 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     {
         createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
 
-        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == false)
+        updateLastPlayedList();
+
+        if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == false)
         {
             window.setFramerateLimit(5);
         }
@@ -344,7 +465,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         std::thread gameThread(run_game, game_runpath, gamepath);
         gameThread.detach();
 
-        if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+        if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == true)
         {
             std::thread debugThread(DebugBridge::TryToConnect);
             debugThread.detach();    
@@ -371,7 +492,7 @@ void prepareInstance(std::string instance_id)
     if (game_downloading == false)
     {
         // fs::path game_dir = defaultDir / "instances" / instance_id;
-        steam_game_dir = steam_path_textbox.getText();
+        steam_game_dir = SettingsElemets::subcats::general::steam_path_textbox.getText();
         fs::path steam_dir = steam_game_dir;
         fs::path game_dir = steam_dir / "Slime Rancher";
         if (mountOnlyData == true)
@@ -400,7 +521,7 @@ void prepareInstance(std::string instance_id)
     else
     {
         log_message("Game is now downloading", LogTypes::LOG_INFO);
-        MessageBoxA(NULL, "Game is now downloading", "Info", MB_ICONINFORMATION | MB_OK);
+        MessageBoxA(NULL, tr("IDS_MSG_RUNGAME_NOWDOWNLOADING").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
     }
 }
 
@@ -412,8 +533,8 @@ void prepareInstance(std::string instance_id)
  */
 void runGameInitial()
 {
-    const std::string NO_INSTANCE_MOUNTED = "no slime rancher instance mounted";
-    const std::string GAME_RUNNING_ERR = "Game allready running";
+    const std::string NO_INSTANCE_MOUNTED = tr("IDS_MSG_RUNGAME_NOINSTANCEMOUNTED");
+    const std::string GAME_RUNNING_ERR = tr("IDS_MSG_RUNGAME_ALLREADYRUNNING");
 
     if (game_running == false)
     {

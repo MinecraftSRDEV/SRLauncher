@@ -1,10 +1,15 @@
 void refresh_instances_list();
+namespace miniInstanceList
+{
+    void prepare();
+}
 
 namespace launcherCategories
 {
     void main()
     {
         UI_current = UiPages::MainMenu;
+        miniInstanceList::prepare();
     }
 
     void instances()

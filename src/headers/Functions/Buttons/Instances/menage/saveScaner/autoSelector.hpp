@@ -15,7 +15,7 @@ void scanGamesaves(const fs::path& dir, const std::string& id, std::map <int, Va
     }
     else
     {
-        vsc_text.setString("There is no data.");
+        vsc_text.setString(tr("IDS_TEXT_NODATA"));
         vsc_text.setPosition(window.getSize().x / 2 - (vsc_text.getLocalBounds().width / 2) + 130, 380);
     }
 
@@ -25,7 +25,7 @@ void scanGamesaves(const fs::path& dir, const std::string& id, std::map <int, Va
     }
     else
     {
-        msc_text.setString("There is no data.");
+        msc_text.setString(tr("IDS_TEXT_NODATA"));
         msc_text.setPosition(window.getSize().x / 2 - (msc_text.getLocalBounds().width / 2) + 130, 380);
     }
 }

@@ -7,6 +7,8 @@ void postStartTasks()
             run_posttasks = false;
 
             sync_refresh_instances_list();
+
+            miniInstanceList::prepare();
         }
     }
 }

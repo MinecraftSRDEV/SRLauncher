@@ -1,3 +1,12 @@
+struct WindowsInfo
+{
+    DWORD MajorVersion;
+    DWORD MinorVersion;
+    DWORD BuildNumber;
+    std::string sysLang = "en";
+    bool sysTheme = true;
+};
+
 struct SRGamesaveInfo {
     bool readable_version = false;
     int format = 0;
@@ -29,6 +38,29 @@ struct InstanceModAttributes {
     std::vector <fs::directory_iterator> SatysModLoader_mods_list;
     std::vector <fs::directory_iterator> UMF_mods_list;
     std::vector <fs::directory_iterator> SRML_mods_list;
+};
+
+namespace miniInstanceList
+{
+    struct attributes{
+        sf::Texture& icon_texture;
+        sf::Texture& clock_texture;
+
+        sf::Font& font;
+        sf::RenderWindow& window;
+
+        int x;
+        int y;
+        int size_x;
+        int size_y;
+        int it_number;
+
+        std::string lastPlayed;
+        std::string name;
+        std::string version;
+        InstanceModAttributes modsAtrb;
+        std::string playtime_count;
+    };
 };
 
 struct WorldData {

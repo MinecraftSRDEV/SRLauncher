@@ -98,20 +98,20 @@ void runtime_check()
                 checkUpdate();
             }
 
-            steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
-            instances_path_textbox.setText(reduceBackslashes(instances_dir));
-            steamcmd_path_textbox.setText(reduceBackslashes(steamcmd_dir));
+            SettingsElemets::subcats::general::steam_path_textbox.setText(reduceBackslashes(steam_game_dir));
+            SettingsElemets::subcats::general::instances_path_textbox.setText(reduceBackslashes(instances_dir));
+            SettingsElemets::subcats::downloading::steamcmd_path_textbox.setText(reduceBackslashes(steamcmd_dir));
 
-            SteamProfile_name_textbox.setText(decryptor(steam_profile_name));
-            SteamProfile_password_textbox.setText(decryptor(steam_profile_passwd));
+            SettingsElemets::subcats::steamAccount::profileName_textbox.setText(decryptor(steam_profile_name));
+            SettingsElemets::subcats::steamAccount::profilePassword_textbox.setText(decryptor(steam_profile_passwd));
 
-            Save_logs_files_checkbox.setState(save_log_files);
-            Show_prereleases_checkbox.setState(show_prerelease_version);
-            Colored_logs_checkbox.setState(display_log_colors);
-            automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
-            do_not_show_warnings_checkbox.setState(show_warnings);
-            use_secure_ipc_checkbox.setState(use_secure_ipc);
-            mount_only_data_checkbox.setState(mountOnlyData);
+            SettingsElemets::subcats::general::Save_logs_files_checkbox.setState(save_log_files);
+            SettingsElemets::subcats::general::Show_prereleases_checkbox.setState(show_prerelease_version);
+            SettingsElemets::subcats::general::Colored_logs_checkbox.setState(display_log_colors);
+            SettingsElemets::subcats::downloading::automatically_run_downloaded_instances_checkbox.setState(autolaunch_instances);
+            SettingsElemets::subcats::general::do_not_show_warnings_checkbox.setState(show_warnings);
+            SettingsElemets::subcats::general::use_secure_ipc_checkbox.setState(use_secure_ipc);
+            SettingsElemets::subcats::general::mount_only_data_checkbox.setState(mountOnlyData);
 
             log_message("Loading versions list", LogTypes::LOG_INFO);
             if (load_versions_list() == true)
@@ -129,20 +129,20 @@ void runtime_check()
                 rename_orginal_dir();
                 log_message("No instance mounted", LogTypes::LOG_INFO);
                 mounted_instance = UNMOUNTED_INSTANCE;
-                Mounted_instance_info_text.setString("No instance mounted");
-                mounted_instance_version.setString("");
+                MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
+                MainpageElements::playbar::versionText.setString("");
             }
             else
             {
                 if (mounted_instance == UNMOUNTED_INSTANCE)
                 {
                     displayNonEmptyDataAlert();
-                    Mounted_instance_info_text.setString("No instance mounted");
-                    mounted_instance_version.setString("");
+                    MainpageElements::playbar::infoText.setString(tr("IDS_NO_INSTANCE_MOUNTED"));
+                    MainpageElements::playbar::versionText.setString("");
                 }
                 else
                 {
-                    Mounted_instance_info_text.setString(mounted_instance);
+                    MainpageElements::playbar::infoText.setString(mounted_instance);
                 }
                 log_message("Mounted instance: " + mounted_instance, LogTypes::LOG_INFO);
             }
@@ -150,7 +150,7 @@ void runtime_check()
 
             if (downloader_selected == steamcmd)
             {
-                steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
+                SettingsElemets::subcats::downloading::steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_TEXT);
                 if (SteamCMDCheck() == true)
                 {
                     log_message("SteamCMD is not installed", LogTypes::LOG_WARN);
@@ -158,11 +158,14 @@ void runtime_check()
             }
             else
             {
-                steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
+                SettingsElemets::subcats::downloading::steamcmd_path_textbox.setLabelText(settmaindi::CMDPATH_DISABLED);
             }
 
-            theme_list_ddl.setFromResult(std::to_string(theme_selected));
-            downloaders_ddl.setFromResult(std::to_string(downloader_selected));
+            createLanguageDdl();
+
+            SettingsElemets::subcats::general::theme_list_ddl.setFromResult(std::to_string(theme_selected));
+            SettingsElemets::subcats::downloading::downloaders_ddl.setFromResult(std::to_string(downloader_selected));
+            SettingsElemets::subcats::general::languages_list_ddl.setFromResult(launcher_language);
 
             loadLicences();
 
@@ -189,8 +192,8 @@ void runtime_check()
             saved_version = launcher_version;
             update_config_file();
 
-            SteamProfile_name_textbox.setText(steam_profile_name);
-            SteamProfile_password_textbox.setText(steam_profile_passwd);
+            SettingsElemets::subcats::steamAccount::profileName_textbox.setText(steam_profile_name);
+            SettingsElemets::subcats::steamAccount::profilePassword_textbox.setText(steam_profile_passwd);
 
             goto restart_runtime;
         }    

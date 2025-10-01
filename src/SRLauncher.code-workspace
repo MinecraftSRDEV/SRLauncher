@@ -72,7 +72,8 @@
 			"set": "cpp",
 			"unordered_set": "cpp",
 			"csignal": "cpp",
-			"mutex": "cpp"
+			"mutex": "cpp",
+			"condition_variable": "cpp"
 		}
 	}
 }

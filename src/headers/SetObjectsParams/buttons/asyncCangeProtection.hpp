@@ -5,5 +5,5 @@ void setUiProtection(bool state = false)
     SettingsCategory_button.setBlockState(state);
     VersionsCategory_button.setBlockState(state);
 
-    launch_game_button.setBlockState(state);
+    MainpageElements::playbar::launchGameButton.setBlockState(state);
 }

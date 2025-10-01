@@ -1,3 +1,21 @@
+Planned in 0.16
+
+Started in 12.09.25
+             
+\\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
+
+- add 5 last played instances on main page                                             Finished
+- add instance details on main page when instance is on mouse                          Finished
+- make links clickable                                                                 Finished
+- add assembly reference checker                                                       Finished
+- add debug unpatcher                                                                  Finished
+- add more languages                                                                   Finished
+
+- fix debug patcher success messagebox                                                 Resolved
+- fix steamCMD location textbox scroll event                                           Resolved
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Planned in 0.15
 
 Started in 09.09.25
@@ -85,14 +103,14 @@ Temporarily postponed:
 - add function to backups manager buttons 
 - mounting process mapping
 
+- fix bug with play time when values is less than one minute
+
 Features may will be added in future:
 
-- More languages
 - HEX saves viewer
 - Mounting instances without mounting game
 - Instance auto installer
 - support for plugin loader Slime Rancher 0.3.x
-- Customizable main page (console disable)
 - Support for Slime Rancher prototype (below 0.2.3)
 
 Ideas:
@@ -100,3 +118,4 @@ Ideas:
 - Migration to SFML 3
 - SRML mods manager
 - Support for versions unavailable on Steam servers
+- Assembly reference injector (SRL mod loader)

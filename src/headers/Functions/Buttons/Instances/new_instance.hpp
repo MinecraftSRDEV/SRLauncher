@@ -6,7 +6,7 @@ void new_instance_change()
     versions_list_ddl.setFromResult("none");
     CreateInstanceUI::graphics_preset_ddl.setFromResult("none");
     CreateInstanceUI::new_instance_name_textbox.setText("");
-    CreateInstanceUI::isntance_will_be_created_in_text.setString("Will be created in:\n" + instances_dir);
+    CreateInstanceUI::isntance_will_be_created_in_text.setString(tr("IDS_TEXT_NEWINST_WILLBECREATEDIN") + instances_dir);
 
     iconBarScrollWhile("pink");
 }
@@ -22,11 +22,11 @@ void updateInstanceInfo()
     if (!id.empty())
     {
         CreateInstanceUI::instance_ver_info_text.setString
-        ("Instance info\n\nVersion: " + data.version_name + "\n\nType: " + data.version_type + "\n\nManifest:\n" + data.manifest + "\n\nHash:\n" + data.assembly_hash + "\n\nRelease date:\n" + data.release_date);    
+        (tr("IDS_TEXT_NEWINST_INSTNACEINFO") + tr("IDS_TEXT_NEWINST_VERSION") + data.version_name + tr("IDS_TEXT_NEWINST_TYPE") + data.version_type + tr("IDS_TEXT_NEWINST_MANIFEST") + data.manifest + tr("IDS_TEXT_NEWINST_HASH") + data.assembly_hash + tr("IDS_TEXT_NEWINST_RELEASEDATE") + data.release_date);    
     }
     else
     {
-        CreateInstanceUI::instance_ver_info_text.setString("Instance info\n\nNo data");
+        CreateInstanceUI::instance_ver_info_text.setString(tr("IDS_TEXT_NEWINST_INFONODATA"));
     }
 }
 

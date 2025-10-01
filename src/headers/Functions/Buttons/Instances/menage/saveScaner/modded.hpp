@@ -14,19 +14,19 @@ void removeBBS(const std::string& instance_id, const std::string& world_id)
 {
     fs::path source = instances_dir / fs::path("Slime Rancher_" + instance_id) / "mods" / "BetterBuild" / fs::path(std::string(world_id + ".sav"));
 
-    int result = MessageBoxA(NULL, "Delete this savegame permanently?", "Info", MB_ICONQUESTION | MB_YESNO);
+    int result = MessageBoxA(NULL, tr("IDS_MSG_MODEDSAVE_REMOVE_ASK").c_str(), "Info", MB_ICONQUESTION | MB_YESNO);
 
     if (result == IDYES)
     {
         try
         {
             fs::remove(source);
-            MessageBoxA(NULL, "Savegame successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_MODEDSAVE_REMOVE_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             instance_manage(instance_id, ManageCategories::BETTERBUILD_SAVES);
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "Savegame remove FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_MODEDSAVE_REMOVE_FAIL").c_str(), "Info", MB_ICONERROR | MB_OK);
         }
     }
 }

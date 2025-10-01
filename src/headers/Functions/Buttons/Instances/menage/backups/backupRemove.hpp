@@ -1,6 +1,6 @@
 void backupRemove(const std::string& instance_id, const std::string& backup_id, int backup_type)
 {
-    int result = MessageBoxA(NULL, "Delete this backup?", "Info", MB_ICONQUESTION | MB_YESNO);
+    int result = MessageBoxA(NULL, tr("IDS_MSG_BACKUP_DELETE_ASK").c_str(), "Info", MB_ICONQUESTION | MB_YESNO);
 
     fs::path source_path;
     if (result == IDYES)
@@ -28,12 +28,12 @@ void backupRemove(const std::string& instance_id, const std::string& backup_id, 
         {
             log_message(source_path.string(), LOG_INFO);
             fs::remove(source_path);
-            MessageBoxA(NULL, "Backup successfully removed", "Info", MB_ICONINFORMATION | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_BACKUP_DELETE_OK").c_str(), "Info", MB_ICONINFORMATION | MB_OK);
             instance_manage(instance_id, ManageCategories::BACKUPS);
         }
         catch (fs::filesystem_error e)
         {
-            MessageBoxA(NULL, "Backup remove FAIL", "Info", MB_ICONERROR | MB_OK);
+            MessageBoxA(NULL, tr("IDS_MSG_BACKUP_DELETE_FAIL").c_str(), "Error", MB_ICONERROR | MB_OK);
         }
     }
 }

@@ -39,7 +39,7 @@ void events_loop()
 
         if (UI_current == UiPages::InstancesMenu)
         {
-            if (instancesListLoading == false)
+            if (instancesLoader::instancesListLoading == false)
             {
                 if (instancesScrollingArea.getGlobalBounds().contains(mouse_pos))
                 scrollInstancesList(event, mouse_pos);
@@ -48,17 +48,18 @@ void events_loop()
 
         if (UI_current == UiPages::MainMenu)
         {
-            console.handleEvent(event);
+            if (MainpageElements::console::mouseBox.getGlobalBounds().contains(mouse_pos))
+            MainpageElements::console::console.handleEvent(event);
 
             if (display_guard_window == true)
             {
-                GuardBox.event(event);
+                MainpageElements::GuardBox.event(event);
             }
         }
 
         if (UI_current == UiPages::ManageMenu)
         {
-            if (instanceDataLoading == false)
+            if (instancesLoader::instanceDataLoading == false)
             {
                 switch(manage_ui)
                 {
@@ -93,27 +94,35 @@ void events_loop()
         {
             if (options_ui == SettingsCategories::MAIN_PAGE)
             {
-                steam_path_textbox.handleEvent(event);
-                instances_path_textbox.handleEvent(event);
-                steamcmd_path_textbox.handleEvent(event);
-                SRL_background_img_path_textbox.handleEvent(event);
+                SettingsElemets::subcats::general::steam_path_textbox.handleEvent(event);
+                SettingsElemets::subcats::general::instances_path_textbox.handleEvent(event);
+                SettingsElemets::subcats::general::SRL_background_img_path_textbox.handleEvent(event);
+
+                if (SettingsElemets::subcats::general::languages_list_ddl.getState() == true)
+                {
+                    SettingsElemets::subcats::general::languages_list_ddl.scrollEvent(event);
+                }
+            }
+            if (options_ui == SettingsCategories::DOWNLOADING_PAGE)
+            {
+                SettingsElemets::subcats::downloading::steamcmd_path_textbox.handleEvent(event);
             }
             if (options_ui == SettingsCategories::DEBUGGING_PAGE)
             {
-                if (DebugSettingsUI::debuggingEnabledCheckbox.getState() == true)
+                if (SettingsElemets::subcats::debug::debuggingEnabledCheckbox.getState() == true)
                 {
-                    DebugSettingsUI::comunicationDelayTextbox.handleEvent(event);
-                    DebugSettingsUI::comunicationPipeBufferSizeTextbox.handleEvent(event);
+                    SettingsElemets::subcats::debug::comunicationDelayTextbox.handleEvent(event);
+                    SettingsElemets::subcats::debug::comunicationPipeBufferSizeTextbox.handleEvent(event);
                 }
             }
             if (options_ui == SettingsCategories::PROFILE_PAGE)
             {
-                SteamProfile_name_textbox.handleEvent(event);
-                SteamProfile_password_textbox.handleEvent(event);
+                SettingsElemets::subcats::steamAccount::profileName_textbox.handleEvent(event);
+                SettingsElemets::subcats::steamAccount::profilePassword_textbox.handleEvent(event);
             }
             if (options_ui == SettingsCategories::LICENCES_PAGE)
             {
-                LicencesUI::licenseField.handleEvent(event);
+                SettingsElemets::subcats::licences::licenseField.handleEvent(event);
             }
         }
 

@@ -18,7 +18,7 @@ int reloadLauncherBackground()
     }
     else if (srlBackgroundPath == SRL_BG_DEF_PATH)
     {
-        SRL_background_img_path_textbox.setText(SRL_BG_DEF_PATH);
+        SettingsElemets::subcats::general::SRL_background_img_path_textbox.setText(SRL_BG_DEF_PATH);
         return 4;
     }
     else
@@ -27,7 +27,7 @@ int reloadLauncherBackground()
         return 1;
     }
 
-    SRL_background_img_path_textbox.setText(SRL_BG_DEF_PATH);
+    SettingsElemets::subcats::general::SRL_background_img_path_textbox.setText(SRL_BG_DEF_PATH);
     log_message(reloadbgdi::ERROR_TEXT + "ended", LogTypes::LOG_ERROR);
     return 0;
 }

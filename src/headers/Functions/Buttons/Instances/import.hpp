@@ -33,14 +33,14 @@ bool getfolder_import_instance()
 
 void import_instance()
 {
-    const std::string FAIL_TEXT = "Cannot import instance: ";
+    const std::string FAIL_TEXT = tr("IDS_MSG_IMPORTINST_FAIL");
 
     std::string instance_name = import_instance_name_textbox.getText();
     fs::path source_path = import_instance_path_textbox.getText();
     std::string version_selected = versions_list_ddl.getResult();
     if (!instance_name.empty())
     {
-        std::string instances_dir = instances_path_textbox.getText();
+        std::string instances_dir = SettingsElemets::subcats::general::instances_path_textbox.getText();
         fs::path steam_dir = instances_dir;
         fs::path new_instance_path = steam_dir / ("Slime Rancher_" + instance_name);
         if (check_directory_exists(new_instance_path) == true)
@@ -95,7 +95,7 @@ void import_instance()
                         else
                         {
                             log_message("Cannot create instance directory", LogTypes::LOG_ERROR);
-                            MessageBoxA(NULL, "Cannot create instance directory", "Error", MB_ICONERROR | MB_OK);
+                            MessageBoxA(NULL, tr("IDS_MSG_IMPORTINST_FAILDIR").c_str(), "Error", MB_ICONERROR | MB_OK);
                         }
                         break;
                     }

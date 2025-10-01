@@ -9,27 +9,37 @@ namespace manageCategories
 
     void bbworls()
     {
-        manage_ui = BETTERBUILD_WORLDS;
+        manage_ui = ManageCategories::BETTERBUILD_WORLDS;
     }
 
     void vanilla()
     {
-        manage_ui = VANILLA_SAVES;
+        manage_ui = ManageCategories::VANILLA_SAVES;
     }
 
     void bbsaves()
     {
-        manage_ui = BETTERBUILD_SAVES;
+        manage_ui = ManageCategories::BETTERBUILD_SAVES;
     }
 
     void mods()
     {
-        manage_ui = MODS_PAGE;
+        manage_ui = ManageCategories::MODS_PAGE;
     }
 
     void backups()
     {
-        manage_ui = BACKUPS;
+        manage_ui = ManageCategories::BACKUPS;
+    }
+
+    void debug()
+    {
+        manage_ui = ManageCategories::DEBUG_PAGE;
+    }
+
+    void details()
+    {
+        manage_ui = ManageCategories::MNG_MAIN_PAGE;
     }
 }
 

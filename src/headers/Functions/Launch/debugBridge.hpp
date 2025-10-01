@@ -73,13 +73,13 @@ namespace DebugBridge {
             {
                 case 0:
                 {
-                    debugWorking.setFillColor(sf::Color::Red);
+                    MainpageElements::debuger::working.setFillColor(sf::Color::Red);
                     ind_state = 1;
                     break;
                 }
                 case 1:
                 {
-                    debugWorking.setFillColor(sf::Color::Green);
+                    MainpageElements::debuger::working.setFillColor(sf::Color::Green);
                     ind_state = 0;
                     break;
                 }
@@ -123,7 +123,7 @@ namespace DebugBridge {
                 logs.clear();
             }
 
-            debugIpcElapsedText.setString("IPC delayed: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
+            MainpageElements::debuger::ipcElapsedText.setString("IPC delayed: " + std::to_string(delayed.asMilliseconds()) + " MS | buffer size: " + std::to_string(sizeof(buffer)) + " bytes, Allocated: " + std::to_string(bytesAllocated) + " bytes | Logs queue: " + std::to_string(logsCount) + " entries");
             sf::sleep(sf::milliseconds(communicationDelay));
         }
 
@@ -172,25 +172,63 @@ namespace DebugBridge {
         system("taskkill /f /im SlimeRancher.exe");
     }
 
-    void applyDebugPathToInstance()
+    void uninstallDebugPath()
+    {
+        int result = MessageBoxA(NULL, "This will remove debug patch from instance.\nDo you want to continue?", "info", MB_ICONQUESTION | MB_YESNO);
+
+        std::string slimerancherLocation = instances_dir + "/Slime Rancher_" + selected_instance + "/SlimeRancher_Data/Managed/";
+
+        fs::path asmPath = slimerancherLocation + "/Assembly-CSharp.dll";
+        fs::path dllPath = slimerancherLocation + "/DebugBridge.dll";
+
+        if (result == IDYES)
+        {
+            log_message("Removeing debug patch", LOG_INFO);
+
+            try
+            {
+                fs::remove(dllPath);
+                fs::remove(asmPath);
+                fs::rename(slimerancherLocation + "/Assembly-CSharp.dll.bak", asmPath);
+            }
+            catch (fs::filesystem_error e)
+            {
+                std::string message = "Cannot uninstall debug patch: " + std::string(e.what());
+                log_message(message, LOG_ERROR);
+                MessageBoxA(NULL, message.c_str(), "Error", MB_ICONERROR | MB_OK);
+                return;
+            }            
+
+            
+            log_message("Patch uninstalled successfully", LOG_INFO);
+            MessageBoxA(NULL, "Patch uninstalled successfully", "info", MB_ICONINFORMATION | MB_OK);
+            instance_manage(selected_instance, ManageCategories::DEBUG_PAGE);
+        }
+    }
+
+    void installDebugPath()
     {
         SRL_DP_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "SRDebugPatcher" / "bin" / "Release" / "net8.0" / "SRDebugPatcher.exe";
         SRL_DB40_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "DebugBridge" / "bin" / "Release" / "net40" / "DebugBridge.dll";
         SRL_DB48_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "DebugBridge" / "bin" / "Release" / "net48" / "DebugBridge.dll";
 
-        int result = MessageBoxA(NULL, "This will install patch to currently mounted instance. If instance is modded, may by incompatybile with some loaders.\n\nRequire .NET runtime 8 to apply patch.\n\nDo you want to continue?", "info", MB_ICONQUESTION | MB_YESNO);
+        int result = MessageBoxA(NULL, "This will install patch to instance. If instance is modded, may by incompatybile with some loaders.\n\nRequire .NET runtime 8 to apply patch.\n\nDo you want to continue?", "info", MB_ICONQUESTION | MB_YESNO);
+
+        std::string slimerancherLocation = instances_dir + "/Slime Rancher_" + selected_instance + "/SlimeRancher_Data/Managed/";
 
         if (result == IDYES)
         {
             std::string command = SRL_DP_DEF_PATH.string();
             command += " \"";
-            command += steam_game_dir;
-            command += "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll\"";
+            command += slimerancherLocation;
+            command += "/Assembly-CSharp.dll\"";
             command += " ";
-            command += steam_game_dir;
-            command += "/Slime Rancher/SlimeRancher_Data/Managed/DebugBridge.dll";
+            command += slimerancherLocation;
+            command += "/DebugBridge.dll";
 
             fs::path bridgePath;
+
+            log_message("Applying debug patch", LOG_INFO);
 
             if (versionsData_map[mounted_instance].debugCompatybile == "net40")
             {
@@ -205,7 +243,7 @@ namespace DebugBridge {
 
             try
             {
-                fs::copy_file(bridgePath, fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/DebugBridge.dll"));
+                fs::copy_file(bridgePath, fs::path(slimerancherLocation + "/DebugBridge.dll"));
             }
             catch (fs::filesystem_error e)
             {
@@ -215,15 +253,15 @@ namespace DebugBridge {
                 return;
             }
 
-            log_message("Applying debug patch", LOG_INFO);
             system(command.c_str());
 
-            if (fs::exists(fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll_patched")))
+            if (fs::exists(fs::path(slimerancherLocation + "/Assembly-CSharp.dll_patched")))
             {
                 try
                 {
-                    fs::rename(fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll"), fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll_prepatch"));
-                    fs::rename(fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll_patched"), fs::path(steam_game_dir + "/Slime Rancher/SlimeRancher_Data/Managed/Assembly-CSharp.dll"));
+                    fs::rename(fs::path(slimerancherLocation + "/Assembly-CSharp.dll"), fs::path(slimerancherLocation + "/Assembly-CSharp.dll_prepatch"));
+                    fs::rename(fs::path(slimerancherLocation + "/Assembly-CSharp.dll_patched"), fs::path(slimerancherLocation + "Assembly-CSharp.dll"));
+                    fs::remove(fs::path(slimerancherLocation + "/Assembly-CSharp.dll_prepatch"));
                 }
                 catch (fs::filesystem_error e)
                 {
@@ -241,14 +279,15 @@ namespace DebugBridge {
                 return;
             }    
 
-            log_message("Patch applied successfully", LOG_ERROR);
-            MessageBoxA(NULL, "Patch applied successfully", "Error", MB_ICONERROR | MB_OK);
+            log_message("Patch applied successfully", LOG_INFO);
+            MessageBoxA(NULL, "Patch applied successfully", "info", MB_ICONINFORMATION | MB_OK);
+            instance_manage(selected_instance, ManageCategories::DEBUG_PAGE);
         }
     }
 
     void saveLogs()
     {
-        std::string file_name = "debug_log_" + std::to_string(run_YEAR) + "_" + std::to_string(run_DAY) + "_" + std::to_string(run_MONTH) + "_" + std::to_string(run_H) + "_" + std::to_string(run_M) + "_" + std::to_string(run_S) + ".txt";
+        std::string file_name = "debug_log_" + dateFormat::getStringfiedDateString() + ".txt";
 
         std::ofstream log_file;
         log_file.open(logs_path.string() + "/" + file_name);

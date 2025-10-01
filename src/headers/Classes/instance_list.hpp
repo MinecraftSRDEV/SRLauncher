@@ -45,12 +45,12 @@ void create(int x, int y, int size_x, int size_y, std::string name, std::string 
     playtime_text.setCharacterSize(16);
     playtime_text.setFont(font);
 
-    Play_button.create(0,0, 60, 30, font, "Mount", false, theme_selected);
-    Edit_button.create(0,0, 60, 30, font, "Edit", false, theme_selected);
-    Menage_button.create(0,0, 60, 30, font, "Menage", false, theme_selected);
-    OpenGameFolder_button.create(0,0, 100, 30, font, "Open game folder", false, theme_selected);
-    OpenSavesFolder_button.create(0,0, 100, 30, font, "Open saves folder", false, theme_selected);
-    Remove_button.create(0,0, 70, 30, font, "Remove", false, theme_selected);
+    Play_button.create(0,0, 60, 30, font, tr("IDS_BUTTON_INSTANCE_MOUNT"), false, theme_selected);
+    Edit_button.create(0,0, 60, 30, font, tr("IDS_BUTTON_INSTANCE_EDIT"), false, theme_selected);
+    Menage_button.create(0,0, 60, 30, font, tr("IDS_BUTTON_INSTANCE_MANAGE"), false, theme_selected);
+    OpenGameFolder_button.create(0,0, 100, 30, font, tr("IDS_BUTTON_INSTANCE_OPENGAMEDIR"), false, theme_selected);
+    OpenSavesFolder_button.create(0,0, 100, 30, font, tr("IDS_BUTTON_INSTANCE_OPENSAVESDIR"), false, theme_selected);
+    Remove_button.create(0,0, 70, 30, font, tr("IDS_BUTTON_INSTANCE_REMOVE"), false, theme_selected);
 
     mods_attributes = modsAtrb;
 
@@ -95,7 +95,7 @@ void setInstalledStatus(bool status)
 
     if (installed == false)
     {
-        modLoaders_text.setString("Game isn't installed");
+        modLoaders_text.setString(tr("IDS_TEXT_INSTANCE_NOGAMEINSTALLED"));
     }
 }
 
@@ -154,12 +154,12 @@ void updateStatus(int status)
     {
         case status::Unmounted:
         {
-            Play_button.setText("Mount");
+            Play_button.setText(tr("IDS_BUTTON_INSTANCE_MOUNT"));
             break;
         }
         case status::Mounted:
         {
-            Play_button.setText("Unmount");
+            Play_button.setText(tr("IDS_BUTTON_INSTANCE_UNMOUNT"));
             break;
         }
     }
@@ -216,6 +216,11 @@ std::string getPlaytime()
 }
 
 std::string name_string;
+
+Playtime getTime()
+{
+    return time;
+}
 
 private:
 
@@ -341,15 +346,15 @@ std::string buildPlaytimeString()
     }
     catch (std::exception e) {};
 
-    Playtime time = calcPlaytime(value);
+    time = calcPlaytime(value);
 
     if (time.miliseconds < sf::Int64(1))
     {
-        output = "Never";
+        output = tr("IDS_TEXT_INSTANCE_PLTNEVER");
     }
     else if (time.minutes < sf::Int64(1))
     {
-        output = "Less than 1 minute";
+        output = tr("IDS_TEXT_INSTANCE_PLTLESS");
     }
     else if (time.hours < sf::Int64(1))
     {
@@ -377,6 +382,8 @@ int number_on_list = 0;
 std::string playtime = "0";
 
 bool installed;
+
+Playtime time;
 
 sf::RectangleShape backgorund;
 sf::Text instance_name_text;

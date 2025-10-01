@@ -1,3 +1,5 @@
+std::string tr(const std::string& key);
+
 class uiElements {
 public:
 
@@ -87,6 +89,30 @@ void setElementsTheme()
     for (auto* tpbgItr : UITpBgs)
     {
         tpbgItr->setTheme(theme_selected);
+    }
+}
+
+void setElementsLanguage()
+{
+    for (auto* buttonItr : UIButtons)
+    {
+        if (tr(buttonItr->getID()) != "STRING NOT FOUND")
+        buttonItr->setText(tr(buttonItr->getID()));
+    }
+    for (auto* checkboxItr : UICheckboxes)
+    {
+        if (tr(checkboxItr->getID()) != "STRING NOT FOUND")
+        checkboxItr->changeText(tr(checkboxItr->getID()));
+    }
+    for (auto* textboxItr : UITextboxes)
+    {
+        if (tr(textboxItr->getID()) != "STRING NOT FOUND")
+        textboxItr->setLabelText(tr(textboxItr->getID()));
+    }
+    for (auto* passwordboxItr : UIPasswordboxes)
+    {
+        if (tr(passwordboxItr->getID()) != "STRING NOT FOUND")
+        passwordboxItr->setLabelText(tr(passwordboxItr->getID()));
     }
 }
 

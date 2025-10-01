@@ -1,6 +1,6 @@
 void downloading_animation()
 {
-    progress_moveing.setPosition(-70, progress_moveing.getPosition().y);
+    MainpageElements::playbar::progress_moveing.setPosition(-70, MainpageElements::playbar::progress_moveing.getPosition().y);
 
     sf::Clock cooldown;
     cooldown.restart();
@@ -16,13 +16,13 @@ void downloading_animation()
         {
             cooldown.restart();
 
-            if (progress_moveing.getPosition().x > 1280)
+            if (MainpageElements::playbar::progress_moveing.getPosition().x > 1280)
             {
-                progress_moveing.setPosition(-70, progress_moveing.getPosition().y);
+                MainpageElements::playbar::progress_moveing.setPosition(-70, MainpageElements::playbar::progress_moveing.getPosition().y);
             }
             else
             {
-                progress_moveing.setPosition(progress_moveing.getPosition().x + 20, progress_moveing.getPosition().y);
+                MainpageElements::playbar::progress_moveing.setPosition(MainpageElements::playbar::progress_moveing.getPosition().x + 20, MainpageElements::playbar::progress_moveing.getPosition().y);
             }
         }
     }
