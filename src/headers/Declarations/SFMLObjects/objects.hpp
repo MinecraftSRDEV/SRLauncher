@@ -5,6 +5,11 @@ sf::Font font;
 sf::Texture bg_texture;
 sf::Sprite background;
 
+sf::Texture vanilla_saves_icon_tx;
+sf::Texture mods_saves_icon_tx;
+sf::Texture instance_mods_icon_tx;
+sf::Texture launcher_mods_icon_tx;
+
 sf::Image window_icon_img;
 
 sf::Cursor arrowCursor;

@@ -126,10 +126,10 @@ void setButtons()
     UIElements.createButton(BBGamesavesSlots::B, 260, 400, 120, 120, font, "Slot B", false);
     UIElements.createButton(BBGamesavesSlots::C, 380, 400, 120, 120, font, "Slot C", false);
 
-    UIElements.createMenagementButton(MNG_Instance_saves_text, 135, 70, font, instance_icons_textures["pink_slime"], "", false);
-    UIElements.createMenagementButton(MNG_instance_installed_mods_text, 135, (70 + 91), font, instance_icons_textures["pink_slime"], "", false);
-    UIElements.createMenagementButton(MNG_instance_mods_saves_text, 135, (70 + (91 + 91)), font, instance_icons_textures["pink_slime"], "", false);
-    UIElements.createMenagementButton(MNG_instance_mods_launcher_text, 135, (70 + (91 + (91 + 91))), font, instance_icons_textures["pink_slime"], "", false);
+    UIElements.createMenagementButton(MNG_Instance_saves_text, 135, 70, font, vanilla_saves_icon_tx, "", false);
+    UIElements.createMenagementButton(MNG_instance_installed_mods_text, 135, (70 + 91), font, instance_mods_icon_tx, "", false);
+    UIElements.createMenagementButton(MNG_instance_mods_saves_text, 135, (70 + (91 + 91)), font, mods_saves_icon_tx, "", false);
+    UIElements.createMenagementButton(MNG_instance_mods_launcher_text, 135, (70 + (91 + (91 + 91))), font, launcher_mods_icon_tx, "", false);
     
     UIElements.createTransparrentBg(mods_separator, 130 + 560 + 5, 3, 0, 794, true);
 

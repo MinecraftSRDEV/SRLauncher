@@ -1,7 +1,27 @@
-void addToIconsList(int x, int y, const std::string& id)
+void addToIconsList(int& x, int y, const std::string& id)
 {
     instance_icons_textures[id].loadFromFile("./assets/resources/icons/" + id + ".png");
     InstanceIconBar::IconBarMap[id].create(x, y, instance_icons_textures[id], id);
+    x += 80;
+}
+
+void loadIconsListTextures()
+{
+    int last_x = 50;
+    int y = 330;
+
+    std::vector <std::string> iconsNames = {
+        {"boom"},{"crystal"},{"dervish"},{"feral"},
+        {"glitch"},{"gold"},{"honey"},{"hunter"},
+        {"lucky"},{"mosaic"},{"phosphor"},{"pink"},
+        {"puddle"},{"quantum"},{"rad"},{"rock"},
+        {"saber"},{"tabby"},{"tangle"},{"tarr"}
+    };
+
+    for (const auto& itr : iconsNames)
+    {
+        addToIconsList(last_x, y, itr);
+    }
 }
 
 void loadElements()
@@ -18,47 +38,10 @@ void loadElements()
     SettingsElemets::subcats::steamAccount::profile_icon_tx.loadFromFile("./assets/resources/unknown_user.png");
     playtime_clock_tx.loadFromFile("./assets/resources/playtime_clock.png");
 
-    int last_x = 50;
-    int y = 330;
+    vanilla_saves_icon_tx.loadFromFile("./assets/resources/vanilla_saves.png");
+    mods_saves_icon_tx.loadFromFile("./assets/resources/mods_saves.png");
+    instance_mods_icon_tx.loadFromFile("./assets/resources/instance_mods.png");
+    launcher_mods_icon_tx.loadFromFile("./assets/resources/launcher_mods.png");
 
-    addToIconsList(last_x, y, "boom");
-    last_x += 80;
-    addToIconsList(last_x, y, "crystal");
-    last_x += 80;
-    addToIconsList(last_x, y, "dervish");
-    last_x += 80;
-    addToIconsList(last_x, y, "feral");
-    last_x += 80;
-    addToIconsList(last_x, y, "glitch");
-    last_x += 80;
-    addToIconsList(last_x, y, "gold");
-    last_x += 80;
-    addToIconsList(last_x, y, "honey");
-    last_x += 80;
-    addToIconsList(last_x, y, "hunter");
-    last_x += 80;
-    addToIconsList(last_x, y, "lucky");
-    last_x += 80;
-    addToIconsList(last_x, y, "mosaic");
-    last_x += 80;
-    addToIconsList(last_x, y, "phosphor");
-    last_x += 80;
-    addToIconsList(last_x, y, "pink");
-    last_x += 80;
-    addToIconsList(last_x, y, "puddle");
-    last_x += 80;
-    addToIconsList(last_x, y, "quantum");
-    last_x += 80;
-    addToIconsList(last_x, y, "rad");
-    last_x += 80;
-    addToIconsList(last_x, y, "rock");
-    last_x += 80;
-    addToIconsList(last_x, y, "saber");
-    last_x += 80;
-    addToIconsList(last_x, y, "tabby");
-    last_x += 80;
-    addToIconsList(last_x, y, "tangle");
-    last_x += 80;
-    addToIconsList(last_x, y, "tarr");
-    last_x += 80;
+    loadIconsListTextures();
 }

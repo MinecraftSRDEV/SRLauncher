@@ -52,6 +52,7 @@
 #include "headers/Start/create_versions_list.hpp"
 #include "headers/Start/objects_attributes.hpp"
 #include "headers/Start/run_date.hpp"
+#include "headers/Start/getWindowsInfo.hpp"
 
 #include "headers/Functions/Logs/save_log_file.hpp"
 #include "headers/Functions/window/close.hpp"

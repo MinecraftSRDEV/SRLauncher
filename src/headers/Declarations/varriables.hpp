@@ -130,13 +130,6 @@ std::vector <fs::path> external_instances;
 
 std::map <int, std::string> fileMovementMap;
 
-int run_YEAR;
-int run_MONTH;
-int run_DAY;
-int run_H;
-int run_M;
-int run_S;
-
 int theme_selected = ColorPalete::Bright;
 
 int downloader_selected = 0;

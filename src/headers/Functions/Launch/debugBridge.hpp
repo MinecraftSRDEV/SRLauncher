@@ -287,7 +287,7 @@ namespace DebugBridge {
 
     void saveLogs()
     {
-        std::string file_name = "debug_log_" + std::to_string(run_YEAR) + "_" + std::to_string(run_DAY) + "_" + std::to_string(run_MONTH) + "_" + std::to_string(run_H) + "_" + std::to_string(run_M) + "_" + std::to_string(run_S) + ".txt";
+        std::string file_name = "debug_log_" + dateFormat::getStringfiedDateString() + ".txt";
 
         std::ofstream log_file;
         log_file.open(logs_path.string() + "/" + file_name);

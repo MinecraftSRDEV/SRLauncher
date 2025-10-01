@@ -48,15 +48,9 @@ namespace fs = std::filesystem;
 void load_sequence() 
 {
     ///// Get run time date and s6ave to local varriabless /////
-    rundate_get();
+    dateFormat::getDateAtRun();
 
-    windowsInfo = getWindowsVersion();
-
-    GetSystemLanguageA();
-
-    windowsInfo.sysTheme = IsAppLightTheme();
-
-    isWindows10 = isOnWindows10();
+    getWindowsInfo();
 
     ///// Construct all "Launcher" paths /////
     construct_paths();
