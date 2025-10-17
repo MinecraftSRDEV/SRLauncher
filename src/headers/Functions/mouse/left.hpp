@@ -440,6 +440,7 @@ void mouse_left()
             case ManageCategories::DEBUG_PAGE:
             {
                 ManageDebug::debugPatchButton.update(mouse);
+                ManageDebug::selectedFramework.update(mouse);
                 break;
             }
         }

@@ -80,7 +80,7 @@ std::atomic <bool> loadingAnimationDisplay = false;
 
 std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.16";
+std::string launcher_version = "inDev 0.17";
 std::string saved_version = "";
 
 /// Launcher Paths ////
@@ -106,8 +106,7 @@ fs::path SRMLmodsFolder_path;
 #define SRL_BG_DEF_PATH "./assets/resources/background.png"
 
 fs::path SRL_DP_DEF_PATH;
-fs::path SRL_DB40_DEF_PATH;
-fs::path SRL_DB48_DEF_PATH;
+fs::path SRL_DB_DEF_PATH;
 
 fs::path runtime_directory;
 

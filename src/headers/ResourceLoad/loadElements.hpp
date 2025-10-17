@@ -26,7 +26,7 @@ void loadIconsListTextures()
 
 void loadElements()
 {
-    font.loadFromFile("./assets/resources/arial.ttf");
+    font.loadFromFile("./assets/resources/OpenSans.ttf");
 
     arrowCursor.loadFromSystem(sf::Cursor::Arrow);
     handCursor.loadFromSystem(sf::Cursor::Hand);

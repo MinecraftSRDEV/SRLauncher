@@ -262,6 +262,8 @@ namespace ManageDebug
     sf::Text assemblyDataText;
     sfg::TransparrentBackground assemblyInfoBg;
     sfg::Button debugPatchButton;
+    sf::Text selectedFrameworkLabelText;
+    sfg::DropDownList selectedFramework;
     sf::Text debugPatchStatusText;
 }
 

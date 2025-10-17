@@ -112,6 +112,7 @@ void loadInstanceData(std::string instance_id, fs::path instance_directory, int 
     ManageDebug::debugPatchStatusText.setString("Patch status: Not installed");
     ManageDebug::debugPatchButton.setText("Apply patch");
     ManageDebug::debugPatchButton.setFunction(DebugBridge::installDebugPath);
+    ManageDebug::selectedFramework.changeSelection(versionsData_map[instances_list[instance_id].getVer()].debugCompatybile);
     ManageDebug::assemblyDataText.setString(runAssemblyReader(instance_managed_directory.string() + "/Assembly-CSharp.dll"));
     try
     {
@@ -148,7 +149,7 @@ void instance_manage(std::string instance_id, int scene)
 {
     if (mounted_instance == instances_list[instance_id].getID())
     {
-        MessageBoxA(NULL, instdi::UNMOUNT_MSG.c_str(), "Error", MB_ICONERROR | MB_OK);
+        MessageBoxA(NULL, tr("IDS_DICT_INST_UNMOUNT_MSG").c_str(), "Error", MB_ICONERROR | MB_OK);
     }
     else
     {

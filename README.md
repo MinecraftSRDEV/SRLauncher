@@ -43,7 +43,7 @@ The program uses an instance mounting system to bypass the restriction of runnin
 
 For a folder to be recognized as an instance, it must contain an "info.json" file with information about the instance. The main game folder named "Slime Rancher" is automatically treated as a mounted instance. If it does not contain an "info.json" file, it may not be recognized if instance is unmounted, but it doesn' t empty you can't mount any instance(this is to avoid overwrite). 
 
-If you running version different than 1.4.4 the Steam were disabled for this time.
+If you running version different than 1.4.4 (with update from 16 October 2025) the Steam were disabled for this time.
 
 When a user selects an instance from the list, its folder is swapped with the one in the Steam game folder. YOU CANNOT HAVE MULTIPLE INSTANCES MOUNTED AT THE SAME TIME!
 

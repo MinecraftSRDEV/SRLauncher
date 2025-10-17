@@ -1,3 +1,17 @@
+Planned in 0.17
+
+Started in 17.10.25
+             
+\\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
+
+- add support for Slime Rancher 1.4.4 with latest update from 16 October 2025          Finished
+- add framework selection for debug bridge                                             Finished
+- update font to OpenSans                                                              Finished
+
+- fix missing unmount warning translation                                              Resolved
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Planned in 0.16
 
 Started in 12.09.25
@@ -112,6 +126,7 @@ Features may will be added in future:
 - Instance auto installer
 - support for plugin loader Slime Rancher 0.3.x
 - Support for Slime Rancher prototype (below 0.2.3)
+- m.version reader from resources.assets
 
 Ideas:
 
