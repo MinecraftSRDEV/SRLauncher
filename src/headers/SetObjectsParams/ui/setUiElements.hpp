@@ -119,6 +119,7 @@ void setButtons()
 
     UIElements.createTransparrentBg(ManageDebug::assemblyInfoBg, 830, 0, 450, 800, true);
     UIElements.createButton(ManageDebug::debugPatchButton, 130, 95, 120, 40, font, "");
+    UIElements.createDropDownList(ManageDebug::selectedFramework, 120, 40, 540, 95, {{{"net40"},{"40"}},{{"net48"},{"48"}}}, "net40", font, false);
 
     UIElements.createTransparrentBg(ManageSubcatListUI::cats_separator, 125, 3, 0, 794, true);
 

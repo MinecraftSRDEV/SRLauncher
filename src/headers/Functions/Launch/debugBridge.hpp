@@ -209,8 +209,7 @@ namespace DebugBridge {
     void installDebugPath()
     {
         SRL_DP_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "SRDebugPatcher" / "bin" / "Release" / "net8.0" / "SRDebugPatcher.exe";
-        SRL_DB40_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "DebugBridge" / "bin" / "Release" / "net40" / "DebugBridge.dll";
-        SRL_DB48_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "DebugBridge" / "bin" / "Release" / "net48" / "DebugBridge.dll";
+        SRL_DB_DEF_PATH = runtime_directory / "assets" / "components" / "debug_patcher" / "DebugBridge" / "bin" / "Release" / ManageDebug::selectedFramework.getRResult() / "DebugBridge.dll";
 
         int result = MessageBoxA(NULL, "This will install patch to instance. If instance is modded, may by incompatybile with some loaders.\n\nRequire .NET runtime 8 to apply patch.\n\nDo you want to continue?", "info", MB_ICONQUESTION | MB_YESNO);
 
@@ -230,16 +229,8 @@ namespace DebugBridge {
 
             log_message("Applying debug patch", LOG_INFO);
 
-            if (versionsData_map[mounted_instance].debugCompatybile == "net40")
-            {
-                command += SRL_DB40_DEF_PATH.string();
-                bridgePath = fs::path(SRL_DB40_DEF_PATH);
-            }
-            else
-            {
-                command += SRL_DB48_DEF_PATH.string();
-                bridgePath = fs::path(SRL_DB48_DEF_PATH);
-            }
+            command += SRL_DB_DEF_PATH.string();
+            bridgePath = fs::path(SRL_DB_DEF_PATH);
 
             try
             {

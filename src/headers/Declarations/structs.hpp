@@ -14,6 +14,7 @@ struct SRGamesaveInfo {
 };
 
 struct SRVersion {
+    std::string version_marker = "";
     std::string version_name = "";
     std::string release_date = "";
     std::string manifest = "";

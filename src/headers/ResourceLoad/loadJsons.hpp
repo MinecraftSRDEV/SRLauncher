@@ -86,6 +86,7 @@ bool load_versions_list()
             SRVersion output;
 
             output.version_name = name;
+            output.version_marker = versionObject.getObject().at("version_marker").getString();
             output.version_type = versionObject.getObject().at("type").getString();
             output.release_date = versionObject.getObject().at("date").getString();
             output.manifest = versionObject.getObject().at("manifest").getString();

@@ -317,6 +317,8 @@ void window_draw()
                 window.draw(ManageDebug::assemblyDataText);
                 window.draw(ManageDebug::debugPatchStatusText);
                 ManageDebug::debugPatchButton.render(window);
+                window.draw(ManageDebug::selectedFrameworkLabelText);
+                ManageDebug::selectedFramework.render(window);
                 break;
             }
         }

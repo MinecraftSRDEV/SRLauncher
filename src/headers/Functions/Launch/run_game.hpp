@@ -364,13 +364,11 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         refresh_instances_list();
     }
 
-    std::string versionType;
-    std::string versionName;
+    SRVersion version;
 
     while (true)
     {
-        versionType = versionsData_map[instances_list[mounted_instance].getVer()].version_type;
-        versionName = versionsData_map[instances_list[mounted_instance].getVer()].version_name;
+        version = versionsData_map[instances_list[mounted_instance].getVer()];
 
         if (instancesLoader::instancesListLoading == false)
         {
@@ -381,7 +379,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
     }
     int steamCheckResult;
 
-    if (versionType == "pre-release" or versionName != "1.4.4")
+    if (version.version_type == "pre-release" or version.version_name != "1.4.4-2")
     {
         steamCheckResult = steamCheck();    
     }
@@ -403,7 +401,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
         {
             getSteamAccountStats();
 
-            if (versionType == "pre-release" or versionName != "1.4.4")
+            if (version.version_type == "pre-release" or version.version_name != "1.4.4-2")
             {
                 if (user_offline_mode == result_online)
                 {
@@ -448,7 +446,7 @@ void prelaunch_tasks(std::string game_runpath, std::string gamepath)
 
     if (launch_game == true)
     {
-        createSessionFile({launcher_version, renamedSteam, versionName, mounted_instance, enableDebugging});
+        createSessionFile({launcher_version, renamedSteam, version.version_name, mounted_instance, enableDebugging});
 
         updateLastPlayedList();
 

@@ -109,6 +109,8 @@ void setRuntimeTexts()
     setTextAtt(MainpageElements::debuger::ipcElapsedText, "", 12, 30, 670);
 
     setTextAtt(ManageDebug::debugPatchStatusText, "", 26, 130, 55);
+
+    setTextAtt(ManageDebug::selectedFrameworkLabelText, ".netFramework", 26, 520, 55);
 }
 
 void setShapesAttributes()
