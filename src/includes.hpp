@@ -183,6 +183,7 @@
 
 #include "headers/Functions/mouse/contains.hpp"
 #include "headers/Functions/mouse/left.hpp"
+#include "headers/Functions/mouse/right.hpp"
 
 #include "headers/Functions/Launch/installAll.hpp"
 #include "headers/Functions/Launch/debugBridge.hpp"

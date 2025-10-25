@@ -87,6 +87,15 @@ void update(sf::Vector2f& mouse)
     OpenGameFolder_button.update(mouse);
     OpenSavesFolder_button.update(mouse);
     Remove_button.update(mouse);
+
+    if (getHitbox().contains(mouse))
+    {
+        backgorund.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::active]);
+    }
+    else
+    {
+        backgorund.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
+    }
 }
 
 void setInstalledStatus(bool status)

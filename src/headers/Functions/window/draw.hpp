@@ -143,6 +143,12 @@ void window_draw()
         }
     }
 
+    if (UI_current == UiPages::InstanceDetailsMenu)
+    {
+        InstanceDetailsElements::bg.render(window);
+        InstanceDetailsElements::head::separation.render(window);
+    }
+
     if (UI_current == UiPages::NewInstanceMenu)
     {
         instance_creation_bg.render(window);

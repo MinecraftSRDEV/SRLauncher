@@ -32,7 +32,49 @@ namespace instancesLoader
         InstanceModAttributes modsAttribs;
     };    
 }
+std::string getVersionFromResources(std::string path)
+{
+    try
+    {
+        std::vector<std::string> buffer;
+        buffer.clear();
 
+        std::ifstream resourcesFile;
+        resourcesFile.open(path);
+        std::string line = "";
+        while(getline(resourcesFile, line))
+        {
+            buffer.emplace_back(line);
+        }
+        resourcesFile.close();
+
+        if (!buffer.empty())
+        {
+            for(const auto& thisLine : buffer)
+            {
+                size_t begin = thisLine.find("m.version =");
+                if (begin != std::string::npos)
+                {
+                    std::string getVersion = thisLine.substr(begin + 12, begin + 12 + 5);
+                    try
+                    {
+                        std::string getSubVersion = thisLine.substr(begin + 12 + 5, begin + 12 + 6);
+                        getVersion += getSubVersion;
+                    }
+                    catch(std::exception e){}
+                    return getVersion;
+                }
+            }
+        }
+        else
+        {
+            log_message("Resources buffer empty!", LOG_WARN);
+        }
+    }
+    catch (std::exception e) {}
+    
+    return "";
+}
 
 bool add_instance(fs::path path, int itr)
 {
@@ -42,6 +84,10 @@ bool add_instance(fs::path path, int itr)
     inst.directory_path = path;
     if (check_directory_exists(path) == true)
     {
+        if (fs::exists(inst.path_str + "SlimeRancher_Data/resources.assets"))
+        {
+            std::string versionInResources = getVersionFromResources(inst.path_str + "SlimeRancher_Data/resources.assets");
+        }
         if (fs::exists(inst.path_str + "/info.json"))
         {
             bool instance_installed_status_placeholder = false;

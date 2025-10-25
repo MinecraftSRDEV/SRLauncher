@@ -117,6 +117,8 @@ int main()
         {	
             mouse_left();
 
+            mouse_right();
+
             mouseContains();
 
             updateButtonsBlockingState();

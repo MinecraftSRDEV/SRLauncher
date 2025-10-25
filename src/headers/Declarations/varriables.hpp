@@ -80,7 +80,7 @@ std::atomic <bool> loadingAnimationDisplay = false;
 
 std::string guard_code = "";
 
-std::string launcher_version = "inDev 0.17";
+std::string launcher_version = "inDev 0.18";
 std::string saved_version = "";
 
 /// Launcher Paths ////

@@ -65,6 +65,26 @@ namespace InstanceslistElements
     sf::RectangleShape instancesScrollingArea;
 }
 
+namespace InstanceDetailsElements
+{
+    sfg::TransparrentBackground bg;
+    namespace head
+    {
+        sf::Sprite instanceIcon;
+        sf::Text instanceNameText;
+        sfg::TransparrentBackground separation;
+    }
+    namespace details
+    {
+        sf::Text versionText;
+        sf::Text nameText;
+    }
+    namespace bottom
+    {
+        sfg::Button back;
+    }
+}
+
 namespace CreateInstanceUI
 {
     sfg::TransparrentBackground instance_creation_bg;

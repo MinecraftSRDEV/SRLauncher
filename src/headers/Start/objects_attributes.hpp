@@ -37,7 +37,7 @@ void setRuntimeTexts()
 
     setTextAtt(SettingsElemets::subcats::general::theme_label_text, tr("IDS_TEXT_SETTINGS_LAUNCHERTHEME"), 26, 130, 605);
 
-    setTextAtt(SettingsElemets::subcats::general::language_labet_text, tr("IDS_TEXT_SETTINGS_LANGUAGESEL"), 26, 340, 605);
+    setTextAtt(SettingsElemets::subcats::general::language_labet_text, tr("IDS_TEXT_SETTINGS_LANGUAGESEL"), 26, 420, 605);
 
     setTextAtt(SettingsElemets::subcats::downloading::downloaders_list_text, tr("IDS_TEXT_DOWNLOADING_SELECTEDDOWNLOADER"), 26, 130, 40);
 
