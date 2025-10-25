@@ -2,6 +2,19 @@ void runGameInitial();
 void getSettingsValuesAndSave();
 void save_profiles();
 
+void slideInstUtilsMenu()
+{
+    if (!InstanceslistElements::utilitiesMenu::utilsMenuDisplay)
+    {
+        InstanceslistElements::utilitiesMenu::utilsMenuDisplay = !InstanceslistElements::utilitiesMenu::utilsMenuDisplay;
+        InstanceslistElements::utilitiesMenu::utilsShown = true;
+    }
+    else
+    {
+        InstanceslistElements::utilitiesMenu::utilsShown = false;
+    }
+}
+
 void clearConsole()
 {
     MainpageElements::console::console.clearText();
@@ -57,6 +70,12 @@ void setFunctions()
     import_instance_confirm_button.setFunction(import_instance);
     import_instance_cancel_button.setFunction(cancel_instance_import);
 
+    InstanceslistElements::utilitiesMenu::slideButton.setFunction(slideInstUtilsMenu);
+
+    InstanceslistElements::utilitiesMenu::scanAllButton.setFunction(instUtilitiesFunctions::downloadAll);
+    InstanceslistElements::utilitiesMenu::refreshListButton.setFunction(instUtilitiesFunctions::refreshList);
+    InstanceslistElements::utilitiesMenu::goToSettingsButton.setFunction(instUtilitiesFunctions::goToSettings);
+
     MainpageElements::playbar::launchGameButton.setFunction(runGameInitial);
 
     SettingsElemets::subcats::updates::check_for_update_button.setFunction(checkUpdate);
@@ -109,4 +128,6 @@ void setFunctions()
     version_back_button.setFunction(launcherCategories::versions);
 
     MainpageElements::console::clearButton.setFunction(clearConsole);
+
+    InstanceDetailsElements::bottom::back.setFunction(instanceDetailsCategory::back);
 }

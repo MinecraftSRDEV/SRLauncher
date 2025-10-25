@@ -17,7 +17,7 @@ void mouse_right()
                         if (is_right_mouse_button_pressed == false)
                         {
                             is_right_mouse_button_pressed = true;
-                            // function(instances_list[itr.first].getID());
+                            instanceDetailsCategory::change(instances_list[itr.first].getID());
                         }
                     }
                     else

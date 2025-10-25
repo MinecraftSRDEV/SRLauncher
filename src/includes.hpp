@@ -124,6 +124,7 @@
 
 #include "headers/Functions/Buttons/Launcher_pages/categories.hpp"
 #include "headers/Functions/Buttons/Launcher_pages/manageCategories.hpp"
+#include "headers/Functions/Buttons/Launcher_pages/instanceDetails.hpp"
 #include "headers/Functions/Buttons/Instances/import.hpp"
 #include "headers/Functions/Buttons/Instances/new_instance.hpp"
 #include "headers/Functions/Buttons/Instances/miniInstanceLoader.hpp"
@@ -159,6 +160,8 @@
 #include "headers/Functions/Buttons/Instances/menage/Mods/OldBetterBuildUIDReader.hpp"
 #include "headers/Functions/Buttons/Instances/manage.hpp"
 
+#include "headers/Functions/Buttons/Instances/utilitiesMenu/menuFunctions.hpp"
+
 #include "headers/Functions/updates/handleHTML.hpp"
 
 #include "headers/Events/scrolling/ScrollVersionDescription.hpp"
@@ -189,6 +192,8 @@
 #include "headers/Functions/Launch/debugBridge.hpp"
 #include "headers/Functions/Launch/download_game.hpp"
 #include "headers/Functions/Launch/run_game.hpp"
+
+#include "headers/Functions/Buttons/Instances/utilitiesMenu/menuLoop.hpp"
 
 #include "headers/Functions/window/draw.hpp"
 #include "headers/Functions/window/display.hpp"

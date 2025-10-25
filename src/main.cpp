@@ -128,6 +128,8 @@ int main()
             loadingAnimation::loadingAnimation();
 
             miniInstanceList::ifProcessFinished();
+
+            instUtilitiesMenu::utilitiesMenuLoop();
         }
         window_draw();
         display_window();

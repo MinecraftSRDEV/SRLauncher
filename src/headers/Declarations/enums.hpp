@@ -8,7 +8,9 @@ enum UiPages {
     ManageMenu,
     VersionDescriptionMenu,
     EditInstanceMenu,
-    InstanceDetailsMenu
+    InstanceDetailsMenu,
+    DownloadingQueueMenu,
+    SelectionMenu
 };
 
 enum SettingsCategories {

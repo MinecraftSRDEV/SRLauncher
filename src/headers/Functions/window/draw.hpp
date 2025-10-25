@@ -136,6 +136,16 @@ void window_draw()
                 window.draw(no_instances_text);
                 window.draw(instances_vanish_tooltip_text);
             }
+
+            InstanceslistElements::utilitiesMenu::slideButton.render(window);
+
+            if (InstanceslistElements::utilitiesMenu::utilsMenuDisplay)
+            {
+                window.draw(InstanceslistElements::utilitiesMenu::body);
+                InstanceslistElements::utilitiesMenu::scanAllButton.render(window);
+                InstanceslistElements::utilitiesMenu::refreshListButton.render(window);
+                InstanceslistElements::utilitiesMenu::goToSettingsButton.render(window);
+            }    
         }
         else
         {
@@ -147,6 +157,14 @@ void window_draw()
     {
         InstanceDetailsElements::bg.render(window);
         InstanceDetailsElements::head::separation.render(window);
+
+        window.draw(InstanceDetailsElements::head::instanceIcon);
+        window.draw(InstanceDetailsElements::head::instanceNameText);
+
+        window.draw(InstanceDetailsElements::details::nameText);
+        window.draw(InstanceDetailsElements::details::versionText);
+
+        InstanceDetailsElements::bottom::back.render(window);
     }
 
     if (UI_current == UiPages::NewInstanceMenu)

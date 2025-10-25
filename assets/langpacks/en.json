@@ -1,7 +1,7 @@
 {
     "metadata":
     {
-        "srlver": "0.17",
+        "srlver": "0.18",
         "translator": "MinecraftSRDEV",
         "globalName": "English"
     },
@@ -226,6 +226,10 @@
         "IDS_TEXT_NEWINST_SEPARATIONINFO": "Your gamesaves, options and achivements will be automatically separated\nindyvidualy for each instance.\nIf you had any this files before launcher installation instance can't be mounted",
         "IDS_TEXT_NEWINST_SELECTICON": "Select icon",
         "IDS_TEXT_SETTINGS_LANGUAGESEL": "Launcher language",
-        "IDS_MSG_SETTINGS_LANGCHANGEINFO": "Launcher restart required\n\nSome translations may be not completed. Most langpack are generated automatically."
+        "IDS_MSG_SETTINGS_LANGCHANGEINFO": "Launcher restart required\n\nSome translations may be not completed. Most langpack are generated automatically.",
+        "IDS_BUTTON_INSTANCE_DETAILS_BACK": "Back",
+        "IDS_BUTTON_INST_UTILS_SCANALL": "Install all instances",
+        "IDS_BUTTON_INST_UTILS_REFRESHLIST": "Refresh instances list",
+        "IDS_BUTTON_INST_UTILS_OPENSETTINGS": "Open settings"
     }
 }

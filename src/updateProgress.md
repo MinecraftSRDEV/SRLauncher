@@ -1,3 +1,20 @@
+Planned in 0.18
+
+Started in 25.10.25
+             
+\\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
+
+- add version exporter from resources.assets                                           InProgress
+- add instance details by right clicking instance on list                              InProgress
+- add functions for langpacks versions and meta                                        InProgress
+- add instances download queue                                                         InProgress
+- add download queue dedicated scene                                                   InProgress
+- add sliding menu for utilities from left on InstancesList                            InProgress
+
+- fix downloading prepareing progress bar theme applying                               Resolved
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Planned in 0.17
 
 Started in 17.10.25
@@ -123,10 +140,8 @@ Features may will be added in future:
 
 - HEX saves viewer
 - Mounting instances without mounting game
-- Instance auto installer
 - support for plugin loader Slime Rancher 0.3.x
 - Support for Slime Rancher prototype (below 0.2.3)
-- m.version reader from resources.assets
 
 Ideas:
 

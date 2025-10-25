@@ -65,6 +65,14 @@ namespace instancesLoader
     std::atomic <bool> instancesListLoading = true;    
 }
 
+namespace InstanceslistElements { namespace utilitiesMenu
+{
+    std::atomic <bool> utilsShown = false;
+    std::atomic <bool> utilsMenuDisplay = false;
+    int menuX = -220;
+}
+}
+
 bool display_download_progress = false;
 
 bool run_posttasks = true;

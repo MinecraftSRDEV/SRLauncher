@@ -63,6 +63,63 @@ namespace InstanceslistElements
     sf::Text no_instances_text;
     sf::Text instances_vanish_tooltip_text;
     sf::RectangleShape instancesScrollingArea;
+
+    namespace utilitiesMenu
+    {
+        sfg::Button slideButton;
+
+        sf::RectangleShape body;
+
+        sfg::Button scanAllButton;
+        sfg::Button refreshListButton;
+        sfg::Button goToSettingsButton;
+    }
+
+    namespace selectionList
+    {
+        namespace head
+        {
+            sf::Text headerText;
+            sfg::TransparrentBackground separator;
+        }
+
+        namespace body
+        {
+            sf::Text loadingText;
+            sf::RectangleShape mousebox;
+        }
+        
+        namespace bottom
+        {
+            sfg::Button confirm;
+            sfg::Button back;    
+        }
+    }
+
+    namespace installAll
+    {
+        namespace head
+        {
+            sf::Text headerText;
+            sfg::TransparrentBackground separator;
+        }
+        
+        namespace body
+        {
+            sfg::TransparrentBackground background;
+            
+            sf::Text progressFromToText;
+            sf::Text currentInstallingNameText;
+            ProgressBar progressBarInfinity;
+            ProgressBar totalProgress;
+            ProgressBar currentProgress;
+        }
+
+        namespace bottom
+        {
+            sf::Text warninigText;
+        }
+    }
 }
 
 namespace InstanceDetailsElements

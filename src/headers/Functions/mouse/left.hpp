@@ -75,110 +75,127 @@ void mouse_left()
     {
         executeCategories(mouse);
 
-        new_instance_button.update(mouse);
-        import_instnace_button.update(mouse);
-
-        for (const auto& pair : instances_list)
+        if (!InstanceslistElements::utilitiesMenu::utilsShown)
         {
-            instances_list[pair.first].update(mouse);
+            new_instance_button.update(mouse);
+            import_instnace_button.update(mouse);
 
-            if (instances_list[pair.first].getMountButtonHitbox().contains(mouse))
+            for (const auto& pair : instances_list)
             {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                instances_list[pair.first].update(mouse);
+
+                if (instances_list[pair.first].getMountButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        mount_function(pair.first);
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            mount_function(pair.first);
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
 
-            if (instances_list[pair.first].getEditButtonHitbox().contains(mouse))
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                if (instances_list[pair.first].getEditButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        edit_instance_function(pair.first);
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            edit_instance_function(pair.first);
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
 
-            if (instances_list[pair.first].getMenageButtonHitbox().contains(mouse))
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                if (instances_list[pair.first].getMenageButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        instance_manage(pair.first, ManageCategories::MNG_MAIN_PAGE);
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            instance_manage(pair.first, ManageCategories::MNG_MAIN_PAGE);
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
 
-            if (instances_list[pair.first].getOpenGameFolderButtonHitbox().contains(mouse))
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                if (instances_list[pair.first].getOpenGameFolderButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        instance_open_game_folder(pair.first);
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            instance_open_game_folder(pair.first);
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
 
-            if (instances_list[pair.first].getOpenSavesFolderButtonHitbox().contains(mouse))
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                if (instances_list[pair.first].getOpenSavesFolderButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        instnace_open_saves_folder(pair.first);
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            instnace_open_saves_folder(pair.first);
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
 
-            if (instances_list[pair.first].getRemoveButtonHitbox().contains(mouse))
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                if (instances_list[pair.first].getRemoveButtonHitbox().contains(mouse))
                 {
-                    if (is_mouse_pressed == false)
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
                     {
-                        is_mouse_pressed = true;
-                        remove_instnace_function(pair.first);
-                        break;
+                        if (is_mouse_pressed == false)
+                        {
+                            is_mouse_pressed = true;
+                            remove_instnace_function(pair.first);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        is_mouse_pressed = false;
                     }
                 }
-                else
-                {
-                    is_mouse_pressed = false;
-                }
-            }
+            } 
         }
+
+        InstanceslistElements::utilitiesMenu::slideButton.update(mouse);
+
+        if (InstanceslistElements::utilitiesMenu::utilsMenuDisplay)
+        {
+            InstanceslistElements::utilitiesMenu::scanAllButton.update(mouse);
+            InstanceslistElements::utilitiesMenu::refreshListButton.update(mouse);
+            InstanceslistElements::utilitiesMenu::goToSettingsButton.update(mouse);
+        }
+    }
+
+    if (UI_current == UiPages::InstanceDetailsMenu)
+    {
+        InstanceDetailsElements::bottom::back.update(mouse);
     }
 
     if (UI_current == UiPages::SettingsMenu)
