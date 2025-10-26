@@ -198,6 +198,21 @@ void mouse_left()
         InstanceDetailsElements::bottom::back.update(mouse);
     }
 
+    if (UI_current == UiPages::SelectionMenu)
+    {
+        if (selectionListMap.size() > 0)
+        {
+            InstanceslistElements::selectionList::body::selectAllCheckbox.update(mouse);
+            for(const auto& pair : selectionListMap)
+            {
+                selectionListMap[pair.first].update(mouse);
+            }
+        }
+
+        InstanceslistElements::selectionList::bottom::back.update(mouse);
+        InstanceslistElements::selectionList::bottom::confirm.update(mouse);
+    }
+
     if (UI_current == UiPages::SettingsMenu)
     {
         executeCategories(mouse);

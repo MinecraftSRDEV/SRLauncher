@@ -1,20 +1,48 @@
-void install_all_instances()
-{
-    
-}
+void download_game(std::string gamerun_path);
 
-std::map <int, std::string> scan_all_instances()    
+void runQueueDownloading()
 {
-    std::map <int, std::string> queue;
-    int itr = 1;
-
-    for (const auto& pair : instances_list)
+    if (downloader_selected == steamcmd)
     {
-        if (instances_list[pair.first].getInstalledStatus() == false)
-        {
-            queue[itr] = instances_list[pair.first].getID(); 
-            itr++;
-        }
+        autoDownloadLoopProcessing = false;
     }
-    return queue;
+    else
+    {
+        std::vector <std::string> queue;
+
+        queue.clear();
+
+        for (const auto& pair : selectionListMap)
+        {
+            if (selectionListMap[pair.first].selectChkbox.getState())
+            {
+                queue.emplace_back(selectionListMap[pair.first].attributes.name);
+            }
+        }
+
+        for (const auto& itr : queue)
+        {
+            mount_function(itr);
+
+            gameDownloadFinished = false;
+            isAutoDownloadnig = true;
+
+            fs::path steam_dir = steam_game_dir;
+            fs::path game_dir = steam_dir / "Slime Rancher";
+            std::string gamepath = game_dir.string();
+            std::string gamerun_path = gamepath + "/SlimeRancher.exe";
+
+            std::thread downloadThread(download_game, gamerun_path);
+            downloadThread.detach();
+            while(true)
+            {
+                if (gameDownloadFinished)
+                {
+                    break;
+                }
+                sf::sleep(sf::seconds(0.5));
+            }
+        }
+        autoDownloadLoopProcessing = false;
+    }
 }

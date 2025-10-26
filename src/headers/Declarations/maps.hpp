@@ -8,6 +8,7 @@ class versionClass;
 class ModClass;
 class BackupList;
 class InstanceIconBarOption;
+class selectionListElement;
 std::map <std::string, instance_list_class> instances_list;
 std::map <std::string, miniInstanceClass> miniInstancesListMap;
 std::map <int, std::string> instances_list_iterations;
@@ -26,6 +27,8 @@ std::vector <ModAttribs> instance_mods_folder_list;
 
 std::map <std::string, std::string> listOfAvailableLanguages;
 std::map <std::string, std::map <std::string, std::string>> UIlangpacks;
+
+std::map <int, selectionListElement> selectionListMap;
 
 uiElements UIElements;
 

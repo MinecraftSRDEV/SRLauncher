@@ -77,6 +77,7 @@ namespace InstanceslistElements
 
     namespace selectionList
     {
+        sfg::TransparrentBackground bg;
         namespace head
         {
             sf::Text headerText;
@@ -85,7 +86,8 @@ namespace InstanceslistElements
 
         namespace body
         {
-            sf::Text loadingText;
+            sfg::Checkbox selectAllCheckbox;
+            sf::Text noInstancesText;
             sf::RectangleShape mousebox;
         }
         
@@ -96,8 +98,9 @@ namespace InstanceslistElements
         }
     }
 
-    namespace installAll
+    namespace downloadQueue
     {
+        sfg::TransparrentBackground bg;
         namespace head
         {
             sf::Text headerText;
@@ -106,11 +109,12 @@ namespace InstanceslistElements
         
         namespace body
         {
-            sfg::TransparrentBackground background;
-            
             sf::Text progressFromToText;
             sf::Text currentInstallingNameText;
-            ProgressBar progressBarInfinity;
+            sf::Text currentProgressText;
+            sf::Text totalProgressText;
+            sf::RectangleShape infiProgressBg;
+            sf::RectangleShape infiProgressMoveing;
             ProgressBar totalProgress;
             ProgressBar currentProgress;
         }

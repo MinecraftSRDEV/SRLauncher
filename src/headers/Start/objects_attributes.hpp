@@ -64,6 +64,17 @@ namespace subfunctions
             setTextAtt(dataLoading_text, "", 32, 130, 380);
         }
 
+        void selectionMenuTexts()
+        {
+            {
+                using namespace InstanceslistElements::selectionList;
+
+                setTextAtt(head::headerText, tr("IDS_TEXT_SELLIST_HEADER"), 26, 0, 0);
+
+                setTextAtt(body::noInstancesText, tr("IDS_TEXT_SELLIST_NOINSTANCES"), 26, 0, 0);
+            }
+        }
+
         void settingsTexts()
         {
             {
@@ -97,6 +108,25 @@ namespace subfunctions
                 setTextAtt(subcats::steamAccount::profileUID_text, "", 26, 320, 510);
 
                 setTextAtt(subcats::steamAccount::profilePresonal_data_warning_text, tr("IDS_TEXT_STEAMPROFILE_PERSONALDATAINFO"), 26, 135, 270, sf::Color::Red);            
+            }
+        }
+
+        void downloadQueueTexts()
+        {
+            {
+                using namespace downloadQueue;
+
+                setTextAtt(head::headerText, tr("IDS_TEXT_DOWNLOADQUEUE_HEADER"), 26, 0, 0);
+
+                setTextAtt(body::currentInstallingNameText, "", 26, 0, 0);
+
+                setTextAtt(body::currentProgressText, "", 26, 0, 0);
+
+                setTextAtt(body::progressFromToText, "", 26, 0, 0);
+
+                setTextAtt(body::totalProgressText, "", 26, 0, 0);
+
+                setTextAtt(bottom::warninigText, tr("IDS_TEXT_DOWNLOADQUEUE_WARN"), 26, 0, 0);
             }
         }
 
@@ -140,7 +170,11 @@ void setRuntimeTexts()
 
         instancesCategoryBody();
 
+        selectionMenuTexts();
+
         settingsTexts();
+
+        downloadQueueTexts();
 
         manageTexts();
     }
@@ -187,4 +221,8 @@ void setShapesAttributes()
     setRectAtt(InstanceslistElements::utilitiesMenu::body, -220, 55, 220, 629, ColorPalete::Palete[theme_selected][ColorPalete::semitransparrent]);
     InstanceslistElements::utilitiesMenu::body.setOutlineThickness(1);
     InstanceslistElements::utilitiesMenu::body.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::outline]);
+
+    setRectAtt(InstanceslistElements::selectionList::body::mousebox, 10, 84, 1270, 600, sf::Color::Transparent);
+
+    // setRectAtt(downloadQueue::body::)
 }

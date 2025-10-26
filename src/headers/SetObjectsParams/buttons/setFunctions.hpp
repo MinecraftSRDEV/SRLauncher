@@ -130,4 +130,7 @@ void setFunctions()
     MainpageElements::console::clearButton.setFunction(clearConsole);
 
     InstanceDetailsElements::bottom::back.setFunction(instanceDetailsCategory::back);
+
+    InstanceslistElements::selectionList::bottom::back.setFunction(instUtilitiesFunctions::backToInstancesList);
+    InstanceslistElements::selectionList::bottom::confirm.setFunction(instUtilitiesFunctions::confirmSelectionAndInstallInstances);
 }

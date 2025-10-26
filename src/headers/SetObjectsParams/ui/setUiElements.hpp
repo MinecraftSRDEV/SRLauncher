@@ -112,6 +112,22 @@ namespace subfunctions
             UIElements.createButton(InstanceslistElements::utilitiesMenu::goToSettingsButton, -180, (160 + 80 + 80), 150, 35, font, tr("IDS_BUTTON_INST_UTILS_OPENSETTINGS"), false);
         }
 
+        void selectionListElements()
+        {
+            {
+                using namespace InstanceslistElements::selectionList;
+
+                UIElements.createTransparrentBg(bg, 0, 0, 1280, 800, false);
+
+                head::separator.create(5, 55, 1270, 0, true);
+
+                body::selectAllCheckbox.create(30, 30, 60, 65, tr("IDS_CHKBOX_SELLIST_SELALL"), 26, font, true);
+
+                UIElements.createButton(bottom::back, 90, 750, 350, 40, font, tr("IDS_BUTTON_SELLIST_BACK"), false);
+                UIElements.createButton(bottom::confirm, 842, 750, 350, 40, font, tr("IDS_BUTTON_SELLIST_CONFIRM"), true);
+            }
+        }
+
         void instanceDetails()
         {
             {
@@ -145,6 +161,17 @@ namespace subfunctions
             UIElements.createButton(import_instance_path_browse_button, 1210, 771, 60, 30, font, "IDS_BUTTON_SETTINGS_BROWSE");
             UIElements.createButton(import_instance_confirm_button, 640, 695, 350, 35, font, "IDS_BUTTON_IMPORTINSTANCE_CONFIRM");
             UIElements.createButton(import_instance_cancel_button, 280, 695, 350, 35, font, "IDS_BUTTON_IMPORTINSTANCE_CANCEL");    
+        }
+        
+        void downloadingQueueElements()
+        {
+            {
+                using namespace downloadQueue;
+
+                UIElements.createTransparrentBg(bg, 0, 0, 1280, 800, false);
+
+                head::separator.create(5, 55, 1270, 0, true);
+            }
         }
         
         void manageElements()
@@ -204,9 +231,13 @@ void setButtons()
         
         instanceDetails();
 
+        selectionListElements();
+
         instanceCreate();
 
         instanceImport();
+
+        downloadingQueueElements();
 
         manageElements();
 

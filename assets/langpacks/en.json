@@ -230,6 +230,14 @@
         "IDS_BUTTON_INSTANCE_DETAILS_BACK": "Back",
         "IDS_BUTTON_INST_UTILS_SCANALL": "Install all instances",
         "IDS_BUTTON_INST_UTILS_REFRESHLIST": "Refresh instances list",
-        "IDS_BUTTON_INST_UTILS_OPENSETTINGS": "Open settings"
+        "IDS_BUTTON_INST_UTILS_OPENSETTINGS": "Open settings",
+        "IDS_BUTTON_SELLIST_BACK": "Back",
+        "IDS_BUTTON_SELLIST_CONFIRM": "Confirm",
+        "IDS_TEXT_SELLIST_HEADER": "Select instances from list",
+        "IDS_TEXT_SELLIST_NOINSTANCES": "No instances available",
+        "IDS_CHKBOX_SELLIST_SELALL": "Select all",
+        "IDS_MSG_CONFIRMINSTALLALL": "This process may take a few minutes, while this you can't use any other launcher functions, and do not touch any game, and launcher files!\n\nDo you want to continue?",
+        "IDS_TEXT_DOWNLOADQUEUE_HEADER": "Downloading instances",
+        "IDS_TEXT_DOWNLOADQUEUE_WARN": "Do not close launcher and modyfi any game files"
     }
 }

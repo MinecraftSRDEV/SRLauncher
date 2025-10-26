@@ -33,6 +33,7 @@
 
 #include "headers/Classes/instance_list.hpp"
 #include "headers/Classes/miniInstance.hpp"
+#include "headers/Classes/selectionListElement.hpp"
 #include "headers/Classes/version_class.hpp"
 #include "headers/Classes/instance_icon_bar_options.hpp"
 #include "headers/Classes/save_menagement/betterbuild_save.hpp"

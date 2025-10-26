@@ -9,7 +9,8 @@ Started in 25.10.25
 - add functions for langpacks versions and meta                                        InProgress
 - add instances download queue                                                         InProgress
 - add download queue dedicated scene                                                   InProgress
-- add sliding menu for utilities from left on InstancesList                            InProgress
+- add sliding menu for utilities on left side in InstancesList                         Finished
+- add scrollbars                                                                       InProgress
 
 - fix downloading prepareing progress bar theme applying                               Resolved
 

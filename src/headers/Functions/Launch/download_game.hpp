@@ -176,17 +176,21 @@ void recieveMessage(const HANDLE& hPipe, const depotProsp depot)
                         createMD5Files(steam_dir);    
                     }
                     
-                    if (autolaunch_instances == true)
+                    if (isAutoDownloadnig == false)
                     {
-                        if (mountOnlyData == true)
+                        if (autolaunch_instances == true)
                         {
-                            prelaunch_tasks(depot.runpath, fs::path(alternate_output_dir / fs::path(mounted_instance)).string());  
-                        }
-                        else
-                        {
-                            prelaunch_tasks(depot.runpath, fs::path(steam_dir / "Slime Rancher").string());    
-                        }
+                            if (mountOnlyData == true)
+                            {
+                                prelaunch_tasks(depot.runpath, fs::path(alternate_output_dir / fs::path(mounted_instance)).string());  
+                            }
+                            else
+                            {
+                                prelaunch_tasks(depot.runpath, fs::path(steam_dir / "Slime Rancher").string());    
+                            }
+                        }    
                     }
+                    gameDownloadFinished = true;
                 }
                 else
                 {

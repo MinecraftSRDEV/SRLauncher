@@ -153,6 +153,35 @@ void window_draw()
         }
     }
 
+    if (UI_current == UiPages::SelectionMenu)
+    {
+        {
+            using namespace InstanceslistElements;
+
+            selectionList::bg.render(window);
+
+            window.draw(selectionList::head::headerText);
+
+            selectionList::head::separator.render(window);
+
+            if (selectionListMap.size() > 0)
+            {
+                InstanceslistElements::selectionList::body::selectAllCheckbox.render(window);
+                for(const auto& pair : selectionListMap)
+                {
+                    selectionListMap[pair.first].render(window);
+                }
+            }
+            else
+            {
+                window.draw(selectionList::body::noInstancesText);
+            }
+
+            selectionList::bottom::back.render(window);
+            selectionList::bottom::confirm.render(window);
+        }
+    }
+
     if (UI_current == UiPages::InstanceDetailsMenu)
     {
         InstanceDetailsElements::bg.render(window);

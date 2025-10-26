@@ -73,6 +73,10 @@ namespace InstanceslistElements { namespace utilitiesMenu
 }
 }
 
+std::atomic <bool> isAutoDownloadnig = false;
+std::atomic <bool> gameDownloadFinished = false;
+std::atomic <bool> autoDownloadLoopProcessing = false;
+
 bool display_download_progress = false;
 
 bool run_posttasks = true;
