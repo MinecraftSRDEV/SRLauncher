@@ -4,7 +4,7 @@ Started in 25.10.25
              
 \\\\\\\\\ Description \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Current status \\\\\\\\\\\\\\\\\\\\\\\
 
-- add version exporter from resources.assets                                           InProgress
+- add version exporter from resources.assets                                           Finished
 - add instance details by right clicking instance on list                              InProgress
 - add functions for langpacks versions and meta                                        InProgress
 - add instances download queue                                                         InProgress

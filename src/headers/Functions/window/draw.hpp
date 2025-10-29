@@ -192,6 +192,7 @@ void window_draw()
 
         window.draw(InstanceDetailsElements::details::nameText);
         window.draw(InstanceDetailsElements::details::versionText);
+        window.draw(InstanceDetailsElements::details::versionFromResources);
 
         InstanceDetailsElements::bottom::back.render(window);
     }

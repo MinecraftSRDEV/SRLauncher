@@ -90,7 +90,7 @@ void update(sf::Vector2f& mouse)
 
     if (getHitbox().contains(mouse))
     {
-        backgorund.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::active]);
+        backgorund.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::blocked]);
     }
     else
     {
@@ -230,6 +230,8 @@ Playtime getTime()
 {
     return time;
 }
+
+std::string versionInAssets = "";
 
 private:
 

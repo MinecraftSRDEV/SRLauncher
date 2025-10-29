@@ -81,7 +81,7 @@ class selectionListElement
         selectChkbox.update(mouse);
         if (body.getGlobalBounds().contains(mouse))
         {
-            body.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::active]);
+            body.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::blocked]);
         }
         else
         {

@@ -75,6 +75,19 @@ namespace subfunctions
             }
         }
 
+        void extendedInstDetails()
+        {
+            {
+                using namespace InstanceDetailsElements;
+
+                setTextAtt(head::instanceNameText, "", 26, 60, 10);
+
+                setTextAtt(details::versionText , "", 26, 100, 60);
+                
+                setTextAtt(details::versionFromResources , "", 26, 100, (60 + 40));
+            }
+        }
+
         void settingsTexts()
         {
             {
@@ -171,6 +184,8 @@ void setRuntimeTexts()
         instancesCategoryBody();
 
         selectionMenuTexts();
+
+        extendedInstDetails();
 
         settingsTexts();
 

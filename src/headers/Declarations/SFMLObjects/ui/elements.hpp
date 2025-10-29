@@ -138,6 +138,7 @@ namespace InstanceDetailsElements
     namespace details
     {
         sf::Text versionText;
+        sf::Text versionFromResources;
         sf::Text nameText;
     }
     namespace bottom

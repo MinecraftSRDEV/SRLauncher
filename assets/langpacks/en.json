@@ -238,6 +238,9 @@
         "IDS_CHKBOX_SELLIST_SELALL": "Select all",
         "IDS_MSG_CONFIRMINSTALLALL": "This process may take a few minutes, while this you can't use any other launcher functions, and do not touch any game, and launcher files!\n\nDo you want to continue?",
         "IDS_TEXT_DOWNLOADQUEUE_HEADER": "Downloading instances",
-        "IDS_TEXT_DOWNLOADQUEUE_WARN": "Do not close launcher and modyfi any game files"
+        "IDS_TEXT_DOWNLOADQUEUE_WARN": "Do not close launcher and modyfi any game files",
+        "IDS_TEXT_INSTDET_VER": "Game version: ",
+        "IDS_TEXT_INSTDET_VERRES": "Resources version: ",
+        "IDS_TEXT_INSTDET_LOADINGDATA": "Loading data..."
     }
 }
