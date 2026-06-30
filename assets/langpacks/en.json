@@ -241,6 +241,14 @@
         "IDS_TEXT_DOWNLOADQUEUE_WARN": "Do not close launcher and modyfi any game files",
         "IDS_TEXT_INSTDET_VER": "Game version: ",
         "IDS_TEXT_INSTDET_VERRES": "Resources version: ",
-        "IDS_TEXT_INSTDET_LOADINGDATA": "Loading data..."
+        "IDS_TEXT_INSTDET_LOADINGDATA": "Loading data...",
+        "IDS_TEXT_INSTDET_INSTLOCATION": "Instance path: ",
+        "IDS_TEXT_INSTDET_MODLOADERS": "Mod loaders: ",
+        "IDS_TEXT_INSTDET_LASTPLAYED": "Last played: ",
+        "IDS_TEXT_INSTDET_TOTALPLAYTIME": "Total playtime: ",
+        "IDS_TEXT_INSTDET_DATALOCATION": "Data location: ",
+        "IDS_TEXT_INSTDET_SAVESCOUNT": "Saves count: ",
+        "IDS_TEXT_INSTDET_INSTALLEDMODS": "Instaled mods count: ",
+        "IDS_TEXT_INSTDET_DEBUGABLE": "Is debugable: "
     }
 }

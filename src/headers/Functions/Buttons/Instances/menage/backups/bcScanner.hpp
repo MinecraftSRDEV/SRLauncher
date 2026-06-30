@@ -49,7 +49,7 @@ void scanBackupsIn(const fs::path& dirEntry, int& itr, int& lasty, int datatype)
             }
         }
 
-        Backups_list[itr].create(130, lasty, data, font);
+        Backups_list[itr].create({130, float(lasty)}, data, font);
         Backups_list[itr].transportFunction(backupRemoveAsk, Backups_list[itr].REMOVE);
         Backups_list[itr].transportFunction(backupRestoreAsk, Backups_list[itr].RESTORE);
         Backups_list[itr].transportFunction(backupRevealAsk, Backups_list[itr].REVEAL);

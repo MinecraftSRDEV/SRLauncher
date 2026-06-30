@@ -33,7 +33,7 @@
         "-L",
         "C:/C++Libs/curl-8.9.0/lib",
         "-g",
-        "${file}",
+        "${workspaceFolder}/src/main.cpp",
         "${workspaceFolder}/src/resources/resources.o",
         "-o",
         "${workspaceFolder}/SRLauncher.exe",

@@ -82,9 +82,25 @@ namespace subfunctions
 
                 setTextAtt(head::instanceNameText, "", 26, 60, 10);
 
-                setTextAtt(details::versionText , "", 26, 100, 60);
+                setTextAtt(details::versionText, "", 26, 100, 60);
                 
-                setTextAtt(details::versionFromResources , "", 26, 100, (60 + 40));
+                setTextAtt(details::versionFromResources, "", 26, 100, (60 + 40));
+                
+                setTextAtt(details::lastPlayedText, "", 26, 100, (60 + 40 + 40));
+
+                setTextAtt(details::totalPlayTimeText, "", 26, 100, (60 + 40 + 40 + 40));
+
+                setTextAtt(details::instanceLocationText, "", 26, 100, (60 + 40 + 40 + 40 + 40));
+
+                setTextAtt(details::modloadersText, "", 26, 100, (60 + 40 + 40 + 40 + 40 + 40));
+                
+                setTextAtt(details::modsInstalledCountText, "", 26, 100, (60 + 40 + 40 + 40 + 40 + 40 + 40));
+
+                setTextAtt(details::isDebugableText, "", 26, 100, (60 + 40 + 40 + 40 + 40 + 40 + 40 + 40));
+
+                setTextAtt(details::savesCountText, "", 26, 100, (60 + 40 + 40 + 40 + 40 + 40 + 40 + 40 + 40));
+                
+                setTextAtt(details::dataLocationText, "", 26, 100, (60 + 40 + 40 + 40 + 40 + 40 + 40 + 40 + 40 + 40));
             }
         }
 

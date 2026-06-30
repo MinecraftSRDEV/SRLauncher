@@ -110,7 +110,7 @@ int scanVanillaSaves(const fs::path& dir, SRGamesaveInfo& info,  std::map <int, 
                     goto skip;
                 }
             }
-            containerPointer[itr].create(130, ir_pos, saveData, font);
+            containerPointer[itr].create({130, float(ir_pos)}, saveData, font);
             containerPointer[itr].transportFunction(VSRevealFunction, containerPointer[itr].REVEAL);
             containerPointer[itr].transportFunction(backupVSaveAsk, containerPointer[itr].MAKE_BACKUP);
             containerPointer[itr].transportFunction(removeVanillaWorldAsk, containerPointer[itr].REMOVE);

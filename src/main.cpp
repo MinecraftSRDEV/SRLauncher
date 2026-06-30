@@ -103,7 +103,7 @@ int main()
 {
     addErrorHandlers();
     
-    create_window(1280, 800);
+    create_window({1280, 800});
 
     load_sequence();
 

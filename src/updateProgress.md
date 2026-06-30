@@ -10,7 +10,6 @@ Started in 25.10.25
 - add instances download queue                                                         InProgress
 - add download queue dedicated scene                                                   InProgress
 - add sliding menu for utilities on left side in InstancesList                         Finished
-- add scrollbars                                                                       InProgress
 
 - fix downloading prepareing progress bar theme applying                               Resolved
 

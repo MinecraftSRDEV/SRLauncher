@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../../../../../C++Libs/SFML-GUI"
+		},
+		{
+			"path": "../../../DEVTools/SRLHierarhyVisualizer"
 		}
 	],
 	"settings": {

@@ -4,7 +4,7 @@
  *
  * Required parametrs: window size X, Y.
 */
-void create_window(int size_x, int size_y)
+void create_window(sf::Vector2f size)
 {
     int screenX = sf::VideoMode::getDesktopMode().width;
     int screenY = sf::VideoMode::getDesktopMode().height;
@@ -14,7 +14,7 @@ void create_window(int size_x, int size_y)
         window.close();
     }
 
-    window.create(sf::VideoMode(size_x, size_y), "SRLauncher v." + launcher_version);
+    window.create(sf::VideoMode(size.x, size.y), "SRLauncher v." + launcher_version);
 	window.setFramerateLimit(15);
     window.setActive(true);
     window.setVisible(true);
@@ -27,10 +27,10 @@ void create_window(int size_x, int size_y)
     bool flag1 = false;
     bool flag2 = false;
 
-    if (screenX <= size_x)
+    if (screenX <= size.x)
     flag1 = true;
     
-    if (screenY <= size_y)
+    if (screenY <= size.y)
     flag2 = true;
 
     if (flag1 or flag2)

@@ -1,15 +1,15 @@
 class BetterBuildSave {
 public:
 
-void create(int x, int y, WorldData& inputData, sf::Font& font)
+void create(sf::Vector2f position, WorldData& inputData, sf::Font& font)
 {
     data = inputData;
 
-    background.setSize(sf::Vector2f(size_x_global, size_y_global));
+    background.setSize(size_global);
     background.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::semitransparrent]);
     background.setOutlineColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     background.setOutlineThickness(1);
-    background.setPosition(x, y);
+    background.setPosition(position.x, position.y);
 
     nameText.setFillColor(ColorPalete::Palete[theme_selected][ColorPalete::font]);
     nameText.setCharacterSize(26);
@@ -191,8 +191,7 @@ sf::Text SpawnersCountText;
 sf::Text saveVersionText;
 sf::Text saveLockPasswordText;
 
-int size_x_global = 1140;
-int size_y_global = 120;
+sf::Vector2f size_global = {1140, 120};
 
 sfg::Button resign_world_button;
 sfg::Button remove_button;

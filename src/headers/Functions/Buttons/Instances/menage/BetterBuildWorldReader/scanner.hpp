@@ -12,7 +12,7 @@ void noFunction()
  */
 void scanBetterBuildWorlds(const fs::path& bbw_dir, int reader_mode)
 {
-    int last_bbsave_entry_y = 5;
+    float last_bbsave_entry_y = 5;
     int iteration = 0;
     betterbuildworlds_list.clear();
 
@@ -26,7 +26,7 @@ void scanBetterBuildWorlds(const fs::path& bbw_dir, int reader_mode)
 
             worldData.levelname = entry.path().filename().replace_extension().string();
 
-            betterbuildworlds_list[iteration].create(130, last_bbsave_entry_y, worldData, font);
+            betterbuildworlds_list[iteration].create({130, float(last_bbsave_entry_y)}, worldData, font);
             betterbuildworlds_list[iteration].transportFunctions(backupBBWorldAsk, removeBBWAsk, resignBBWAsk, noFunction);
             last_bbsave_entry_y += 120;
             iteration++;

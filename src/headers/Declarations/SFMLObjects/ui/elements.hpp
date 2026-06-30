@@ -139,7 +139,14 @@ namespace InstanceDetailsElements
     {
         sf::Text versionText;
         sf::Text versionFromResources;
-        sf::Text nameText;
+        sf::Text instanceLocationText;
+        sf::Text modloadersText;
+        sf::Text lastPlayedText;
+        sf::Text totalPlayTimeText;
+        sf::Text dataLocationText;
+        sf::Text savesCountText;
+        sf::Text modsInstalledCountText;
+        sf::Text isDebugableText;
     }
     namespace bottom
     {
@@ -278,6 +285,11 @@ namespace SettingsElemets
             sfg::Checkbox acceptExceptionCheckbox;
         }
 
+        namespace components
+        {
+            sfg::Button langpacksCategorySwitchButton;
+        }
+
         namespace credits
         {
             sf::Text credits_programming_text;
@@ -289,7 +301,7 @@ namespace SettingsElemets
         namespace licences
         {
             sfg::Textfield licenseField;
-        }        
+        }
     }
 }
 

@@ -190,9 +190,16 @@ void window_draw()
         window.draw(InstanceDetailsElements::head::instanceIcon);
         window.draw(InstanceDetailsElements::head::instanceNameText);
 
-        window.draw(InstanceDetailsElements::details::nameText);
         window.draw(InstanceDetailsElements::details::versionText);
         window.draw(InstanceDetailsElements::details::versionFromResources);
+        window.draw(InstanceDetailsElements::details::dataLocationText);
+        window.draw(InstanceDetailsElements::details::instanceLocationText);
+        window.draw(InstanceDetailsElements::details::isDebugableText);
+        window.draw(InstanceDetailsElements::details::lastPlayedText);
+        window.draw(InstanceDetailsElements::details::modloadersText);
+        window.draw(InstanceDetailsElements::details::modsInstalledCountText);
+        window.draw(InstanceDetailsElements::details::savesCountText);
+        window.draw(InstanceDetailsElements::details::totalPlayTimeText);
 
         InstanceDetailsElements::bottom::back.render(window);
     }

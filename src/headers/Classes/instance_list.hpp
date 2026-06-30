@@ -2,13 +2,14 @@ class instance_list_class {
 public:
 instance_list_class () {}
 
-void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Texture& clock_texture, sf::Font& font, sf::RenderWindow& window, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count)
+void create(int x, int y, int size_x, int size_y, std::string name, std::string version, sf::Texture& icon_texture, sf::Texture& clock_texture, sf::Font& font, sf::RenderWindow& window, InstanceModAttributes modsAtrb, int it_number, std::string playtime_count, std::string path)
 {
     version_string = version;
     name_string = name;
     size_y_global = size_y;
     number_on_list = it_number;
     playtime = playtime_count;
+    localPath = path;
 
     icon_spr_tx = icon_texture;
     playtime_clock_tx = clock_texture;
@@ -231,6 +232,11 @@ Playtime getTime()
     return time;
 }
 
+std::string getLocalPath()
+{
+    return localPath;
+}
+
 std::string versionInAssets = "";
 
 private:
@@ -391,6 +397,8 @@ int size_y_global;
 
 int number_on_list = 0;
 std::string playtime = "0";
+
+std::string localPath = "";
 
 bool installed;
 

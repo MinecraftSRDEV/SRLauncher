@@ -154,7 +154,7 @@ bool add_instance(fs::path path, int itr)
 
             // log_message(inst.path_str, LOG_INFO);
 
-            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, window, inst.modsAttribs, itr, inst.playTime);
+            instances_list[inst.name].create(10, last_insnace_entry_y, 1260, 80, inst.name, inst.version, instance_icons_textures[inst.iconId], playtime_clock_tx, font, window, inst.modsAttribs, itr, inst.playTime, inst.path_str);
             last_insnace_entry_y += 85;
             instances_list[inst.name].setInstalledStatus(instance_installed_status_placeholder);
             instances_list[inst.name].setEditedStatus(inst.edited);
